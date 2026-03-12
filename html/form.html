@@ -1,0 +1,81 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/class.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/conponent.css">
+    <link rel="stylesheet" href="../css/crossbrowser.css">
+
+  </head>
+  <body class="inner-default padding-32-all">
+    <form class="flex flex-column gap-10" action="javascript:void(0)">
+    <!-- input text s -->
+     <div class="flex flex-column gap-10">
+       <label class="Body2-M-16 color-gray-900" for="content">input text</label>
+       <input type="text" id="content" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="내용을 입력하세요">
+     </div>
+     <!-- input text e -->
+
+
+     <!-- select s -->
+     <div class="flex flex-column gap-10">
+       <label class="Body2-M-16 color-gray-900" for="content">select</label>
+       <select name="select" id="select" class="focus:outline-blue-500 align-center custom-select Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w">
+        <option value="1" class="hover:bg-blue-50 Body2-R-16 color-gray-900 ">option 1</option>
+        <option value="2" class="hover:bg-blue-50 Body2-R-16 color-gray-900">option 2</option>
+        <option value="3" class="hover:bg-blue-50 Body2-R-16 color-gray-900">option 3</option>
+       </select>
+     </div>
+     <!-- select e -->
+
+     
+     <!-- date s -->
+     <div class="flex flex-column gap-10">
+       <label class="Body2-M-16 color-gray-900" for="content">date</label>
+       <input type="date" id="date" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="날짜를 선택하세요">
+     </div>
+     <!-- date e -->
+
+
+     <!-- datetime-local s -->
+     <div class="flex flex-column gap-10">
+       <label class="Body2-M-16 color-gray-900" for="content">datetime-local</label>
+       <input type="datetime-local" id="datetime-local" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="날짜와 시간을 선택하세요">
+     </div>
+     <!-- datetime-local e -->
+
+
+     <!-- search s -->
+      <p class="Body2-M-16 color-gray-900">search</p>
+      <div class="input-wrapper flex align-center focus:outline-blue-500 padding-16-l padding-10-r active:outline-blue-500 hover:outline-blue-500 height-48 border-gray-500 radius-md-8 overflow-hidden">
+        <input type="search" name="search" id="search" class="Body2-R-16 color-gray-900 border-none width-100-per" placeholder="검색어를 입력하세요">
+        <button type="submit" class="Body2-R-16 color-gray-900 hover:bg-gray-50 active:bg-gray-100 radius-md-8 flex flex-center">
+          <img src="../image/icon/search.svg" alt="search">
+        </button>
+        </div>
+     <!-- search e -->
+
+     <!-- checkbox s -->
+      <p class="Body2-M-16 color-gray-900">checkbox</p>
+     <div class="flex align-center gap-10">
+       <input type="checkbox" name="checkbox" id="checkbox" class="checkbox-input">
+       <label class="Body2-M-16 color-gray-900 cursor-pointer" for="checkbox">checkbox</label>
+     </div>
+     <!-- checkbox e -->
+
+     <!-- radio s -->
+     <p class="Body2-M-16 color-gray-900">radio</p>
+     <div class="flex align-center gap-10">
+       <input type="radio" name="radio" id="radio" class="radio-input">
+       <label class="Body2-M-16 color-gray-900 cursor-pointer" for="radio">radio</label>
+     </div>
+     <!-- radio e -->
+    </form>
+  </body>
+  </html>

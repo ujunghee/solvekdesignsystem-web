@@ -1,0 +1,279 @@
+
+/* focus s */
+input:focus {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+input:active {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+input:hover {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+
+select:focus {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+select:active {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+select:hover {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+/* focus e */
+
+/* input x - 웹킷 브라우저용 */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  background: transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--gray-300);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+input[type="search"]:hover::-webkit-search-cancel-button {
+  opacity: 1;
+}
+/* input x */
+
+/* select style s */
+select {
+  /* 셀렉트 버튼 */
+  width: 100%;
+  border: 2px solid var(--blue-500);
+  background: var(--white) url(../image/icon/arrow-90deg-gray-900.svg) no-repeat right var(--spacing-16) center;
+  background-size: 2.4rem;
+  cursor: pointer;
+
+  &::picker-icon {
+    display: none;
+  }
+  
+  /* 웹킷 브라우저용만 base-select 적용 */
+  @supports (appearance: base-select) {
+    &, &::picker(select) {
+      appearance: base-select;
+    }
+  }
+
+  &:focus {
+    outline: var(--blue-500);
+    border-color: var(--blue-500);
+  }
+
+  &:active {
+    outline: var(--blue-500);
+  }
+
+  &:hover {
+    outline: var(--blue-500);
+  }
+
+  /* 드롭다운 팝업 */
+  &::picker(select) {
+    border: 1px solid var(--gray-500);
+    border-radius: var(--radius-md-8);
+    padding: var(--spacing-8);
+    background: var(--white);
+    margin-top: var(--spacing-2);
+  }
+}
+
+/* 파이어폭스 전용: 기본 화살표 완전 제거 */
+@supports (-moz-appearance: none) {
+  select {
+    -moz-appearance: none !important;
+    appearance: none !important;
+    text-indent: 0.01px;
+    text-overflow: '';
+    padding-right: var(--spacing-16);
+  }
+  input {
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0;
+      display: none;
+    }
+
+  }
+}
+
+option {
+  padding: var(--spacing-8);
+  border-radius: 6px;
+  font-size: 16px;
+
+  &:hover {
+    background: var(--gray-50) !important;
+  }
+  &:active {
+    background: var(--gray-100) !important;
+  }
+
+  /* 현재 포커스된 항목 */
+  &:checked {
+    background: var(--gray-50);
+  }
+  
+  &::checkmark {
+    display: none;
+  }
+}
+/* select style e */
+
+
+/* date style s */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  background-color: transparent;
+  background-image: url('../image/icon/calendar.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1.4rem) 50%;
+  background-size: 2.4rem;
+  padding: 0 var(--spacing-12) 0 var(--spacing-12);
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+@supports (-moz-appearance: none) {
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"] {
+    -moz-appearance: none !important;
+    background-image: none !important;
+  }
+}
+/* date style e */
+
+
+/* range style s */
+/* ==== 커스텀 range input 스타일 ==== */
+input[type=range] {
+  width: 100%; 
+  height: 6px;
+  background: var(--gray-100); 
+  cursor: pointer;
+  border-radius: var(--radius-full); /* iOS */
+ transition: background 450ms ease-in;
+}
+
+input[type=range]:focus {
+  outline: none; 
+}
+
+input[type=range]::-webkit-slider-thumb{
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border: 1px solid var(--blue-500);
+  border-radius:50%;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb{
+  width:10px;
+  height:10px;
+  background: var(--white);
+  border: 1px solid var(--blue-500);
+  border-radius:50%;
+  cursor: pointer;
+}
+/* range style e */
+
+
+/* Custom Radio s */
+.radio-input {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0;
+  border: 0.1rem solid var(--gray-500);
+  border-radius: 50%;
+  background: var(--white);
+  cursor: pointer;
+  transition: border-color 0.2s;
+  position: relative;
+  vertical-align: middle;
+  outline: none;
+  display: inline-block;
+}
+
+.radio-input:checked {
+  background-color: var(--white);
+  border: 0.16rem solid var(--blue-500);
+}
+
+.radio-input:checked::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--blue-500);
+  display: block;
+  transform: translate(-50%, -50%);
+}
+.radio-input:disabled {
+  background: var(--gray-100);
+  border-color: var(--gray-200);
+  cursor: not-allowed;
+}
+/* Custom Radio e */
+
+
+/* Custom Checkbox s */
+.checkbox-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0;
+  border: 0.1rem solid var(--gray-500);
+  border-radius: var(--radius-sm-4);
+  background: var(--white);
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+  position: relative;
+  vertical-align: middle;
+  outline: none;
+  display: inline-block;
+}
+
+.checkbox-input:checked {
+  background-color: var(--blue-500);
+  border-color: var(--blue-500);
+}
+
+.checkbox-input:checked::after {
+  content: '';
+  position: absolute;
+  left: 48%;
+  top: 42%;
+  width: 1.2rem;
+  height: 0.6rem;
+  border-left: 0.22rem solid #fff;
+  border-bottom: 0.22rem solid #fff;
+  border-radius: 0.15rem;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  box-sizing: border-box;
+}
+
+.checkbox-input:disabled {
+  background: var(--gray-100);
+  border-color: var(--gray-200);
+  cursor: not-allowed;
+}
+/* Custom Checkbox e */

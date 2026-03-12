@@ -4,8 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/class.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+
+    <script src="../js/header.js"></script>
+    
   </head>
   <body>
+    <header>
+      <div class="inner-default height-76 flex flex-center flex-between">
+        <h1 class="logo">
+          <a class="flex flex-center gap-8" aria-label="환경정보 융합 빅데이터 플랫폼 홈으로 이동">
+            <img class="logo-text" src="../image/icon/header-logo.svg" height="40" alt="환경정보 융합 빅데이터 플랫폼 로고">
+          </a>
+        </h1>
     
+        <div class="header-util flex flex-center gap-8" role="group" aria-label="사용자 계정 관리">
+          <a href="javascript:void(0)" class="hover:bg-gray-50 active:bg-gray-100 height-40 bg-white padding-12-w radius-md-8 flex flex-center gap-8" aria-label="로그인 페이지로 이동">
+            <img aria-hidden="true" src="../image/icon/login.svg" alt="">
+            <span class="Body2-M-16 color-gray-700">로그인</span>
+          </a>
+          <a href="javascript:void(0)"  class="hover:bg-gray-50 active:bg-gray-100 height-40 bg-white padding-12-w radius-md-8 flex flex-center gap-8 all-search-btn" aria-label="통합검색 페이지로 이동">
+            <img aria-hidden="true" src="../image/icon/search.svg" alt="">
+            <span class="Body2-M-16 color-gray-700">통합검색</span>
+          </a>
+        </div>
+      </div>
+    
+      <div class="height-56 border-top-gray-200 border-bottom-gray-200" id="topMenu">
+        <nav class="height-100-per inner-default" aria-label="메인 메뉴">
+          <ul class="height-100-per menu-list flex flex-start gap-16" role="menubar">
+            <li class="onedepth-item padding-16-l overflow-hidden responsive height-100-per flex align-center" role="none">
+              <a href="javascript:void(0)" class="fit-width flex flex-center gap-8 height-100-per" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-label="데이터 탐색">
+                <span class="Body1-M-18 color-gray-800">depth01</span>
+                <img aria-hidden="true" src="../image/icon/arrow-90deg-gray-900.svg" alt="">
+              </a>
+              <div class="submenu-list width-100-per height-0 visibility-hidden transition-ease absolute overflow-hidden right-0 top-132 border-bottom-gray-200" role="menu">
+                <div class="submenu-container inner-default flex">
+                  <p class="padding-28-w padding-28-t padding-28-b Heading9-SB-22 color-gray-900 width-240 bg-gray-50">데이터 탐색</p>
+                  <ul class="padding-24-w padding-24-b padding-24-t flex flex-column gap-2">
+                    <li class="menu-item height-56 width-240" role="none">
+                      <a href="javascript:void(0)" class="hover:bg-gray-50 active:bg-gray-100 menu-link flex align-center justify-between width-100-per height-56 padding-16-w radius-md-8" role="menuitem" aria-label="통합검색">
+                        <span class="Body1-M-18 color-gray-500">depth02</span>
+                      </a>
+                    </li>
+                    <li class="menu-item height-56 width-240" role="none">
+                      <a href="javascript:void(0)" class="hover:bg-gray-50 active:bg-gray-100 menu-link flex align-center justify-between width-100-per height-56 padding-16-w radius-md-8" role="menuitem" aria-label="환경 시각화 도구">
+                        <span class="Body1-M-18 color-gray-500">depth02</span>
+                      </a>
+                    </li>
+                    <li class="menu-item height-56 width-240" role="none">
+                      <a href="javascript:void(0)" class="hover:bg-gray-50 active:bg-gray-100 menu-link flex align-center justify-between width-100-per height-56 padding-16-w radius-md-8" role="menuitem" aria-label="환경 시각화 도구">
+                        <span class="Body1-M-18 color-gray-500">depth02</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </header>
   </body>
   </html>
