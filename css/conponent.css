@@ -25,7 +25,22 @@ select:hover {
   outline: var(--blue-500);
   border-color: var(--blue-500);
 }
+
+
+textarea:focus {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+textarea:active {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
+textarea:hover {
+  outline: var(--blue-500);
+  border-color: var(--blue-500);
+}
 /* focus e */
+
 
 /* input x - 웹킷 브라우저용 */
 input[type="search"]::-webkit-search-cancel-button {
@@ -47,6 +62,7 @@ input[type="search"]:hover::-webkit-search-cancel-button {
   opacity: 1;
 }
 /* input x */
+
 
 /* select style s */
 select {
@@ -168,68 +184,91 @@ input[type=range] {
   cursor: pointer;
   border-radius: var(--radius-full); /* iOS */
  transition: background 450ms ease-in;
-}
-
-input[type=range]:focus {
-  outline: none; 
-}
-
-input[type=range]::-webkit-slider-thumb{
+ &:focus {
+  outline: var(--blue-500);
+ }
+ &::-webkit-slider-thumb {
   width: 12px;
   height: 12px;
   background: var(--white);
   border: 1px solid var(--blue-500);
   border-radius:50%;
   cursor: pointer;
-}
-input[type=range]::-moz-range-thumb{
+ }
+ &::-moz-range-thumb {
   width:10px;
   height:10px;
   background: var(--white);
-  border: 1px solid var(--blue-500);
+  border: 1px solid var(--gra-500);
   border-radius:50%;
   cursor: pointer;
+ }
 }
 /* range style e */
 
 
 /* Custom Radio s */
+/* 기본 radio 숨기고, 커스텀 스타일 적용 */
 .radio-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: none;
+  background: none;
   width: 2.4rem;
   height: 2.4rem;
   margin: 0;
-  border: 0.1rem solid var(--gray-500);
-  border-radius: 50%;
-  background: var(--white);
-  cursor: pointer;
-  transition: border-color 0.2s;
+  display: inline-block;
   position: relative;
   vertical-align: middle;
-  outline: none;
-  display: inline-block;
-}
-
-.radio-input:checked {
-  background-color: var(--white);
-  border: 0.16rem solid var(--blue-500);
-}
-
-.radio-input:checked::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
-  border-radius: 50%;
-  background: var(--blue-500);
-  display: block;
-  transform: translate(-50%, -50%);
-}
-.radio-input:disabled {
-  background: var(--gray-100);
-  border-color: var(--gray-200);
-  cursor: not-allowed;
+  cursor: pointer;
+  &::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 0.1rem solid var(--gray-500);
+    border-radius: 50%;
+    background: var(--white);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0; top: 0;
+  }
+  &.is-error {
+    border-color: var(--red-500);
+    &::before {
+      border-color: var(--red-500);
+    }
+  }
+  &:checked {
+    &::before {
+      border-color: var(--blue-500);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      background: var(--blue-500);
+      transform: translate(-50%, -50%);
+      display: block;
+    }
+  }
+  &:disabled {
+    &::before {
+      background: var(--gray-100);
+      border-color: var(--gray-200);
+      cursor: not-allowed;
+    }
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 /* Custom Radio e */
 
@@ -277,3 +316,32 @@ input[type=range]::-moz-range-thumb{
   cursor: not-allowed;
 }
 /* Custom Checkbox e */
+
+
+/* toast message s */
+.toast {
+  opacity: 0;
+  top: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  position: fixed;
+}
+
+.toast.active {
+  opacity: 1;
+  top: 3.2rem;
+  visibility: visible;
+}
+/* toast message e */
+
+/* form validate s */
+.is-error {
+  border-color: var(--red-500);
+}
+.error-message {
+  display: none;
+}
+.error-message.is-error {
+  display: block;
+}
+/* form validate e */

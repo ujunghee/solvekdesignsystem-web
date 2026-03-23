@@ -12,54 +12,114 @@
     <link rel="stylesheet" href="../css/conponent.css">
     <link rel="stylesheet" href="../css/crossbrowser.css">
 
+    <link rel="stylesheet" href="../css/icon.css">
+
+
+    <script src="../js/form.js"></script>
   </head>
   <body class="inner-default padding-32-all">
-    <form class="flex flex-column gap-10" action="javascript:void(0)">
+
+    <!-- toast masage s -->
+    <div class="toast complete flex flex-center fixed left-50-per transform-translate-x-50-per bg-blue-50 height-48 padding-16-w radius-md-8 bg-white wdith-100-per z-index-10">
+      <p class="Body3-R-14 color-blue-500">
+        완료 되었습니다 (3초 후 자동 사라짐)
+      </p>
+    </div>
+    <!-- toast masage e -->
+
+    <!-- toast masage s -->
+    <div class="toast error flex flex-center fixed left-50-per transform-translate-x-50-per bg-red-50 height-48 padding-16-w radius-md-8 bg-white wdith-100-per z-index-10">
+      <p class="Body3-R-14 color-red-500">
+        필수사항 채워주시길 바랍니다.
+      </p>
+    </div>
+    <!-- toast masage e -->
+
+    <form class="flex flex-column gap-10" action="javascript:void(0)" novalidate>
     <!-- input text s -->
      <div class="flex flex-column gap-10">
        <label class="Body2-M-16 color-gray-900" for="content">input text</label>
        <input type="text" id="content" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="내용을 입력하세요">
+       <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
      </div>
      <!-- input text e -->
 
 
+    <!-- input id s -->
+     <div class="flex flex-column gap-10">
+      <label class="Body2-M-16 color-gray-900" for="username">username</label>
+      <input type="text" id="username" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="아이디를 입력하세요">
+      <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
+    </div>
+    <!-- input id e -->
+
+
+    <!-- password id s -->
+    <div class="flex flex-column gap-8">
+      <label for="institution-password" class="Body2-M-16 color-gray-900">비밀번호</label>
+      <div class="input-wrapper flex align-center radius-md-8 border-gray-500 overflow-hidden relative">
+          <input type="password" id="institution-password" class="width-100-per border-none padding-16-w height-48 Body1-R-18 color-gray-7000" placeholder="비밀번호를 입력해주세요" autocomplete="current-password" required>
+          <button type="button" class="eye-icon password-toggle-btn absolute right-16 cursor-pointer" aria-label="비밀번호 표시" tabindex="-1">
+              <span class="blind">클릭시 비밀번호 표시</span>
+          </button>
+      </div>
+      <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
+    </div>
+    <!-- password id e -->
+
+
      <!-- select s -->
      <div class="flex flex-column gap-10">
-       <label class="Body2-M-16 color-gray-900" for="content">select</label>
+       <label class="Body2-M-16 color-gray-900" for="select">select</label>
        <select name="select" id="select" class="focus:outline-blue-500 align-center custom-select Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w">
         <option value="1" class="hover:bg-blue-50 Body2-R-16 color-gray-900 ">option 1</option>
         <option value="2" class="hover:bg-blue-50 Body2-R-16 color-gray-900">option 2</option>
         <option value="3" class="hover:bg-blue-50 Body2-R-16 color-gray-900">option 3</option>
        </select>
+       <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
      </div>
      <!-- select e -->
 
      
      <!-- date s -->
      <div class="flex flex-column gap-10">
-       <label class="Body2-M-16 color-gray-900" for="content">date</label>
+       <label class="Body2-M-16 color-gray-900" for="date">date</label>
        <input type="date" id="date" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="날짜를 선택하세요">
+       <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
      </div>
      <!-- date e -->
 
 
      <!-- datetime-local s -->
      <div class="flex flex-column gap-10">
-       <label class="Body2-M-16 color-gray-900" for="content">datetime-local</label>
+       <label class="Body2-M-16 color-gray-900" for="datetime-local">datetime-local</label>
        <input type="datetime-local" id="datetime-local" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="날짜와 시간을 선택하세요">
+       <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
      </div>
      <!-- datetime-local e -->
 
 
      <!-- search s -->
-      <p class="Body2-M-16 color-gray-900">search</p>
-      <div class="input-wrapper flex align-center focus:outline-blue-500 padding-16-l padding-10-r active:outline-blue-500 hover:outline-blue-500 height-48 border-gray-500 radius-md-8 overflow-hidden">
-        <input type="search" name="search" id="search" class="Body2-R-16 color-gray-900 border-none width-100-per" placeholder="검색어를 입력하세요">
-        <button type="submit" class="Body2-R-16 color-gray-900 hover:bg-gray-50 active:bg-gray-100 radius-md-8 flex flex-center">
-          <img src="../image/icon/search.svg" alt="search">
-        </button>
+      <div class="flex flex-column gap-10">
+        <label class="Body2-M-16 color-gray-900" for="search">search</label>
+        <div class="input-wrapper flex align-center focus:outline-blue-500 padding-16-l padding-10-r active:outline-blue-500 hover:outline-blue-500 height-48 border-gray-500 radius-md-8 overflow-hidden">
+          <input type="search" name="search" id="search" class="Body2-R-16 color-gray-900 border-none width-100-per" placeholder="검색어를 입력하세요">
+          <button type="submit" class="search-icon Body2-R-16 color-gray-900 hover:bg-gray-50 active:bg-gray-100 radius-md-8 flex flex-center">
+            <span class="blind">검색 버튼</span>
+          </button>
         </div>
+        <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
+      </div>
      <!-- search e -->
+
+     <!-- range s -->
+     <div class="flex flex-column gap-10">
+      <label class="Body2-M-16 color-gray-900" for="range">range</label>
+      <input type="range" id="range" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-gray-500 radius-md-8 padding-16-w" placeholder="범위를 선택하세요">
+      <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
+     </div>
+     <!-- range e -->
+
 
      <!-- checkbox s -->
       <p class="Body2-M-16 color-gray-900">checkbox</p>
@@ -69,13 +129,41 @@
      </div>
      <!-- checkbox e -->
 
+
      <!-- radio s -->
      <p class="Body2-M-16 color-gray-900">radio</p>
      <div class="flex align-center gap-10">
-       <input type="radio" name="radio" id="radio" class="radio-input">
-       <label class="Body2-M-16 color-gray-900 cursor-pointer" for="radio">radio</label>
+       <input type="radio" name="radio" id="radio1" class="radio-input" >
+       <label class="Body2-M-16 color-gray-900 cursor-pointer" for="radio1">radio1</label>
      </div>
      <!-- radio e -->
+
+
+     <!-- textarea s -->
+     <div class="flex flex-column gap-8 relative">
+        <label for="textarea" class="Body2-M-16 color-gray-900 flex gap-4">
+            textarea
+        </label>
+        <!-- 에러는 border-red-500 -->
+        <textarea name="textarea" id="textarea" class="border-gray-500 radius-md-8 min-height-160 padding-12-w padding-12-t Body2-R-16" placeholder="내용을 입력하세요" rows="8" maxlength="1000" aria-required="true" required="" style="resize: vertical;"></textarea>
+        <div class="flex flex-end wdith-100-per absolute top-220 right-16">
+            <span class="Body3-R-14 color-gray-700 textarea-count">
+              0 / 1000
+            </span>
+        </div>
+        <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
+      </div>
+     <!-- textarea e -->
+
+
+     <!-- 완료 버튼 s -->
+     <div class="flex flex-column gap-10">
+      <button type="submit" class="submit-btn Body2-M-16 color-white height-48 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 radius-md-8 flex flex-center">
+        완료 버튼
+      </button>
+     </div>
+     <!-- 완료 버튼 e -->
+
     </form>
   </body>
   </html>

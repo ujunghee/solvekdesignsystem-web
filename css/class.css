@@ -1093,7 +1093,7 @@
 }
 
 .hover\:bg-blue-600:hover { 
-  background-color: var(--gray-600);
+  background-color: var(--blue-600);
 }
 
 .hover\:bg-gray-50:hover { 
@@ -1113,7 +1113,7 @@
 }
 
 .active\:bg-blue-700:active{ 
-  background-color: var(--gray-700);
+  background-color: var(--blue-700);
 }
 
 .active\:bg-gray-100:active { 
@@ -2406,7 +2406,7 @@
   transform: translateX(100%);
 }
 .transform-translate-x-50-per {
-  transform: translateX(50%);
+  transform: translateX(-50%);
 }
 .transform-translate-y-100-per {
   transform: translateY(100%);
@@ -2488,6 +2488,12 @@
 /* input warpper */
 .input-wrapper {
   &:focus-within {
+    border-color: var(--blue-500);
+  }
+  &:active {
+    border-color: var(--blue-500);
+  }
+  &:hover {
     border-color: var(--blue-500);
   }
 }
