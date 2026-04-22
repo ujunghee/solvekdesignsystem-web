@@ -1345,6 +1345,12 @@
 	background-color: var(--blue-50); 
 }
 
+.hover\:bg-blue-100:hover {
+  background-color: var(--blue-100);
+}
+.hover\:bg-blue-200:hover {
+  background-color: var(--blue-200);
+}
 .hover\:bg-blue-600:hover { 
   background-color: var(--blue-600);
 }
@@ -1409,6 +1415,9 @@
 
 .active\:bg-blue-100:active { 
 	background-color: var(--blue-100); 
+}
+.active\:bg-blue-200:active {
+  background-color: var(--blue-200);
 }
 
 .active\:bg-blue-700:active{ 
@@ -1487,6 +1496,23 @@
 .active\:bg-slate-900:active {
   background-color: var(--slate-900);
 }
+
+button:disabled {
+  background-color: #CDD1D5;
+  color: #64748B;
+}
+
+
+.focus\:bg-blue-500:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--blue-200, #96C0FF);
+}
+
+.focus\:bg-slate-800:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--slate-200, #B8BFCA);
+}
+
 
 
 /*==== spacing s ====*/
