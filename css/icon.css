@@ -16,6 +16,16 @@
   height: 2.4rem;
 }
 .eye-icon.active {
-  background: url(../image/icon/eye-open.svg) center center / contain no-repeat;
+  background: url(../image/icon/eye-open.png) center center / contain no-repeat;
 }
 /* 패스워드 사용시 아이콘 e */
+
+
+
+/* 달력 아이콘 s */
+.calendar-icon {
+  background: url(../image/icon/calendar.svg) center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+/* 달력 아이콘 e */
