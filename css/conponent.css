@@ -1,3 +1,8 @@
+/* input placeholder s */
+input::placeholder {
+  color: var(--slate-400);
+}
+/* input placeholder e */
 
 /* focus s */
 input:focus {
@@ -437,10 +442,10 @@ input[type=range] {
   background: var(--gray-50);
 }
 
-.flatpickr-weekday {
-  color: var(--gray-700);
-  font-size: 1.8rem;
-  font-weight: 600;
+span.flatpickr-weekday {
+  color: var(--slate-700);
+  font-size: 1.6rem !important;
+  font-weight: 500;
 }
 
 .flatpickr-days {
