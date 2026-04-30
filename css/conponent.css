@@ -4,6 +4,13 @@ input::placeholder {
 }
 /* input placeholder e */
 
+/* input disabled s */
+input:disabled {
+  background: var(--slate-200);
+  cursor: not-allowed;
+}
+/* input disabled e */
+
 /* focus s */
 input:focus {
   outline: var(--blue-500);
