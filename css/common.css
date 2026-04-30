@@ -1,8 +1,11 @@
+html {
+  font-size: 62.5%;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 62.5%;
   font-family: var(--font-family-main);
   word-break: keep-all;
 }
@@ -128,10 +131,6 @@ table {
   border-spacing: 0;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
 div, ul, ol {
   padding: 0;
 }
@@ -156,20 +155,11 @@ button {
   overflow: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ol {
-  list-style: none;
-}
-
 address {
   font-style: normal;
 }
 
-input:placeholder {
+input::placeholder {
   color: var(--gray-400);
 }
 

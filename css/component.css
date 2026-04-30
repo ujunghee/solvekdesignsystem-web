@@ -6,42 +6,42 @@ input::placeholder {
 
 /* focus s */
 input:focus {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 input:active {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 input:hover {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 
 select:focus {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 select:active {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 select:hover {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 
 
 textarea:focus {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 textarea:active {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 textarea:hover {
-  outline: var(--blue-500);
+  outline: none;
   border-color: var(--blue-500);
 }
 /* focus e */
@@ -90,16 +90,16 @@ select {
   }
 
   &:focus {
-    outline: var(--blue-500);
+    outline: none;
     border-color: var(--blue-500);
   }
 
   &:active {
-    outline: var(--blue-500);
+    outline: none;
   }
 
   &:hover {
-    outline: var(--blue-500);
+    outline: none;
   }
 
   /* 드롭다운 팝업 */
@@ -190,7 +190,7 @@ input[type=range] {
   border-radius: var(--radius-full); /* iOS */
  transition: background 450ms ease-in;
  &:focus {
-  outline: var(--blue-500);
+  outline: none;
  }
  &::-webkit-slider-thumb {
   width: 12px;
