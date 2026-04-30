@@ -1460,7 +1460,7 @@
 }
 
 
-.actvie\:bg-slate-50:active {
+.active\:bg-slate-50:active {
   background-color: var(--slate-50);
 }
 .active\:bg-slate-100:active {
@@ -2933,7 +2933,7 @@ button:disabled {
 
 
 
-/* input warpper */
+/* input wrapper */
 .input-wrapper {
   &:focus-within {
     border-color: var(--blue-500);
