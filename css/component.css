@@ -542,3 +542,139 @@ span.flatpickr-weekday {
 }
 
 /* 달력 e */
+
+/* =========================================================
+  Developer-friendly semantic component layer
+  - Keeps existing utility classes intact
+  - Offers simple reusable class APIs
+========================================================= */
+
+/* button s */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  height: 4.8rem;
+  padding: 0 var(--spacing-16);
+  border-radius: var(--radius-md-8);
+  border: 1px solid transparent;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background-color: #cdd1d5;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--blue-500);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--blue-600);
+}
+.btn-primary:active {
+  background: var(--blue-700);
+}
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--blue-200);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--blue-500);
+  border-color: var(--blue-500);
+}
+.btn-outline:hover {
+  background: var(--blue-50);
+}
+.btn-outline:active {
+  background: var(--blue-100);
+}
+.btn-outline:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--blue-200);
+}
+
+.btn-neutral {
+  background: var(--slate-700);
+  color: var(--white);
+}
+.btn-neutral:hover {
+  background: var(--slate-800);
+}
+.btn-neutral:active {
+  background: var(--slate-900);
+}
+.btn-neutral:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--slate-200);
+}
+/* button e */
+
+/* input/select/textarea s */
+.input-field,
+.select-field,
+.textarea-field {
+  width: 100%;
+  border: 1px solid var(--slate-400);
+  border-radius: var(--radius-md-8);
+  color: var(--gray-900);
+  background-color: var(--white);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field,
+.select-field {
+  height: 4.8rem;
+  padding: 0 var(--spacing-16);
+  font-size: 1.6rem;
+}
+
+.textarea-field {
+  min-height: 16rem;
+  padding: var(--spacing-12);
+  font-size: 1.6rem;
+}
+
+.input-field:hover,
+.input-field:focus,
+.select-field:hover,
+.select-field:focus,
+.textarea-field:hover,
+.textarea-field:focus {
+  outline: none;
+  border-color: var(--blue-500);
+}
+
+.input-field.is-error,
+.select-field.is-error,
+.textarea-field.is-error {
+  border-color: var(--red-500);
+}
+
+.input-field:disabled,
+.select-field:disabled,
+.textarea-field:disabled {
+  background: var(--slate-200);
+  cursor: not-allowed;
+}
+
+.field-hint {
+  margin-top: var(--spacing-6);
+  font-size: 1.4rem;
+  color: var(--gray-500);
+}
+
+.field-error {
+  margin-top: var(--spacing-6);
+  font-size: 1.4rem;
+  color: var(--red-500);
+}
+/* input/select/textarea e */
