@@ -23,7 +23,7 @@
   <body class="inner-default padding-32-all">
 
     <!-- toast masage s -->
-    <div class="toast complete flex flex-center fixed left-50-per transform-translate-x-50-per bg-blue-50 height-48 padding-16-w radius-md-8 bg-white width-100-per z-index-10">
+    <div class="toast complete flex flex-center fixed left-50-per transform-translate-x-50-per bg-blue-50 height-48 padding-16-w radius-md-8 bg-white z-index-10">
       <p class="Body3-R-14 color-blue-500">
         완료 되었습니다 (3초 후 자동 사라짐)
       </p>
@@ -31,7 +31,7 @@
     <!-- toast masage e -->
 
     <!-- toast masage s -->
-    <div class="toast error flex flex-center fixed left-50-per transform-translate-x-50-per bg-red-50 height-48 padding-16-w radius-md-8 bg-white width-100-per z-index-10">
+    <div class="toast error flex flex-center fixed left-50-per transform-translate-x-50-per bg-red-50 height-48 padding-16-w radius-md-8 bg-white z-index-10">
       <p class="Body3-R-14 color-red-500">
         필수사항 채워주시길 바랍니다.
       </p>
@@ -54,7 +54,19 @@
      <div class="flex flex-column gap-10 form-item">
       <label class="Body2-M-16 color-gray-900" for="username">username</label>
       <div class="flex flex-column gap-6">
-        <input type="text" id="username" class="focus:outline-blue-500 active:outline-blue-500 hover:outline-blue-500 Body2-R-16 color-gray-900 height-48 border-slate-400 radius-md-8 padding-16-w" placeholder="아이디를 입력하세요">
+        <input type="text" id="username" 
+            class="focus:outline-blue-500 
+            active:outline-blue-500 
+            hover:outline-blue-500 
+            Body2-R-16 
+            color-gray-900 
+            height-48 
+            border-slate-400 
+            radius-md-8 
+            padding-16-w" 
+            placeholder="아이디를 입력하세요"
+            aria-required="true"
+            required>
         <p class="Body3-R-14 color-red-500 error-message">에러 메세지</p>
       </div>
     </div>
