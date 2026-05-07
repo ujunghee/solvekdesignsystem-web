@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>header</title>
+
+  <link rel="stylesheet" href="../css/index.css">
+
+  <script src="../js/header.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="inner-default flex align-center justify-between py-18">
+      <h1>
+        <a aria-label="환경정보 융합 빅데이터 플랫폼 홈으로 이동">
+          <img src="../image/icon/header-logo.svg" height="40" alt="환경정보 융합 빅데이터 플랫폼 로고">
+        </a>
+      </h1>
+  
+      <div class="flex align-center gap-8" role="group" aria-label="사용자 계정 관리">
+        <a href="javascript:void(0)" class="flex align-center gap-8 p-12" aria-label="로그인 페이지로 이동">
+          <img aria-hidden="true" src="../image/icon/login.svg" alt="">
+          <span class="body1-m-18 color-slate-900">로그인</span>
+        </a>
+        <a href="javascript:void(0)" class="flex align-center gap-8 p-12" aria-label="통합검색 페이지로 이동">
+          <img aria-hidden="true" src="../image/icon/search.svg" alt="">
+          <span class="body1-m-18 color-slate-900">통합검색</span>
+        </a>
+      </div>
+    </div>
+  
+    <div id="topMenu" class="border-t border-gray-200">
+      <nav aria-label="메인 메뉴">
+        <ul role="menubar">
+          <li role="none">
+            <a href="javascript:void(0)" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-label="데이터 탐색">
+              <span>depth01</span>
+              <img aria-hidden="true" src="../image/icon/arrow-90deg-gray-900.svg" alt="">
+            </a>
+            <div role="menu">
+              <div>
+                <p class="blind">데이터 탐색</p>
+                <ul>
+                  <li role="none">
+                    <a href="javascript:void(0)" role="menuitem" aria-label="통합검색">
+                      <span>depth02</span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a href="javascript:void(0)" role="menuitem" aria-label="환경 시각화 도구">
+                      <span>depth02</span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a href="javascript:void(0)" role="menuitem" aria-label="환경 시각화 도구">
+                      <span>depth02</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</body>
+</html>

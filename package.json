@@ -1,0 +1,24 @@
+{
+  "name": "solvekdesignsystem",
+  "version": "1.0.0",
+  "description": "- Component API: `docs/COMPONENT_API.md`\r - Playground: `html/playground.html`",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ujunghee@github.com/ujunghee/solvekdesignsystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ujunghee/solvekdesignsystem/issues"
+  },
+  "homepage": "https://github.com/ujunghee/solvekdesignsystem#readme"
+}
