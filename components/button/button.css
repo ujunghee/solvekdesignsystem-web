@@ -115,7 +115,7 @@ button:disabled, a:disabled {
 
 
 /* border blue button s */
-.blue-button-border-xl {
+.border-blue-button-xl {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -129,7 +129,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.blue-button-border-lg {
+.border-blue-button-lg {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -143,7 +143,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.blue-button-border-md {
+.border-blue-button-md {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -156,7 +156,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.blue-button-border-s {
+.border-blue-button-s {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -169,7 +169,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.blue-button-border-xs {
+.border-blue-button-xs {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -182,13 +182,13 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-:is(.blue-button-border-xl, .blue-button-border-lg, .blue-button-border-md, .blue-button-border-s, .blue-button-border-xs):hover {
+:is(.border-blue-button-xl, .border-blue-button-lg, .border-blue-button-md, .border-blue-button-s, .border-blue-button-xs):hover {
   background-color: var(--blue-50);
 }
-:is(.blue-button-border-xl, .blue-button-border-lg, .blue-button-border-md, .blue-button-border-s, .blue-button-border-xs):active {
+:is(.border-blue-button-xl, .border-blue-button-lg, .border-blue-button-md, .border-blue-button-s, .border-blue-button-xs):active {
   background-color: var(--blue-100);
 }
-:is(.blue-button-border-xl, .blue-button-border-lg, .blue-button-border-md, .blue-button-border-s, .blue-button-border-xs):focus {
+:is(.border-blue-button-xl, .border-blue-button-lg, .border-blue-button-md, .border-blue-button-s, .border-blue-button-xs):focus {
   background-color: var(--blue-100);
   outline: none;
   box-shadow: 0 0 0 3px var(--blue-200);
