@@ -1,11 +1,11 @@
 @import url('./tokens/index.css');
 
-@import url('./css/border.css');
-@import url('./css/color.css');
-@import url('./css/common.css');
-@import url('./css/component.css');
-@import url('./css/icon.css');
-@import url('./css/layout.css');
-@import url('./css/responsive.css');
-@import url('./css/spacing.css');
-@import url('./css/typography.css');
+@import url('./default/border.css');
+@import url('./default/color.css');
+@import url('./default/common.css');
+@import url('./default/component.css');
+@import url('./default/icon.css');
+@import url('./default/layout.css');
+@import url('./default/responsive.css');
+@import url('./default/spacing.css');
+@import url('./default/typography.css');
