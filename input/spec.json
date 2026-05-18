@@ -1,0 +1,50 @@
+{
+  "component": "input",
+  "description": "텍스트 입력 필드 컴포넌트",
+  "naming_pattern": "input-field-default-{size}",
+  "sizes": {
+    "lg": { "class": "input-field-default-lg", "height": "4.8rem" },
+    "md": { "class": "input-field-default-md", "height": "4rem" },
+    "s":  { "class": "input-field-default-s",  "height": "3.6rem" }
+  },
+  "variants": {
+    "text": "기본 텍스트 입력",
+    "password": "비밀번호 입력 (아이콘 토글 포함)",
+    "trailing-icon": "우측 아이콘 포함 시 input-with-trailing-icon 추가"
+  },
+  "structure": {
+    "wrapper": "input-wrapper",
+    "label": "body2-r-16 color-slate-900 mb-6 block",
+    "field": "input-field-default-{size}",
+    "error_message": "error-message"
+  },
+  "states": {
+    "default": "input-wrapper",
+    "error": "input-wrapper is-error",
+    "disabled": "input-field-default-{size}에 disabled 속성 추가"
+  },
+  "notes": [
+    "is-error는 반드시 wrapper에만 추가, field에 직접 추가 금지",
+    "is-error 하나로 테두리 색상, error-message 노출 전부 제어됨",
+    "hover/focus/disabled는 CSS 내부 처리, 클래스 추가 금지",
+    "우측 아이콘 있을 경우 input-with-trailing-icon 추가 (padding-right 확보)",
+    "error-message는 항상 DOM에 존재, CSS로 숨김/노출 처리"
+  ],
+  "examples": {
+    "text": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\">라벨</label>\n  <input type=\"text\" class=\"input-field-default-lg\" placeholder=\"내용을 작성해주세요\">\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
+    "error": "<div class=\"input-wrapper is-error\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\">라벨</label>\n  <input type=\"text\" class=\"input-field-default-lg\" placeholder=\"내용을 작성해주세요\">\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
+    "disabled": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\">라벨</label>\n  <input type=\"text\" class=\"input-field-default-lg\" placeholder=\"내용을 작성해주세요\" disabled>\n</div>",
+    "password": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\">비밀번호</label>\n  <div class=\"relative w-fit flex align-center\">\n    <input type=\"password\" class=\"input-field-default-lg\" placeholder=\"비밀번호를 입력해주세요\">\n    <button type=\"button\" class=\"absolute right-0 top-50 translate-y-50\">\n      <i class=\"eye-icon\"><span class=\"blind\">비밀번호 보기</span></i>\n    </button>\n  </div>\n</div>"
+  },
+  "rules": [
+    "wrapper 없이 input 단독 사용 금지",
+    "에러 상태는 wrapper에 is-error 토글",
+    "인라인 스타일로 상태 제어 금지",
+    "우측 아이콘 있을 경우 반드시 input-with-trailing-icon 추가"
+  ],
+  "do_not": [
+    "input에 직접 is-error 추가",
+    "error-message 인라인 스타일로 show/hide",
+    "hover/focus 클래스 별도 추가"
+  ]
+}

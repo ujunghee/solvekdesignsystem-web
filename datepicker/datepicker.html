@@ -1,0 +1,158 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/index.css">
+    <!-- datapicker css s -->
+    <link rel="stylesheet" href="/input/input.css">
+    <!-- datapicker css e -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+
+    <!-- datapicker s -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ko.js"></script>
+    <!-- datapicker e -->
+
+  </head>
+  <body>
+
+    <!-- datapicker -->
+    <div class="input-wrapper">
+      <label class="body2-r-16 color-slate-900 mb-6 block" for="input-datepicker">datapicker</label>
+      <div class="relative w-fit flex align-center">
+        <input type="text" id="input-datepicker" class="input-field-default-lg input-with-trailing-icon" placeholder="날짜를 선택해주세요" autocomplete="off">
+        <button type="button" class="absolute right-0 top-50 translate-y-50" data-datepicker-for="input-datepicker">
+          <i class="calendar-icon" aria-hidden="true"></i>
+          <span class="blind">날짜 선택</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- datapicker range -->
+    <div class="input-wrapper">
+      <label class="body2-r-16 color-slate-900 mb-6 block" for="input-datepicker-range">datapicker (range)</label>
+      <div class="relative w-fit flex align-center">
+        <input type="text" id="input-datepicker-range" class="input-field-default-lg input-with-trailing-icon" placeholder="시작일 ~ 종료일" autocomplete="off">
+        <button type="button" class="absolute right-0 top-50 translate-y-50" data-datepicker-for="input-datepicker-range">
+          <i class="calendar-icon" aria-hidden="true"></i>
+          <span class="blind">기간 선택</span>
+        </button>
+      </div>
+    </div>
+
+  </body>
+  <script>
+    (function () {
+      if (typeof flatpickr === 'undefined') return;
+
+      var koLocale = flatpickr.l10ns && flatpickr.l10ns.ko ? flatpickr.l10ns.ko : undefined;
+
+      function applyDpCalendar(instance) {
+        var root = instance.calendarContainer;
+        if (!root) return;
+        root.classList.add('dp');
+        root.classList.toggle('dp-range', instance.config.mode === 'range');
+
+        var months = root.querySelector('.flatpickr-months');
+        if (months) months.classList.add('dp-head');
+
+        var inner = root.querySelector('.flatpickr-innerContainer');
+        if (inner) inner.classList.add('dp-body');
+
+        var rCont = root.querySelector('.flatpickr-rContainer');
+        if (rCont) rCont.classList.add('dp-grid');
+
+        var days = root.querySelector('.flatpickr-days');
+        if (days) days.classList.add('dp-days');
+
+        var weekdays = root.querySelector('.flatpickr-weekdays');
+        if (weekdays) weekdays.classList.add('dp-dow');
+      }
+
+      function injectDpFooter(instance) {
+        var root = instance.calendarContainer;
+        if (!root || root.querySelector('.dp-foot')) return;
+
+        var footer = document.createElement('div');
+        footer.className = 'dp-foot';
+        footer.innerHTML =
+          '<button type="button" class="dp-fbtn dp-fbtn--today">오늘</button>' +
+          '<button type="button" class="dp-fbtn dp-fbtn--line">취소</button>' +
+          '<button type="button" class="dp-fbtn dp-fbtn--fill">확인</button>';
+        root.appendChild(footer);
+
+        footer.querySelector('.dp-fbtn--today').addEventListener('click', function () {
+          var t = new Date();
+          if (instance.config.mode === 'range') {
+            instance.setDate([t, t], false);
+          } else {
+            instance.setDate(t, false);
+          }
+          instance.jumpToDate(t);
+        });
+
+        footer.querySelector('.dp-fbtn--line').addEventListener('click', function () {
+          var b = instance._dpOpenBackup || [];
+          if (!b.length) {
+            instance.clear(false);
+          } else if (instance.config.mode === 'range') {
+            instance.setDate(b.length > 1 ? [b[0], b[1]] : b[0], false);
+          } else {
+            instance.setDate(b[0], false);
+          }
+          instance.close();
+        });
+
+        footer.querySelector('.dp-fbtn--fill').addEventListener('click', function () {
+          instance.close();
+        });
+      }
+
+      function initPicker(inputId, extra) {
+        var input = document.getElementById(inputId);
+        var trigger = document.querySelector('[data-datepicker-for="' + inputId + '"]');
+        if (!input || !trigger) return;
+
+        var opts = Object.assign({
+          locale: koLocale,
+          dateFormat: 'Y-m-d',
+          allowInput: false,
+          clickOpens: true,
+          disableMobile: true,
+          closeOnSelect: false,
+          onOpen: function (selectedDates, dateStr, inst) {
+            inst._dpOpenBackup = inst.selectedDates.map(function (d) {
+              return new Date(d.getTime());
+            });
+            applyDpCalendar(inst);
+          },
+          onMonthChange: function (selectedDates, dateStr, inst) {
+            applyDpCalendar(inst);
+          },
+          onYearChange: function (selectedDates, dateStr, inst) {
+            applyDpCalendar(inst);
+          },
+          onReady: function (selectedDates, dateStr, inst) {
+            applyDpCalendar(inst);
+            injectDpFooter(inst);
+          }
+        }, extra || {});
+
+        var fp = flatpickr(input, opts);
+        trigger.addEventListener('click', function () {
+          fp.toggle();
+        });
+      }
+
+      initPicker('input-datepicker');
+      initPicker('input-datepicker-range', {
+        mode: 'range',
+        defaultDate: ['2024-12-12', '2024-12-21']
+      });
+    })();
+  </script>
+  </html>

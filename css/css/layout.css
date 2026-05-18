@@ -600,6 +600,9 @@
 .w-screen {
   width: 100vw;
 }
+.w-fit {
+  width: fit-content;
+}
 
 
 /* ==== height ==== */

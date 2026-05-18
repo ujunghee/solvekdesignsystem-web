@@ -1,41 +1,86 @@
-.input-field-default-lg {
-  height: 4.8rem;
-  padding: 0 var(--spacing-16);
-  font-size: var(--font-size-body2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-160);
-  letter-spacing: var(--letter-spacing-md);
+/* 공통 베이스 */
+.input-field-default-lg,
+.input-field-default-md,
+.input-field-default-s {
   border: 1px solid var(--slate-400);
   border-radius: var(--radius-md-8);
   color: var(--slate-900);
   background-color: var(--white);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-160);
+  letter-spacing: var(--letter-spacing-md);
 }
 
-.input-field-default-md {
-  height: 4rem;
-  padding: 0 var(--spacing-16);
-  font-size: var(--font-size-body2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-160);
-  letter-spacing: var(--letter-spacing-md);
-  border: 1px solid var(--slate-400);
-  border-radius: var(--radius-md-8);
-  color: var(--slate-900);
-  background-color: var(--white);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+/* 사이즈별 */
+.input-field-default-lg { 
+  height: 4.8rem; 
+  padding: 0 var(--spacing-16); 
+  font-size: var(--font-size-body2); 
+}
+.input-field-default-md { 
+  height: 4rem;   
+  padding: 0 var(--spacing-16); 
+  font-size: var(--font-size-body2); 
+}
+.input-field-default-s  { 
+  height: 3.6rem; 
+  padding: 0 var(--spacing-12); 
+  font-size: var(--font-size-body3); 
 }
 
-.input-field-default-sm {
-  height: 3.6rem;
-  padding: 0 var(--spacing-12);
-  font-size: var(--font-size-body3);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-160);
-  letter-spacing: var(--letter-spacing-md);
-  border: 1px solid var(--slate-400);
-  border-radius: var(--radius-md-8);
-  color: var(--slate-900);
-  background-color: var(--white);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+/* placeholder */
+.input-field-default-lg::placeholder,
+.input-field-default-md::placeholder,
+.input-field-default-s::placeholder {
+  color: var(--slate-400);
+  font-weight: var(--font-weight-regular);
+}
+
+/* 트레일링 아이콘 */
+.input-field-default-lg.input-with-trailing-icon { padding-right: 4.8rem; }
+
+/* 상태 */
+.input-field-default-lg:hover,
+.input-field-default-lg:focus,
+.input-field-default-md:hover,
+.input-field-default-md:focus,
+.input-field-default-s:hover,
+.input-field-default-s:focus {
+  outline: none;
+  border-color: var(--blue-500);
+}
+
+.input-field-default-lg:disabled,
+.input-field-default-md:disabled,
+.input-field-default-s:disabled {
+  background-color: var(--slate-200);
+  cursor: not-allowed;
+}
+
+.input-field-default-lg:disabled::placeholder,
+.input-field-default-md:disabled::placeholder,
+.input-field-default-s:disabled::placeholder {
+  color: var(--slate-700);
+}
+
+/* 에러 */
+.error-message { display: none; }
+
+.input-wrapper.is-error {
+  .input-field-default-lg,
+  .input-field-default-md,
+  .input-field-default-s {
+    border-color: var(--red-500);
+  }
+
+  .error-message {
+    display: block;
+    margin-top: var(--spacing-6);
+    color: var(--red-500);
+    font-size: var(--font-size-body3);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-160);
+    letter-spacing: var(--letter-spacing-md);
+  }
 }
