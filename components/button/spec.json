@@ -3,7 +3,7 @@
   "description": "사용자가 액션을 트리거하는 버튼",
   "naming_pattern": "{color}-button-{size} 또는 border-{color}-button-{size}",
   "base_rule": "색상과 사이즈가 하나로 합쳐진 클래스 사용",
-  "sizes": ["xl", "lg", "md", "s", "xs"],
+  "sizes": ["48", "40", "36", "32", "28"],
   "colors": {
     "blue": "주요 CTA",
     "border-blue": "보조 액션 (blue 테두리)",
@@ -13,12 +13,12 @@
     "transparent": "배경 없는 텍스트형 액션"
   },
   "examples": [
-    "<button type='button' class='blue-button-lg'>저장</button>",
-    "<button type='button' class='border-blue-button-md'>취소</button>",
-    "<button type='button' class='slate-button-lg'>확인</button>",
-    "<button type='button' class='border-slate-button-md'>닫기</button>",
-    "<button type='button' class='slate-50-button-s'>더보기</button>",
-    "<button type='button' class='transparent-button-s'>삭제</button>"
+    "<button type='button' class='blue-button-40'>저장</button>",
+    "<button type='button' class='border-blue-button-36'>취소</button>",
+    "<button type='button' class='slate-button-40'>확인</button>",
+    "<button type='button' class='border-slate-button-36'>닫기</button>",
+    "<button type='button' class='slate-50-button-32'>더보기</button>",
+    "<button type='button' class='transparent-button-32'>삭제</button>"
   ],
   "rules": [
     "반드시 type 속성 명시 (button/submit/reset 중 하나)",

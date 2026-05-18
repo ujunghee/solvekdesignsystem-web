@@ -16,9 +16,9 @@ input-field-default-{size}
 
 | 사이즈 | 클래스 | 높이 |
 |---|---|---|
-| 대 | `input-field-default-lg` | 4.8rem |
-| 중 | `input-field-default-md` | 4.0rem |
-| 소 | `input-field-default-s` | 3.6rem |
+| 대 | `input-field-default-48` | 4.8rem |
+| 중 | `input-field-default-40` | 4.0rem |
+| 소 | `input-field-default-36` | 3.6rem |
 
 ---
 
@@ -41,28 +41,28 @@ input-field-default-{size}
 <!-- 기본 -->
 <div class="input-wrapper">
   <label class="body2-r-16 color-slate-900 mb-6 block">라벨</label>
-  <input type="text" class="input-field-default-lg" placeholder="내용을 작성해주세요">
+  <input type="text" class="input-field-default-48" placeholder="내용을 작성해주세요">
   <p class="error-message">에러 메시지</p>
 </div>
 
 <!-- 에러 -->
 <div class="input-wrapper is-error">
   <label class="body2-r-16 color-slate-900 mb-6 block">라벨</label>
-  <input type="text" class="input-field-default-lg" placeholder="내용을 작성해주세요">
+  <input type="text" class="input-field-default-48" placeholder="내용을 작성해주세요">
   <p class="error-message">에러 메시지</p>
 </div>
 
 <!-- disabled -->
 <div class="input-wrapper">
   <label class="body2-r-16 color-slate-900 mb-6 block">라벨</label>
-  <input type="text" class="input-field-default-lg" placeholder="내용을 작성해주세요" disabled>
+  <input type="text" class="input-field-default-48" placeholder="내용을 작성해주세요" disabled>
 </div>
 
 <!-- 비밀번호 -->
 <div class="input-wrapper">
   <label class="body2-r-16 color-slate-900 mb-6 block">비밀번호</label>
   <div class="relative w-fit flex align-center">
-    <input type="password" class="input-field-default-lg" placeholder="비밀번호를 입력해주세요">
+    <input type="password" class="input-field-default-48" placeholder="비밀번호를 입력해주세요">
     <button type="button" class="absolute right-0 top-50 translate-y-50">
       <i class="eye-icon">
         <span class="blind">비밀번호 보기</span>
@@ -73,7 +73,7 @@ input-field-default-{size}
 
 <!-- 우측 아이콘 있는 경우 (datepicker 등) -->
 <div class="relative w-fit flex align-center">
-  <input type="text" class="input-field-default-lg input-with-trailing-icon" placeholder="날짜를 선택해주세요">
+  <input type="text" class="input-field-default-48 input-with-trailing-icon" placeholder="날짜를 선택해주세요">
   <button type="button" class="absolute right-0 top-50 translate-y-50">
     <i class="calendar-icon" aria-hidden="true"></i>
     <span class="blind">날짜 선택</span>

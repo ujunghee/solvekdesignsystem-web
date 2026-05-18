@@ -30,9 +30,13 @@ button:disabled, a:disabled {
   height: 3.2rem;
 }
 
+.button-28 {
+  height: 2.8rem;
+}
+
 
 /* blue button s */
-.blue-button-xl {
+.blue-button-48 {
   background-color: var(--blue-500);
   color: var(--white);
   border: none;
@@ -47,7 +51,7 @@ button:disabled, a:disabled {
 }
 
 
-.blue-button-lg {
+.blue-button-40 {
   background-color: var(--blue-500);
   color: var(--white);
   border: none;
@@ -61,7 +65,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.blue-button-md {
+.blue-button-36 {
   background-color: var(--blue-500);
   color: var(--white);
   border: none;
@@ -74,7 +78,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.blue-button-s {
+.blue-button-32 {
   background-color: var(--blue-500);
   color: var(--white);
   border: none;
@@ -87,26 +91,26 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.blue-button-xs {
+.blue-button-28 {
   background-color: var(--blue-500);
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
-  height: 3.2rem;
+  height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
 }
 
-:is(.blue-button-xl, .blue-button-lg, .blue-button-md, .blue-button-s, .blue-button-xs):hover {
+:is(.blue-button-48, .blue-button-40, .blue-button-36, .blue-button-32, .blue-button-28):hover {
   background-color: var(--blue-600);
 }
-:is(.blue-button-xl, .blue-button-lg, .blue-button-md, .blue-button-s, .blue-button-xs):active {
+:is(.blue-button-48, .blue-button-40, .blue-button-36, .blue-button-32, .blue-button-28):active {
   background-color: var(--blue-700);
 }
-:is(.blue-button-xl, .blue-button-lg, .blue-button-md, .blue-button-s, .blue-button-xs):focus {
+:is(.blue-button-48, .blue-button-40, .blue-button-36, .blue-button-32, .blue-button-28):focus {
   background-color: var(--blue-700);
   outline: none;
   box-shadow: 0 0 0 3px var(--blue-200);
@@ -115,7 +119,7 @@ button:disabled, a:disabled {
 
 
 /* border blue button s */
-.border-blue-button-xl {
+.border-blue-button-48 {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -129,7 +133,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-blue-button-lg {
+.border-blue-button-40 {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -143,7 +147,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-blue-button-md {
+.border-blue-button-36 {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -156,7 +160,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-blue-button-s {
+.border-blue-button-32 {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
@@ -169,26 +173,26 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-blue-button-xs {
+.border-blue-button-28 {
   background-color: var(--white);
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
-  height: 3.2rem;
+  height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
 }
 
-:is(.border-blue-button-xl, .border-blue-button-lg, .border-blue-button-md, .border-blue-button-s, .border-blue-button-xs):hover {
+:is(.border-blue-button-48, .border-blue-button-40, .border-blue-button-36, .border-blue-button-32, .border-blue-button-28):hover {
   background-color: var(--blue-50);
 }
-:is(.border-blue-button-xl, .border-blue-button-lg, .border-blue-button-md, .border-blue-button-s, .border-blue-button-xs):active {
+:is(.border-blue-button-48, .border-blue-button-40, .border-blue-button-36, .border-blue-button-32, .border-blue-button-28):active {
   background-color: var(--blue-100);
 }
-:is(.border-blue-button-xl, .border-blue-button-lg, .border-blue-button-md, .border-blue-button-s, .border-blue-button-xs):focus {
+:is(.border-blue-button-48, .border-blue-button-40, .border-blue-button-36, .border-blue-button-32, .border-blue-button-28):focus {
   background-color: var(--blue-100);
   outline: none;
   box-shadow: 0 0 0 3px var(--blue-200);
@@ -197,7 +201,7 @@ button:disabled, a:disabled {
 
 
 /* slate button s */
-.slate-button-xl {
+.slate-button-48 {
   background-color: var(--slate-700);
   color: var(--white);
   border: none;
@@ -211,7 +215,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 } 
 
-.slate-button-lg {
+.slate-button-40 {
   background-color: var(--slate-700);
   color: var(--white);
   border: none;
@@ -225,7 +229,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.slate-button-md {
+.slate-button-36 {
   background-color: var(--slate-700);
   color: var(--white);
   border: none;
@@ -238,7 +242,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.slate-button-s {
+.slate-button-32 {
   background-color: var(--slate-700);
   color: var(--white);
   border: none;
@@ -251,26 +255,26 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.slate-button-xs {
+.slate-button-28 {
   background-color: var(--slate-700);
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
-  height: 3.2rem;
+  height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
 }
 
-:is(.slate-button-xl, .slate-button-lg, .slate-button-md, .slate-button-s, .slate-button-xs):hover {
+:is(.slate-button-48, .slate-button-40, .slate-button-36, .slate-button-32, .slate-button-28):hover {
   background-color: var(--slate-800);
 }
-:is(.slate-button-xl, .slate-button-lg, .slate-button-md, .slate-button-s, .slate-button-xs):active {
+:is(.slate-button-48, .slate-button-40, .slate-button-36, .slate-button-32, .slate-button-28):active {
   background-color: var(--slate-900);
 }
-:is(.slate-button-xl, .slate-button-lg, .slate-button-md, .slate-button-s, .slate-button-xs):focus {
+:is(.slate-button-48, .slate-button-40, .slate-button-36, .slate-button-32, .slate-button-28):focus {
   background-color: var(--slate-900);
   outline: none;
   box-shadow: 0 0 0 3px var(--slate-200);
@@ -278,7 +282,7 @@ button:disabled, a:disabled {
 /* slate button e */
 
 /* border slate button s */
-.border-slate-button-xl {
+.border-slate-button-48 {
   background-color: var(--white);
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
@@ -292,7 +296,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-slate-button-lg {
+.border-slate-button-40 {
   background-color: var(--white);
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
@@ -306,7 +310,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-slate-button-md {
+.border-slate-button-36 {
   background-color: var(--white);
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
@@ -319,7 +323,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-slate-button-s {
+.border-slate-button-32 {
   background-color: var(--white);
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
@@ -332,26 +336,26 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.border-slate-button-xs {
+.border-slate-button-28 {
   background-color: var(--white);
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
-  height: 3.2rem;
+  height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
 }
 
-:is(.border-slate-button-xl, .border-slate-button-lg, .border-slate-button-md, .border-slate-button-s, .border-slate-button-xs):hover {
+:is(.border-slate-button-48, .border-slate-button-40, .border-slate-button-36, .border-slate-button-32, .border-slate-button-28):hover {
   background-color: var(--slate-50);
 }
-:is(.border-slate-button-xl, .border-slate-button-lg, .border-slate-button-md, .border-slate-button-s, .border-slate-button-xs):active {
+:is(.border-slate-button-48, .border-slate-button-40, .border-slate-button-36, .border-slate-button-32, .border-slate-button-28):active {
   background-color: var(--slate-100);
 }
-:is(.border-slate-button-xl, .border-slate-button-lg, .border-slate-button-md, .border-slate-button-s, .border-slate-button-xs):focus {
+:is(.border-slate-button-48, .border-slate-button-40, .border-slate-button-36, .border-slate-button-32, .border-slate-button-28):focus {
   background-color: var(--slate-100);
   outline: none;
   box-shadow: 0 0 0 3px var(--slate-200);
@@ -361,7 +365,7 @@ button:disabled, a:disabled {
 
 
 /* slate 50 button s */
-.slate-50-button-xl {
+.slate-50-button-48 {
   background-color: var(--slate-50);
   color: var(--slate-700);
   border: none;
@@ -375,7 +379,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.slate-50-button-lg {
+.slate-50-button-40 {
   background-color: var(--slate-50);
   color: var(--slate-700);
   border: none;
@@ -389,7 +393,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md); 
 }
 
-.slate-50-button-md {
+.slate-50-button-36 {
   background-color: var(--slate-50);
   color: var(--slate-700);
   border: none;
@@ -402,7 +406,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.slate-50-button-s {
+.slate-50-button-32 {
   background-color: var(--slate-50);
   color: var(--slate-700);
   border: none;
@@ -415,26 +419,26 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.slate-50-button-xs {
+.slate-50-button-28 {
   background-color: var(--slate-50);
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
-  height: 3.2rem;
+  height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
 } 
 
-:is(.slate-50-button-xl, .slate-50-button-lg, .slate-50-button-md, .slate-50-button-s, .slate-50-button-xs):hover {
+:is(.slate-50-button-48, .slate-50-button-40, .slate-50-button-36, .slate-50-button-32, .slate-50-button-28):hover {
   background-color: var(--slate-100);
 }
-:is(.slate-50-button-xl, .slate-50-button-lg, .slate-50-button-md, .slate-50-button-s, .slate-50-button-xs):active {
+:is(.slate-50-button-48, .slate-50-button-40, .slate-50-button-36, .slate-50-button-32, .slate-50-button-28):active {
   background-color: var(--slate-200);
 }
-:is(.slate-50-button-xl, .slate-50-button-lg, .slate-50-button-md, .slate-50-button-s, .slate-50-button-xs):focus {
+:is(.slate-50-button-48, .slate-50-button-40, .slate-50-button-36, .slate-50-button-32, .slate-50-button-28):focus {
   background-color: var(--slate-200);
   outline: 1px solid var(--slate-700);
   box-shadow: 0 0 0 3px var(--slate-200);
@@ -443,7 +447,7 @@ button:disabled, a:disabled {
 
 
 /* transparent button s */
-.transparent-button-xl {
+.transparent-button-48 {
   background-color: transparent;
   color: var(--slate-700);
   border: none;
@@ -457,7 +461,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.transparent-button-lg {
+.transparent-button-40 {
   background-color: transparent;
   color: var(--slate-700);
   border: none;
@@ -471,7 +475,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.transparent-button-md {
+.transparent-button-36 {
   background-color: transparent;
   color: var(--slate-700);
   border: none;
@@ -484,7 +488,7 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.transparent-button-s {
+.transparent-button-32 {
   background-color: transparent;
   color: var(--slate-700);
   border: none;
@@ -497,26 +501,26 @@ button:disabled, a:disabled {
   letter-spacing: var(--letter-spacing-md);
 }
 
-.transparent-button-xs {
+.transparent-button-28 {
   background-color: transparent;
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
-  height: 3.2rem;
+  height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
 }
 
-:is(.transparent-button-xl, .transparent-button-lg, .transparent-button-md, .transparent-button-s, .transparent-button-xs):hover {
+:is(.transparent-button-48, .transparent-button-40, .transparent-button-36, .transparent-button-32, .transparent-button-28):hover {
   background-color: var(--slate-50);
 }
-:is(.transparent-button-xl, .transparent-button-lg, .transparent-button-md, .transparent-button-s, .transparent-button-xs):active {
+:is(.transparent-button-48, .transparent-button-40, .transparent-button-36, .transparent-button-32, .transparent-button-28):active {
   background-color: var(--slate-100);
 }
-:is(.transparent-button-xl, .transparent-button-lg, .transparent-button-md, .transparent-button-s, .transparent-button-xs):focus {
+:is(.transparent-button-48, .transparent-button-40, .transparent-button-36, .transparent-button-32, .transparent-button-28):focus {
   background-color: var(--slate-100);
   outline: 1px solid var(--slate-700);
   box-shadow: 0 0 0 3px var(--slate-200);

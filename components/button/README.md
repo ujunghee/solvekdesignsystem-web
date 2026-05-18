@@ -28,13 +28,15 @@ border-{color}-button-{size}
 
 ## 사이즈 (size)
 
-| 사이즈 | 클래스 |
+높이(rem 기준, 1rem = 10px 가정 시 px)에 맞춘 숫자 접미사입니다.
+
+| 높이 | 클래스 접미사 |
 |---|---|
-| 특대 | `xl` |
-| 대 | `lg` |
-| 중 | `md` |
-| 소 | `s` |
-| 극소 | `xs` |
+| 4.8rem (48px) | `48` |
+| 4.0rem (40px) | `40` |
+| 3.6rem (36px) | `36` |
+| 3.2rem (32px) | `32` |
+| 2.8rem (28px) | `28` |
 
 ---
 
@@ -42,31 +44,31 @@ border-{color}-button-{size}
 
 ```html
 <!-- 주요 CTA -->
-<button type="button" class="blue-button-lg">저장</button>
+<button type="button" class="blue-button-40">저장</button>
 
 <!-- 보조 액션 -->
-<button type="button" class="border-blue-button-md">취소</button>
+<button type="button" class="border-blue-button-36">취소</button>
 
 <!-- 중립 액션 -->
-<button type="button" class="slate-button-lg">확인</button>
+<button type="button" class="slate-button-40">확인</button>
 
 <!-- 중립 보조 -->
-<button type="button" class="border-slate-button-md">닫기</button>
+<button type="button" class="border-slate-button-36">닫기</button>
 
 <!-- 약한 강조 -->
-<button type="button" class="slate-50-button-s">더보기</button>
+<button type="button" class="slate-50-button-32">더보기</button>
 
 <!-- 텍스트형 -->
-<button type="button" class="transparent-button-s">삭제</button>
+<button type="button" class="transparent-button-32">삭제</button>
 
 <!-- 아이콘 포함 -->
-<button type="button" class="blue-button-xl flex align-center">
+<button type="button" class="blue-button-48 flex align-center">
   시작하기
   <span class="arrow-right-white"></span>
 </button>
 
 <!-- disabled -->
-<button type="button" class="blue-button-lg" disabled>저장</button>
+<button type="button" class="blue-button-40" disabled>저장</button>
 ```
 
 ---

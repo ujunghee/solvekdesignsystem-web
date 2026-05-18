@@ -603,6 +603,9 @@
 .w-fit {
   width: fit-content;
 }
+.w-100 {
+  width: 10rem;
+}
 
 
 /* ==== height ==== */

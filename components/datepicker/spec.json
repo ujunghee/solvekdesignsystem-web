@@ -16,7 +16,7 @@
     "wrapper": "input-wrapper",
     "label": "body2-r-16 color-slate-900 mb-6 block (for 속성으로 input id 연결)",
     "inner": "relative w-fit flex align-center",
-    "field": "input-field-default-lg input-with-trailing-icon",
+    "field": "input-field-default-48 input-with-trailing-icon",
     "trigger": "absolute right-0 top-50 translate-y-50 (data-datepicker-for로 input id 연결)",
     "icon": "calendar-icon"
   },
@@ -30,8 +30,8 @@
     "range 모드는 initPicker 호출 시 mode: range 옵션 추가"
   ],
   "examples": {
-    "single": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\" for=\"input-datepicker\">날짜</label>\n  <div class=\"relative w-fit flex align-center\">\n    <input type=\"text\" id=\"input-datepicker\" class=\"input-field-default-lg input-with-trailing-icon\" placeholder=\"날짜를 선택해주세요\" autocomplete=\"off\">\n    <button type=\"button\" class=\"absolute right-0 top-50 translate-y-50\" data-datepicker-for=\"input-datepicker\">\n      <i class=\"calendar-icon\" aria-hidden=\"true\"></i>\n      <span class=\"blind\">날짜 선택</span>\n    </button>\n  </div>\n</div>",
-    "range": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\" for=\"input-datepicker-range\">기간</label>\n  <div class=\"relative w-fit flex align-center\">\n    <input type=\"text\" id=\"input-datepicker-range\" class=\"input-field-default-lg input-with-trailing-icon\" placeholder=\"시작일 ~ 종료일\" autocomplete=\"off\">\n    <button type=\"button\" class=\"absolute right-0 top-50 translate-y-50\" data-datepicker-for=\"input-datepicker-range\">\n      <i class=\"calendar-icon\" aria-hidden=\"true\"></i>\n      <span class=\"blind\">기간 선택</span>\n    </button>\n  </div>\n</div>"
+    "single": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\" for=\"input-datepicker\">날짜</label>\n  <div class=\"relative w-fit flex align-center\">\n    <input type=\"text\" id=\"input-datepicker\" class=\"input-field-default-48 input-with-trailing-icon\" placeholder=\"날짜를 선택해주세요\" autocomplete=\"off\">\n    <button type=\"button\" class=\"absolute right-0 top-50 translate-y-50\" data-datepicker-for=\"input-datepicker\">\n      <i class=\"calendar-icon\" aria-hidden=\"true\"></i>\n      <span class=\"blind\">날짜 선택</span>\n    </button>\n  </div>\n</div>",
+    "range": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\" for=\"input-datepicker-range\">기간</label>\n  <div class=\"relative w-fit flex align-center\">\n    <input type=\"text\" id=\"input-datepicker-range\" class=\"input-field-default-48 input-with-trailing-icon\" placeholder=\"시작일 ~ 종료일\" autocomplete=\"off\">\n    <button type=\"button\" class=\"absolute right-0 top-50 translate-y-50\" data-datepicker-for=\"input-datepicker-range\">\n      <i class=\"calendar-icon\" aria-hidden=\"true\"></i>\n      <span class=\"blind\">기간 선택</span>\n    </button>\n  </div>\n</div>"
   },
   "js_usage": {
     "single": "initPicker('input-datepicker')",

@@ -1,7 +1,7 @@
 /* 공통 베이스 */
-.input-field-default-lg,
-.input-field-default-md,
-.input-field-default-s {
+.input-field-default-48,
+.input-field-default-40,
+.input-field-default-36 {
   border: 1px solid var(--slate-400);
   border-radius: var(--radius-md-8);
   color: var(--slate-900);
@@ -13,54 +13,54 @@
 }
 
 /* 사이즈별 */
-.input-field-default-lg { 
+.input-field-default-48 { 
   height: 4.8rem; 
   padding: 0 var(--spacing-16); 
   font-size: var(--font-size-body2); 
 }
-.input-field-default-md { 
+.input-field-default-40 { 
   height: 4rem;   
   padding: 0 var(--spacing-16); 
   font-size: var(--font-size-body2); 
 }
-.input-field-default-s  { 
+.input-field-default-36  { 
   height: 3.6rem; 
   padding: 0 var(--spacing-12); 
   font-size: var(--font-size-body3); 
 }
 
 /* placeholder */
-.input-field-default-lg::placeholder,
-.input-field-default-md::placeholder,
-.input-field-default-s::placeholder {
+.input-field-default-48::placeholder,
+.input-field-default-40::placeholder,
+.input-field-default-36::placeholder {
   color: var(--slate-400);
   font-weight: var(--font-weight-regular);
 }
 
 /* 트레일링 아이콘 */
-.input-field-default-lg.input-with-trailing-icon { padding-right: 4.8rem; }
+.input-field-default-48.input-with-trailing-icon { padding-right: 4.8rem; }
 
 /* 상태 */
-.input-field-default-lg:hover,
-.input-field-default-lg:focus,
-.input-field-default-md:hover,
-.input-field-default-md:focus,
-.input-field-default-s:hover,
-.input-field-default-s:focus {
+.input-field-default-48:hover,
+.input-field-default-48:focus,
+.input-field-default-40:hover,
+.input-field-default-40:focus,
+.input-field-default-36:hover,
+.input-field-default-36:focus {
   outline: none;
   border-color: var(--blue-500);
 }
 
-.input-field-default-lg:disabled,
-.input-field-default-md:disabled,
-.input-field-default-s:disabled {
+.input-field-default-48:disabled,
+.input-field-default-40:disabled,
+.input-field-default-36:disabled {
   background-color: var(--slate-200);
   cursor: not-allowed;
 }
 
-.input-field-default-lg:disabled::placeholder,
-.input-field-default-md:disabled::placeholder,
-.input-field-default-s:disabled::placeholder {
+.input-field-default-48:disabled::placeholder,
+.input-field-default-40:disabled::placeholder,
+.input-field-default-36:disabled::placeholder {
   color: var(--slate-700);
 }
 
@@ -68,9 +68,9 @@
 .error-message { display: none; }
 
 .input-wrapper.is-error {
-  .input-field-default-lg,
-  .input-field-default-md,
-  .input-field-default-s {
+  .input-field-default-48,
+  .input-field-default-40,
+  .input-field-default-36 {
     border-color: var(--red-500);
   }
 

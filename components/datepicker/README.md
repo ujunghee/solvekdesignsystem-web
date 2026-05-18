@@ -8,7 +8,7 @@
 
 ```html
 <!-- CSS -->
-<link rel="stylesheet" href="/input/input.css">
+<link rel="stylesheet" href="/css/component/input.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 
 <!-- JS -->
@@ -32,7 +32,7 @@
 ```
 input-wrapper
 └── div.relative.w-fit.flex.align-center
-    ├── input.input-field-default-lg.input-with-trailing-icon
+    ├── input.input-field-default-48.input-with-trailing-icon
     └── button[data-datepicker-for] (캘린더 트리거)
         └── i.calendar-icon
 ```
@@ -49,7 +49,7 @@ input-wrapper
   <label class="body2-r-16 color-slate-900 mb-6 block" for="input-datepicker">날짜</label>
   <div class="relative w-fit flex align-center">
     <input type="text" id="input-datepicker"
-      class="input-field-default-lg input-with-trailing-icon"
+      class="input-field-default-48 input-with-trailing-icon"
       placeholder="날짜를 선택해주세요"
       autocomplete="off">
     <button type="button" class="absolute right-0 top-50 translate-y-50"
@@ -65,7 +65,7 @@ input-wrapper
   <label class="body2-r-16 color-slate-900 mb-6 block" for="input-datepicker-range">기간</label>
   <div class="relative w-fit flex align-center">
     <input type="text" id="input-datepicker-range"
-      class="input-field-default-lg input-with-trailing-icon"
+      class="input-field-default-48 input-with-trailing-icon"
       placeholder="시작일 ~ 종료일"
       autocomplete="off">
     <button type="button" class="absolute right-0 top-50 translate-y-50"
