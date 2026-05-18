@@ -398,10 +398,12 @@
 
 /* right */
 .right-0    { right: 0; }
+.right-16   { right: 1.6rem; }
 .right-50   { right: 50%; }
 
 /* bottom */
 .bottom-0   { bottom: 0; }
+.bottom-16   { bottom: 1.6rem; }
 .bottom-50  { bottom: 50%; }
 
 

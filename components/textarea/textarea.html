@@ -11,7 +11,45 @@
     <!-- textarea css e -->
   </head>
   <body>
-    <label class="body3-r-14 color-gray-700 pt-16">textarea label</label>
-    <textarea name="" id="" class="textarea-field-default"></textarea>
+    <!-- default textarea s -->
+    <div class="textarea-wrapper">
+      <label class="body2-r-16 color-slate-900 mb-6 block">textarea default</label>
+      <div class="relative">
+        <textarea name="" id="" class="textarea-field-default" placeholder="내용을 작성해주세요"></textarea>
+        <p class="absolute right-16 bottom-16 body2-r-16 color-slate-400"><span class="counter">0</span>&nbsp;/&nbsp;100</p>
+      </div>
+      <p class="error-message">에러 메시지</p>
+    </div>
+
+    <!-- disabled textarea s -->
+    <div class="textarea-wrapper">
+      <label class="body2-r-16 color-slate-900 mb-6 block">textarea default</label>
+      <div class="relative">
+        <textarea name="" id="" class="textarea-field-default" placeholder="내용을 작성해주세요" disabled></textarea>
+        <p class="absolute right-16 bottom-16 body2-r-16 color-slate-400"><span class="counter">0</span>&nbsp;/&nbsp;100</p>
+      </div>
+    </div>
+
   </body>
+
+  <script>
+    const textarea = document.querySelectorAll('.textarea-field-default');
+    const counter = document.querySelectorAll('.counter');
+    const errorMessage = document.querySelectorAll('.error-message');
+    const textareaWrapper = document.querySelectorAll('.textarea-wrapper');
+    
+
+    const maxLength = 100;
+
+    textarea.forEach((textarea, index) => {
+      textarea.addEventListener('input', () => {
+        counter[index].textContent = textarea.value.length;
+        if(textarea.value.length > maxLength) {
+        textareaWrapper[index].classList.add('is-error');
+      } else {
+        textareaWrapper[index].classList.remove('is-error');
+      }
+      });
+    });
+  </script>
   </html>

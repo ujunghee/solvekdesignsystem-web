@@ -1,0 +1,38 @@
+{
+  "component": "textarea",
+  "description": "텍스트 입력 영역 컴포넌트",
+  "structure": {
+    "wrapper": "textarea-wrapper",
+    "label": "body2-r-16 color-slate-900 mb-6 block",
+    "field": "textarea-field-default",
+    "counter": "counter (글자수 표시)",
+    "error_message": "error-message"
+  },
+  "states": {
+    "default": "textarea-wrapper",
+    "error": "textarea-wrapper is-error",
+    "disabled": "textarea-field-default에 disabled 속성 추가"
+  },
+  "notes": [
+    "is-error는 반드시 wrapper에만 추가, field에 직접 추가 금지",
+    "is-error 하나로 textarea 테두리, counter 색상, error-message 노출 전부 제어됨",
+    "hover/focus/disabled는 CSS 내부 처리, 클래스 추가 금지",
+    "글자수 카운터는 relative 래퍼 안에 absolute로 배치",
+    "error-message는 항상 DOM에 존재, CSS로 숨김/노출 처리"
+  ],
+  "examples": {
+    "default": "<div class=\"textarea-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\">라벨</label>\n  <div class=\"relative\">\n    <textarea class=\"textarea-field-default\" placeholder=\"내용을 작성해주세요\"></textarea>\n    <p class=\"absolute right-16 bottom-16 body2-r-16 color-slate-400\"><span class=\"counter\">0</span>&nbsp;/&nbsp;100</p>\n  </div>\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
+    "error": "<div class=\"textarea-wrapper is-error\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\">라벨</label>\n  <div class=\"relative\">\n    <textarea class=\"textarea-field-default\" placeholder=\"내용을 작성해주세요\"></textarea>\n    <p class=\"absolute right-16 bottom-16 body2-r-16 color-slate-400\"><span class=\"counter\">0</span>&nbsp;/&nbsp;100</p>\n  </div>\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
+    "disabled": "<div class=\"textarea-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\">라벨</label>\n  <div class=\"relative\">\n    <textarea class=\"textarea-field-default\" placeholder=\"내용을 작성해주세요\" disabled></textarea>\n  </div>\n</div>"
+  },
+  "rules": [
+    "wrapper 없이 textarea 단독 사용 금지",
+    "에러 상태는 wrapper에 is-error 토글",
+    "인라인 스타일로 상태 제어 금지"
+  ],
+  "do_not": [
+    "textarea에 직접 is-error 추가",
+    "error-message를 인라인 스타일로 show/hide",
+    "hover/focus 클래스 별도 추가"
+  ]
+}
