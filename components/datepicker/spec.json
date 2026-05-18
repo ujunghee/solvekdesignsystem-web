@@ -1,0 +1,51 @@
+{
+  "component": "datepicker",
+  "description": "날짜 선택 입력 컴포넌트 (flatpickr 기반)",
+  "dependency": {
+    "library": "flatpickr@4.6.13",
+    "css": "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css",
+    "js": "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js",
+    "locale": "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ko.js",
+    "input_css": "/input/input.css"
+  },
+  "variants": {
+    "single": "단일 날짜 선택",
+    "range": "기간 선택 (시작일 ~ 종료일)"
+  },
+  "structure": {
+    "wrapper": "input-wrapper",
+    "label": "body2-r-16 color-slate-900 mb-6 block (for 속성으로 input id 연결)",
+    "inner": "relative w-fit flex align-center",
+    "field": "input-field-default-lg input-with-trailing-icon",
+    "trigger": "absolute right-0 top-50 translate-y-50 (data-datepicker-for로 input id 연결)",
+    "icon": "calendar-icon"
+  },
+  "notes": [
+    "input에 반드시 고유 id 부여, label의 for와 trigger의 data-datepicker-for가 같은 id 참조",
+    "input에 autocomplete=off 필수",
+    "input-with-trailing-icon 반드시 추가 (우측 padding 확보)",
+    "flatpickr는 disableMobile: true 고정 (모바일 네이티브 캘린더 비활성화)",
+    "closeOnSelect: false 고정 (확인 버튼으로 닫음)",
+    "캘린더 하단 푸터: 오늘 / 취소 / 확인 버튼 자동 주입 (injectDpFooter)",
+    "range 모드는 initPicker 호출 시 mode: range 옵션 추가"
+  ],
+  "examples": {
+    "single": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\" for=\"input-datepicker\">날짜</label>\n  <div class=\"relative w-fit flex align-center\">\n    <input type=\"text\" id=\"input-datepicker\" class=\"input-field-default-lg input-with-trailing-icon\" placeholder=\"날짜를 선택해주세요\" autocomplete=\"off\">\n    <button type=\"button\" class=\"absolute right-0 top-50 translate-y-50\" data-datepicker-for=\"input-datepicker\">\n      <i class=\"calendar-icon\" aria-hidden=\"true\"></i>\n      <span class=\"blind\">날짜 선택</span>\n    </button>\n  </div>\n</div>",
+    "range": "<div class=\"input-wrapper\">\n  <label class=\"body2-r-16 color-slate-900 mb-6 block\" for=\"input-datepicker-range\">기간</label>\n  <div class=\"relative w-fit flex align-center\">\n    <input type=\"text\" id=\"input-datepicker-range\" class=\"input-field-default-lg input-with-trailing-icon\" placeholder=\"시작일 ~ 종료일\" autocomplete=\"off\">\n    <button type=\"button\" class=\"absolute right-0 top-50 translate-y-50\" data-datepicker-for=\"input-datepicker-range\">\n      <i class=\"calendar-icon\" aria-hidden=\"true\"></i>\n      <span class=\"blind\">기간 선택</span>\n    </button>\n  </div>\n</div>"
+  },
+  "js_usage": {
+    "single": "initPicker('input-datepicker')",
+    "range": "initPicker('input-datepicker-range', { mode: 'range' })"
+  },
+  "rules": [
+    "input id, label for, data-datepicker-for 반드시 일치",
+    "autocomplete=off 필수",
+    "input-with-trailing-icon 반드시 추가",
+    "flatpickr 직접 호출 금지, 반드시 initPicker 함수 사용"
+  ],
+  "do_not": [
+    "input type=date 사용 (네이티브 캘린더 비활성화 불가)",
+    "clickOpens: true 제거 (캘린더 트리거 오작동)",
+    "closeOnSelect: true 변경 (확인 버튼 무력화)"
+  ]
+}
