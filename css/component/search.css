@@ -1,22 +1,29 @@
+/* 검색 셸 높이 — 팝업 top과 공유 (한 곳만 수정) */
+:root {
+  --search-height-36: 3.6rem;
+  --search-height-40: 4rem;
+  --search-height-48: 4.8rem;
+  --search-height-54: 5.4rem;
+}
+
 .search-54 {
-  height: 5.4rem;
+  height: var(--search-height-54);
 }
 
 .search-48 {
-  height: 4.8rem;
+  height: var(--search-height-48);
 }
 
-
 .search-40 {
-  height: 4rem;
+  height: var(--search-height-40);
 }
 
 .search-36 {
-  height: 3.6rem;
+  height: var(--search-height-36);
 }
 
-
 .search-36, .search-40, .search-48, .search-54 {
+  width: 100%;
   border: 1px solid var(--slate-400);
   border-radius: var(--radius-md-8);
   font-size: 1.6rem;
@@ -40,4 +47,37 @@
   input {
     border: none;
   }
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-wrapper:has(> .search-36) {
+  --search-popup-top: var(--search-height-36);
+}
+.search-wrapper:has(> .search-40) {
+  --search-popup-top: var(--search-height-40);
+}
+.search-wrapper:has(> .search-48) {
+  --search-popup-top: var(--search-height-48);
+}
+.search-wrapper:has(> .search-54) {
+  --search-popup-top: var(--search-height-54);
+}
+
+.search-popup {
+  width: 100%;
+  border: 1px solid var(--slate-400);
+  border-radius: var(--radius-md-8);
+  background-color: var(--white);
+  z-index: 1000;
+  position: absolute;
+  top: calc(var(--search-popup-top) + .2rem);
+  left: 0;
+  display: none;
+}
+
+.search-popup.active {
+  display: block;
 }

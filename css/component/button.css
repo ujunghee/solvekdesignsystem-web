@@ -3,6 +3,11 @@ button, a {
   transition: background-color 0.2s ease;
 }
 
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--blue-200);
+} 
+
 /* button effect */
 button:disabled, a:disabled {
   background-color: var(--slate-50);
@@ -454,7 +459,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4.8rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body1);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -468,7 +472,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);

@@ -9,3 +9,9 @@
 @import url('./default/responsive.css');
 @import url('./default/spacing.css');
 @import url('./default/typography.css');
+
+
+@import url('./component/button.css');
+@import url('./component/input.css');
+@import url('./component/search.css');
+@import url('./component/textarea.css');
