@@ -8,15 +8,15 @@
 
 ### 기본형 (Basic)
 
-input과 label을 분리한 구조입니다.
-
-**언제 쓰나요?** 목록, 폼, 필터 등 일반적인 다중 선택
+정사각형 인디케이터와 텍스트 레이블로 구성된 클래식 체크박스입니다. 폼 입력, 설정, 테이블 등 일반적인 다중 선택 인터페이스에 사용합니다.
 
 | 사이즈 | input 클래스 | label 폰트 |
 |---|---|---|
 | sm | `checkbox-basic checkbox-basic-sm` | `body3-r-14 color-slate-700` |
 | md | `checkbox-basic checkbox-basic-md` | `body2-r-16 color-slate-700` |
 | lg | `checkbox-basic checkbox-basic-lg` | `body1-r-18 color-slate-700` |
+
+**대표 상황:** 폼 입력, 설정 화면, 테이블 행 선택, 필터
 
 ```html
 <!-- 기본 -->
@@ -42,9 +42,9 @@ input과 label을 분리한 구조입니다.
 
 ### 칩형 (Chip)
 
-label이 input을 감싸는 구조입니다.
+칩(Chip) 형태로 구성된 다중 선택 컨트롤입니다. 필터, 카테고리, 태그 선택 등 가로 스크롤 환경이나 모바일에서 빠른 다중 선택에 적합합니다.
 
-**언제 쓰나요?** 태그 선택, 카테고리 필터 등 시각적으로 강조된 다중 선택
+**대표 상황:** 태그 선택, 카테고리 필터, 가로 스크롤 다중 선택, 모바일 빠른 선택
 
 ```html
 <label class="checkbox-chip-label body2-r-16">
@@ -57,9 +57,9 @@ label이 input을 감싸는 구조입니다.
 
 ### 리스트형 (List)
 
-label이 input을 감싸는 구조입니다.
+전체 행이 선택 영역인 리스트형 컨트롤입니다. 모바일 및 반응형 환경에서 넓은 터치 영역을 제공하며, 옵션 목록 다중 선택 UI에 적합합니다.
 
-**언제 쓰나요?** 목록 항목 전체를 클릭 영역으로 쓸 때
+**대표 상황:** 모바일 옵션 목록, 반응형 다중 선택, 넓은 터치 영역이 필요한 경우
 
 ```html
 <!-- 기본 -->
@@ -128,7 +128,7 @@ master.indeterminate = true;
 ## 규칙
 
 - basic형은 `input`과 `label` 반드시 `id`/`for`로 연결
-- chip/list형은 `label`이 `input`을 감싸는 구조 사용
+- chip/list형은 `label`이 `input`을 감싸는 구조 사용 (id/for 분리 구조 사용 금지)
 - 전체선택 패턴 사용 시 master와 item `id` 모두 고유하게 부여
 - `indeterminate` 상태는 반드시 JS로 설정 (HTML 속성으로 불가)
 - 구분선에 `role="presentation"`, `aria-hidden="true"` 반드시 포함

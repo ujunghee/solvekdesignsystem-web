@@ -3,27 +3,27 @@
   "description": "체크박스 컴포넌트. 기본형/칩형/리스트형 3가지 variant 제공",
   "variants": {
     "basic": {
-      "description": "기본형 체크박스. input + label 분리 구조",
+      "description": "정사각형 인디케이터와 텍스트 레이블로 구성된 클래식 체크박스. 폼 입력, 설정, 테이블 등 일반적인 다중 선택 인터페이스에 사용",
       "sizes": {
         "sm": { "input_class": "checkbox-basic checkbox-basic-sm", "label_font": "body3-r-14 color-slate-700" },
         "md": { "input_class": "checkbox-basic checkbox-basic-md", "label_font": "body2-r-16 color-slate-700" },
         "lg": { "input_class": "checkbox-basic checkbox-basic-lg", "label_font": "body1-r-18 color-slate-700" }
       },
-      "when_to_use": "목록, 폼, 필터 등 일반적인 다중 선택"
+      "use_cases": ["폼 입력", "설정 화면", "테이블 행 선택", "필터"]
     },
     "chip": {
-      "description": "칩형 체크박스. label이 input을 감싸는 구조",
+      "description": "칩(Chip) 형태로 구성된 다중 선택 컨트롤. 필터, 카테고리, 태그 선택 등 가로 스크롤 환경이나 모바일에서 빠른 다중 선택에 적합",
       "input_class": "checkbox-chip",
       "label_class": "checkbox-chip-label body2-r-16",
       "span_class": "body2-m-16",
-      "when_to_use": "태그 선택, 카테고리 필터 등 시각적으로 강조된 다중 선택"
+      "use_cases": ["태그 선택", "카테고리 필터", "가로 스크롤 다중 선택", "모바일 빠른 선택"]
     },
     "list": {
-      "description": "리스트형 체크박스. label이 input을 감싸는 구조",
+      "description": "전체 행이 선택 영역인 리스트형 컨트롤. 모바일 및 반응형 환경에서 넓은 터치 영역을 제공하며, 옵션 목록 다중 선택 UI에 적합",
       "input_class": "checkbox-list",
       "label_class": "checkbox-list-label body2-r-16",
       "span_class": "body2-m-16",
-      "when_to_use": "목록 항목 전체를 클릭 영역으로 쓸 때"
+      "use_cases": ["모바일 옵션 목록", "반응형 다중 선택", "넓은 터치 영역이 필요한 경우"]
     }
   },
   "states": {
