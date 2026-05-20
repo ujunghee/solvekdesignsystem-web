@@ -1,0 +1,57 @@
+{
+  "component": "radio",
+  "description": "라디오 컴포넌트. 기본형/세그먼트형/토글형 3가지 variant 제공. 단일 선택 전용",
+  "variants": {
+    "basic": {
+      "description": "원형 인디케이터와 텍스트 레이블로 구성된 클래식 라디오. 폼 입력, 설정, 옵션 선택 등 일반적인 단일 선택 인터페이스에 사용",
+      "sizes": {
+        "sm": { "input_class": "radio-basic radio-basic-sm", "label_font": "body3-r-14 color-slate-700" },
+        "md": { "input_class": "radio-basic radio-basic-md", "label_font": "body2-r-16 color-slate-700" },
+        "lg": { "input_class": "radio-basic radio-basic-lg", "label_font": "body1-r-18 color-slate-700" }
+      },
+      "use_cases": ["폼 입력", "설정 화면", "옵션 선택", "팝업 타입 선택"]
+    },
+    "segment": {
+      "description": "세그먼트(Segment) 형태로 구성된 단일 선택 컨트롤. 2~5개의 짧은 옵션을 나란히 배치하여 빠르게 전환하는 UI에 적합. 탭 대체, 뷰 모드 전환 등에 사용",
+      "input_class": "radio-segment",
+      "label_class": "radio-segment-label body2-r-16",
+      "use_cases": ["탭 대체", "뷰 모드 전환", "정렬/필터 옵션", "짧은 옵션 나열"]
+    },
+    "toggle": {
+      "description": "토글 그룹 형태로 구성된 단일 선택 컨트롤. 2개 옵션 간 빠른 전환에 최적화. ON/OFF, 보기 전환, A/B 선택 등 이진 선택에 적합",
+      "input_class": "radio-toggle",
+      "label_class": "radio-toggle-label body2-r-16",
+      "wrapper_class": "radio-toggle-group",
+      "use_cases": ["ON/OFF 전환", "보기 모드 전환", "2개 옵션 간 선택"]
+    }
+  },
+  "states": {
+    "default": "기본 (미선택)",
+    "checked": "checked 속성 추가 (선택)",
+    "disabled": "disabled 속성 추가 (비활성)",
+    "disabled_checked": "disabled + checked 속성 모두 추가"
+  },
+  "structure": {
+    "basic": "<div class=\"flex align-center gap-8\">\n  <input type=\"radio\" name=\"{group}\" class=\"radio-basic radio-basic-{size}\" id=\"{id}\">\n  <label for=\"{id}\" class=\"{font}\">옵션</label>\n</div>",
+    "segment": "<label class=\"radio-segment-label body2-r-16\">\n  <input type=\"radio\" name=\"{group}\" class=\"radio-segment\">\n  <span>옵션</span>\n</label>",
+    "toggle": "<div class=\"radio-toggle-group\">\n  <label class=\"radio-toggle-label body2-r-16\">\n    <input type=\"radio\" name=\"{group}\" class=\"radio-toggle\" checked>\n    <span>옵션 1</span>\n  </label>\n  <label class=\"radio-toggle-label body2-r-16\">\n    <input type=\"radio\" name=\"{group}\" class=\"radio-toggle\">\n    <span>옵션 2</span>\n  </label>\n</div>"
+  },
+  "notes": [
+    "같은 그룹의 radio는 반드시 동일한 name 속성 사용",
+    "basic형은 input과 label을 id/for로 연결",
+    "segment/toggle형은 label이 input을 감싸는 구조",
+    "toggle형은 반드시 radio-toggle-group으로 감싸야 함"
+  ],
+  "rules": [
+    "같은 name 그룹 내에서 하나만 선택 가능 (단일 선택)",
+    "basic형은 input과 label 반드시 id/for로 연결",
+    "segment/toggle형은 label이 input을 감싸는 구조 사용",
+    "toggle형은 radio-toggle-group wrapper 필수"
+  ],
+  "do_not": [
+    "같은 그룹에 name 없이 사용",
+    "basic형에서 label이 input을 감싸는 구조 사용",
+    "segment/toggle형에서 id/for 분리 구조 사용",
+    "toggle형에서 radio-toggle-group 없이 단독 사용"
+  ]
+}

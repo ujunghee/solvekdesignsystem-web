@@ -21,7 +21,9 @@
   border-radius: var(--radius-sm-4);
   background: var(--white);
   cursor: pointer;
-  transition: border-color 0.2s, background-color 0.2s;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-tap-highlight-color: rgb(240 241 243 / 0.45);
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s ease;
   position: relative;
   vertical-align: middle;
   outline: none;
@@ -33,12 +35,16 @@
   border-color: var(--blue-500);
 }
 
+.checkbox-basic:hover {
+  border: 0.1rem solid var(--blue-500);
+}
+
 .checkbox-basic:checked:hover {
-  outline: 5px solid var(--slate-50);
+  box-shadow: 0 0 0 5px var(--slate-50);
 }
 
 .checkbox-basic:checked:active {
-  outline: 5px solid var(--slate-100);
+  box-shadow: 0 0 0 5px var(--slate-50);
 }
 
 .checkbox-basic:checked:not(:indeterminate)::after {
@@ -107,6 +113,7 @@
 
 .checkbox-basic:disabled + label {
   color: var(--slate-500);
+  cursor: default;
 }
 /* checkbox basic e */
 
@@ -147,7 +154,6 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
@@ -190,13 +196,10 @@
 }
 
 .checkbox-chip-label:has(.checkbox-chip:disabled) {
-  opacity: 0.45;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.checkbox-chip:disabled {
-  pointer-events: none;
+  background-color: var(--slate-200);
+  border-color: var(--slate-400);
+  color: var(--slate-500);
+  cursor: default;
 }
 /* checkbox-chip e */
 
@@ -236,7 +239,6 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
@@ -279,9 +281,10 @@
 }
 
 .checkbox-list-label:has(.checkbox-list:disabled) {
-  opacity: 0.45;
-  cursor: not-allowed;
-  pointer-events: none;
+  background-color: var(--slate-200);
+  border-color: var(--slate-400);
+  color: var(--slate-500);
+  cursor: default;
 }
 
 .checkbox-list:disabled {

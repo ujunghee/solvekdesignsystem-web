@@ -1,0 +1,98 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radio</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+  </head>
+  <body>
+    <!-- radio-basic s -->
+    <p class="pt-10 body2-b-16 color-slate-900">radio-basic</p>
+    <p class="body2-r-16 color-slate-900 pb-10">기본형 라디오 (미선택 / 선택 / 비활성)</p>
+
+    <div class="flex flex-col gap-12">
+      <div class="flex align-center gap-8">
+        <input type="radio" name="radio-demo" class="radio-basic radio-basic-md" id="radio-basic-1">
+        <label for="radio-basic-1" class="body2-r-16 color-slate-700">이미지 팝업</label>
+      </div>
+      <div class="flex align-center gap-8">
+        <input type="radio" name="radio-demo" class="radio-basic radio-basic-md" id="radio-basic-2" >
+        <label for="radio-basic-2" class="body2-r-16 color-slate-700">이미지 팝업</label>
+      </div>
+      <div class="flex align-center gap-8">
+        <input type="radio" name="radio-demo" class="radio-basic radio-basic-md" id="radio-basic-3" disabled>
+        <label for="radio-basic-3" class="body2-r-16 color-slate-700">이미지 팝업</label>
+      </div>
+      <div class="flex align-center gap-8">
+        <input type="radio" name="radio-demo" class="radio-basic radio-basic-md" id="radio-basic-4" disabled checked>
+        <label for="radio-basic-4" class="body2-r-16 color-slate-700">이미지 팝업</label>
+      </div>
+    </div>
+
+    <p class="pt-10 body2-b-16 color-slate-900">radio-basic-sm / lg</p>
+    <p class="body2-r-16 color-slate-900 pb-10">사이즈 변형</p>
+    <div class="flex align-center gap-16 flex-wrap">
+      <div class="flex align-center gap-8">
+        <input type="radio" name="radio-size" class="radio-basic radio-basic-sm" id="radio-sm" checked>
+        <label for="radio-sm" class="body3-r-14 color-slate-700">소</label>
+      </div>
+      <div class="flex align-center gap-8">
+        <input type="radio" name="radio-size" class="radio-basic radio-basic-md" id="radio-md">
+        <label for="radio-md" class="body2-r-16 color-slate-700">중</label>
+      </div>
+      <div class="flex align-center gap-8">
+        <input type="radio" name="radio-size" class="radio-basic radio-basic-lg" id="radio-lg">
+        <label for="radio-lg" class="body1-r-18 color-slate-700">대</label>
+      </div>
+    </div>
+    <!-- radio-basic e -->
+
+
+    <!-- radio-segment s -->
+    <p class="pt-10 body2-b-16 color-slate-900">radio-segment</p>
+    <p class="body2-r-16 color-slate-900 pb-10">세그먼트형 라디오</p>
+    <div class="flex align-center gap-8 flex-wrap">
+      <label class="radio-segment-label body2-r-16">
+        <input type="radio" name="radio-segment" class="radio-segment" id="radio-segment-1">
+        <span>옵션 1</span>
+      </label>
+      <label class="radio-segment-label body2-r-16">
+        <input type="radio" name="radio-segment" class="radio-segment" id="radio-segment-2">
+        <span class="body2-r-16 color-slate-700">옵션 1</span>
+      </label>
+      <label class="radio-segment-label body2-r-16">
+        <input type="radio" name="radio-segment" class="radio-segment" id="radio-segment-3" disabled>
+        <span class="body2-r-16 color-slate-700">옵션 3</span>
+      </label>
+    </div>
+    <!-- radio-segment e -->
+
+
+    <!-- radio toggle s -->
+    <p class="pt-10 body2-b-16 color-slate-900">radio-toggle</p>
+    <p class="body2-r-16 color-slate-900 pb-10">토글형 라디오</p>
+    <div class="radio-toggle-group">
+      <label class="radio-toggle-label body2-r-16">
+        <input type="radio" name="radio-toggle" class="radio-toggle" id="radio-toggle-1" checked>
+        <span>옵션 1</span>
+      </label>
+      <label class="radio-toggle-label body2-r-16">
+        <input type="radio" name="radio-toggle" class="radio-toggle" id="radio-toggle-2">
+        <span>옵션 2</span>
+      </label>
+    </div>
+    <div class="radio-toggle-group">
+      <label class="radio-toggle-label body2-r-16">
+        <input type="radio" name="radio-toggle-b" class="radio-toggle" id="radio-toggle-3" checked>
+        <span>옵션 1</span>
+      </label>
+      <label class="radio-toggle-label body2-r-16">
+        <input type="radio" name="radio-toggle-b" class="radio-toggle" id="radio-toggle-4">
+        <span>옵션 2</span>
+      </label>
+    </div>
+    <!-- radio toggle e -->
+  </body>
+  </html>

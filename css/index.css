@@ -16,3 +16,5 @@
 @import url('./component/search.css');
 @import url('./component/textarea.css');
 @import url('./component/checkbox.css');
+@import url('./component/radio.css');
+@import url('./component/datepicker.css');
