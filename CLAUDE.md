@@ -614,7 +614,26 @@ JS: `initPicker('datepicker-id')` / `initPicker('id', { mode: 'range' })`
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>페이지 제목</title>
+  <title>페이지 제목 | 솔브케이</title>
+ 
+  <!-- 기본 메타 -->
+  <meta name="description" content="페이지 설명">
+  <meta name="keywords" content="ui, ux, publishing, solvek">
+  <meta name="author" content="Solvek">
+ 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="페이지 제목 | 솔브케이">
+  <meta property="og:description" content="페이지 설명">
+  <!-- <meta property="og:image" content="https://example.com/image.jpg"> -->
+  <!-- <meta property="og:url" content="https://example.com/page"> -->
+ 
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="페이지 제목 | 솔브케이">
+  <meta name="twitter:description" content="페이지 설명">
+  <!-- <meta name="twitter:image" content="https://example.com/image.jpg"> -->
+ 
   <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
