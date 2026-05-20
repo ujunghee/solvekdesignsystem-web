@@ -1,0 +1,211 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkbox</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+  </head>
+  <body>
+    <!-- checkbox-basic -->
+
+     <p class="pt-10 body2-b-16 color-slate-900">checkbox-basic-sm</p>
+     <p class="body2-r-16 color-slate-900 pb-10">기본형 체크박스 (소)</p>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-sm" id="checkbox-basic">
+      <label for="checkbox-basic" class="body3-r-14 color-slate-700">옵션 1</label>
+     </div>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-sm" id="checkbox-basic-2" disabled>
+      <label for="checkbox-basic-2" class="body3-r-14 color-slate-700">옵션 2</label>
+     </div>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-sm" id="checkbox-basic-3" disabled checked>
+      <label for="checkbox-basic-3" class="body3-r-14 color-slate-700">옵션 3</label>
+     </div>
+
+     <p class="pt-10 body2-b-16 color-slate-900">checkbox-basic-md</p>
+     <p class="body2-r-16 color-slate-900 pb-10">기본형 체크박스 (중)</p>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkbox-basic">
+      <label for="checkbox-basic" class="body2-r-16 color-slate-700">옵션 1</label>
+     </div>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkbox-basic-2" disabled>
+      <label for="checkbox-basic-2" class="body2-r-16 color-slate-700">옵션 2</label>
+     </div>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkbox-basic-3" disabled checked>
+      <label for="checkbox-basic-3" class="body2-r-16 color-slate-700">옵션 3</label>
+     </div>
+
+     <p class="pt-10 body2-b-16 color-slate-900">checkbox-basic-md</p>
+     <p class="body2-r-16 color-slate-900 pb-10">기본형 체크박스 (대)</p>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-lg" id="checkbox-basic">
+      <label for="checkbox-basic" class="body1-r-18 color-slate-700">옵션 1</label>
+     </div>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-lg" id="checkbox-basic-2" disabled>
+      <label for="checkbox-basic-2" class="body1-r-18 color-slate-700">옵션 2</label>
+     </div>
+     <div class="flex align-center gap-8">
+      <input type="checkbox" class="checkbox-basic checkbox-basic-lg" id="checkbox-basic-3" disabled checked>
+      <label for="checkbox-basic-3" class="body1-r-18 color-slate-700">옵션 3</label>
+     </div>
+
+     <!-- checkbox-chip -->
+     <p class="pt-10 body2-b-16 color-slate-900">checkbox-chip</p>
+     <p class="body2-r-16 color-slate-900 pb-10">칩형 체크박스</p>
+
+     <label class="checkbox-chip-label body2-r-16">
+       <input type="checkbox" class="checkbox-chip">
+       <span class="body2-m-16">옵션 1</span>
+     </label>
+     <label class="checkbox-chip-label body2-r-16">
+       <input type="checkbox" class="checkbox-chip" disabled>
+       <span class="body2-m-16">옵션 2</span>
+     </label>
+     <label class="checkbox-chip-label body2-r-16">
+       <input type="checkbox" class="checkbox-chip" checked>
+       <span class="body2-m-16">옵션 3</span>
+     </label>
+
+
+     <!-- checkbox-list -->
+     <p class="pt-10 body2-b-16 color-slate-900">checkbox-list</p>
+     <p class="body2-r-16 color-slate-900 pb-10">리스트형 체크박스</p>
+
+     <label class="checkbox-list-label body2-r-16">
+      <input type="checkbox" class="checkbox-list">
+      <span class="body2-m-16">옵션 1</span>
+    </label>
+
+    <label class="checkbox-list-label body2-r-16" >
+      <input type="checkbox" class="checkbox-list" disabled>
+      <span class="body2-m-16">옵션 1</span>
+    </label>
+
+    <label class="checkbox-list-label body2-r-16" >
+      <input type="checkbox" class="checkbox-list" checked>
+      <span class="body2-m-16">옵션 1</span>
+    </label>
+
+
+    <!-- 전체 체크 박스를 사용할 경우 -->
+    <p class="pt-20 body2-b-16 color-slate-900 m-0">전체 미선택</p>
+
+    <div class="flex gap-24 align-start">
+      <div class="flex flex-1 flex-col w-full overflow-hidden">
+        <div class="flex align-center gap-8">
+          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-master">
+          <label for="checkall-master" class="body2-r-16 color-slate-700">전체 선택</label>
+        </div>
+        <div class="w-full border-b border-slate-200 my-12" role="presentation" aria-hidden="true"></div>
+        <div class="grid-column-default gap-x-16 gap-y-10">
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-item-1">
+            <label for="checkall-item-1" class="body2-r-16 color-slate-700">항목 1</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-item-2">
+            <label for="checkall-item-2" class="body2-r-16 color-slate-700">항목 2</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-item-3">
+            <label for="checkall-item-3" class="body2-r-16 color-slate-700">항목 3</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-item-4">
+            <label for="checkall-item-4" class="body2-r-16 color-slate-700">항목 4</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-item-5">
+            <label for="checkall-item-5" class="body2-r-16 color-slate-700">항목 5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 전체 체크 — 모두 선택 예시 -->
+    <p class="pt-20 body2-b-16 color-slate-900 m-0">전체 선택</p>
+    
+    <div class="flex gap-24 align-start">
+      <div class="flex flex-1 flex-col w-full overflow-hidden">
+        <div class="flex align-center gap-8">
+          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-master" checked>
+          <label for="checkall-all-master" class="body2-r-16 color-slate-700">전체 선택</label>
+        </div>
+        <div class="w-full border-b border-slate-200 my-12" role="presentation" aria-hidden="true"></div>
+        <div class="grid-column-default gap-x-16 gap-y-10">
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-item-1" checked>
+            <label for="checkall-all-item-1" class="body2-r-16 color-slate-700">항목 1</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-item-2" checked>
+            <label for="checkall-all-item-2" class="body2-r-16 color-slate-700">항목 2</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-item-3" checked>
+            <label for="checkall-all-item-3" class="body2-r-16 color-slate-700">항목 3</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-item-4" checked>
+            <label for="checkall-all-item-4" class="body2-r-16 color-slate-700">항목 4</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-item-5" checked>
+            <label for="checkall-all-item-5" class="body2-r-16 color-slate-700">항목 5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 전체 체크 — 일부 선택(indeterminate) 예시 -->
+    <p class="pt-20 body2-b-16 color-slate-900 m-0">Indeterminate</p>
+
+    <div class="flex gap-24 align-start">
+      <div class="flex flex-1 flex-col w-full overflow-hidden">
+        <div class="flex align-center gap-8">
+          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-master">
+          <label for="checkall-ind-master" class="body2-r-16 color-slate-700">전체 선택</label>
+        </div>
+        <div class="w-full border-b border-slate-200 my-12" role="presentation" aria-hidden="true"></div>
+        <div class="grid-column-default gap-x-16 gap-y-10">
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-item-1" checked>
+            <label for="checkall-ind-item-1" class="body2-r-16 color-slate-700">항목 1</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-item-2">
+            <label for="checkall-ind-item-2" class="body2-r-16 color-slate-700">항목 2</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-item-3" checked>
+            <label for="checkall-ind-item-3" class="body2-r-16 color-slate-700">항목 3</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-item-4">
+            <label for="checkall-ind-item-4" class="body2-r-16 color-slate-700">항목 4</label>
+          </div>
+          <div class="grid-column-4 flex align-center gap-8">
+            <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-item-5">
+            <label for="checkall-ind-item-5" class="body2-r-16 color-slate-700">항목 5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var master = document.getElementById('checkall-ind-master')
+        if (master) {
+          master.indeterminate = true
+        }
+      })()
+    </script>
+
+  </body>
+  </html>

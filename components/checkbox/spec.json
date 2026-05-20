@@ -1,0 +1,67 @@
+{
+  "component": "checkbox",
+  "description": "체크박스 컴포넌트. 기본형/칩형/리스트형 3가지 variant 제공",
+  "variants": {
+    "basic": {
+      "description": "기본형 체크박스. input + label 분리 구조",
+      "sizes": {
+        "sm": { "input_class": "checkbox-basic checkbox-basic-sm", "label_font": "body3-r-14 color-slate-700" },
+        "md": { "input_class": "checkbox-basic checkbox-basic-md", "label_font": "body2-r-16 color-slate-700" },
+        "lg": { "input_class": "checkbox-basic checkbox-basic-lg", "label_font": "body1-r-18 color-slate-700" }
+      },
+      "when_to_use": "목록, 폼, 필터 등 일반적인 다중 선택"
+    },
+    "chip": {
+      "description": "칩형 체크박스. label이 input을 감싸는 구조",
+      "input_class": "checkbox-chip",
+      "label_class": "checkbox-chip-label body2-r-16",
+      "span_class": "body2-m-16",
+      "when_to_use": "태그 선택, 카테고리 필터 등 시각적으로 강조된 다중 선택"
+    },
+    "list": {
+      "description": "리스트형 체크박스. label이 input을 감싸는 구조",
+      "input_class": "checkbox-list",
+      "label_class": "checkbox-list-label body2-r-16",
+      "span_class": "body2-m-16",
+      "when_to_use": "목록 항목 전체를 클릭 영역으로 쓸 때"
+    }
+  },
+  "states": {
+    "default": "기본",
+    "checked": "checked 속성 추가",
+    "disabled": "disabled 속성 추가",
+    "disabled_checked": "disabled + checked 속성 모두 추가",
+    "indeterminate": "JS로 master.indeterminate = true 설정 (일부 선택 상태)"
+  },
+  "checkall_pattern": {
+    "description": "전체선택 + 개별항목 체크박스 조합",
+    "states": {
+      "none": "master unchecked, 모든 item unchecked",
+      "all": "master checked, 모든 item checked",
+      "indeterminate": "master indeterminate, 일부 item checked"
+    },
+    "notes": [
+      "master checkbox id와 label for 반드시 일치",
+      "각 item checkbox id와 label for 반드시 고유하게 일치",
+      "master와 item 사이 구분선: div.w-full.border-b.border-slate-200.my-12 (role=presentation, aria-hidden=true)",
+      "indeterminate 상태는 JS로만 설정 가능 (HTML 속성으로 불가)",
+      "item 그리드 배치: grid-column-default + gap-x-16 gap-y-10, 각 item은 grid-column-4"
+    ]
+  },
+  "structure": {
+    "basic": "<div class=\"flex align-center gap-8\">\n  <input type=\"checkbox\" class=\"checkbox-basic checkbox-basic-{size}\" id=\"{id}\">\n  <label for=\"{id}\" class=\"{font}\">옵션</label>\n</div>",
+    "chip": "<label class=\"checkbox-chip-label body2-r-16\">\n  <input type=\"checkbox\" class=\"checkbox-chip\">\n  <span class=\"body2-m-16\">옵션</span>\n</label>",
+    "list": "<label class=\"checkbox-list-label body2-r-16\">\n  <input type=\"checkbox\" class=\"checkbox-list\">\n  <span class=\"body2-m-16\">옵션</span>\n</label>"
+  },
+  "rules": [
+    "basic형은 input과 label 반드시 id/for로 연결",
+    "chip/list형은 label이 input을 감싸는 구조 사용",
+    "전체선택 패턴 사용 시 master와 item id 모두 고유하게 부여",
+    "indeterminate 상태는 반드시 JS로 설정"
+  ],
+  "do_not": [
+    "basic형에서 label이 input을 감싸는 구조 사용",
+    "chip/list형에서 id/for 분리 구조 사용",
+    "indeterminate를 HTML 속성으로 설정 시도"
+  ]
+}

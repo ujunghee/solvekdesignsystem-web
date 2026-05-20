@@ -285,51 +285,6 @@ input[type=range] {
 /* Custom Radio e */
 
 
-/* Custom Checkbox s */
-.checkbox-input {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 2.2rem;
-  height: 2.2rem;
-  margin: 0;
-  border: 0.1rem solid var(--gray-500);
-  border-radius: var(--radius-sm-4);
-  background: var(--white);
-  cursor: pointer;
-  transition: border-color 0.2s, background-color 0.2s;
-  position: relative;
-  vertical-align: middle;
-  outline: none;
-  display: inline-block;
-}
-
-.checkbox-input:checked {
-  background-color: var(--blue-500);
-  border-color: var(--blue-500);
-}
-
-.checkbox-input:checked::after {
-  content: '';
-  position: absolute;
-  left: 48%;
-  top: 42%;
-  width: 1.2rem;
-  height: 0.6rem;
-  border-left: 0.22rem solid #fff;
-  border-bottom: 0.22rem solid #fff;
-  border-radius: 0.15rem;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  box-sizing: border-box;
-}
-
-.checkbox-input:disabled {
-  background: var(--gray-100);
-  border-color: var(--gray-200);
-  cursor: not-allowed;
-}
-/* Custom Checkbox e */
-
-
 /* toast message s */
 .toast {
   opacity: 0;
