@@ -2,6 +2,7 @@
 
 이 문서는 AI가 SolveK Design System 기준으로 페이지를 생성할 때 반드시 따라야 하는 규칙입니다.
 각 컴포넌트의 상세 명세는 `components/{name}/spec.json`, 개발자용 마크업 예시는 `components/{name}/README.md`를 참조하세요.
+**스타일·상태·간격·타이포는 `css/index.css`가 불러오는 토큰·`default/`·`css/component/{name}.css`에 정의된 것만 사용**한다. HTML에는 인라인 `style`을 넣지 않으며, 내부 인라인 요소(`span`, `i` 등)에도 스타일을 우회해 붙이지 않는다.
 
 ---
 
@@ -153,6 +154,12 @@ CSS 변수: `var(--spacing-16)` 등
 
 ## 4. 레이아웃 유틸
 
+### 레이아웃 클래스 출처 (`css/default/layout.css`)
+
+- **그리드·플렉스·포지션·너비·높이·z-index·`inner-default`·반응형 보조 등**(이 문서 **4-1 ~ 4-5**)은 **`css/default/layout.css`**에 선언된 선택자와, 해당 소절에 나온 **이름·조합**만 사용한다. **`m-*` / `p-*` / `gap-*` 등 간격 유틸**은 **3. 디자인 토큰**(간격) 표와 시스템에 정의된 값만 사용한다.
+- **무작위·추측 금지.** 위 문서·`layout.css`·토큰 표에 근거 없는 클래스명을 HTML에만 덧붙이지 않는다. **4-6 ~ 4-8** 유틸도 **표에 있는 이름**과 **`css/default/`** 안 실제 정의를 확인해 사용한다.
+- **신규 클래스는 예외일 때만**: 기존 클래스 조합으로도 표현할 수 없을 때에만, **`layout.css`**(간격·타이포 등이면 해당 **`css/default/`** 파일)에 **동일 이름으로 스타일을 정의**하고 필요 시 이 문서를 보강하는 흐름을 전제로 **제안**한다. **스타일 정의 없이 임의 `class`만 추가하는 것은 금지**한다.
+
 ### 4-1. 그리드
 
 12컬럼 그리드 시스템:
@@ -302,6 +309,14 @@ CSS 변수: `var(--spacing-16)` 등
 ---
 
 ## 6. 컴포넌트
+
+### 마크업·스타일 단일 출처 (spec / README / CSS)
+
+- 컴포넌트를 만들거나 수정할 때는 해당 폴더의 **`spec.json`**, **`README.md`**, **`css/component/{이름}.css`**를 한 세트로 보고, 이 문서 **3. 디자인 토큰**·**4. 레이아웃 유틸**·해당 CSS가 의존하는 **`default/`** 규칙을 함께 따른다.
+- **`spec.json`**: variant, 허용 클래스, 필수 속성·접근성 규칙을 준수한다. 임의로 클래스명·DOM 구조를 바꾸지 않는다.
+- **`README.md`**: 마크업 예시·주석·금지 사항을 그대로 맞춘다.
+- **`css/component/*.css`**: 시각·상태(`:hover`, `:focus-visible`, `.active`, `disabled` 등)는 HTML이 아니라 CSS에만 둔다. **해당 컴포넌트 마크업에 쓸 클래스명은 이 파일의 선택자·조합과 같은 이름의 `spec.json`·`README.md` 예시를 근거로만 정한다** — 파일을 읽지 않고 추측으로 클래스명을 만들지 않는다.
+- **인라인 `style` 금지.** 내부 인라인 요소(`span`, `i`, `em` 등)에도 `style=""`이나 spec·README·`css/component`에 없는 임의 클래스로 스타일을 넣지 않는다. 필요한 것은 부모·컴포넌트 루트에 정의된 **유틸 클래스** 또는 **컴포넌트 전용 클래스**로만 표현한다.
 
 ### 상태 관리 공통 규칙
 
@@ -592,8 +607,8 @@ JS: `initPicker('datepicker-id')` / `initPicker('id', { mode: 'range' })`
 ## 7. 절대 금지 사항
 
 1. **색상 하드코딩** — #fff, rgb(), hsl() 등 사용 금지. 반드시 CSS 변수 또는 유틸 클래스
-2. **정의되지 않은 임의 클래스 생성** — 이 문서와 spec.json에 정의된 클래스만 사용
-3. **인라인 스타일로 상태 제어** — display, color, border 등 인라인 금지
+2. **정의되지 않은 임의 클래스 생성** — **토큰·색·타이포·간격(`mb-*` 등)**은 이 문서 **3. 디자인 토큰**에 나온 것만. **그리드·flex·position·너비·높이·z-index·`inner-default` 등**(4-1~4-5)은 **`css/default/layout.css`**와 이 문서 **4**절에 근거한 클래스만(무작위 이름 금지, 예외 절차는 **4절 상단**·**항목 14**). **컴포넌트**는 사용하는 이름마다 `components/{name}/spec.json`, `css/component/{name}.css`, `components/{name}/README.md`를 근거로 한 클래스만(세 곳 어디에도 없는 이름을 새로 만들지 않는다)
+3. **인라인 스타일** — `style` 속성 금지(루트·내부 인라인 요소 모두). display, color, border 등을 HTML에 직접 쓰지 않는다
 4. **wrapper 없이 폼 컴포넌트 단독 사용** — input, textarea는 반드시 wrapper로 감싸야 함
 5. **is-error를 field에 직접 추가** — 반드시 wrapper에만 추가
 6. **hover/focus 상태를 클래스로 추가** — CSS 내부 처리됨
@@ -603,6 +618,8 @@ JS: `initPicker('datepicker-id')` / `initPicker('id', { mode: 'range' })`
 10. **basic형 checkbox/radio에서 label 감싸기 구조 사용** — 반드시 id/for 분리
 11. **chip/list/segment/toggle형에서 id/for 분리 구조 사용** — 반드시 label 감싸기
 12. **radio에서 name 속성 누락** — 같은 그룹은 반드시 동일 name
+13. **내부 인라인 요소에 스타일 우회** — `span`/`i` 등에 `style`이나 spec·README·`css/component`에 없는 임의 클래스를 붙여 보이게 하지 말 것. 반드시 spec·README·컴포넌트 CSS에 맞는 클래스만 사용
+14. **레이아웃·유틸 클래스 무작위 추가** — **4-1~4-5·`layout.css`** 범위의 이름을 추측해 붙이지 않는다. **3절 간격**도 허용된 토큰 숫자만. 기존 조합으로 불가능할 때만 **4절 상단** 절차대로 해당 **`css/default/`** 파일·문서 반영을 전제로 신규를 제안한다
 
 ---
 
