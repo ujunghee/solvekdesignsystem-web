@@ -10,7 +10,7 @@
 <body>
   <!-- select-48 -->
   <div class="select-wrapper">
-    <label class="body2-r-16 color-slate-900 mb-6 block" for="select-48">레이블 (48)</label>
+    <label class="body2-m-16 color-slate-900 mb-6 block" for="select-48">레이블 (48)</label>
     <select id="select-48" class="select-48 flex align-center" name="select-48" aria-label="선택">
       <option value="" disabled selected hidden>선택하세요</option>
       <option value="1">옵션 1</option>
@@ -21,7 +21,7 @@
 
   <!-- select-40 -->
   <div class="select-wrapper">
-    <label class="body2-r-16 color-slate-900 mb-6 block" for="select-40">레이블 (40)</label>
+    <label class="body2-m-16 color-slate-900 mb-6 block" for="select-40">레이블 (40)</label>
     <select id="select-40" class="select-40 flex align-center" name="select-40" aria-label="선택">
       <option value="" disabled selected hidden>선택하세요</option>
       <option value="1">옵션 1</option>
@@ -32,7 +32,7 @@
 
   <!-- select-36 -->
   <div class="select-wrapper">
-    <label class="body2-r-16 color-slate-900 mb-6 block" for="select-36">레이블 (36)</label>
+    <label class="body2-m-16 color-slate-900 mb-6 block" for="select-36">레이블 (36)</label>
     <select id="select-36" class="select-36 flex align-center" name="select-36" aria-label="선택">
       <option value="" disabled selected hidden>선택하세요</option>
       <option value="1">옵션 1</option>
@@ -43,7 +43,7 @@
 
   <!-- 에러: wrapper에만 is-error — select-40 예시 -->
   <div class="select-wrapper is-error">
-    <label class="body2-r-16 color-slate-900 mb-6 block" for="select-error">레이블 (에러)</label>
+    <label class="body2-m-16 color-slate-900 mb-6 block" for="select-error">레이블 (에러)</label>
     <select id="select-error" class="select-40 flex align-center" name="select-error" aria-invalid="true" aria-label="선택">
       <option value="" disabled selected hidden>선택하세요</option>
       <option value="1">옵션 1</option>
@@ -51,6 +51,16 @@
       <option value="3">옵션 3</option>
     </select>
     <p class="error-message">에러 메시지</p>
+  </div>
+
+  <!-- disabled -->
+  <div class="select-wrapper">
+    <label class="body2-m-16 color-slate-900 mb-6 block" for="select-disabled">레이블 (disabled)</label>
+    <select id="select-disabled" class="select-40 flex align-center" name="select-disabled" aria-label="선택" disabled>
+      <option value="" disabled selected hidden>선택하세요</option>
+      <option value="1">옵션 1</option>
+      <option value="2">옵션 2</option>
+    </select>
   </div>
 </body>
 </html>
