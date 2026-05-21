@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국유재산 정보시스템</title>
+
+  <meta name="description" content="국유재산 통합현황 지도서비스">
+  <meta name="author" content="기획재정부">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/index.css">
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <style>
+    /*
+     * ── 페이지 구조 전용 ──────────────────────────────────────────────
+     * 디자인 시스템 유틸로 표현 불가능한 viewport 레이아웃만 여기에 선언.
+     * (100vh 기반 calc, flex-shrink 고정 너비, leaflet 오버라이드)
+     * ────────────────────────────────────────────────────────────────
+     */
+    html, body          { height: 100%; overflow: hidden; }
+    .layout-root        { display: flex; flex-direction: column; height: 100vh; }
+    .layout-body        { display: flex; flex: 1; overflow: hidden; }
+    .left-panel         { width: 28rem; flex-shrink: 0; display: flex; flex-direction: column; overflow: hidden; }
+    .panel-scroll       { flex: 1; overflow-y: auto; }
+    .map-wrap           { flex: 1; position: relative; }
+    #map                { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+    /* 지도 위 오버레이 공통 */
+    .map-overlay        { position: absolute; z-index: 1000; }
+
+    /* Leaflet 줌 컨트롤 재배치 */
+    .leaflet-top.leaflet-right { top: 5.6rem; }
+    .leaflet-control-zoom a    { width: 3.2rem !important; height: 3.2rem !important; line-height: 3.2rem !important; font-size: 1.8rem !important; }
+
+    /* 맵타입 버튼 — 이미지 썸네일 영역 */
+    .map-type-thumb { width: 6.4rem; height: 5.2rem; object-fit: cover; display: block; }
+    .map-type-item  { display: flex; flex-direction: column; align-items: center; gap: 0; cursor: pointer; border: 2px solid transparent; }
+    .map-type-item.is-active { border-color: var(--blue-500); }
+
+    /* 필터 버튼 활성 오버라이드 (dropdown 컴포넌트 미구현으로 border-slate-button에 임시 적용) */
+    .filter-btn-active {
+      background-color: var(--navy-800) !important;
+      color: var(--white) !important;
+      border-color: var(--navy-800) !important;
+    }
+
+    /* 테이블 (Table 컴포넌트 미구현 — 구조만 구현) */
+    table { width: 100%; border-collapse: collapse; }
+    th, td { vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+<div class="layout-root">
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header class="flex justify-between align-center px-20 py-12 bg-white border-b border-slate-200 z-index-10">
+
+    <!-- 로고 -->
+    <div class="flex align-center gap-8 flex-none">
+      <!-- 정부 마크 자리 (이미지 없는 환경용 텍스트 대체) -->
+      <div class="flex align-center justify-center bg-blue-700 px-8 py-4">
+        <span class="body5-sb-12 color-white">GOV</span>
+      </div>
+      <span class="heading10-sb-20 color-navy-900">국유재산</span>
+      <span class="heading10-r-20 color-slate-600">정보시스템</span>
+    </div>
+
+    <!-- 주소 검색 (후행형 Search 컴포넌트) -->
+    <div class="flex-1 px-40">
+      <div class="search-54 flex pl-20 pr-16 justify-between">
+        <input
+          type="text"
+          class="body1-r-18 w-full"
+          placeholder="주소를 검색해주세요"
+          aria-label="주소 검색어 입력"
+        >
+        <button type="button" class="search-button">
+          <i class="search-icon-54"><span class="blind">검색</span></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 사용자 정보 -->
+    <div class="flex align-center gap-16 flex-none">
+      <div class="flex align-center gap-8">
+        <span class="body3-sb-14 color-slate-800">슈퍼관리자</span>
+        <span class="body3-r-14 color-slate-500">water@company.co.kr</span>
+      </div>
+      <div class="flex align-center gap-8">
+        <button type="button" class="flex align-center gap-4 transparent-button-28 color-slate-500">
+          로그아웃
+        </button>
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       FILTER BAR
+  ═══════════════════════════════════════════ -->
+  <div
+    class="flex align-center gap-8 px-16 py-8 bg-white border-b border-slate-200 z-index-10 overflow-auto"
+    role="toolbar"
+    aria-label="지도 필터"
+  >
+    <button type="button" class="border-slate-button-36 flex align-center gap-4 flex-none">
+      국유재산
+      <i class="arrow-icon"><span class="blind">펼치기</span></i>
+    </button>
+    <button type="button" class="border-slate-button-36 flex align-center gap-4 flex-none">
+      자산유형
+      <i class="arrow-icon"><span class="blind">펼치기</span></i>
+    </button>
+    <button type="button" class="border-slate-button-36 flex align-center gap-4 flex-none">
+      면적
+      <i class="arrow-icon"><span class="blind">펼치기</span></i>
+    </button>
+    <button type="button" class="border-slate-button-36 flex align-center gap-4 flex-none">
+      노후도
+      <i class="arrow-icon"><span class="blind">펼치기</span></i>
+    </button>
+    <button type="button" class="border-slate-button-36 flex align-center gap-4 flex-none">
+      안전등급
+      <i class="arrow-icon"><span class="blind">펼치기</span></i>
+    </button>
+    <!-- 활성 필터 (dropdown 컴포넌트 미구현으로 class 직접 오버라이드) -->
+    <button type="button" class="border-slate-button-36 flex align-center gap-4 flex-none filter-btn-active">
+      점검상태
+      <i class="arrow-icon"><span class="blind">펼치기</span></i>
+    </button>
+    <button type="button" class="border-slate-button-36 flex align-center gap-4 flex-none">
+      위험도
+      <i class="arrow-icon"><span class="blind">펼치기</span></i>
+    </button>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       BODY (LEFT PANEL + MAP)
+  ═══════════════════════════════════════════ -->
+  <div class="layout-body">
+
+    <!-- ─────────────────────────────────────────
+         LEFT DETAIL PANEL
+    ───────────────────────────────────────── -->
+    <aside class="left-panel bg-white border-r border-slate-200" aria-label="자산 상세 정보">
+
+      <!-- 패널 헤더 -->
+      <div class="px-20 pt-20 pb-16 border-b border-slate-200 flex-none">
+        <div class="flex justify-between align-center mb-6">
+          <div class="flex align-center gap-8">
+            <h2 class="heading10-b-20 color-slate-900">경찰청</h2>
+            <!-- Badge 컴포넌트 미구현 — border + color 유틸 조합 -->
+            <span class="body5-sb-12 color-orange-600 border border-orange-500 px-6 py-2">노후도 중</span>
+          </div>
+          <button type="button" class="close-icon flex-none">
+            <span class="blind">패널 닫기</span>
+          </button>
+        </div>
+        <p class="body4-r-13 color-slate-500">경기도 양주시 장흥면 일영리 산21-57</p>
+      </div>
+
+      <!-- 스크롤 영역 -->
+      <div class="panel-scroll">
+
+        <!-- 기본 정보 -->
+        <ul class="px-20 py-4">
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">점검상태</span>
+            <!-- Status Indicator 컴포넌트 미구현 — 문자+color 유틸 조합 -->
+            <span class="body3-sb-14 color-orange-500 flex align-center gap-4">
+              ● 점검필요
+            </span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">대장면적</span>
+            <span class="body3-r-14 color-slate-900">1,248.32m²</span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">건축면적</span>
+            <span class="body3-r-14 color-slate-900">326.10m²</span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">준공연도</span>
+            <span class="body3-r-14 color-slate-900">1998년</span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">경과연수</span>
+            <span class="body3-r-14 color-slate-900">28년</span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">건폐율</span>
+            <span class="body3-r-14 color-slate-900">26.1%</span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">사용상태</span>
+            <span class="body3-r-14 color-slate-900">사용 중</span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">안전등급</span>
+            <span class="body3-sb-14 color-blue-600">B</span>
+          </li>
+          <li class="flex justify-between align-center py-10 border-b border-slate-100">
+            <span class="body3-r-14 color-slate-500">최근 점검일</span>
+            <time class="body3-r-14 color-slate-900" datetime="2026-02-14">2026.02.14</time>
+          </li>
+          <li class="flex justify-between align-center py-10">
+            <span class="body3-r-14 color-slate-500">최근 보수일</span>
+            <time class="body3-r-14 color-slate-900" datetime="2024-10-03">2024.10.03</time>
+          </li>
+        </ul>
+
+        <!-- 자산 상태 (Table 컴포넌트 미구현) -->
+        <div class="px-20 pt-20 pb-16 border-t border-slate-100">
+          <h3 class="body2-sb-16 color-slate-900 mb-12">자산 상태</h3>
+          <table aria-label="자산 상태 목록">
+            <thead>
+              <tr class="bg-slate-50">
+                <th class="py-8 pl-12 pr-8 body4-sb-13 color-slate-600 text-left border-b border-slate-200">자산명</th>
+                <th class="py-8 px-8 body4-sb-13 color-slate-600 text-left border-b border-slate-200">위험요소</th>
+                <th class="py-8 pl-8 pr-12 body4-sb-13 color-slate-600 text-left border-b border-slate-200">상태</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100 hover-slate-50">
+                <td class="py-10 pl-12 pr-8 body4-r-13 color-slate-800">강남경찰서 본관</td>
+                <td class="py-10 px-8 body4-r-13 color-slate-400">-</td>
+                <td class="py-10 pl-8 pr-12 body4-r-13 color-slate-700">정상</td>
+              </tr>
+              <tr class="border-b border-slate-100 hover-slate-50">
+                <td class="py-10 pl-12 pr-8 body4-r-13 color-slate-800">역삼동 부지</td>
+                <td class="py-10 px-8 body4-r-13 color-slate-400">-</td>
+                <td class="py-10 pl-8 pr-12 body4-r-13 color-slate-700">정상</td>
+              </tr>
+              <tr class="hover-slate-50">
+                <td class="py-10 pl-12 pr-8 body4-r-13 color-slate-800">제 3주차장</td>
+                <td class="py-10 px-8 body4-r-13 color-orange-500">무단점유 의심</td>
+                <td class="py-10 pl-8 pr-12 body4-sb-13 color-orange-500">점검필요</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 사업 관리 (Table 컴포넌트 미구현) -->
+        <div class="px-20 pt-4 pb-16 border-t border-slate-100">
+          <h3 class="body2-sb-16 color-slate-900 mb-12">사업 관리</h3>
+          <table aria-label="사업 관리 목록">
+            <thead>
+              <tr class="bg-slate-50">
+                <th class="py-8 pl-12 pr-8 body4-sb-13 color-slate-600 text-left border-b border-slate-200">자산명</th>
+                <th class="py-8 px-8 body4-sb-13 color-slate-600 text-left border-b border-slate-200">공정률</th>
+                <th class="py-8 pl-8 pr-12 body4-sb-13 color-slate-600 text-left border-b border-slate-200">상태</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100 hover-slate-50">
+                <td class="py-10 pl-12 pr-8 body4-r-13 color-slate-800">청사 외벽 보수 사업</td>
+                <td class="py-10 px-8 body4-r-13 color-slate-700">100%</td>
+                <td class="py-10 pl-8 pr-12 body4-r-13 color-blue-500">완료</td>
+              </tr>
+              <tr class="hover-slate-50">
+                <td class="py-10 pl-12 pr-8 body4-r-13 color-slate-800">별관 전기설비 개선</td>
+                <td class="py-10 px-8 body4-r-13 color-slate-700">100%</td>
+                <td class="py-10 pl-8 pr-12 body4-r-13 color-blue-500">완료</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /panel-scroll -->
+
+      <!-- 상세 보기 버튼 (패널 하단 고정) -->
+      <div class="px-16 py-16 border-t border-slate-200 flex-none">
+        <button type="button" class="blue-button-48 w-full">상세 보기</button>
+      </div>
+
+    </aside><!-- /left-panel -->
+
+
+    <!-- ─────────────────────────────────────────
+         MAP AREA
+    ───────────────────────────────────────── -->
+    <div class="map-wrap">
+
+      <!-- Leaflet 지도 -->
+      <div id="map" aria-label="국유재산 위치 지도"></div>
+
+      <!-- 브레드크럼 (Breadcrumb 컴포넌트 미구현) — 우상단 오버레이 -->
+      <nav
+        class="map-overlay flex align-center gap-8 bg-white px-12 py-8 border border-slate-200"
+        style="top:1.2rem; right:5.2rem;"
+        aria-label="지역 탐색"
+      >
+        <a href="#" class="body3-r-14 color-slate-600">서울시</a>
+        <span class="body3-r-14 color-slate-300" aria-hidden="true">›</span>
+        <a href="#" class="body3-r-14 color-slate-600">종로구</a>
+        <span class="body3-r-14 color-slate-300" aria-hidden="true">›</span>
+        <span class="body3-r-14 color-slate-900">읍·면·동</span>
+      </nav>
+
+      <!-- 우측 도구 버튼 (맵 우하단 줌 위) -->
+      <div
+        class="map-overlay flex flex-col gap-4"
+        style="top: 1.2rem; right: 1.2rem;"
+        role="toolbar"
+        aria-label="지도 도구"
+      >
+        <button type="button" class="border-slate-button-36 flex flex-col align-center gap-2">
+          <span class="body5-r-12 color-slate-700">거리</span>
+        </button>
+        <button type="button" class="border-slate-button-36 flex flex-col align-center gap-2">
+          <span class="body5-r-12 color-slate-700">면적</span>
+        </button>
+        <button type="button" class="border-slate-button-36 flex flex-col align-center gap-2">
+          <span class="body5-r-12 color-slate-700">인쇄</span>
+        </button>
+        <button type="button" class="border-slate-button-36 flex flex-col align-center gap-2">
+          <span class="body5-r-12 color-slate-700">범례</span>
+        </button>
+      </div>
+
+      <!-- 지도 타입 선택 (하단 — radio segment 대체) -->
+      <div
+        class="map-overlay flex align-center bottom-0 left-0"
+        role="radiogroup"
+        aria-label="지도 유형 선택"
+      >
+        <label class="map-type-item is-active cursor-pointer" id="type-default">
+          <input type="radio" name="map-type" value="default" class="blind" checked>
+          <div class="map-type-thumb bg-blue-50 flex flex-center">
+            <span class="body5-sb-12 color-blue-600">기본</span>
+          </div>
+          <span class="body5-sb-12 color-slate-800 py-4 px-8 bg-white w-full text-center">기본지도</span>
+        </label>
+        <label class="map-type-item cursor-pointer" id="type-satellite">
+          <input type="radio" name="map-type" value="satellite" class="blind">
+          <div class="map-type-thumb bg-slate-900 flex flex-center">
+            <span class="body5-sb-12 color-white">위성</span>
+          </div>
+          <span class="body5-r-12 color-slate-700 py-4 px-8 bg-white w-full text-center">위성지도</span>
+        </label>
+        <label class="map-type-item cursor-pointer" id="type-white">
+          <input type="radio" name="map-type" value="white" class="blind">
+          <div class="map-type-thumb bg-white border border-slate-200 flex flex-center">
+            <span class="body5-sb-12 color-slate-400">백지</span>
+          </div>
+          <span class="body5-r-12 color-slate-700 py-4 px-8 bg-white w-full text-center">백지도</span>
+        </label>
+        <label class="map-type-item cursor-pointer" id="type-hybrid">
+          <input type="radio" name="map-type" value="hybrid" class="blind">
+          <div class="map-type-thumb bg-slate-700 flex flex-center">
+            <span class="body5-sb-12 color-slate-300">혼합</span>
+          </div>
+          <span class="body5-r-12 color-slate-700 py-4 px-8 bg-white w-full text-center">하이브리드</span>
+        </label>
+      </div>
+
+    </div><!-- /map-wrap -->
+
+  </div><!-- /layout-body -->
+</div><!-- /layout-root -->
+
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+
+  // ── 타일 레이어 정의 ──────────────────────────────────────────────
+  const TILES = {
+    default: L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+      { attribution: '© OpenStreetMap contributors, © CARTO', maxZoom: 19 }
+    ),
+    satellite: L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      { attribution: 'Tiles © Esri', maxZoom: 19 }
+    ),
+    white: L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+      { attribution: '© OpenStreetMap contributors, © CARTO', maxZoom: 19 }
+    ),
+    hybrid: L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      { attribution: '© OpenStreetMap contributors, © CARTO', maxZoom: 19 }
+    ),
+  };
+
+  // ── 지도 초기화 ────────────────────────────────────────────────────
+  // 서울특별시 서대문구 경찰청 일대 (이미지 기준)
+  const map = L.map('map', {
+    center: [37.5714, 126.9631],
+    zoom: 17,
+    zoomControl: false,
+    layers: [TILES.default]
+  });
+
+  // 줌 컨트롤 우하단 배치
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+  // ── 선택 영역 폴리곤 (파란 점선 윤곽) ────────────────────────────
+  L.polygon(
+    [
+      [37.5717, 126.9622],
+      [37.5722, 126.9624],
+      [37.5724, 126.9638],
+      [37.5718, 126.9644],
+      [37.5709, 126.9641],
+      [37.5707, 126.9628],
+      [37.5713, 126.9622],
+    ],
+    {
+      color: '#2563EB',
+      weight: 2,
+      dashArray: '6 4',
+      fillColor: 'transparent',
+      fillOpacity: 0,
+    }
+  ).addTo(map);
+
+  // ── 건물 마커 (DivIcon — 이미지의 집 모양 아이콘 대체) ───────────
+  function buildingIcon(color, label) {
+    return L.divIcon({
+      className: '',
+      html: `
+        <div style="
+          display:flex; flex-direction:column; align-items:center;
+          gap:4px; font-family:Pretendard, sans-serif;
+        ">
+          <svg width="36" height="40" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="18,0 36,16 36,40 0,40 0,16" fill="${color}" />
+            <rect x="13" y="24" width="10" height="16" fill="rgba(255,255,255,0.4)" />
+          </svg>
+          <span style="
+            background:white; padding:2px 6px; border-radius:2px;
+            font-size:11px; font-weight:600; color:#1e293b;
+            box-shadow:0 1px 3px rgba(0,0,0,.2); white-space:nowrap;
+          ">${label}</span>
+        </div>`,
+      iconSize: [80, 64],
+      iconAnchor: [40, 60],
+    });
+  }
+
+  // 경찰청 (진한 초록)
+  L.marker([37.5714, 126.9629], { icon: buildingIcon('#155e3b', '경찰청') })
+    .addTo(map)
+    .on('click', () => console.log('경찰청 클릭'));
+
+  // 경찰청국가수사본부 (중간 초록)
+  L.marker([37.5720, 126.9632], { icon: buildingIcon('#16a34a', '경찰청국가수사본부') })
+    .addTo(map);
+
+  // 제 2주차장 (연한 초록)
+  L.marker([37.5719, 126.9622], { icon: buildingIcon('#4ade80', '제 2주차장') })
+    .addTo(map);
+
+  // 제 3주차장 (노란색 — 점검필요)
+  L.marker([37.5710, 126.9638], { icon: buildingIcon('#ca8a04', '제 3주차장') })
+    .addTo(map);
+
+  // ── 지도 타입 전환 ────────────────────────────────────────────────
+  let currentTile = TILES.default;
+
+  document.querySelectorAll('input[name="map-type"]').forEach((radio) => {
+    radio.addEventListener('change', (e) => {
+      map.removeLayer(currentTile);
+      currentTile = TILES[e.target.value];
+      map.addLayer(currentTile);
+
+      // 활성 스타일 토글
+      document.querySelectorAll('.map-type-item').forEach((el) => el.classList.remove('is-active'));
+      e.target.closest('.map-type-item').classList.add('is-active');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

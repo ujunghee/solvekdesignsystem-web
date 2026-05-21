@@ -33,7 +33,7 @@
   <button type="button" class="search-button">
     <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
   </button>
-  <input type="text" class="body1-r-18" placeholder="검색어를 입력해주세요">
+  <input type="search" class="body1-r-18" placeholder="검색어를 입력해주세요">
 </div>
 ```
 
@@ -52,7 +52,7 @@
 
 ```html
 <div class="search-54 flex pl-20 pr-16 space-between">
-  <input type="text" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요">
+  <input type="search" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요">
   <button type="button" class="search-button">
     <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
   </button>
@@ -74,7 +74,7 @@ input + 버튼 조합으로 검색 실행을 강조합니다.
 
 ```html
 <div class="search-bar flex gap-8">
-  <input type="text" class="search-48 px-12" placeholder="검색어를 입력해주세요">
+  <input type="search" class="search-48 px-12" placeholder="검색어를 입력해주세요">
   <button type="button" class="slate-button-lg w-100">검색</button>
 </div>
 ```
@@ -93,7 +93,7 @@ input + 버튼 조합으로 검색 실행을 강조합니다.
 ```html
 <div class="search-wrapper">
   <div class="search-54 flex pl-20 pr-16 space-between">
-    <input type="text" class="body1-r-18 w-full search-input"
+    <input type="search" class="body1-r-18 w-full search-input"
       placeholder="검색어를 입력해주세요" id="search-example">
     <button type="button" class="search-button">
       <i class="search-icon-54"><span class="blind">검색 버튼</span></i>

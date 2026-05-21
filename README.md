@@ -30,7 +30,7 @@ index.css 구성:
 ```
 tokens/   → color, typography, spacing, radius
 default/  → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, textarea, search, checkbox, radio, datepicker
+component/ → button, input, textarea, search, checkbox, radio, datepicker, select
 ```
 
 ---
