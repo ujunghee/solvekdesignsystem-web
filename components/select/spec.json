@@ -9,9 +9,9 @@
   },
   "structure": {
     "wrapper": "select-wrapper",
-    "label": "body2-m-16 color-slate-900 mb-6 block (for 속성으로 select id 연결)",
+    "label": "body2-m-16 color-slate-900 mb-6 block (for 속성으로 select id 연결, 라벨 없을 경우 생략 가능 — aria-label로 대체)",
     "field": "select-{size} flex align-center",
-    "error_message": "error-message"
+    "error_message": "error-message (항상 DOM에 존재, CSS로 숨김/노출 제어)"
   },
   "states": {
     "default": "select-wrapper",
@@ -22,29 +22,38 @@
     "is-error는 반드시 wrapper에만 추가, select에 직접 추가 금지",
     "is-error 하나로 select 테두리, error-message 노출 전부 제어됨",
     "hover/focus/disabled는 CSS 내부 처리, 클래스 추가 금지",
-    "error-message는 항상 DOM에 존재, CSS로 숨김/노출 처리",
+    "error-message는 항상 DOM에 존재, CSS로 숨김/노출 처리 (인라인 스타일 금지)",
     "기본 placeholder는 option에 disabled selected hidden 조합으로 구현",
-    "label의 for와 select의 id 반드시 일치",
+    "label의 for와 select의 id 반드시 일치 (label 있을 경우)",
+    "label이 없을 경우 select에 aria-label로 대체",
     "에러 상태 시 select에 aria-invalid=true 추가",
-    "aria-label 반드시 포함"
+    "aria-label 반드시 포함",
+    "select에 반드시 flex align-center 추가 (layout.css 유틸, 텍스트 세로 정렬)",
+    "컨테이너를 꽉 채울 때는 select에 w-full 추가 (layout.css 유틸)",
+    "name 속성: 폼 제출 시 필수, 단독 UI 컴포넌트로만 사용 시 생략 가능"
   ],
   "examples": {
-    "default": "<div class=\"select-wrapper\">\n  <label class=\"body2-m-16 color-slate-900 mb-6 block\" for=\"select-id\">라벨</label>\n  <select id=\"select-id\" class=\"select-40 flex align-center\" name=\"select-name\" aria-label=\"선택\">\n    <option value=\"\" disabled selected hidden>선택하세요</option>\n    <option value=\"1\">옵션 1</option>\n    <option value=\"2\">옵션 2</option>\n  </select>\n</div>",
+    "default": "<div class=\"select-wrapper\">\n  <label class=\"body2-m-16 color-slate-900 mb-6 block\" for=\"select-id\">라벨</label>\n  <select id=\"select-id\" class=\"select-40 flex align-center\" name=\"select-name\" aria-label=\"선택\">\n    <option value=\"\" disabled selected hidden>선택하세요</option>\n    <option value=\"1\">옵션 1</option>\n    <option value=\"2\">옵션 2</option>\n  </select>\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
+    "no_label": "<div class=\"select-wrapper\">\n  <select id=\"select-id\" class=\"select-36 flex align-center\" aria-label=\"정렬 기준\">\n    <option value=\"\" disabled selected hidden>선택하세요</option>\n    <option value=\"1\">옵션 1</option>\n  </select>\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
+    "full_width": "<div class=\"select-wrapper\">\n  <label class=\"body2-m-16 color-slate-900 mb-6 block\" for=\"select-id\">라벨</label>\n  <select id=\"select-id\" class=\"select-40 flex align-center w-full\" name=\"select-name\" aria-label=\"선택\">\n    <option value=\"\" disabled selected hidden>선택하세요</option>\n    <option value=\"1\">옵션 1</option>\n  </select>\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
     "error": "<div class=\"select-wrapper is-error\">\n  <label class=\"body2-m-16 color-slate-900 mb-6 block\" for=\"select-id\">라벨</label>\n  <select id=\"select-id\" class=\"select-40 flex align-center\" name=\"select-name\" aria-invalid=\"true\" aria-label=\"선택\">\n    <option value=\"\" disabled selected hidden>선택하세요</option>\n    <option value=\"1\">옵션 1</option>\n  </select>\n  <p class=\"error-message\">에러 메시지</p>\n</div>",
-    "disabled": "<div class=\"select-wrapper\">\n  <label class=\"body2-m-16 color-slate-900 mb-6 block\" for=\"select-id\">라벨</label>\n  <select id=\"select-id\" class=\"select-40 flex align-center\" name=\"select-name\" aria-label=\"선택\" disabled>\n    <option value=\"\" disabled selected hidden>선택하세요</option>\n  </select>\n</div>"
+    "disabled": "<div class=\"select-wrapper\">\n  <label class=\"body2-m-16 color-slate-900 mb-6 block\" for=\"select-id\">라벨</label>\n  <select id=\"select-id\" class=\"select-40 flex align-center\" name=\"select-name\" aria-label=\"선택\" disabled>\n    <option value=\"\" disabled selected hidden>선택하세요</option>\n  </select>\n  <p class=\"error-message\">에러 메시지</p>\n</div>"
   },
   "rules": [
     "wrapper 없이 select 단독 사용 금지",
     "에러 상태는 wrapper에 is-error 토글",
     "인라인 스타일로 상태 제어 금지",
     "placeholder option에 반드시 disabled selected hidden 조합 사용",
-    "label for와 select id 반드시 일치",
-    "aria-label 반드시 포함"
+    "label for와 select id 반드시 일치 (label 있을 경우)",
+    "aria-label 반드시 포함",
+    "select에 반드시 flex align-center 추가",
+    "error-message는 항상 DOM에 존재 (모든 상태에서)"
   ],
   "do_not": [
     "select에 직접 is-error 추가",
     "error-message 인라인 스타일로 show/hide",
     "hover/focus 클래스 별도 추가",
-    "placeholder를 빈 option으로만 처리 (disabled selected hidden 누락)"
+    "placeholder를 빈 option으로만 처리 (disabled selected hidden 누락)",
+    "error-message를 기본/disabled 예시에서 DOM 외부로 제거"
   ]
 }

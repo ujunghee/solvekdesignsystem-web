@@ -215,10 +215,10 @@ CSS 변수: `var(--spacing-16)` 등
 | `justify-start` | justify-content: flex-start |
 | `justify-center` | justify-content: center |
 | `justify-end` | justify-content: flex-end |
-| `justify-between` | justify-content: space-between |
+| `justify-between` | justify-content: justify-between |
 | `justify-around` | justify-content: space-around |
 | `flex-center` | justify-content + align-items: center |
-| `flex-between` | justify-content: space-between + align-items: center |
+| `flex-between` | justify-content: justify-between + align-items: center |
 | `flex-1` | flex: 1 |
 | `flex-auto` | flex: 1 1 auto |
 | `flex-none` | flex: 0 0 auto |
@@ -454,7 +454,7 @@ disabled 전용: `button-48`, `button-40`, `button-36`, `button-32`, `button-28`
 </div>
 
 <!-- 후행형 -->
-<div class="search-54 flex pl-20 pr-16 space-between">
+<div class="search-54 flex pl-20 pr-16 justify-between">
   <input type="text" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요">
   <button type="button" class="search-button">
     <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
@@ -469,7 +469,7 @@ disabled 전용: `button-48`, `button-40`, `button-36`, `button-32`, `button-28`
 
 <!-- 팝업형 -->
 <div class="search-wrapper">
-  <div class="search-54 flex pl-20 pr-16 space-between">
+  <div class="search-54 flex pl-20 pr-16 justify-between">
     <input type="text" class="body1-r-18 w-full search-input" placeholder="검색어를 입력해주세요" id="search-id">
     <button type="button" class="search-button">
       <i class="search-icon-54"><span class="blind">검색 버튼</span></i>

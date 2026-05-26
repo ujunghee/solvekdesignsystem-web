@@ -32,7 +32,7 @@
   },
   "structure": {
     "leading": "search-{size} flex px-{n} gap-{n} > button.search-button + input",
-    "trailing": "search-{size} flex pl-{n} pr-{n} space-between > input + button.search-button",
+    "trailing": "search-{size} flex pl-{n} pr-{n} justify-between > input + button.search-button",
     "cta": "search-bar flex gap-8 > input.search-{size} + button",
     "popup": "search-wrapper > search-{size}(trailing) + search-popup[role=dialog]"
   },
@@ -50,10 +50,10 @@
     "접근성: search-popup에 role=dialog, aria-modal=true, aria-labelledby로 input id 연결"
   ],
   "examples": {
-    "leading": "<div class=\"search-54 flex px-16 gap-12\">\n  <button type=\"button\" class=\"search-button\">\n    <i class=\"search-icon-54\"><span class=\"blind\">검색 버튼</span></i>\n  </button>\n  <input type=\"text\" class=\"body1-r-18\" placeholder=\"검색어를 입력해주세요\">\n</div>",
-    "trailing": "<div class=\"search-54 flex pl-20 pr-16 space-between\">\n  <input type=\"text\" class=\"body1-r-18 w-full\" placeholder=\"검색어를 입력해주세요\">\n  <button type=\"button\" class=\"search-button\">\n    <i class=\"search-icon-54\"><span class=\"blind\">검색 버튼</span></i>\n  </button>\n</div>",
-    "cta": "<div class=\"search-bar flex gap-8\">\n  <input type=\"text\" class=\"search-48 px-12\" placeholder=\"검색어를 입력해주세요\">\n  <button type=\"button\" class=\"slate-button-lg w-100\">검색</button>\n</div>",
-    "popup": "<div class=\"search-wrapper\">\n  <div class=\"search-54 flex pl-20 pr-16 space-between\">\n    <input type=\"text\" class=\"body1-r-18 w-full search-input\" placeholder=\"검색어를 입력해주세요\" id=\"search-example\">\n    <button type=\"button\" class=\"search-button\">\n      <i class=\"search-icon-54\"><span class=\"blind\">검색 버튼</span></i>\n    </button>\n  </div>\n  <div class=\"search-popup py-8\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"search-example\">\n    <!-- 최근 검색어 목록 -->\n  </div>\n</div>"
+    "leading": "<div class=\"search-54 flex px-16 gap-12\">\n  <button type=\"button\" class=\"search-button\">\n    <i class=\"search-icon-54\"><span class=\"blind\">검색 버튼</span></i>\n  </button>\n  <input type=\"search\" class=\"body1-r-18\" placeholder=\"검색어를 입력해주세요\">\n</div>",
+    "trailing": "<div class=\"search-54 flex pl-20 pr-16 justify-between\">\n  <input type=\"search\" class=\"body1-r-18 w-full\" placeholder=\"검색어를 입력해주세요\">\n  <button type=\"button\" class=\"search-button\">\n    <i class=\"search-icon-54\"><span class=\"blind\">검색 버튼</span></i>\n  </button>\n</div>",
+    "cta": "<div class=\"search-bar flex gap-8\">\n  <input type=\"search\" class=\"search-48 px-12\" placeholder=\"검색어를 입력해주세요\">\n  <button type=\"button\" class=\"slate-button-lg w-100\">검색</button>\n</div>",
+    "popup": "<div class=\"search-wrapper\">\n  <div class=\"search-54 flex pl-20 pr-16 justify-between\">\n    <input type=\"search\" class=\"body1-r-18 w-full search-input\" placeholder=\"검색어를 입력해주세요\" id=\"search-example\">\n    <button type=\"button\" class=\"search-button\">\n      <i class=\"search-icon-54\"><span class=\"blind\">검색 버튼</span></i>\n    </button>\n  </div>\n  <div class=\"search-popup py-8\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"search-example\">\n    <!-- 최근 검색어 목록 -->\n  </div>\n</div>"
   },
   "rules": [
     "search-wrapper 없이 팝업형 단독 사용 금지",

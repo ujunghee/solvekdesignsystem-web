@@ -51,7 +51,7 @@
 **대표 상황:** 클릭이 잘 일어나는 위치에 배치할 경우(웹), 빠른 조회가 필요할 경우
 
 ```html
-<div class="search-54 flex pl-20 pr-16 space-between">
+<div class="search-54 flex pl-20 pr-16 justify-between">
   <input type="search" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요">
   <button type="button" class="search-button">
     <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
@@ -92,7 +92,7 @@ input + 버튼 조합으로 검색 실행을 강조합니다.
 
 ```html
 <div class="search-wrapper">
-  <div class="search-54 flex pl-20 pr-16 space-between">
+  <div class="search-54 flex pl-20 pr-16 justify-between">
     <input type="search" class="body1-r-18 w-full search-input"
       placeholder="검색어를 입력해주세요" id="search-example">
     <button type="button" class="search-button">
