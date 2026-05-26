@@ -39,9 +39,59 @@
 }
 /* 달력 아이콘 e */
 
-/* button arrow icon */
-.arrow-right-white {
+/* chevron icon */
+.chevron-right-white {
   background: url(/image/icon/chevron-right-white.svg) center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+.chevron-left-white {
+  background: url(/image/icon/chevron-left-white.svg) center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+.chevron-right-slate-700 {
+  background: url(/image/icon/chevron-right-slate-700.svg) center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+.chevron-down-white {
+  background: url(/image/icon/chevron-down-white.svg) center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+.download-02-white {
+  background: url(/image/icon/download-02-white.svg) center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+
+/* arrow icon */
+.arrow-right-sm-white {
+  background: url(/image/icon/arrow-right-sm-white.svg) center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block; 
+}
+
+.arrow-left-sm-white {
+  background: url(/image/icon/arrow-left-sm-white.svg) center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;

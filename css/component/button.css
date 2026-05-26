@@ -48,7 +48,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4.8rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body1);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -63,7 +62,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -75,7 +73,7 @@ button:disabled, a:disabled {
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-12);
   height: 3.6rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -88,7 +86,7 @@ button:disabled, a:disabled {
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 3.2rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -101,7 +99,7 @@ button:disabled, a:disabled {
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
@@ -131,7 +129,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4.8rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body1);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -145,7 +142,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -157,7 +153,7 @@ button:disabled, a:disabled {
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-12);
   height: 3.6rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -170,7 +166,7 @@ button:disabled, a:disabled {
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 3.2rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -183,7 +179,7 @@ button:disabled, a:disabled {
   color: var(--blue-500);
   border: 1px solid var(--blue-500);
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
@@ -213,7 +209,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4.8rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body1);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -227,7 +222,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -239,7 +233,7 @@ button:disabled, a:disabled {
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-12);
   height: 3.6rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -252,7 +246,7 @@ button:disabled, a:disabled {
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 3.2rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -265,7 +259,7 @@ button:disabled, a:disabled {
   color: var(--white);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
@@ -286,6 +280,86 @@ button:disabled, a:disabled {
 }
 /* slate button e */
 
+/* blue 50 button s */
+.blue-50-button-48 {
+  background-color: var(--blue-50);
+  color: var(--blue-500);
+  border: none;
+  border-radius: var(--radius-md-8);
+  padding: 0 var(--spacing-16);
+  height: 4.8rem;
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-170);
+  letter-spacing: var(--letter-spacing-md);
+}
+
+.blue-50-button-40 {
+  background-color: var(--blue-50);
+  color: var(--blue-500);
+  border: none;
+  border-radius: var(--radius-md-8);
+  padding: 0 var(--spacing-16);
+  height: 4rem;
+  font-size: var(--font-size-body2);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-170);
+  letter-spacing: var(--letter-spacing-md);
+}
+
+.blue-50-button-36 {
+  background-color: var(--blue-50);
+  color: var(--blue-500);
+  border: none;
+  border-radius: var(--radius-md-8);
+  padding: 0 var(--spacing-12);
+  height: 3.6rem;
+  font-size: var(--font-size-body3);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-170);
+  letter-spacing: var(--letter-spacing-md);
+}
+
+.blue-50-button-32 {
+  background-color: var(--blue-50);
+  color: var(--blue-500);
+  border: none;
+  border-radius: var(--radius-md-8);
+  padding: 0 var(--spacing-10);
+  height: 3.2rem;
+  font-size: var(--font-size-body3);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-170);
+  letter-spacing: var(--letter-spacing-md);
+}
+
+.blue-50-button-28 {
+  background-color: var(--blue-50);
+  color: var(--blue-500);
+  border: none;
+  border-radius: var(--radius-md-8);
+  padding: 0 var(--spacing-10);
+  height: 2.8rem;
+  font-size: var(--font-size-body4);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-170);
+  letter-spacing: var(--letter-spacing-md);
+}
+
+
+:is(.blue50-button-48, .blue50-button-40, .blue50-button-36, .blue50-button-32, .blue50-button-28):hover {
+  background-color: var(--blue-100);
+}
+:is(.blue50-button-48, .blue50-button-40, .blue50-button-36, .blue50-button-32, .blue50-button-28):active {
+  background-color: var(--blue-200);
+}
+:is(.blue50-button-48, .blue50-button-40, .blue50-button-36, .blue50-button-32, .blue50-button-28):focus {
+  background-color: var(--blue-200);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--blue-200);
+}
+/* blue 50 button e */
+
 /* border slate button s */
 .border-slate-button-48 {
   background-color: var(--white);
@@ -294,7 +368,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4.8rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body1);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -308,7 +381,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -320,7 +392,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-12);
   height: 3.6rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -333,7 +405,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 3.2rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -346,7 +418,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: 1px solid var(--slate-700);
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
@@ -391,7 +463,6 @@ button:disabled, a:disabled {
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4rem;
-  font-size: var(--font-size-16);
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
@@ -403,7 +474,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-12);
   height: 3.6rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -416,7 +487,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 3.2rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -429,7 +500,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
@@ -483,7 +554,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-12);
   height: 3.6rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -496,7 +567,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 3.2rem;
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-medium);
@@ -509,7 +580,7 @@ button:disabled, a:disabled {
   color: var(--slate-700);
   border: none;
   border-radius: var(--radius-md-8);
-  padding: 0 var(--spacing-16);
+  padding: 0 var(--spacing-10);
   height: 2.8rem;
   font-size: var(--font-size-body4);
   font-weight: var(--font-weight-medium);
@@ -529,3 +600,21 @@ button:disabled, a:disabled {
   box-shadow: 0 0 0 3px var(--slate-200);
 }
 /* transparent button e */
+
+
+/* icon-button: 좌·우 패딩 예외 */
+.icon-button-right {
+  padding: 0 var(--spacing-6) 0 var(--spacing-16);
+  gap: var(--spacing-8);
+}
+
+button.icon-button-right:disabled,
+a.icon-button-right:disabled {
+  padding: 0 var(--spacing-6) 0 var(--spacing-16);
+}
+
+
+.icon-button-left {
+  /* padding: 0 var(--spacing-16) 0 var(--spacing-6); */
+  gap: var(--spacing-8);
+}
