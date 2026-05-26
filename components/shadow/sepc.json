@@ -1,0 +1,45 @@
+{
+  "component": "shadow",
+  "description": "그림자 유틸리티 클래스. 요소의 고도(elevation)와 계층을 표현할 때 사용",
+  "type": "utility",
+  "classes": {
+    "shadow-xs": {
+      "description": "낮은 고도 · 기본 카드",
+      "when_to_use": "배경에서 살짝 분리된 정적인 요소에 사용",
+      "use_cases": ["기본 카드", "리스트 아이템", "입력 영역 구분"]
+    },
+    "shadow-s": {
+      "description": "중간 고도 · 플로팅 요소",
+      "when_to_use": "페이지 위에 살짝 떠있는 인터랙티브 요소에 사용",
+      "use_cases": ["드롭다운 메뉴", "툴팁", "플로팅 버튼", "날짜 선택기"]
+    },
+    "shadow-md": {
+      "description": "높은 고도 · 오버레이",
+      "when_to_use": "페이지 위에 명확하게 떠있는 레이어를 표현할 때 사용",
+      "use_cases": ["모달", "팝업", "바텀 시트", "사이드 패널"]
+    },
+    "shadow-lg": {
+      "description": "최고 고도 · 최상위 레이어",
+      "when_to_use": "가장 전면에 위치하는 최상위 레이어에 사용",
+      "use_cases": ["다이얼로그", "알림 토스트", "전체화면 오버레이"]
+    }
+  },
+  "elevation_order": ["shadow-xs", "shadow-s", "shadow-md", "shadow-lg"],
+  "examples": [
+    "<div class=\"shadow-xs\">기본 카드</div>",
+    "<div class=\"shadow-s\">플로팅 요소</div>",
+    "<div class=\"shadow-md\">오버레이</div>",
+    "<div class=\"shadow-lg\">최상위 레이어</div>"
+  ],
+  "rules": [
+    "고도가 높을수록 더 큰 shadow 사용 (xs → s → md → lg 순서)",
+    "동일 레벨 요소에는 같은 shadow 클래스 사용",
+    "border로 이미 구분된 요소에 중복 사용 금지",
+    "배경색이 투명한 요소에는 사용 금지"
+  ],
+  "do_not": [
+    "장식 목적으로 무분별하게 사용",
+    "한 화면에 4단계 shadow를 모두 혼용",
+    "고도 순서를 역으로 사용 (예: 카드에 shadow-lg)"
+  ]
+}

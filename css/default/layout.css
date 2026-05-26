@@ -594,16 +594,21 @@
 .w-full {
   width: 100%;
 }
+.w-50per {
+  width: 50%;
+}
 .w-auto {
   width: auto;
 }
 .w-screen {
   width: 100vw;
 }
+.w-half-screen {
+  width: 50vw;
+}
 .w-fit {
   width: fit-content;
 }
-
 .w-100 {
   width: 10rem;
 }
@@ -636,6 +641,12 @@
 }
 .h-screen {
   height: 100vh;
+}
+.h-50per {
+  height: 50%;
+}
+.h-half-screen {
+  height: 50vh;
 }
 
 
