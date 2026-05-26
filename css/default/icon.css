@@ -1,109 +1,104 @@
 .arrow-icon {
-  background: url(/image/icon/arrow-90deg-gray-900.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M16.4452 7.00413C16.7189 7.25042 16.7411 7.67194 16.4948 7.94563L10.4955 14.6123C10.3691 14.7528 10.1889 14.833 9.99994 14.833C9.81095 14.833 9.63083 14.7528 9.50439 14.6123L3.50439 7.94566C3.25809 7.67198 3.28027 7.25046 3.55395 7.00415C3.82762 6.75784 4.24915 6.78003 4.49545 7.0537L9.9999 13.1698L15.5037 7.05373C15.75 6.78004 16.1715 6.75784 16.4452 7.00413Z' fill='%2333363D'/></svg>") center center / contain no-repeat;
   width: 2.4rem;
   height: 2.4rem;
   display: block;
 }
+
 .search-icon-54 {
-  background: url(/image/icon/search.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10.8984 2.40039C15.5929 2.40039 19.3984 6.20597 19.3984 10.9004C19.3984 12.9589 18.6658 14.8457 17.4482 16.3164L20.7666 19.6348C21.0785 19.9471 21.0786 20.4533 20.7666 20.7656C20.4542 21.078 19.9472 21.078 19.6348 20.7656L16.3174 17.4482C14.8462 18.6671 12.9582 19.4004 10.8984 19.4004C6.20402 19.4004 2.39844 15.5948 2.39844 10.9004C2.39844 6.20597 6.20402 2.40039 10.8984 2.40039ZM10.8984 4C7.08767 4 3.99805 7.08963 3.99805 10.9004C3.99805 14.7112 7.08767 17.8008 10.8984 17.8008C12.7149 17.8008 14.3655 17.0966 15.5977 15.9492C15.6349 15.8757 15.6847 15.8065 15.7461 15.7451C15.8078 15.6834 15.8773 15.634 15.9512 15.5967C17.0966 14.3649 17.7988 12.7151 17.7988 10.9004C17.7988 7.08963 14.7092 4 10.8984 4Z' fill='%2358616A'/></svg>") center center / contain no-repeat;
   width: 2.4rem;
   height: 2.4rem;
   display: block;
 }
+
 .search-icon-40 {
-  background: url(/image/icon/search.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10.8984 2.40039C15.5929 2.40039 19.3984 6.20597 19.3984 10.9004C19.3984 12.9589 18.6658 14.8457 17.4482 16.3164L20.7666 19.6348C21.0785 19.9471 21.0786 20.4533 20.7666 20.7656C20.4542 21.078 19.9472 21.078 19.6348 20.7656L16.3174 17.4482C14.8462 18.6671 12.9582 19.4004 10.8984 19.4004C6.20402 19.4004 2.39844 15.5948 2.39844 10.9004C2.39844 6.20597 6.20402 2.40039 10.8984 2.40039ZM10.8984 4C7.08767 4 3.99805 7.08963 3.99805 10.9004C3.99805 14.7112 7.08767 17.8008 10.8984 17.8008C12.7149 17.8008 14.3655 17.0966 15.5977 15.9492C15.6349 15.8757 15.6847 15.8065 15.7461 15.7451C15.8078 15.6834 15.8773 15.634 15.9512 15.5967C17.0966 14.3649 17.7988 12.7151 17.7988 10.9004C17.7988 7.08963 14.7092 4 10.8984 4Z' fill='%2358616A'/></svg>") center center / contain no-repeat;
   width: 2rem;
   height: 2rem;
   display: block;
 }
 
-/* 패스워드 사용시 아이콘 s */
+/* 패스워드 아이콘 — PNG라 상대경로 유지 */
 .eye-icon {
-  background: url(/image/icon/eye-closed.png) center center / contain no-repeat ;
+  background: url("../../image/icon/eye-closed.png") center center / contain no-repeat;
   width: 2.4rem;
   height: 2.4rem;
   display: block;
 }
 .eye-icon.active {
-  background: url(/image/icon/eye-open.png) center center / contain no-repeat;
+  background: url("../../image/icon/eye-open.png") center center / contain no-repeat;
   display: block;
 }
-/* 패스워드 사용시 아이콘 e */
 
-/* 달력 아이콘 s */
 .calendar-icon {
-  background: url(/image/icon/calendar.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4.75 8.91425H18.75M6.55952 3V4.54304M16.75 3V4.54285M19.75 7.24285V18.3C19.75 19.7912 18.5561 21 17.0833 21H6.41667C4.94391 21 3.75 19.7912 3.75 18.3V7.24285C3.75 5.75168 4.94391 4.54285 6.41667 4.54285H17.0833C18.5561 4.54285 19.75 5.75168 19.75 7.24285Z' stroke='%231E2124' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   width: 2.4rem;
   height: 2.4rem;
   display: block;
 }
-/* 달력 아이콘 e */
 
-/* chevron icon */
-.chevron-right-white {
-  background: url(/image/icon/chevron-right-white.svg) center center / contain no-repeat;
-  display: block;
+.clock-icon {
+  background: url("data:image/svg+xml,<svg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M14.3149 13.774C14.7078 13.905 15.1326 13.6926 15.2636 13.2997C15.3946 12.9067 15.1822 12.482 14.7892 12.351L14.5521 13.0625L14.3149 13.774ZM11.4583 12.0312H10.7083C10.7083 12.3541 10.9149 12.6407 11.2211 12.7428L11.4583 12.0312ZM12.2083 7.71913C12.2083 7.30492 11.8725 6.96913 11.4583 6.96913C11.0441 6.96913 10.7083 7.30492 10.7083 7.71913H11.4583H12.2083ZM14.5521 13.0625L14.7892 12.351L11.6955 11.3197L11.4583 12.0312L11.2211 12.7428L14.3149 13.774L14.5521 13.0625ZM11.4583 12.0312H12.2083V7.71913H11.4583H10.7083V12.0312H11.4583ZM19.7083 11H18.9583C18.9583 15.1421 15.6004 18.5 11.4583 18.5V19.25V20C16.4289 20 20.4583 15.9706 20.4583 11H19.7083ZM11.4583 19.25V18.5C7.31618 18.5 3.95831 15.1421 3.95831 11H3.20831H2.45831C2.45831 15.9706 6.48775 20 11.4583 20V19.25ZM3.20831 11H3.95831C3.95831 6.85786 7.31618 3.5 11.4583 3.5V2.75V2C6.48775 2 2.45831 6.02944 2.45831 11H3.20831ZM11.4583 2.75V3.5C15.6004 3.5 18.9583 6.85786 18.9583 11H19.7083H20.4583C20.4583 6.02944 16.4289 2 11.4583 2V2.75Z' fill='%236D7882'/></svg>") center center / contain no-repeat;
   width: 2.4rem;
   height: 2.4rem;
   display: block;
+}
+
+.chevron-right-white {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 7L15 12L10 17' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .chevron-left-white {
-  background: url(/image/icon/chevron-left-white.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15 17L10 12L15 7' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;
-  display: block;
 }
 
 .chevron-right-slate-700 {
-  background: url(/image/icon/chevron-right-slate-700.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 7L15 12L10 17' stroke='%23475263' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;
+}
+
+.chevron-right-gray {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 7L15 12L10 17' stroke='%23475263' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .chevron-down-white {
-  background: url(/image/icon/chevron-down-white.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7 10L12.0008 14.58L17 10' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;
-  display: block;
 }
 
 .download-02-white {
-  background: url(/image/icon/download-02-white.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 15.2044L4 18.8925C4 19.4514 4.21071 19.9875 4.58579 20.3827C4.96086 20.778 5.46957 21 6 21H18C18.5304 21 19.0391 20.778 19.4142 20.3827C19.7893 19.9875 20 19.4514 20 18.8925V15.2044M12.0011 3V14.9425M7.42969 10.3793L12.0011 14.9425L16.5725 10.3793' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;
-  display: block;
 }
 
-
-/* arrow icon */
 .arrow-right-sm-white {
-  background: url(/image/icon/arrow-right-sm-white.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12.8333 16.375L17 12L12.8333 7.625M17 12L7 12' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;
-  display: block; 
 }
 
 .arrow-left-sm-white {
-  background: url(/image/icon/arrow-left-sm-white.svg) center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11.1667 7.625L7 12L11.1667 16.375M7 12H17' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;
-  display: block;
-}
-
-/* clock icon  */
-.clock-icon {
-  background: url(/image/icon/clock.svg) center center / contain no-repeat;
-  width: 2.4rem;
-  height: 2.4rem;
-  display: block;
 }
 
 /* 닫기 버튼 */
@@ -113,12 +108,10 @@
   height: 2.4rem;
   display: block;
 }
-
 .close-icon:hover {
   background-color: var(--slate-50);
   border-radius: var(--radius-sm-4);
 }
-
 .close-icon::before {
   content: '';
   width: 100%;
@@ -129,7 +122,6 @@
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
 }
-
 .close-icon::after {
   content: '';
   width: 100%;
