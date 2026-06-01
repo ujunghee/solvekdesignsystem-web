@@ -14,6 +14,8 @@
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ko.js"></script>
+
+<script src="./datepicker.js"></script>
 ```
 
 ---

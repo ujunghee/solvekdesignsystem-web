@@ -610,7 +610,16 @@
   width: fit-content;
 }
 .w-100 {
+  flex: 0 0 10rem;
   width: 10rem;
+}
+.w-200 {
+  flex: 0 0 20rem;
+  width: min(100%, 20rem);
+}
+.w-300 {
+  flex: 0 0 30rem;
+  width: min(100%, 30rem);
 }
 
 

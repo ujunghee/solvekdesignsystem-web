@@ -364,7 +364,7 @@ button:disabled, a:disabled {
 .border-slate-button-48 {
   background-color: var(--white);
   color: var(--slate-700);
-  border: 1px solid var(--slate-700);
+  border: 1px solid var(--slate-200);
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4.8rem;
@@ -377,7 +377,7 @@ button:disabled, a:disabled {
 .border-slate-button-40 {
   background-color: var(--white);
   color: var(--slate-700);
-  border: 1px solid var(--slate-700);
+  border: 1px solid var(--slate-200);
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-16);
   height: 4rem;
@@ -390,7 +390,7 @@ button:disabled, a:disabled {
 .border-slate-button-36 {
   background-color: var(--white);
   color: var(--slate-700);
-  border: 1px solid var(--slate-700);
+  border: 1px solid var(--slate-200);
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-12);
   height: 3.6rem;
@@ -403,7 +403,7 @@ button:disabled, a:disabled {
 .border-slate-button-32 {
   background-color: var(--white);
   color: var(--slate-700);
-  border: 1px solid var(--slate-700);
+  border: 1px solid var(--slate-200);
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-10);
   height: 3.2rem;
@@ -416,7 +416,7 @@ button:disabled, a:disabled {
 .border-slate-button-28 {
   background-color: var(--white);
   color: var(--slate-700);
-  border: 1px solid var(--slate-700);
+  border: 1px solid var(--slate-200);
   border-radius: var(--radius-md-8);
   padding: 0 var(--spacing-10);
   height: 2.8rem;

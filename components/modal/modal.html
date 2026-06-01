@@ -1,0 +1,70 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <!-- modal-container type 1  -->
+    <div class="modal-container" tabindex="0" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
+      <div class="modal shadow-lg">
+        <div class="modal__header">
+          <h2 class="" id="modal-title">모달 제목</h2>
+          <button 
+            type="button" 
+            aria-label="닫기"
+          >
+            <i class="modal__close"></i>
+          </button>
+        </div>
+        <div class="modal__content px-24 pb-24">
+          <p>모달 내용</p>
+          <p class="mt-16 body1-sb-18">스크롤 확인용 더미 콘텐츠입니다. 내용이 스크롤 시작점을 넘으면 이 영역에 세로 스크롤이 생깁니다.</p>
+        </div>
+
+        <!-- 페이지 모달: modal--page → content max-height 1100px -->
+        <!-- <div class="modal shadow-lg modal--page"> -->
+
+        <!-- type 1 -->
+        <div class="modal__footer flex justify-center">
+          <button type="button" class="blue-button-48 w-300">완료</button>
+        </div>
+
+        <!-- type 2 -->
+        <div class="modal__footer flex justify-end gap-10">
+          <button type="button" class="border-slate-button-48 w-100">닫기</button>
+          <button type="button" class="blue-button-48 w-200">완료</button>
+        </div>
+
+        <!-- type 3 -->
+        <div class="modal__footer flex justify-between">
+          <button type="button" class="border-slate-button-48 w-100">이전</button>
+          <div class="flex gap-10">
+            <button type="button" class="border-slate-button-48 w-100">닫기</button>
+            <button type="button" class="blue-button-48 w-200">완료</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal-container type 2 : 이벤트성 모달 (웹 중앙 / 모바일 바텀시트) -->
+    <div class="modal-container modal-container--event" tabindex="0" role="dialog" aria-modal="true" aria-labelledby="modal-event-title">
+      <div class="modal shadow-lg modal--event">
+        <h2 class="blind" id="modal-event-title">이벤트 안내</h2>
+        <div class="modal__content modal__content--event px-24 pb-24">
+          <p class="body2-r-16 color-slate-400 text-center">내용과 이미지</p>
+          <div class="modal__content-action flex justify-center">
+            <button type="button" class="blue-button-48 w-300">참여하기</button>
+          </div>
+        </div>
+        <div class="modal__footer modal__footer--event flex justify-between align-center">
+          <button type="button" class="transparent-button-48">오늘 하루 보지 않기</button>
+          <button type="button" class="transparent-button-48">닫기</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
