@@ -1,0 +1,116 @@
+{
+  "component": "modal",
+  "description": "오버레이 다이얼로그. 일반 확인/완료 모달과 이벤트성 모달(모바일 바텀시트) 지원",
+  "css": "css/component/modal.css",
+  "structure": {
+    "container": "modal-container",
+    "panel": "modal shadow-lg",
+    "header": "modal__header",
+    "content": "modal__content",
+    "footer": "modal__footer",
+    "close_icon": "modal__close"
+  },
+  "variants": {
+    "default": {
+      "description": "헤더(제목+닫기) + 스크롤 본문 + 푸터",
+      "required_children": ["modal__header", "modal__content", "modal__footer"],
+      "footer_patterns": {
+        "type_1": {
+          "classes": "modal__footer flex justify-center",
+          "buttons": ["blue-button-48 w-300"],
+          "label_example": "완료"
+        },
+        "type_2": {
+          "classes": "modal__footer flex justify-end gap-10",
+          "buttons": ["border-slate-button-48 w-100", "blue-button-48 w-200"],
+          "labels_example": ["닫기", "완료"]
+        },
+        "type_3": {
+          "classes": "modal__footer flex justify-between",
+          "buttons": ["border-slate-button-48 w-100", "border-slate-button-48 w-100", "blue-button-48 w-200"],
+          "labels_example": ["이전", "닫기", "완료"],
+          "note": "닫기·완료는 flex gap-10 래퍼로 묶음"
+        }
+      }
+    },
+    "page": {
+      "description": "본문 max-height 1100px",
+      "modifier": "modal--page",
+      "content_max_height": "110rem"
+    },
+    "event": {
+      "description": "이벤트성 모달. 웹 중앙, 모바일(767px 이하) 바텀시트",
+      "container_modifier": "modal-container--event",
+      "panel_modifier": "modal--event",
+      "header": "없음. blind h2로 제목 제공",
+      "content_modifier": "modal__content--event",
+      "content_action": "modal__content-action",
+      "footer_modifier": "modal__footer--event",
+      "primary_cta_placement": "modal__content-action (참여하기)",
+      "footer_buttons": ["transparent-button-48", "transparent-button-48"],
+      "footer_labels_example": ["오늘 하루 보지 않기", "닫기"]
+    }
+  },
+  "responsive": {
+    "max_width": {
+      "default": "100%",
+      "768px": "46rem",
+      "1024px": "61rem",
+      "1280px": "76rem",
+      "1440px": "86rem"
+    },
+    "content_scroll_max_height": {
+      "below_768px_height": "calc(100dvh - 48px - 14rem)",
+      "min_height_768px": "54rem",
+      "min_height_900px": "64rem",
+      "min_height_1080px": "84rem",
+      "page_modal": "110rem"
+    },
+    "event_mobile": {
+      "breakpoint": "max-width: 767px",
+      "behavior": "container align flex-end, panel full width, top radius only"
+    }
+  },
+  "accessibility": {
+    "container": {
+      "tabindex": "0",
+      "role": "dialog",
+      "aria-modal": "true",
+      "aria-labelledby": "제목 h2 id와 일치"
+    },
+    "title": "h2#id, 이벤트 모달은 blind 클래스",
+    "close_button": {
+      "type": "button",
+      "aria-label": "닫기",
+      "icon": "modal__close"
+    }
+  },
+  "notes": [
+    "한 modal에 modal__footer는 하나만 사용",
+    "modal__content만 overflow-y: auto, 헤더·푸터는 flex-shrink: 0",
+    "이벤트 모달 주 CTA는 footer가 아닌 modal__content-action",
+    "포커스 트랩·ESC·body scroll lock은 JS 구현 필요",
+    "데모 HTML의 style=display:none은 미리보기용, 실서비스 금지"
+  ],
+  "examples": {
+    "default_footer_type_1": "<div class=\"modal-container\" tabindex=\"0\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-title\">\n  <div class=\"modal shadow-lg\">\n    <div class=\"modal__header\">\n      <h2 class=\"heading8-sb-24 color-slate-900\" id=\"modal-title\">모달 제목</h2>\n      <button type=\"button\" aria-label=\"닫기\">\n        <i class=\"modal__close\"><span class=\"blind\">닫기</span></i>\n      </button>\n    </div>\n    <div class=\"modal__content px-24 pb-24\">\n      <p class=\"body2-r-16 color-slate-700\">모달 내용</p>\n    </div>\n    <div class=\"modal__footer flex justify-center\">\n      <button type=\"button\" class=\"blue-button-48 w-300\">완료</button>\n    </div>\n  </div>\n</div>",
+    "default_footer_type_2": "<div class=\"modal__footer flex justify-end gap-10\">\n  <button type=\"button\" class=\"border-slate-button-48 w-100\">닫기</button>\n  <button type=\"button\" class=\"blue-button-48 w-200\">완료</button>\n</div>",
+    "default_footer_type_3": "<div class=\"modal__footer flex justify-between\">\n  <button type=\"button\" class=\"border-slate-button-48 w-100\">이전</button>\n  <div class=\"flex gap-10\">\n    <button type=\"button\" class=\"border-slate-button-48 w-100\">닫기</button>\n    <button type=\"button\" class=\"blue-button-48 w-200\">완료</button>\n  </div>\n</div>",
+    "page": "<div class=\"modal shadow-lg modal--page\">...</div>",
+    "event": "<div class=\"modal-container modal-container--event\" tabindex=\"0\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-event-title\">\n  <div class=\"modal shadow-lg modal--event\">\n    <h2 class=\"blind\" id=\"modal-event-title\">이벤트 안내</h2>\n    <div class=\"modal__content modal__content--event px-24 pb-24\">\n      <p class=\"body2-r-16 color-slate-400 text-center\">내용과 이미지</p>\n      <div class=\"modal__content-action flex justify-center\">\n        <button type=\"button\" class=\"blue-button-48 w-300\">참여하기</button>\n      </div>\n    </div>\n    <div class=\"modal__footer modal__footer--event flex justify-between align-center\">\n      <button type=\"button\" class=\"transparent-button-48\">오늘 하루 보지 않기</button>\n      <button type=\"button\" class=\"transparent-button-48\">닫기</button>\n    </div>\n  </div>\n</div>"
+  },
+  "rules": [
+    "modal에 shadow-lg 필수",
+    "한 modal당 footer 하나",
+    "스크롤은 modal__content만",
+    "button type 속성 명시",
+    "인라인 style로 상태 제어 금지"
+  ],
+  "do_not": [
+    "한 modal에 footer type 1·2·3 동시 배치",
+    "이벤트 모달 주 CTA를 footer에만 배치",
+    "헤더 없는 일반 모달에서 aria-labelledby 누락",
+    "div/span으로 button 대체",
+    "modal__content 밖에서 overflow 스크롤 처리"
+  ]
+}
