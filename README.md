@@ -30,7 +30,7 @@ index.css 구성:
 ```
 tokens/   → color, typography, spacing, radius
 default/  → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, textarea, search, checkbox, radio, datepicker, select
+component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal
 ```
 
 ---
@@ -296,15 +296,23 @@ CSS 변수: `var(--spacing-16)` 등
 
 | 클래스 | 설명 | 크기 |
 |---|---|---|
-| `arrow-icon` | 화살표 (gray-900) | 24×24 |
-| `arrow-right-white` | 우측 화살표 (white) | 24×24 |
+| `arrow-icon` | 드롭다운 화살표 (gray-900, 아래 방향) | 24×24 |
+| `chevron-right-white` | 우측 꺽쇠 (white) — blue/slate 계열 버튼 아이콘 | 24×24 |
+| `chevron-left-white` | 좌측 꺽쇠 (white) | 24×24 |
+| `chevron-right-slate-700` | 우측 꺽쇠 (slate-700) — slate-50/transparent 계열 버튼 아이콘 | 24×24 |
+| `chevron-right-gray` | 우측 꺽쇠 (gray) | 24×24 |
+| `chevron-down-white` | 아래 꺽쇠 (white) | 24×24 |
+| `download-02-white` | 다운로드 (white) | 24×24 |
+| `arrow-right-sm-white` | 우측 화살표 small (white) | 24×24 |
+| `arrow-left-sm-white` | 좌측 화살표 small (white) | 24×24 |
 | `search-icon-54` | 검색 (대) | 24×24 |
 | `search-icon-40` | 검색 (소) | 20×20 |
 | `eye-icon` | 비밀번호 숨김 | 24×24 |
 | `eye-icon.active` | 비밀번호 보임 | 24×24 |
 | `calendar-icon` | 달력 | 24×24 |
 | `clock-icon` | 시계 | 24×24 |
-| `close-icon` | 닫기 (CSS ::before/after 생성) | 24×24 |
+| `close-icon` | 닫기 X (CSS ::before/after 생성) | 24×24 |
+| `modal__close` | 모달 닫기 X (SVG 배경, 40×40 터치 영역) | 40×40 |
 
 ---
 
@@ -329,12 +337,13 @@ CSS 변수: `var(--spacing-16)` 등
 
 **네이밍: `{color}-button-{size}` 또는 `border-{color}-button-{size}`**
 
-색상 6종:
+색상 7종:
 
 | 접두사 | 용도 |
 |---|---|
 | `blue` | 주요 CTA |
 | `border-blue` | 보조 액션 (blue 테두리) |
+| `blue-50` | 주요 액션 보완 (blue 밝은 배경) |
 | `slate` | 중립 액션 |
 | `border-slate` | 중립 보조 액션 (slate 테두리) |
 | `slate-50` | 약한 강조, 배경이 있는 중립 액션 |
@@ -349,14 +358,25 @@ disabled 전용: `button-48`, `button-40`, `button-36`, `button-32`, `button-28`
 <button type="button" class="blue-button-40">저장</button>
 
 <!-- 보조 액션 -->
-<button type="button" class="border-blue-button-36">취소</button>
+<button type="button" class="border-blue-button-36">수정</button>
+
+<!-- 주요 보완 -->
+<button type="button" class="blue-50-button-36">문의</button>
 
 <!-- 중립 액션 -->
 <button type="button" class="slate-button-40">확인</button>
 
-<!-- 아이콘 포함 -->
-<button type="button" class="blue-button-48 flex align-center">
-  저장 <span class="arrow-right-white"></span>
+<!-- 중립 보조 -->
+<button type="button" class="border-slate-button-36">취소</button>
+
+<!-- 아이콘 오른쪽 (icon-button-right) -->
+<button type="button" class="blue-button-48 icon-button-right flex align-center">
+  저장 <span class="chevron-right-white"></span>
+</button>
+
+<!-- 아이콘 왼쪽 (icon-button-left) -->
+<button type="button" class="slate-50-button-48 icon-button-left flex align-center">
+  <span class="chevron-right-slate-700"></span> 목록보기
 </button>
 
 <!-- disabled -->
@@ -367,6 +387,8 @@ disabled 전용: `button-48`, `button-40`, `button-36`, `button-32`, `button-28`
 - `type` 속성 반드시 명시 (button/submit/reset)
 - 사이즈 없이 색상만 단독 사용 금지
 - div/span으로 버튼 대체 금지
+- 아이콘 버튼은 반드시 `flex align-center` 추가
+- disabled 버튼에 색상 클래스 사용 금지 (`button-{size}` + `disabled` 속성만)
 
 ### 6-2. Input
 
@@ -570,7 +592,64 @@ basic 사이즈 3종: `sm`(body3-r-14), `md`(body2-r-16), `lg`(body1-r-18)
 </div>
 ```
 
-### 6-7. Datepicker
+### 6-7. Select
+
+**네이밍: `select-{size}` (size: 48, 40, 36)**
+
+```html
+<!-- 기본 -->
+<div class="select-wrapper">
+  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-id">라벨</label>
+  <select id="select-id" class="select-40 flex align-center" name="select-name" aria-label="선택">
+    <option value="" disabled selected hidden>선택하세요</option>
+    <option value="1">옵션 1</option>
+    <option value="2">옵션 2</option>
+  </select>
+  <p class="error-message">에러 메시지</p>
+</div>
+
+<!-- 에러 → wrapper에만 is-error -->
+<div class="select-wrapper is-error">
+  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-error">라벨</label>
+  <select id="select-error" class="select-40 flex align-center" name="select-error" aria-invalid="true" aria-label="선택">
+    <option value="" disabled selected hidden>선택하세요</option>
+    <option value="1">옵션 1</option>
+  </select>
+  <p class="error-message">에러 메시지</p>
+</div>
+
+<!-- disabled -->
+<div class="select-wrapper">
+  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-disabled">라벨</label>
+  <select id="select-disabled" class="select-40 flex align-center" name="select-disabled" aria-label="선택" disabled>
+    <option value="" disabled selected hidden>선택하세요</option>
+    <option value="1">옵션 1</option>
+  </select>
+  <p class="error-message">에러 메시지</p>
+</div>
+
+<!-- 전체 너비 -->
+<div class="select-wrapper">
+  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-full">라벨</label>
+  <select id="select-full" class="select-40 flex align-center w-full" name="select-full" aria-label="선택">
+    <option value="" disabled selected hidden>선택하세요</option>
+    <option value="1">옵션 1</option>
+  </select>
+  <p class="error-message">에러 메시지</p>
+</div>
+```
+
+규칙:
+- `wrapper` 없이 `select` 단독 사용 금지
+- `select`에 반드시 `flex align-center` 추가 (텍스트 세로 정렬)
+- `label`의 `for`와 `select`의 `id` 반드시 일치
+- `aria-label` 반드시 포함
+- 에러 상태 시 `select`에 `aria-invalid="true"` 추가
+- `is-error`는 wrapper에만 추가
+- `error-message`는 항상 DOM에 존재
+- placeholder는 `<option value="" disabled selected hidden>` 조합으로 구현
+
+### 6-8. Datepicker
 
 flatpickr@4.6.13 기반. 단일 날짜 / 기간 선택 2가지 variant.
 
@@ -602,6 +681,102 @@ JS: `initPicker('datepicker-id')` / `initPicker('id', { mode: 'range' })`
 
 규칙: input id, label for, data-datepicker-for 반드시 일치. autocomplete=off 필수. input type="date" 사용 금지.
 
+### 6-9. Modal
+
+2가지 타입: 일반 모달 / 이벤트성 모달(웹 중앙, 모바일 바텀시트)
+
+footer 3가지 레이아웃:
+
+| 타입 | 구성 | 예시 |
+|---|---|---|
+| type 1 | 버튼 1개 중앙 | 완료 |
+| type 2 | 버튼 2개 우측 정렬 | 닫기 + 완료 |
+| type 3 | 버튼 좌우 분리 | 이전 / (닫기 + 완료) |
+
+```html
+<!-- 일반 모달 -->
+<div class="modal-container" tabindex="0" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal shadow-lg">
+    <div class="modal__header">
+      <h2 id="modal-title">모달 제목</h2>
+      <button type="button" aria-label="닫기">
+        <i class="modal__close"></i>
+      </button>
+    </div>
+    <div class="modal__content px-24 pb-24">
+      <p>모달 내용</p>
+    </div>
+
+    <!-- footer type 1: 버튼 1개 중앙 -->
+    <div class="modal__footer flex justify-center">
+      <button type="button" class="blue-button-48 w-300">완료</button>
+    </div>
+
+    <!-- footer type 2: 버튼 2개 우측 정렬 -->
+    <div class="modal__footer flex justify-end gap-10">
+      <button type="button" class="border-slate-button-48 w-100">닫기</button>
+      <button type="button" class="blue-button-48 w-200">완료</button>
+    </div>
+
+    <!-- footer type 3: 좌우 분리 -->
+    <div class="modal__footer flex justify-between">
+      <button type="button" class="border-slate-button-48 w-100">이전</button>
+      <div class="flex gap-10">
+        <button type="button" class="border-slate-button-48 w-100">닫기</button>
+        <button type="button" class="blue-button-48 w-200">완료</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 이벤트성 모달 (웹 중앙 / 모바일 바텀시트) -->
+<div class="modal-container modal-container--event" tabindex="0" role="dialog" aria-modal="true" aria-labelledby="modal-event-title">
+  <div class="modal shadow-lg modal--event">
+    <h2 class="blind" id="modal-event-title">이벤트 안내</h2>
+    <div class="modal__content modal__content--event px-24 pb-24">
+      <p class="body2-r-16 color-slate-400 text-center">내용과 이미지</p>
+      <div class="modal__content-action flex justify-center">
+        <button type="button" class="blue-button-48 w-300">참여하기</button>
+      </div>
+    </div>
+    <div class="modal__footer modal__footer--event flex justify-between align-center">
+      <button type="button" class="transparent-button-48">오늘 하루 보지 않기</button>
+      <button type="button" class="transparent-button-48">닫기</button>
+    </div>
+  </div>
+</div>
+```
+
+규칙:
+- `modal-container`에 반드시 `role="dialog"`, `aria-modal="true"`, `aria-labelledby` 추가
+- `modal__close` 아이콘 버튼에 `aria-label="닫기"` 필수
+- 모달 열기/닫기는 JS로 `modal-container`의 `display` 제어 또는 클래스 토글
+- 페이지형 모달(긴 콘텐츠): `modal--page` 클래스 추가 (content max-height 1100px)
+- `shadow-lg`는 `.modal`에 적용
+
+### 6-10. Shadow
+
+고도(elevation)에 따른 그림자 유틸리티 클래스.
+
+| 클래스 | 고도 | 대표 사용 상황 |
+|---|---|---|
+| `shadow-xs` | 낮음 | 기본 카드, 리스트 아이템 |
+| `shadow-s` | 중간 | 드롭다운, 툴팁, 날짜 선택기 |
+| `shadow-md` | 높음 | 모달, 팝업, 바텀시트 |
+| `shadow-lg` | 최고 | 다이얼로그, 알림 토스트 |
+
+```html
+<div class="shadow-xs bg-white radius-md-8 p-20">기본 카드</div>
+<div class="shadow-s bg-white radius-md-8 py-8">드롭다운</div>
+<div class="shadow-md bg-white radius-md-8 p-24">모달</div>
+<div class="shadow-lg bg-white radius-md-8 p-24">다이얼로그</div>
+```
+
+규칙:
+- `border`로 이미 구분된 요소에 중복 사용 금지
+- 배경색이 투명한 요소에 사용 금지
+- 고도 순서 역전 금지 (`shadow-xs` → `shadow-s` → `shadow-md` → `shadow-lg`)
+
 ---
 
 ## 7. 절대 금지 사항
@@ -609,7 +784,7 @@ JS: `initPicker('datepicker-id')` / `initPicker('id', { mode: 'range' })`
 1. **색상 하드코딩** — #fff, rgb(), hsl() 등 사용 금지. 반드시 CSS 변수 또는 유틸 클래스
 2. **정의되지 않은 임의 클래스 생성** — **토큰·색·타이포·간격(`mb-*` 등)**은 이 문서 **3. 디자인 토큰**에 나온 것만. **그리드·flex·position·너비·높이·z-index·`inner-default` 등**(4-1~4-5)은 **`css/default/layout.css`**와 이 문서 **4**절에 근거한 클래스만(무작위 이름 금지, 예외 절차는 **4절 상단**·**항목 14**). **컴포넌트**는 사용하는 이름마다 `components/{name}/spec.json`, `css/component/{name}.css`, `components/{name}/README.md`를 근거로 한 클래스만(세 곳 어디에도 없는 이름을 새로 만들지 않는다)
 3. **인라인 스타일** — `style` 속성 금지(루트·내부 인라인 요소 모두). display, color, border 등을 HTML에 직접 쓰지 않는다
-4. **wrapper 없이 폼 컴포넌트 단독 사용** — input, textarea는 반드시 wrapper로 감싸야 함
+4. **wrapper 없이 폼 컴포넌트 단독 사용** — input, textarea, select는 반드시 wrapper로 감싸야 함
 5. **is-error를 field에 직접 추가** — 반드시 wrapper에만 추가
 6. **hover/focus 상태를 클래스로 추가** — CSS 내부 처리됨
 7. **div/span으로 button, input 대체** — 시맨틱 태그 사용
