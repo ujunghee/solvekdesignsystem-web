@@ -1,7 +1,9 @@
 # SolveK Design System — AI 규칙
 
 이 문서는 AI가 SolveK Design System 기준으로 페이지를 생성할 때 반드시 따라야 하는 규칙입니다.
-각 컴포넌트의 상세 명세는 `components/{name}/spec.json`, 개발자용 마크업 예시는 `components/{name}/README.md`를 참조하세요.
+
+> **마크업 예시의 단일 출처**: 컴포넌트 마크업은 반드시 `components/{name}/README.md`를 읽고 따른다. 이 문서의 컴포넌트 섹션은 규칙·클래스명·변형 요약만 제공한다.
+
 **스타일·상태·간격·타이포는 `css/index.css`가 불러오는 토큰·`default/`·`css/component/{name}.css`에 정의된 것만 사용**한다. HTML에는 인라인 `style`을 넣지 않으며, 내부 인라인 요소(`span`, `i` 등)에도 스타일을 우회해 붙이지 않는다.
 
 ---
@@ -164,13 +166,6 @@ CSS 변수: `var(--spacing-16)` 등
 
 12컬럼 그리드 시스템:
 
-```html
-<div class="grid-column-default">
-  <div class="grid-column-4">4칸 (1/3)</div>
-  <div class="grid-column-8">8칸 (2/3)</div>
-</div>
-```
-
 | 클래스 | 설명 |
 |---|---|
 | `grid-column-default` | 12컬럼 기본 그리드 |
@@ -182,11 +177,7 @@ CSS 변수: `var(--spacing-16)` 등
 
 ### 4-2. 반응형 (inner-default)
 
-```html
-<div class="inner-default">
-  <!-- 자동 반응형 컨테이너 -->
-</div>
-```
+`inner-default`: 자동 반응형 컨테이너
 
 | 브레이크포인트 | max-width | padding 좌우 |
 |---|---|---|
@@ -320,11 +311,12 @@ CSS 변수: `var(--spacing-16)` 등
 
 ### 마크업·스타일 단일 출처 (spec / README / CSS)
 
-- 컴포넌트를 만들거나 수정할 때는 해당 폴더의 **`spec.json`**, **`README.md`**, **`css/component/{이름}.css`**를 한 세트로 보고, 이 문서 **3. 디자인 토큰**·**4. 레이아웃 유틸**·해당 CSS가 의존하는 **`default/`** 규칙을 함께 따른다.
-- **`spec.json`**: variant, 허용 클래스, 필수 속성·접근성 규칙을 준수한다. 임의로 클래스명·DOM 구조를 바꾸지 않는다.
-- **`README.md`**: 마크업 예시·주석·금지 사항을 그대로 맞춘다.
-- **`css/component/*.css`**: 시각·상태(`:hover`, `:focus-visible`, `.active`, `disabled` 등)는 HTML이 아니라 CSS에만 둔다. **해당 컴포넌트 마크업에 쓸 클래스명은 이 파일의 선택자·조합과 같은 이름의 `spec.json`·`README.md` 예시를 근거로만 정한다** — 파일을 읽지 않고 추측으로 클래스명을 만들지 않는다.
-- **인라인 `style` 금지.** 내부 인라인 요소(`span`, `i`, `em` 등)에도 `style=""`이나 spec·README·`css/component`에 없는 임의 클래스로 스타일을 넣지 않는다. 필요한 것은 부모·컴포넌트 루트에 정의된 **유틸 클래스** 또는 **컴포넌트 전용 클래스**로만 표현한다.
+컴포넌트를 만들거나 수정할 때는 아래 세 파일을 **반드시 읽고** 따른다. 이 문서의 컴포넌트 섹션은 클래스 목록·규칙 요약만 제공하며, 마크업 예시의 단일 출처는 **`components/{name}/README.md`**다.
+
+- **`components/{name}/spec.json`**: variant, 허용 클래스, 필수 속성·접근성 규칙 준수. 임의로 클래스명·DOM 구조 변경 금지.
+- **`components/{name}/README.md`**: 마크업 예시·주석·금지 사항의 단일 출처. 반드시 읽고 그대로 맞춘다.
+- **`css/component/{name}.css`**: 시각·상태(`:hover`, `:focus-visible`, `.active`, `disabled` 등)는 HTML이 아니라 CSS에만 둔다. 클래스명은 이 파일의 선택자를 근거로만 정한다 — 읽지 않고 추측으로 만들지 않는다.
+- **인라인 `style` 금지.** `span`/`i`/`em` 등 내부 요소에도 `style=""`이나 spec·README·CSS에 없는 임의 클래스로 스타일 우회 금지.
 
 ### 상태 관리 공통 규칙
 
@@ -351,102 +343,36 @@ CSS 변수: `var(--spacing-16)` 등
 
 사이즈 5종: `48`, `40`, `36`, `32`, `28`
 
-disabled 전용: `button-48`, `button-40`, `button-36`, `button-32`, `button-28`
+disabled 전용: `button-{size}` + `disabled` 속성 (색상 클래스 병용 금지)
 
-```html
-<!-- 주요 CTA -->
-<button type="button" class="blue-button-40">저장</button>
-
-<!-- 보조 액션 -->
-<button type="button" class="border-blue-button-36">수정</button>
-
-<!-- 주요 보완 -->
-<button type="button" class="blue-50-button-36">문의</button>
-
-<!-- 중립 액션 -->
-<button type="button" class="slate-button-40">확인</button>
-
-<!-- 중립 보조 -->
-<button type="button" class="border-slate-button-36">취소</button>
-
-<!-- 아이콘 오른쪽 (icon-button-right) -->
-<button type="button" class="blue-button-48 icon-button-right flex align-center">
-  저장 <span class="chevron-right-white"></span>
-</button>
-
-<!-- 아이콘 왼쪽 (icon-button-left) -->
-<button type="button" class="slate-50-button-48 icon-button-left flex align-center">
-  <span class="chevron-right-slate-700"></span> 목록보기
-</button>
-
-<!-- disabled -->
-<button type="button" class="button-48" disabled>비활성</button>
-```
+아이콘 버튼: `icon-button-right` 또는 `icon-button-left` + `flex align-center` 필수
 
 규칙:
 - `type` 속성 반드시 명시 (button/submit/reset)
 - 사이즈 없이 색상만 단독 사용 금지
 - div/span으로 버튼 대체 금지
-- 아이콘 버튼은 반드시 `flex align-center` 추가
-- disabled 버튼에 색상 클래스 사용 금지 (`button-{size}` + `disabled` 속성만)
+
+→ 마크업 예시: `components/button/README.md`
 
 ### 6-2. Input
 
 **네이밍: `input-field-default-{size}` (size: 48, 40, 36)**
 
-```html
-<!-- 기본 -->
-<div class="input-wrapper">
-  <label class="body2-r-16 color-slate-900 mb-6 block">라벨</label>
-  <input type="text" class="input-field-default-48" placeholder="내용을 작성해주세요">
-  <p class="error-message">에러 메시지</p>
-</div>
+- 반드시 `input-wrapper`로 감쌀 것
+- 에러: `is-error`는 wrapper에만, `error-message`는 항상 DOM에 존재
+- 비밀번호: `eye-icon` 버튼으로 토글 (JS 섹션 참조)
+- 아이콘 있는 input: `input-with-trailing-icon` 추가
 
-<!-- 에러 → wrapper에만 is-error -->
-<div class="input-wrapper is-error">
-  <label class="body2-r-16 color-slate-900 mb-6 block">라벨</label>
-  <input type="text" class="input-field-default-48" placeholder="내용을 작성해주세요">
-  <p class="error-message">에러 메시지</p>
-</div>
-
-<!-- disabled -->
-<div class="input-wrapper">
-  <label class="body2-r-16 color-slate-900 mb-6 block">라벨</label>
-  <input type="text" class="input-field-default-48" placeholder="내용을 작성해주세요" disabled>
-</div>
-
-<!-- 비밀번호 -->
-<div class="input-wrapper">
-  <label class="body2-r-16 color-slate-900 mb-6 block">비밀번호</label>
-  <div class="relative w-fit flex align-center">
-    <input type="password" class="input-field-default-48" placeholder="비밀번호를 입력해주세요">
-    <button type="button" class="absolute right-0 top-50 translate-y-50">
-      <i class="eye-icon"><span class="blind">비밀번호 보기</span></i>
-    </button>
-  </div>
-</div>
-```
+→ 마크업 예시: `components/input/README.md`
 
 ### 6-3. Textarea
 
-```html
-<!-- 기본 -->
-<div class="textarea-wrapper">
-  <label class="body2-r-16 color-slate-900 mb-6 block">라벨</label>
-  <div class="relative">
-    <textarea class="textarea-field-default" placeholder="내용을 작성해주세요"></textarea>
-    <p class="absolute right-16 bottom-16 body2-r-16 color-slate-400">
-      <span class="counter">0</span>&nbsp;/&nbsp;100
-    </p>
-  </div>
-  <p class="error-message">에러 메시지</p>
-</div>
+**클래스: `textarea-wrapper` > `textarea-field-default`**
 
-<!-- 에러 → wrapper에만 is-error -->
-<div class="textarea-wrapper is-error">
-  <!-- is-error 하나로 textarea 테두리, counter 색상, error-message 노출 전부 자동 제어 -->
-</div>
-```
+- `is-error`는 wrapper에만 (textarea 테두리·counter 색·error-message 노출 자동 제어)
+- 글자수 카운터: `<span class="counter">0</span>` (JS로 실시간 업데이트)
+
+→ 마크업 예시: `components/textarea/README.md`
 
 ### 6-4. Search
 
@@ -466,297 +392,93 @@ disabled 전용: `button-48`, `button-40`, `button-36`, `button-32`, `button-28`
 | 54, 48 | `search-icon-54` | `body1-r-18` |
 | 40, 36 | `search-icon-40` | `body2-r-16` / `body3-r-14` |
 
-```html
-<!-- 선행형 -->
-<div class="search-54 flex px-16 gap-12">
-  <button type="button" class="search-button">
-    <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
-  </button>
-  <input type="text" class="body1-r-18" placeholder="검색어를 입력해주세요">
-</div>
+팝업: `search-popup`에 `active` 클래스 토글, 접근성 속성 필수 (JS 섹션 참조)
 
-<!-- 후행형 -->
-<div class="search-54 flex pl-20 pr-16 justify-between">
-  <input type="text" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요">
-  <button type="button" class="search-button">
-    <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
-  </button>
-</div>
-
-<!-- CTA 버튼형 -->
-<div class="search-bar flex gap-8">
-  <input type="text" class="search-48 px-12" placeholder="검색어를 입력해주세요">
-  <button type="button" class="slate-button-48 w-100">검색</button>
-</div>
-
-<!-- 팝업형 -->
-<div class="search-wrapper">
-  <div class="search-54 flex pl-20 pr-16 justify-between">
-    <input type="text" class="body1-r-18 w-full search-input" placeholder="검색어를 입력해주세요" id="search-id">
-    <button type="button" class="search-button">
-      <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
-    </button>
-  </div>
-  <div class="search-popup py-8" role="dialog" aria-modal="true" aria-labelledby="search-id">
-    <!-- 최근 검색어 목록 -->
-  </div>
-</div>
-```
-
-팝업: `search-popup`에 `active` 클래스 토글, 접근성 속성 필수
+→ 마크업 예시: `components/search/README.md`
 
 ### 6-5. Checkbox
 
 3가지 variant:
 
-| variant | 설명 | 사용 상황 |
+| variant | 구조 | 사용 상황 |
 |---|---|---|
-| basic | 정사각형 인디케이터 + 레이블. 폼, 설정, 테이블 다중 선택 | 폼, 설정, 테이블 |
-| chip | 칩 형태 다중 선택. 필터, 카테고리, 모바일 빠른 선택 | 태그, 카테고리 필터 |
-| list | 전체 행이 선택 영역. 모바일 넓은 터치 영역 | 모바일 옵션 목록 |
+| basic | id/for 분리. `checkbox-basic checkbox-basic-{sm/md/lg}` | 폼, 설정, 테이블 |
+| chip | label 감싸기. `checkbox-chip-label` > `checkbox-chip` | 태그, 카테고리 필터 |
+| list | label 감싸기. `checkbox-list-label` > `checkbox-list` | 모바일 옵션 목록 |
 
-basic 사이즈 3종: `sm`(body3-r-14), `md`(body2-r-16), `lg`(body1-r-18)
+- indeterminate(일부 선택): JS로만 설정 (JS 섹션 참조)
+- basic형에서 label 감싸기 구조 금지 / chip·list형에서 id/for 분리 구조 금지
 
-```html
-<!-- basic (id/for 분리 구조) -->
-<div class="flex align-center gap-8">
-  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="check-1">
-  <label for="check-1" class="body2-r-16 color-slate-700">옵션 1</label>
-</div>
-
-<!-- chip (label 감싸기 구조) -->
-<label class="checkbox-chip-label body2-r-16">
-  <input type="checkbox" class="checkbox-chip">
-  <span class="body2-m-16">옵션 1</span>
-</label>
-
-<!-- list (label 감싸기 구조) -->
-<label class="checkbox-list-label body2-r-16">
-  <input type="checkbox" class="checkbox-list">
-  <span class="body2-m-16">옵션 1</span>
-</label>
-
-<!-- 전체선택 패턴 -->
-<div class="flex align-center gap-8">
-  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-master">
-  <label for="checkall-master" class="body2-r-16 color-slate-700">전체 선택</label>
-</div>
-<div class="w-full border-b border-slate-200 my-12" role="presentation" aria-hidden="true"></div>
-<div class="grid-column-default gap-x-16 gap-y-10">
-  <div class="grid-column-4 flex align-center gap-8">
-    <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="item-1">
-    <label for="item-1" class="body2-r-16 color-slate-700">항목 1</label>
-  </div>
-</div>
-```
-
-indeterminate(일부 선택): 반드시 JS로 설정 (`master.indeterminate = true`)
+→ 마크업 예시: `components/checkbox/README.md`
 
 ### 6-6. Radio
 
 3가지 variant:
 
-| variant | 설명 | 사용 상황 |
+| variant | 구조 | 사용 상황 |
 |---|---|---|
-| basic | 원형 인디케이터 + 레이블. 폼, 설정, 단일 선택 | 폼, 설정, 옵션 선택 |
-| segment | 세그먼트 형태. 2~5개 옵션 나란히 전환 | 탭 대체, 뷰 모드 전환 |
-| toggle | 토글 그룹. 2개 옵션 간 빠른 전환 | ON/OFF, A/B 선택 |
+| basic | id/for 분리. `radio-basic radio-basic-{sm/md/lg}`. 같은 `name` 필수 | 폼, 설정 |
+| segment | label 감싸기. `radio-segment-label` > `radio-segment` | 탭 대체, 뷰 전환 |
+| toggle | `radio-toggle-group` > `radio-toggle-label` > `radio-toggle` | ON/OFF, A/B 선택 |
 
-basic 사이즈 3종: `sm`(body3-r-14), `md`(body2-r-16), `lg`(body1-r-18)
-
-```html
-<!-- basic (id/for 분리, 같은 name 필수) -->
-<div class="flex align-center gap-8">
-  <input type="radio" name="radio-group" class="radio-basic radio-basic-md" id="radio-1">
-  <label for="radio-1" class="body2-r-16 color-slate-700">옵션 1</label>
-</div>
-
-<!-- segment (label 감싸기) -->
-<div class="flex align-center gap-8 flex-wrap">
-  <label class="radio-segment-label body2-r-16">
-    <input type="radio" name="segment-group" class="radio-segment">
-    <span>옵션 1</span>
-  </label>
-</div>
-
-<!-- toggle (radio-toggle-group 필수) -->
-<div class="radio-toggle-group">
-  <label class="radio-toggle-label body2-r-16">
-    <input type="radio" name="toggle-group" class="radio-toggle" checked>
-    <span>옵션 1</span>
-  </label>
-  <label class="radio-toggle-label body2-r-16">
-    <input type="radio" name="toggle-group" class="radio-toggle">
-    <span>옵션 2</span>
-  </label>
-</div>
-```
+→ 마크업 예시: `components/radio/README.md`
 
 ### 6-7. Select
 
 **네이밍: `select-{size}` (size: 48, 40, 36)**
 
-```html
-<!-- 기본 -->
-<div class="select-wrapper">
-  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-id">라벨</label>
-  <select id="select-id" class="select-40 flex align-center" name="select-name" aria-label="선택">
-    <option value="" disabled selected hidden>선택하세요</option>
-    <option value="1">옵션 1</option>
-    <option value="2">옵션 2</option>
-  </select>
-  <p class="error-message">에러 메시지</p>
-</div>
-
-<!-- 에러 → wrapper에만 is-error -->
-<div class="select-wrapper is-error">
-  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-error">라벨</label>
-  <select id="select-error" class="select-40 flex align-center" name="select-error" aria-invalid="true" aria-label="선택">
-    <option value="" disabled selected hidden>선택하세요</option>
-    <option value="1">옵션 1</option>
-  </select>
-  <p class="error-message">에러 메시지</p>
-</div>
-
-<!-- disabled -->
-<div class="select-wrapper">
-  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-disabled">라벨</label>
-  <select id="select-disabled" class="select-40 flex align-center" name="select-disabled" aria-label="선택" disabled>
-    <option value="" disabled selected hidden>선택하세요</option>
-    <option value="1">옵션 1</option>
-  </select>
-  <p class="error-message">에러 메시지</p>
-</div>
-
-<!-- 전체 너비 -->
-<div class="select-wrapper">
-  <label class="body2-m-16 color-slate-900 mb-6 block" for="select-full">라벨</label>
-  <select id="select-full" class="select-40 flex align-center w-full" name="select-full" aria-label="선택">
-    <option value="" disabled selected hidden>선택하세요</option>
-    <option value="1">옵션 1</option>
-  </select>
-  <p class="error-message">에러 메시지</p>
-</div>
-```
-
 규칙:
-- `wrapper` 없이 `select` 단독 사용 금지
+- `select-wrapper` 없이 단독 사용 금지
 - `select`에 반드시 `flex align-center` 추가 (텍스트 세로 정렬)
 - `label`의 `for`와 `select`의 `id` 반드시 일치
 - `aria-label` 반드시 포함
-- 에러 상태 시 `select`에 `aria-invalid="true"` 추가
-- `is-error`는 wrapper에만 추가
-- `error-message`는 항상 DOM에 존재
-- placeholder는 `<option value="" disabled selected hidden>` 조합으로 구현
+- 에러 시 `select`에 `aria-invalid="true"` 추가, `is-error`는 wrapper에만
+- placeholder: `<option value="" disabled selected hidden>` 조합으로 구현
+
+→ 마크업 예시: `components/select/README.md`
 
 ### 6-8. Datepicker
 
 flatpickr@4.6.13 기반. 단일 날짜 / 기간 선택 2가지 variant.
 
-추가 의존성:
+추가 의존성 (페이지 head에 포함):
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ko.js"></script>
 ```
 
-```html
-<!-- 단일 날짜 -->
-<div class="input-wrapper">
-  <label class="body2-r-16 color-slate-900 mb-6 block" for="datepicker-id">날짜</label>
-  <div class="relative w-fit flex align-center">
-    <input type="text" id="datepicker-id"
-      class="input-field-default-48 input-with-trailing-icon"
-      placeholder="날짜를 선택해주세요" autocomplete="off">
-    <button type="button" class="absolute right-0 top-50 translate-y-50"
-      data-datepicker-for="datepicker-id">
-      <i class="calendar-icon" aria-hidden="true"></i>
-      <span class="blind">날짜 선택</span>
-    </button>
-  </div>
-</div>
-```
+규칙:
+- input id, label for, `data-datepicker-for` 반드시 일치
+- `autocomplete="off"` 필수
+- `input type="date"` 사용 금지
+- 아이콘 있는 input: `input-with-trailing-icon` 추가
+- JS 초기화: `initPicker('id')` / `initPicker('id', { mode: 'range' })` (JS 섹션 참조)
 
-JS: `initPicker('datepicker-id')` / `initPicker('id', { mode: 'range' })`
-
-규칙: input id, label for, data-datepicker-for 반드시 일치. autocomplete=off 필수. input type="date" 사용 금지.
+→ 마크업 예시: `components/datepicker/README.md`
 
 ### 6-9. Modal
 
-2가지 타입: 일반 모달 / 이벤트성 모달(웹 중앙, 모바일 바텀시트)
+2가지 타입: 일반 모달 / 이벤트성 모달 (`modal-container--event`, `modal--event`)
 
 footer 3가지 레이아웃:
 
-| 타입 | 구성 | 예시 |
-|---|---|---|
-| type 1 | 버튼 1개 중앙 | 완료 |
-| type 2 | 버튼 2개 우측 정렬 | 닫기 + 완료 |
-| type 3 | 버튼 좌우 분리 | 이전 / (닫기 + 완료) |
-
-```html
-<!-- 일반 모달 -->
-<div class="modal-container" tabindex="0" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal shadow-lg">
-    <div class="modal__header">
-      <h2 id="modal-title">모달 제목</h2>
-      <button type="button" aria-label="닫기">
-        <i class="modal__close"></i>
-      </button>
-    </div>
-    <div class="modal__content px-24 pb-24">
-      <p>모달 내용</p>
-    </div>
-
-    <!-- footer type 1: 버튼 1개 중앙 -->
-    <div class="modal__footer flex justify-center">
-      <button type="button" class="blue-button-48 w-300">완료</button>
-    </div>
-
-    <!-- footer type 2: 버튼 2개 우측 정렬 -->
-    <div class="modal__footer flex justify-end gap-10">
-      <button type="button" class="border-slate-button-48 w-100">닫기</button>
-      <button type="button" class="blue-button-48 w-200">완료</button>
-    </div>
-
-    <!-- footer type 3: 좌우 분리 -->
-    <div class="modal__footer flex justify-between">
-      <button type="button" class="border-slate-button-48 w-100">이전</button>
-      <div class="flex gap-10">
-        <button type="button" class="border-slate-button-48 w-100">닫기</button>
-        <button type="button" class="blue-button-48 w-200">완료</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 이벤트성 모달 (웹 중앙 / 모바일 바텀시트) -->
-<div class="modal-container modal-container--event" tabindex="0" role="dialog" aria-modal="true" aria-labelledby="modal-event-title">
-  <div class="modal shadow-lg modal--event">
-    <h2 class="blind" id="modal-event-title">이벤트 안내</h2>
-    <div class="modal__content modal__content--event px-24 pb-24">
-      <p class="body2-r-16 color-slate-400 text-center">내용과 이미지</p>
-      <div class="modal__content-action flex justify-center">
-        <button type="button" class="blue-button-48 w-300">참여하기</button>
-      </div>
-    </div>
-    <div class="modal__footer modal__footer--event flex justify-between align-center">
-      <button type="button" class="transparent-button-48">오늘 하루 보지 않기</button>
-      <button type="button" class="transparent-button-48">닫기</button>
-    </div>
-  </div>
-</div>
-```
+| 타입 | 구성 |
+|---|---|
+| type 1 | 버튼 1개 중앙 (`flex justify-center`) |
+| type 2 | 버튼 2개 우측 정렬 (`flex justify-end gap-10`) |
+| type 3 | 버튼 좌우 분리 (`flex justify-between`) |
 
 규칙:
 - `modal-container`에 반드시 `role="dialog"`, `aria-modal="true"`, `aria-labelledby` 추가
-- `modal__close` 아이콘 버튼에 `aria-label="닫기"` 필수
-- 모달 열기/닫기는 JS로 `modal-container`의 `display` 제어 또는 클래스 토글
-- 페이지형 모달(긴 콘텐츠): `modal--page` 클래스 추가 (content max-height 1100px)
+- `modal__close` 버튼에 `aria-label="닫기"` 필수
+- 페이지형 모달(긴 콘텐츠): `modal--page` 추가 (content max-height 1100px)
 - `shadow-lg`는 `.modal`에 적용
+- 열기/닫기는 JS로 처리 (JS 섹션 참조)
+
+→ 마크업 예시: `components/modal/README.md`
 
 ### 6-10. Shadow
-
-고도(elevation)에 따른 그림자 유틸리티 클래스.
 
 | 클래스 | 고도 | 대표 사용 상황 |
 |---|---|---|
@@ -765,13 +487,6 @@ footer 3가지 레이아웃:
 | `shadow-md` | 높음 | 모달, 팝업, 바텀시트 |
 | `shadow-lg` | 최고 | 다이얼로그, 알림 토스트 |
 
-```html
-<div class="shadow-xs bg-white radius-md-8 p-20">기본 카드</div>
-<div class="shadow-s bg-white radius-md-8 py-8">드롭다운</div>
-<div class="shadow-md bg-white radius-md-8 p-24">모달</div>
-<div class="shadow-lg bg-white radius-md-8 p-24">다이얼로그</div>
-```
-
 규칙:
 - `border`로 이미 구분된 요소에 중복 사용 금지
 - 배경색이 투명한 요소에 사용 금지
@@ -779,11 +494,146 @@ footer 3가지 레이아웃:
 
 ---
 
-## 7. 절대 금지 사항
+## 7. JS 패턴
+
+> 이 시스템은 순수 JS로 동작한다. 프레임워크 없이 아래 패턴을 그대로 사용한다.
+
+### 7-1. 모달 열기/닫기
+
+```js
+function openModal(containerId) {
+  const container = document.getElementById(containerId);
+  container.style.display = 'flex';
+  container.focus();
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(containerId) {
+  const container = document.getElementById(containerId);
+  container.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// 닫기 버튼, 오버레이 클릭 연결
+document.querySelectorAll('[data-modal-close]').forEach(btn => {
+  btn.addEventListener('click', () => closeModal(btn.dataset.modalClose));
+});
+document.querySelectorAll('.modal-container').forEach(container => {
+  container.addEventListener('click', e => {
+    if (e.target === container) closeModal(container.id);
+  });
+});
+
+// ESC 키 닫기
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-container').forEach(c => {
+      if (c.style.display !== 'none') closeModal(c.id);
+    });
+  }
+});
+```
+
+### 7-2. Datepicker 초기화 (flatpickr)
+
+```js
+function initPicker(inputId, options = {}) {
+  const input = document.getElementById(inputId);
+  const calBtn = document.querySelector(`[data-datepicker-for="${inputId}"]`);
+
+  const picker = flatpickr(input, {
+    locale: 'ko',
+    dateFormat: 'Y-m-d',
+    disableMobile: true,
+    ...options
+  });
+
+  if (calBtn) {
+    calBtn.addEventListener('click', () => picker.toggle());
+  }
+}
+
+// 단일 날짜
+initPicker('datepicker-id');
+
+// 기간 선택
+initPicker('datepicker-range-id', { mode: 'range' });
+```
+
+### 7-3. 체크박스 전체선택 / indeterminate
+
+```js
+function initCheckAll(masterId, itemSelector) {
+  const master = document.getElementById(masterId);
+  const items = document.querySelectorAll(itemSelector);
+
+  function syncMaster() {
+    const checkedCount = [...items].filter(i => i.checked).length;
+    master.checked = checkedCount === items.length;
+    master.indeterminate = checkedCount > 0 && checkedCount < items.length;
+  }
+
+  master.addEventListener('change', () => {
+    items.forEach(item => { item.checked = master.checked; });
+  });
+
+  items.forEach(item => item.addEventListener('change', syncMaster));
+}
+
+// 사용 예
+initCheckAll('checkall-master', '.item-checkbox');
+```
+
+### 7-4. 비밀번호 보기/숨기기 토글
+
+```js
+document.querySelectorAll('.eye-icon').forEach(icon => {
+  icon.closest('button').addEventListener('click', () => {
+    const wrapper = icon.closest('.input-wrapper, .relative');
+    const input = wrapper.querySelector('input[type="password"], input[type="text"]');
+    const isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    icon.classList.toggle('active', isHidden);
+  });
+});
+```
+
+### 7-5. 검색 팝업 토글
+
+```js
+document.querySelectorAll('.search-wrapper').forEach(wrapper => {
+  const input = wrapper.querySelector('.search-input');
+  const popup = wrapper.querySelector('.search-popup');
+
+  input?.addEventListener('focus', () => popup?.classList.add('active'));
+
+  document.addEventListener('click', e => {
+    if (!wrapper.contains(e.target)) popup?.classList.remove('active');
+  });
+});
+```
+
+### 7-6. Textarea 글자수 카운터
+
+```js
+document.querySelectorAll('.textarea-wrapper').forEach(wrapper => {
+  const textarea = wrapper.querySelector('textarea');
+  const counter = wrapper.querySelector('.counter');
+  if (!textarea || !counter) return;
+
+  textarea.addEventListener('input', () => {
+    counter.textContent = textarea.value.length;
+  });
+});
+```
+
+---
+
+## 8. 절대 금지 사항
 
 1. **색상 하드코딩** — #fff, rgb(), hsl() 등 사용 금지. 반드시 CSS 변수 또는 유틸 클래스
-2. **정의되지 않은 임의 클래스 생성** — **토큰·색·타이포·간격(`mb-*` 등)**은 이 문서 **3. 디자인 토큰**에 나온 것만. **그리드·flex·position·너비·높이·z-index·`inner-default` 등**(4-1~4-5)은 **`css/default/layout.css`**와 이 문서 **4**절에 근거한 클래스만(무작위 이름 금지, 예외 절차는 **4절 상단**·**항목 14**). **컴포넌트**는 사용하는 이름마다 `components/{name}/spec.json`, `css/component/{name}.css`, `components/{name}/README.md`를 근거로 한 클래스만(세 곳 어디에도 없는 이름을 새로 만들지 않는다)
-3. **인라인 스타일** — `style` 속성 금지(루트·내부 인라인 요소 모두). display, color, border 등을 HTML에 직접 쓰지 않는다
+2. **정의되지 않은 임의 클래스 생성** — **토큰·색·타이포·간격(`mb-*` 등)**은 이 문서 **3. 디자인 토큰**에 나온 것만. **그리드·flex·position·너비·높이·z-index·`inner-default` 등**(4-1~4-5)은 **`css/default/layout.css`**와 이 문서 **4**절에 근거한 클래스만. **컴포넌트**는 `spec.json`, `css/component/{name}.css`, `README.md` 세 곳에 근거한 클래스만
+3. **인라인 스타일** — `style` 속성 금지(루트·내부 인라인 요소 모두)
 4. **wrapper 없이 폼 컴포넌트 단독 사용** — input, textarea, select는 반드시 wrapper로 감싸야 함
 5. **is-error를 field에 직접 추가** — 반드시 wrapper에만 추가
 6. **hover/focus 상태를 클래스로 추가** — CSS 내부 처리됨
@@ -793,12 +643,13 @@ footer 3가지 레이아웃:
 10. **basic형 checkbox/radio에서 label 감싸기 구조 사용** — 반드시 id/for 분리
 11. **chip/list/segment/toggle형에서 id/for 분리 구조 사용** — 반드시 label 감싸기
 12. **radio에서 name 속성 누락** — 같은 그룹은 반드시 동일 name
-13. **내부 인라인 요소에 스타일 우회** — `span`/`i` 등에 `style`이나 spec·README·`css/component`에 없는 임의 클래스를 붙여 보이게 하지 말 것. 반드시 spec·README·컴포넌트 CSS에 맞는 클래스만 사용
-14. **레이아웃·유틸 클래스 무작위 추가** — **4-1~4-5·`layout.css`** 범위의 이름을 추측해 붙이지 않는다. **3절 간격**도 허용된 토큰 숫자만. 기존 조합으로 불가능할 때만 **4절 상단** 절차대로 해당 **`css/default/`** 파일·문서 반영을 전제로 신규를 제안한다
+13. **내부 인라인 요소에 스타일 우회** — `span`/`i` 등에 `style`이나 spec·README·CSS에 없는 임의 클래스 금지
+14. **레이아웃·유틸 클래스 무작위 추가** — 4-1~4-5·`layout.css` 범위 이름을 추측해 붙이지 않는다
+15. **컴포넌트 마크업을 README 없이 작성** — 반드시 `components/{name}/README.md`를 읽고 따른다
 
 ---
 
-## 8. 페이지 생성 시 기본 구조
+## 9. 페이지 생성 시 기본 구조
 
 ```html
 <!DOCTYPE html>
@@ -807,25 +658,25 @@ footer 3가지 레이아웃:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>페이지 제목 | 솔브케이</title>
- 
+
   <!-- 기본 메타 -->
   <meta name="description" content="페이지 설명">
   <meta name="keywords" content="ui, ux, publishing, solvek">
   <meta name="author" content="Solvek">
- 
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="페이지 제목 | 솔브케이">
   <meta property="og:description" content="페이지 설명">
   <!-- <meta property="og:image" content="https://example.com/image.jpg"> -->
   <!-- <meta property="og:url" content="https://example.com/page"> -->
- 
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="페이지 제목 | 솔브케이">
   <meta name="twitter:description" content="페이지 설명">
   <!-- <meta name="twitter:image" content="https://example.com/image.jpg"> -->
- 
+
   <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
