@@ -3,6 +3,8 @@
 이 문서는 AI가 SolveK Design System 기준으로 페이지를 생성할 때 반드시 따라야 하는 규칙입니다.
 
 > **마크업 예시의 단일 출처**: 컴포넌트 마크업은 반드시 `components/{name}/README.md`를 읽고 따른다. 이 문서의 컴포넌트 섹션은 규칙·클래스명·변형 요약만 제공한다.
+> **웹 접근성 규칙**: 페이지 생성 시 반드시 `docs/accessibility.md` 를 읽고 준수한다.
+> **SEO 규칙**: 페이지 생성 시 반드시 `docs/seo.md` 를 읽고 준수한다.
 
 **스타일·상태·간격·타이포는 `css/index.css`가 불러오는 토큰·`default/`·`css/component/{name}.css`에 정의된 것만 사용**한다. HTML에는 인라인 `style`을 넣지 않으며, 내부 인라인 요소(`span`, `i` 등)에도 스타일을 우회해 붙이지 않는다.
 
