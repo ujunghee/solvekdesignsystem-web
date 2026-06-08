@@ -526,6 +526,11 @@
   margin-bottom: var(--spacing-24);
 }
 
+.my-28 {
+  margin-top: var(--spacing-28);
+  margin-bottom: var(--spacing-28);
+}
+
 
 /* ==== margin top ==== */
 
@@ -555,6 +560,10 @@
 
 .mt-24 {
   margin-top: var(--spacing-24);
+}
+
+.mt-28 {
+  margin-top: var(--spacing-28);
 }
 
 .mt-32 {
