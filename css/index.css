@@ -22,6 +22,4 @@
 @import url('./component/select.css');
 @import url('./component/shadow.css');
 @import url('./component/modal.css');
-
-/* UI Kit */
-@import url('./ui-kit/header.css');
+@import url('./component/header.css');

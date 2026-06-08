@@ -306,6 +306,9 @@ CSS 변수: `var(--spacing-16)` 등
 | `clock-icon` | 시계 | 24×24 |
 | `close-icon` | 닫기 X (CSS ::before/after 생성) | 24×24 |
 | `modal__close` | 모달 닫기 X (SVG 배경, 40×40 터치 영역) | 40×40 |
+| `header-login-24` | 헤더 로그인 | 24×24 |
+| `header-search-24` | 헤더 통합검색 | 24×24 |
+| `header-menu-24` | 헤더 모바일 메뉴 | 24×24 |
 
 ---
 
@@ -493,6 +496,41 @@ footer 3가지 레이아웃:
 - `border`로 이미 구분된 요소에 중복 사용 금지
 - 배경색이 투명한 요소에 사용 금지
 - 고도 순서 역전 금지 (`shadow-xs` → `shadow-s` → `shadow-md` → `shadow-lg`)
+
+### 6-11. Header
+
+사이트 공통 헤더. 로고·유틸 버튼·PC GNB·통합검색 패널·모바일 드로어로 구성.
+
+**네이밍: `header-{block}__{element}--{modifier}` (BEM)**
+
+| 블록 | 설명 |
+|---|---|
+| `header` | 루트 (`role="banner"`, sticky) |
+| `header-top` | 상단 바 (로고 + 유틸) |
+| `header__logo` | 로고 영역 (`h1 > a > img`) |
+| `header-util` | 유틸 버튼 그룹 (로그인/통합검색/모바일메뉴) |
+| `header-nav` | PC GNB (`role="navigation"`, depth1 + depth2 드롭다운) |
+| `header-search-panel` | 통합검색 오버레이 (`role="dialog"`) |
+| `header-drawer` | 모바일 전체 메뉴 드로어 (`role="dialog"`) |
+
+전용 아이콘:
+
+| 클래스 | 설명 | 크기 |
+|---|---|---|
+| `header-login-24` | 로그인 | 24×24 |
+| `header-search-24` | 통합검색 | 24×24 |
+| `header-menu-24` | 모바일 메뉴 | 24×24 |
+
+규칙:
+- `header`에 `role="banner"`, `header-nav`에 `role="navigation"` + `aria-label` 필수
+- GNB 트리거: `aria-expanded` / `aria-haspopup="true"` / `aria-controls`(서브메뉴 id 일치) 필수
+- 통합검색·드로어 열기 버튼: `aria-expanded` / `aria-controls`(패널 id 일치) 필수
+- 통합검색 패널·드로어: `role="dialog"` `aria-modal="true"` `aria-labelledby`(blind 제목) 필수
+- 열림/닫힘은 `active` 클래스 토글로만 제어 (인라인 스타일 금지)
+- 유틸 버튼은 `transparent-button-{size}` 기반, 아이콘 포함 시 `flex align-center` 추가
+- PC GNB·PC 전용 유틸은 `display-none-tablet`로 1280px 기준 전환
+
+→ 마크업 예시: `components/header/README.md`
 
 ---
 
