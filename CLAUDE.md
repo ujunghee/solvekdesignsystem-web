@@ -532,6 +532,29 @@ footer 3가지 레이아웃:
 
 → 마크업 예시: `components/header/README.md`
 
+### 6-12. Footer
+
+사이트 공통 푸터. 로고·연락처·정책 링크·저작권 정보로 구성.
+
+**네이밍: `footer__{element}` (BEM)**
+
+| 블록 | 설명 |
+|---|---|
+| `footer` | 루트 (`role="contentinfo"`) |
+| `footer__brand` | 로고 영역 (`a > img`) |
+| `footer__info` | 연락처 + 이용안내 링크 |
+| `footer__divider` | 장식용 구분선 (`role="presentation"` `aria-hidden="true"`) |
+| `footer__bottom` | 정책 링크 목록 + 저작권 문구 |
+
+규칙:
+- `footer`에 `role="contentinfo"` 필수
+- 로고 링크에 `aria-label`로 사이트명 명시
+- 장식용 구분선에 `role="presentation"` `aria-hidden="true"` 필수
+- 정책 링크 목록은 `ul > li > a` 구조 유지
+- 1024px 이하에서 `footer__info`, `footer__bottom`을 column으로 전환
+
+→ 마크업 예시: `components/footer/README.md`
+
 ---
 
 ## 7. JS 패턴
