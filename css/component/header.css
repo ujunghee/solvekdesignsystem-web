@@ -88,6 +88,7 @@ button.header-nav__link {
   right: 0;
   z-index: 10;
   background-color: var(--white);
+  border-top: 1px solid var(--slate-100);
   border-bottom: 1px solid var(--slate-200);
 }
 
@@ -98,7 +99,6 @@ button.header-nav__link {
 .header-nav__sub-inner {
   display: flex;
   align-items: stretch;
-  border-top: 1px solid var(--slate-200);
 }
 
 .header-nav__sub-aside {
