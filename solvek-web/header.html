@@ -4,35 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>header | 솔브케이</title>
-
   <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
   <header class="header" role="banner">
-    <!-- 상단 바: 로고 + 유틸 -->
     <div class="header-top">
       <div class="inner-default header-top__inner flex align-center justify-between">
         <h1 class="header__logo">
-          <a href="/" aria-label="국가유산 디지털 서비스 홈으로 이동">
-            <img src="/image/icon/header-logo.svg" alt="국가유산 디지털 서비스">
+          <a href="/" aria-label="사이트명 홈으로 이동">
+            <img src="/image/icon/header-logo.svg" alt="사이트명">
           </a>
         </h1>
-
         <div class="header-util flex align-center" role="group" aria-label="사용자 계정 관리">
-          <!-- PC 로그인 -->
           <button type="button" class="header-util__btn header-util__btn--login transparent-button-40 gap-8 flex align-center">
             <i class="header-login-24" aria-hidden="true"></i>
             <span class="body2-m-16">로그인</span>
           </button>
-
-          <!-- 통합검색 열기 -->
           <button type="button" class="header-util__btn transparent-button-40 gap-8 flex align-center" data-header-search-open aria-expanded="false" aria-controls="header-search-panel">
             <i class="header-search-24" aria-hidden="true"></i>
             <span class="body2-m-16">통합검색</span>
           </button>
-
-          <!-- 모바일 메뉴 -->
-          <button type="button" class="header-util__btn header-util__btn--menu transparent-button-48 icon-button-left flex align-center" data-header-drawer-open aria-expanded="false" aria-controls="header-drawer">
+          <button type="button" class="header-util__btn header-util__btn--menu transparent-button-48 flex align-center" data-header-drawer-open aria-expanded="false" aria-controls="header-drawer">
             <i class="header-menu-24" aria-hidden="true"></i>
             <span class="body2-m-16">메뉴</span>
           </button>
@@ -40,7 +32,6 @@
       </div>
     </div>
 
-    <!-- PC GNB -->
     <nav class="header-nav" role="navigation" aria-label="주 메뉴">
       <div class="inner-default">
         <ul class="header-nav__list">
@@ -56,9 +47,8 @@
                 </div>
                 <div class="header-nav__sub-content">
                   <ul class="header-nav__sub-list" role="menu" aria-label="depth1 하위 메뉴">
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                    <li role="none"><a href="javascript:void(0)" class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                    <li role="none"><a href="javascript:void(0)" class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
                   </ul>
                 </div>
               </div>
@@ -76,65 +66,8 @@
                 </div>
                 <div class="header-nav__sub-content">
                   <ul class="header-nav__sub-list" role="menu" aria-label="depth1 하위 메뉴">
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="header-nav__item">
-            <button type="button" class="header-nav__link body1-m-18" data-header-nav-toggle aria-expanded="false" aria-haspopup="true" aria-controls="header-nav-sub-3">
-              depth1
-              <i class="arrow-icon" aria-hidden="true"></i>
-            </button>
-            <div class="header-nav__sub" id="header-nav-sub-3">
-              <div class="inner-default header-nav__sub-inner">
-                <div class="header-nav__sub-aside">
-                  <p class="heading9-sb-22 color-slate-900">depth1</p>
-                </div>
-                <div class="header-nav__sub-content">
-                  <ul class="header-nav__sub-list" role="menu" aria-label="depth1 하위 메뉴">
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="header-nav__item">
-            <button type="button" class="header-nav__link body1-m-18" data-header-nav-toggle aria-expanded="false" aria-haspopup="true" aria-controls="header-nav-sub-4">
-              depth1
-              <i class="arrow-icon" aria-hidden="true"></i>
-            </button>
-            <div class="header-nav__sub" id="header-nav-sub-4">
-              <div class="inner-default header-nav__sub-inner">
-                <div class="header-nav__sub-aside">
-                  <p class="heading9-sb-22 color-slate-900">depth1</p>
-                </div>
-                <div class="header-nav__sub-content">
-                  <ul class="header-nav__sub-list" role="menu" aria-label="depth1 하위 메뉴">
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="header-nav__item">
-            <button type="button" class="header-nav__link body1-m-18" data-header-nav-toggle aria-expanded="false" aria-haspopup="true" aria-controls="header-nav-sub-5">
-              depth1
-              <i class="arrow-icon" aria-hidden="true"></i>
-            </button>
-            <div class="header-nav__sub" id="header-nav-sub-5">
-              <div class="inner-default header-nav__sub-inner">
-                <div class="header-nav__sub-aside">
-                  <p class="heading9-sb-22 color-slate-900">depth1</p>
-                </div>
-                <div class="header-nav__sub-content">
-                  <ul class="header-nav__sub-list" role="menu" aria-label="depth1 하위 메뉴">
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
-                    <li role="none"><a href="javascript:void(0) " class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">depth2<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
                   </ul>
                 </div>
               </div>
@@ -149,45 +82,35 @@
   <div class="header-search-panel" id="header-search-panel" role="dialog" aria-modal="true" aria-labelledby="header-search-title" hidden>
     <div class="header-search-wrapper">
       <div class="flex justify-between align-center gap-16">
-        <h2 id="header-search-title" class="heading8-sb-24 color-slate-900">통합검색 헤더 섹션</h2>
+        <h2 id="header-search-title" class="heading8-sb-24 color-slate-900">통합검색</h2>
         <button type="button" data-header-search-close aria-label="검색 닫기">
           <i class="close-icon-lg"><span class="blind">검색 닫기</span></i>
         </button>
       </div>
-
       <div class="mt-36">
         <label for="header-search-input" class="blind">검색어</label>
         <div class="search-54 flex pl-20 pr-16 justify-between align-center">
           <input type="search" id="header-search-input" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요" autocomplete="off">
           <button type="button" class="search-button h-fit">
-            <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
+            <i class="search-icon-54"><span class="blind">검색</span></i>
           </button>
         </div>
       </div>
-
       <div class="header-search-panel__columns flex mt-24 gap-32">
         <section aria-labelledby="header-search-popular-title">
           <h3 id="header-search-popular-title" class="heading10-sb-20 color-slate-900 mb-8">인기 검색어</h3>
           <ol>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="미세먼지"><span class="body2-sb-16 color-green-600">1</span>미세먼지</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="기후변화 분석"><span class="body2-sb-16 color-green-600">2</span>기후변화 분석</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="탄소배출량"><span class="body2-sb-16 color-green-600">3</span>탄소배출량</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="수질오염 예측"><span class="body2-sb-16 color-green-600">4</span>수질오염 예측</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="도시 열섬 현상"><span class="body2-sb-16 color-green-600">5</span>도시 열섬 현상</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="초미세먼지 현상"><span class="body2-sb-16 color-green-600">6</span>초미세먼지 현상</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="오존 경보 지역"><span class="body2-sb-16 color-green-600">7</span>오존 경보 지역</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="해수면 상승 모니터링"><span class="body2-sb-16 color-green-600">8</span>해수면 상승 모니터링</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="산불 위험도 지수"><span class="body2-sb-16 color-green-600">9</span>산불 위험도 지수</a></li>
-            <li><a href="javascript:void(0)" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700" title="재생에너지 발전량"><span class="body2-sb-16 color-green-600">10</span>재생에너지 발전량</a></li>
+            <li><a href="#" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700"><span class="body2-sb-16 color-green-600">1</span>검색어 1</a></li>
+            <li><a href="#" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700"><span class="body2-sb-16 color-green-600">2</span>검색어 2</a></li>
+            <li><a href="#" class="flex align-center gap-12 py-6 body2-m-16 color-slate-700"><span class="body2-sb-16 color-green-600">3</span>검색어 3</a></li>
           </ol>
         </section>
-
         <section class="header-search-panel__recent flex-1" aria-labelledby="header-search-recent-title">
           <div class="flex align-center justify-between">
             <h3 id="header-search-recent-title" class="heading10-sb-20 color-slate-900">최근 검색어</h3>
             <button type="button" class="transparent-button-32" data-header-search-clear>전체삭제</button>
           </div>
-          <p class="body2-m-16 color-slate-500 text-start mt-16" data-header-search-empty>최근 검색어가 없습니다.</p>
+          <p class="body2-m-16 color-slate-500 mt-16" data-header-search-empty>최근 검색어가 없습니다.</p>
           <ul class="hidden" data-header-search-recent-list></ul>
         </section>
       </div>
@@ -205,7 +128,7 @@
         </button>
       </div>
       <div class="header-drawer__login">
-        <button type="button" class="transparent-button-48 icon-button-left flex align-center w-full">
+        <button type="button" class="transparent-button-48 flex align-center w-full gap-8">
           <i class="header-login-24" aria-hidden="true"></i>
           <span class="body2-m-16">로그인을 해주세요</span>
         </button>
@@ -214,63 +137,25 @@
         <ul class="header-drawer__list">
           <li class="header-drawer__item">
             <button type="button" class="header-drawer__link body2-m-16" aria-expanded="false">
-              데이터 서비스
+              depth1
               <i class="arrow-icon" aria-hidden="true"></i>
             </button>
             <div class="header-drawer__sub">
               <ul class="header-drawer__sub-list">
-                <li><a href="/heri/heri.do" class="header-drawer__sub-link body2-r-16">국가유산별</a></li>
-                <li><a href="/buis/buis.do" class="header-drawer__sub-link body2-r-16">연도별</a></li>
-                <li><a href="/record/record.do" class="header-drawer__sub-link body2-r-16">매체유형별</a></li>
-                <li><a href="/search/integratedSearch.do" class="header-drawer__sub-link body2-r-16">통합검색</a></li>
+                <li><a href="#" class="header-drawer__sub-link body2-r-16">depth2</a></li>
+                <li><a href="#" class="header-drawer__sub-link body2-r-16">depth2</a></li>
               </ul>
             </div>
           </li>
           <li class="header-drawer__item">
             <button type="button" class="header-drawer__link body2-m-16" aria-expanded="false">
-              3D 에셋 서비스
+              depth1
               <i class="arrow-icon" aria-hidden="true"></i>
             </button>
             <div class="header-drawer__sub">
               <ul class="header-drawer__sub-list">
-                <li><a href="/heritage/catalog.do" class="header-drawer__sub-link body2-r-16">조선시대 궁궐문화</a></li>
-                <li><a href="/heritage/catalog.do" class="header-drawer__sub-link body2-r-16">우리나라 자연유산</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="header-drawer__item">
-            <button type="button" class="header-drawer__link body2-m-16" aria-expanded="false">
-              유산 체험
-              <i class="arrow-icon" aria-hidden="true"></i>
-            </button>
-            <div class="header-drawer__sub">
-              <ul class="header-drawer__sub-list">
-                <li><a href="/recommend/chilgokV01.do" class="header-drawer__sub-link body2-r-16">칠곡 국가유산 AR 교육</a></li>
-                <li><a href="/recommend/gltfViewer.do" class="header-drawer__sub-link body2-r-16">재해유산 3D</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="header-drawer__item">
-            <button type="button" class="header-drawer__link body2-m-16" aria-expanded="false">
-              테마 서비스
-              <i class="arrow-icon" aria-hidden="true"></i>
-            </button>
-            <div class="header-drawer__sub">
-              <ul class="header-drawer__sub-list">
-                <li><a href="/recommend/relatedRecords.do" class="header-drawer__sub-link body2-r-16">한국의 세계유산</a></li>
-                <li><a href="/recommend/panorama.do" class="header-drawer__sub-link body2-r-16">지질유산 파노라마 뷰</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="header-drawer__item">
-            <button type="button" class="header-drawer__link body2-m-16" aria-expanded="false">
-              지원&amp;소식
-              <i class="arrow-icon" aria-hidden="true"></i>
-            </button>
-            <div class="header-drawer__sub">
-              <ul class="header-drawer__sub-list">
-                <li><a href="/service/servicePage.do" class="header-drawer__sub-link body2-r-16">서비스 소개</a></li>
-                <li><a href="/service/notice.do" class="header-drawer__sub-link body2-r-16">공지사항</a></li>
+                <li><a href="#" class="header-drawer__sub-link body2-r-16">depth2</a></li>
+                <li><a href="#" class="header-drawer__sub-link body2-r-16">depth2</a></li>
               </ul>
             </div>
           </li>
@@ -279,58 +164,28 @@
     </div>
   </div>
 
-  <!-- 페이지 본문 예시 -->
   <main class="inner-default py-48">
     <p class="heading8-sb-24 color-slate-900 mb-16">Header 샘플 — solvek-web</p>
-    <p class="body2-r-16 color-slate-700">상단 검색·메뉴 버튼과 PC GNB(1280px 이상)를 확인하세요.</p>
+    <p class="body2-r-16 color-slate-700">상단 검색·메뉴 버튼과 PC GNB(769px 이상)를 확인하세요.</p>
   </main>
 
   <script>
     const headerNav = document.querySelector('.header-nav');
+    const headerDrawer = document.getElementById('header-drawer');
     const searchPanel = document.getElementById('header-search-panel');
     const searchOpenBtn = document.querySelector('[data-header-search-open]');
     const searchInput = document.getElementById('header-search-input');
     const searchEmpty = document.querySelector('[data-header-search-empty]');
     const searchRecentList = document.querySelector('[data-header-search-recent-list]');
+    const drawerOpenBtn = document.querySelector('[data-header-drawer-open]');
 
-    function syncRecentSearchEmptyState() {
-      if (!searchRecentList || !searchEmpty) return;
-      const hasItems = searchRecentList.children.length > 0;
-      searchRecentList.classList.toggle('hidden', !hasItems);
-      searchEmpty.classList.toggle('hidden', hasItems);
-    }
-
-    function closeHeaderNavItems() {
-      document.querySelectorAll('.header-nav__item.active').forEach((item) => {
-        item.classList.remove('active');
-        const trigger = item.querySelector('[data-header-nav-toggle]');
-        if (trigger) trigger.setAttribute('aria-expanded', 'false');
-      });
-    }
-
-    function openSearchPanel() {
-      closeHeaderNavItems();
-      searchPanel.hidden = false;
-      searchOpenBtn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-      searchInput.focus();
-    }
-
-    function closeSearchPanel() {
-      searchPanel.hidden = true;
-      searchOpenBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      searchOpenBtn.focus();
-    }
-
+    // GNB
     document.querySelectorAll('[data-header-nav-toggle]').forEach((trigger) => {
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         const item = trigger.closest('.header-nav__item');
         const isOpen = item.classList.contains('active');
-
-        closeHeaderNavItems();
-
+        closeNavItems();
         if (!isOpen) {
           item.classList.add('active');
           trigger.setAttribute('aria-expanded', 'true');
@@ -338,33 +193,51 @@
       });
     });
 
-    if (searchOpenBtn) {
-      searchOpenBtn.addEventListener('click', openSearchPanel);
+    function closeNavItems() {
+      document.querySelectorAll('.header-nav__item.active').forEach((item) => {
+        item.classList.remove('active');
+        item.querySelector('[data-header-nav-toggle]')?.setAttribute('aria-expanded', 'false');
+      });
     }
 
-    document.querySelectorAll('[data-header-search-close]').forEach((btn) => {
-      btn.addEventListener('click', closeSearchPanel);
-    });
+    // 통합검색
+    function openSearch() {
+      closeNavItems();
+      searchPanel.hidden = false;
+      searchOpenBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      searchInput.focus();
+    }
+
+    function closeSearch() {
+      searchPanel.hidden = true;
+      searchOpenBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      searchOpenBtn.focus();
+    }
+
+    searchOpenBtn?.addEventListener('click', openSearch);
+    document.querySelectorAll('[data-header-search-close]').forEach((btn) => btn.addEventListener('click', closeSearch));
+
+    function syncSearchEmpty() {
+      const hasItems = searchRecentList?.children.length > 0;
+      searchRecentList?.classList.toggle('hidden', !hasItems);
+      searchEmpty?.classList.toggle('hidden', hasItems);
+    }
 
     document.querySelector('[data-header-search-clear]')?.addEventListener('click', () => {
-      if (!searchRecentList) return;
       searchRecentList.innerHTML = '';
-      syncRecentSearchEmptyState();
+      syncSearchEmpty();
     });
 
     searchRecentList?.addEventListener('click', (e) => {
-      const removeBtn = e.target.closest('[data-header-search-recent-remove]');
-      if (!removeBtn) return;
-      removeBtn.closest('li')?.remove();
-      syncRecentSearchEmptyState();
+      e.target.closest('[data-header-search-recent-remove]')?.closest('li')?.remove();
+      syncSearchEmpty();
     });
 
-    syncRecentSearchEmptyState();
+    syncSearchEmpty();
 
-    // 모바일 드로어
-    const headerDrawer = document.getElementById('header-drawer');
-    const drawerOpenBtn = document.querySelector('[data-header-drawer-open]');
-
+    // 드로어
     function openDrawer() {
       headerDrawer.classList.add('active');
       drawerOpenBtn.setAttribute('aria-expanded', 'true');
@@ -378,9 +251,7 @@
     }
 
     drawerOpenBtn?.addEventListener('click', openDrawer);
-    document.querySelectorAll('[data-header-drawer-close]').forEach((btn) => {
-      btn.addEventListener('click', closeDrawer);
-    });
+    document.querySelectorAll('[data-header-drawer-close]').forEach((btn) => btn.addEventListener('click', closeDrawer));
 
     document.querySelectorAll('.header-drawer__link').forEach((link) => {
       link.addEventListener('click', () => {
@@ -390,17 +261,16 @@
       });
     });
 
+    // 공통
     document.addEventListener('click', (e) => {
-      if (headerNav && !headerNav.contains(e.target)) {
-        closeHeaderNavItems();
-      }
+      if (headerNav && !headerNav.contains(e.target)) closeNavItems();
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
-      if (!searchPanel.hidden) { closeSearchPanel(); return; }
+      if (!searchPanel.hidden) { closeSearch(); return; }
       if (headerDrawer.classList.contains('active')) { closeDrawer(); return; }
-      closeHeaderNavItems();
+      closeNavItems();
     });
   </script>
 </body>
