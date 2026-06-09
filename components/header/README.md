@@ -9,15 +9,34 @@
 ```
 header.header[role=banner]
 ├── header-top
-│   └── inner-default.header-top__inner (flex justify-between)
+│   └── inner-default.header-top__inner
 │       ├── h1.header__logo > a > img
-│       └── header-util[role=group] (로그인 / 통합검색 / 모바일메뉴 버튼)
-├── header-nav[role=navigation] (PC GNB, display-none-tablet)
+│       └── header-util[role=group]
+│           ├── header-util__btn--login (PC 전용, 768px 이하 숨김)
+│           ├── [data-header-search-open] (통합검색 열기)
+│           └── header-util__btn--menu (모바일 전용, 769px 이상 숨김)
+├── nav.header-nav[role=navigation] (769px 이상)
 │   └── header-nav__list > header-nav__item
-│       ├── header-nav__link[data-header-nav-toggle] (depth1 트리거)
-│       └── header-nav__sub (depth2 드롭다운 패널)
-├── header-search-panel[role=dialog] (통합검색 오버레이)
-└── header-drawer[role=dialog] (모바일 전체 메뉴)
+│       ├── button[data-header-nav-toggle] (depth1)
+│       └── header-nav__sub > inner-default > header-nav__sub-inner
+│           ├── header-nav__sub-aside (depth1 제목)
+│           └── header-nav__sub-content > ul[role=menu] > li > a[role=menuitem]
+├── header-search-panel[role=dialog][hidden] (통합검색)
+└── header-drawer[role=dialog] (모바일 드로어)
+    ├── header-drawer__head (설정·브레드크럼 / 닫기 버튼)
+    ├── header-drawer__login
+    ├── header-drawer__quick (퀵메뉴 4열)
+    ├── header-drawer__search (search-48 trailing)
+    ├── header-drawer__chips (가로 스크롤 칩)
+    ├── nav.header-drawer__nav
+    │   └── header-drawer__list > header-drawer__section
+    │       ├── p.header-drawer__section-title (1Depth)
+    │       └── header-drawer__menu-list
+    │           ├── a.header-drawer__menu-link (링크형 2Depth)
+    │           └── header-drawer__menu-item
+    │               ├── button.header-drawer__menu-toggle (아코디언 2Depth)
+    │               └── header-drawer__depth3-list > li > a.header-drawer__depth3-link
+    └── header-drawer__util-list (하단 유틸 링크)
 ```
 
 ---
@@ -43,23 +62,17 @@ header.header[role=banner]
           <img src="/image/icon/header-logo.svg" alt="사이트명">
         </a>
       </h1>
-
       <div class="header-util flex align-center" role="group" aria-label="사용자 계정 관리">
-        <!-- PC 로그인 -->
-        <button type="button" class="header-util__btn transparent-button-40 gap-8 flex align-center display-none-tablet">
+        <button type="button" class="header-util__btn header-util__btn--login transparent-button-40 gap-8 flex align-center">
           <i class="header-login-24" aria-hidden="true"></i>
           <span class="body2-m-16">로그인</span>
         </button>
-
-        <!-- 통합검색 열기 -->
         <button type="button" class="header-util__btn transparent-button-40 gap-8 flex align-center"
           data-header-search-open aria-expanded="false" aria-controls="header-search-panel">
           <i class="header-search-24" aria-hidden="true"></i>
           <span class="body2-m-16">통합검색</span>
         </button>
-
-        <!-- 모바일 메뉴 -->
-        <button type="button" class="header-util__btn header-util__btn--menu transparent-button-48 icon-button-left flex align-center"
+        <button type="button" class="header-util__btn header-util__btn--menu transparent-button-48 flex align-center"
           data-header-drawer-open aria-expanded="false" aria-controls="header-drawer">
           <i class="header-menu-24" aria-hidden="true"></i>
           <span class="body2-m-16">메뉴</span>
@@ -73,7 +86,7 @@ header.header[role=banner]
 ### PC GNB (depth1 + depth2 드롭다운)
 
 ```html
-<nav class="header-nav display-none-tablet" role="navigation" aria-label="주 메뉴">
+<nav class="header-nav" role="navigation" aria-label="주 메뉴">
   <div class="inner-default">
     <ul class="header-nav__list">
       <li class="header-nav__item">
@@ -108,43 +121,41 @@ header.header[role=banner]
 ### 통합검색 패널
 
 ```html
-<div class="header-search-panel" id="header-search-panel" role="dialog" aria-modal="true" aria-labelledby="header-search-title">
-  <div class="inner-default header-search-panel__inner">
-    <h2 class="blind" id="header-search-title">통합 검색</h2>
-    <button type="button" class="header-search-panel__close transparent-button-40" data-header-search-close>닫기</button>
-
-    <div class="header-search-panel__top flex align-center gap-10">
-      <div class="search-54 flex pl-20 pr-16 justify-between flex-1">
-        <input type="search" id="header-search-input" class="body1-r-18 w-full" placeholder="검색어를 입력하세요">
-        <button type="button" class="search-button">
+<div class="header-search-panel" id="header-search-panel"
+  role="dialog" aria-modal="true" aria-labelledby="header-search-title" hidden>
+  <div class="header-search-wrapper">
+    <div class="flex justify-between align-center gap-16">
+      <h2 id="header-search-title" class="heading8-sb-24 color-slate-900">통합검색</h2>
+      <button type="button" data-header-search-close aria-label="검색 닫기">
+        <i class="close-icon-lg"><span class="blind">검색 닫기</span></i>
+      </button>
+    </div>
+    <div class="mt-36">
+      <label for="header-search-input" class="blind">검색어</label>
+      <div class="search-54 flex pl-20 pr-16 justify-between align-center">
+        <input type="search" id="header-search-input" class="body1-r-18 w-full"
+          placeholder="검색어를 입력해주세요" autocomplete="off">
+        <button type="button" class="search-button h-fit">
           <i class="search-icon-54"><span class="blind">검색</span></i>
         </button>
       </div>
-      <button type="button" class="border-blue-button-48" data-header-search-detail
-        aria-expanded="false" aria-controls="header-search-filter">상세검색</button>
     </div>
-
-    <div class="header-search-panel__filter mt-24" id="header-search-filter" aria-label="검색 필터">
-      <div class="header-search-panel__filter-group active">
-        <button type="button" class="header-search-panel__filter-trigger body2-sb-16" aria-expanded="true">
-          필터명
-          <i class="arrow-icon" aria-hidden="true"></i>
-        </button>
-        <div class="header-search-panel__filter-list">
-          <label class="checkbox-chip-label body2-r-16">
-            <input type="checkbox" class="checkbox-chip" checked>
-            <span class="body2-m-16">전체</span>
-          </label>
-          <label class="checkbox-chip-label body2-r-16">
-            <input type="checkbox" class="checkbox-chip">
-            <span class="body2-m-16">옵션</span>
-          </label>
+    <div class="header-search-panel__columns flex mt-24 gap-32">
+      <section aria-labelledby="header-search-popular-title">
+        <h3 id="header-search-popular-title" class="heading10-sb-20 color-slate-900 mb-8">인기 검색어</h3>
+        <ol>
+          <li><a href="#" class="flex align-center py-6 body2-m-16 color-slate-700"><span class="body2-sb-16 color-green-600">1</span>검색어 1</a></li>
+          <li><a href="#" class="flex align-center py-6 body2-m-16 color-slate-700"><span class="body2-sb-16 color-green-600">2</span>검색어 2</a></li>
+        </ol>
+      </section>
+      <section class="header-search-panel__recent flex-1" aria-labelledby="header-search-recent-title">
+        <div class="flex align-center justify-between">
+          <h3 id="header-search-recent-title" class="heading10-sb-20 color-slate-900">최근 검색어</h3>
+          <button type="button" class="transparent-button-32" data-header-search-clear>전체삭제</button>
         </div>
-      </div>
-      <div class="header-search-panel__actions flex justify-end gap-10">
-        <button type="button" class="border-slate-button-48 w-100">검색 초기화</button>
-        <button type="button" class="blue-button-48 w-100">검색</button>
-      </div>
+        <p class="body2-m-16 color-slate-500 mt-16" data-header-search-empty>최근 검색어가 없습니다.</p>
+        <ul class="hidden" data-header-search-recent-list></ul>
+      </section>
     </div>
   </div>
 </div>
@@ -157,32 +168,100 @@ header.header[role=banner]
   <div class="header-drawer__overlay" data-header-drawer-close></div>
   <div class="header-drawer__panel">
     <h2 class="blind" id="header-drawer-title">전체 메뉴</h2>
-    <div class="header-drawer__head flex justify-end">
-      <button type="button" class="transparent-button-40" data-header-drawer-close aria-label="메뉴 닫기">
+
+    <!-- 상단 -->
+    <div class="header-drawer__head flex align-center justify-between">
+      <div class="flex align-center gap-16">
+        <button type="button" class="body3-r-14 color-slate-700">글자·화면 설정</button>
+        <span class="body3-r-14 color-slate-100" aria-hidden="true">|</span>
+        <a href="#" class="flex align-center gap-4 body3-r-14 color-slate-700">
+          메뉴명<i class="chevron-right-slate-700" aria-hidden="true"></i>
+        </a>
+      </div>
+      <button type="button" data-header-drawer-close aria-label="메뉴 닫기">
         <i class="close-icon"><span class="blind">메뉴 닫기</span></i>
       </button>
     </div>
+
+    <!-- 로그인 -->
     <div class="header-drawer__login">
-      <button type="button" class="transparent-button-48 icon-button-left flex align-center w-full">
+      <button type="button" class="flex align-center w-full gap-8">
         <i class="header-login-24" aria-hidden="true"></i>
-        <span class="body2-m-16">로그인을 해주세요</span>
+        <span class="heading10-b-20">로그인을 해주세요</span>
       </button>
     </div>
-    <nav class="header-drawer__nav" role="navigation" aria-label="주 메뉴">
+
+    <!-- 퀵메뉴 -->
+    <div class="header-drawer__quick">
+      <ul class="header-drawer__quick-list">
+        <li>
+          <a href="#" class="header-drawer__quick-item flex flex-col align-center gap-8">
+            <i class="header-drawer__quick-icon" aria-hidden="true"></i>
+            <span class="body3-m-14 color-slate-700">메뉴명</span>
+          </a>
+        </li>
+        <!-- 4개 반복 -->
+      </ul>
+    </div>
+
+    <!-- 검색 -->
+    <div class="header-drawer__search">
+      <div class="search-48 flex pl-16 pr-12 justify-between align-center">
+        <label for="header-drawer-search-input" class="blind">검색어</label>
+        <input type="search" id="header-drawer-search-input" class="body2-r-16 w-full" placeholder="메뉴명을 입력해주세요">
+        <button type="button" class="search-button h-fit">
+          <i class="search-icon-40"><span class="blind">검색</span></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 칩 -->
+    <div class="header-drawer__chips">
+      <ul class="header-drawer__chip-list flex gap-8">
+        <li><button type="button" class="header-drawer__chip body3-m-14">싱글칩</button></li>
+      </ul>
+    </div>
+
+    <!-- 3depth 네비게이션 -->
+    <nav class="header-drawer__nav" role="navigation" aria-label="전체 메뉴">
       <ul class="header-drawer__list">
-        <li class="header-drawer__item">
-          <button type="button" class="header-drawer__link body2-m-16" aria-expanded="false">
-            depth1
-            <i class="arrow-icon" aria-hidden="true"></i>
-          </button>
-          <div class="header-drawer__sub">
-            <ul class="header-drawer__sub-list">
-              <li><a href="#" class="header-drawer__sub-link body2-r-16">depth2</a></li>
-            </ul>
-          </div>
+        <li class="header-drawer__section">
+          <p class="header-drawer__section-title body1-sb-18 color-slate-900">1Depth title</p>
+          <ul class="header-drawer__menu-list">
+            <!-- 링크형 2Depth -->
+            <li><a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700">2Depth title</a></li>
+            <!-- 아코디언 2Depth -->
+            <li class="header-drawer__menu-item">
+              <button type="button" class="header-drawer__menu-toggle body2-r-16 flex align-center justify-between w-full"
+                aria-expanded="false">
+                2Depth title<i class="arrow-icon" aria-hidden="true"></i>
+              </button>
+              <ul class="header-drawer__depth3-list">
+                <li><a href="#" class="header-drawer__depth3-link body2-r-16 color-slate-700">Last depth</a></li>
+              </ul>
+            </li>
+            <!-- 배지 포함 링크 -->
+            <li>
+              <a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700 flex align-center gap-8">
+                <span class="header-drawer__badge body4-sb-13">신규서비스</span>
+                메뉴명
+                <i class="chevron-right-slate-700" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
+
+    <!-- 유틸 링크 -->
+    <ul class="header-drawer__util-list">
+      <li>
+        <a href="#" class="body2-r-16 color-slate-700 flex align-center justify-between w-fit">
+          유틸 메뉴명<i class="chevron-right-slate-700" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+
   </div>
 </div>
 ```
@@ -192,22 +271,22 @@ header.header[role=banner]
 ## JS 초기화
 
 ```js
-// PC GNB depth1 토글 (active 클래스 + aria-expanded 동기화)
 const headerNav = document.querySelector('.header-nav');
+const headerDrawer = document.getElementById('header-drawer');
+const searchPanel = document.getElementById('header-search-panel');
+const searchOpenBtn = document.querySelector('[data-header-search-open]');
+const searchInput = document.getElementById('header-search-input');
+const searchEmpty = document.querySelector('[data-header-search-empty]');
+const searchRecentList = document.querySelector('[data-header-search-recent-list]');
+const drawerOpenBtn = document.querySelector('[data-header-drawer-open]');
 
-function closeHeaderNavItems() {
-  document.querySelectorAll('.header-nav__item.active').forEach((item) => {
-    item.classList.remove('active');
-    item.querySelector('[data-header-nav-toggle]')?.setAttribute('aria-expanded', 'false');
-  });
-}
-
+// GNB
 document.querySelectorAll('[data-header-nav-toggle]').forEach((trigger) => {
   trigger.addEventListener('click', (e) => {
     e.stopPropagation();
     const item = trigger.closest('.header-nav__item');
     const isOpen = item.classList.contains('active');
-    closeHeaderNavItems();
+    closeNavItems();
     if (!isOpen) {
       item.classList.add('active');
       trigger.setAttribute('aria-expanded', 'true');
@@ -215,39 +294,85 @@ document.querySelectorAll('[data-header-nav-toggle]').forEach((trigger) => {
   });
 });
 
+function closeNavItems() {
+  document.querySelectorAll('.header-nav__item.active').forEach((item) => {
+    item.classList.remove('active');
+    item.querySelector('[data-header-nav-toggle]')?.setAttribute('aria-expanded', 'false');
+  });
+}
+
+// 통합검색 (hidden 속성 토글)
+function openSearch() {
+  closeNavItems();
+  searchPanel.hidden = false;
+  searchOpenBtn.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  searchInput.focus();
+}
+
+function closeSearch() {
+  searchPanel.hidden = true;
+  searchOpenBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  searchOpenBtn.focus();
+}
+
+searchOpenBtn?.addEventListener('click', openSearch);
+document.querySelectorAll('[data-header-search-close]').forEach((btn) => btn.addEventListener('click', closeSearch));
+
+function syncSearchEmpty() {
+  const hasItems = searchRecentList?.children.length > 0;
+  searchRecentList?.classList.toggle('hidden', !hasItems);
+  searchEmpty?.classList.toggle('hidden', hasItems);
+}
+
+document.querySelector('[data-header-search-clear]')?.addEventListener('click', () => {
+  searchRecentList.innerHTML = '';
+  syncSearchEmpty();
+});
+
+searchRecentList?.addEventListener('click', (e) => {
+  e.target.closest('[data-header-search-recent-remove]')?.closest('li')?.remove();
+  syncSearchEmpty();
+});
+
+syncSearchEmpty();
+
+// 드로어 (active 클래스 토글)
+function openDrawer() {
+  headerDrawer.classList.add('active');
+  drawerOpenBtn.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  headerDrawer.classList.remove('active');
+  drawerOpenBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+drawerOpenBtn?.addEventListener('click', openDrawer);
+document.querySelectorAll('[data-header-drawer-close]').forEach((btn) => btn.addEventListener('click', closeDrawer));
+
+// 드로어 2Depth 아코디언
+document.querySelectorAll('.header-drawer__menu-toggle').forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    const item = toggle.closest('.header-drawer__menu-item');
+    const isOpen = item.classList.toggle('active');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+});
+
+// 공통
 document.addEventListener('click', (e) => {
-  if (!headerNav?.contains(e.target)) closeHeaderNavItems();
+  if (headerNav && !headerNav.contains(e.target)) closeNavItems();
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeHeaderNavItems();
-});
-
-// 통합검색 패널 / 드로어 열기·닫기 (active 토글 + aria-expanded 동기화 + ESC 닫기)
-function toggleHeaderOverlay(panelId, triggerSelector, isOpen) {
-  const panel = document.getElementById(panelId);
-  panel?.classList.toggle('active', isOpen);
-  document.querySelectorAll(triggerSelector).forEach((t) => t.setAttribute('aria-expanded', String(isOpen)));
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-}
-
-document.querySelectorAll('[data-header-search-open]').forEach((btn) =>
-  btn.addEventListener('click', () => toggleHeaderOverlay('header-search-panel', '[data-header-search-open]', true)));
-document.querySelectorAll('[data-header-search-close]').forEach((btn) =>
-  btn.addEventListener('click', () => toggleHeaderOverlay('header-search-panel', '[data-header-search-open]', false)));
-
-document.querySelectorAll('[data-header-drawer-open]').forEach((btn) =>
-  btn.addEventListener('click', () => toggleHeaderOverlay('header-drawer', '[data-header-drawer-open]', true)));
-document.querySelectorAll('[data-header-drawer-close]').forEach((btn) =>
-  btn.addEventListener('click', () => toggleHeaderOverlay('header-drawer', '[data-header-drawer-open]', false)));
-
-// 드로어 depth1 하위메뉴 토글
-document.querySelectorAll('.header-drawer__link').forEach((link) => {
-  link.addEventListener('click', () => {
-    const item = link.closest('.header-drawer__item');
-    const isOpen = item.classList.toggle('active');
-    link.setAttribute('aria-expanded', String(isOpen));
-  });
+  if (e.key !== 'Escape') return;
+  if (!searchPanel.hidden) { closeSearch(); return; }
+  if (headerDrawer.classList.contains('active')) { closeDrawer(); return; }
+  closeNavItems();
 });
 ```
 
@@ -257,12 +382,14 @@ document.querySelectorAll('.header-drawer__link').forEach((link) => {
 
 - `header` 루트에 `role="banner"` 필수
 - `header-nav`에 `role="navigation"`, `aria-label` 필수
-- GNB 트리거에는 `aria-expanded` / `aria-haspopup="true"` / `aria-controls`(서브메뉴 id와 일치) 필수
-- 통합검색·드로어 열기 버튼에는 `aria-expanded` / `aria-controls`(패널 id와 일치) 필수
-- 통합검색 패널·드로어는 `role="dialog"` `aria-modal="true"` `aria-labelledby`(blind 처리된 제목) 필수
-- 드로어 닫기 버튼에는 `aria-label` 필수
-- 열림/닫힘은 `active` 클래스 토글로만 제어 (인라인 스타일 금지)
-- 유틸 버튼은 `transparent-button-{size}` 기반, 아이콘 포함 시 `flex align-center` 추가
+- GNB 트리거에 `aria-expanded` / `aria-haspopup="true"` / `aria-controls`(서브메뉴 id 일치) 필수
+- 통합검색·드로어 열기 버튼에 `aria-expanded` / `aria-controls`(패널 id 일치) 필수
+- 통합검색 패널·드로어에 `role="dialog"` `aria-modal="true"` `aria-labelledby` 필수
+- 드로어 닫기 버튼에 `aria-label` 필수
+- **통합검색 패널은 `hidden` 속성 토글로 제어** (active 클래스 사용 금지)
+- **드로어는 `active` 클래스 토글로 제어** (hidden 속성 사용 금지)
+- PC GNB 반응형은 CSS `@media (max-width: 768px)` 처리 (`display-none-tablet` 사용 안 함)
+- 드로어 2Depth 아코디언 active 시 토글 버튼(`header-drawer__menu-toggle`)만 `slate-50` 배경 적용
+- 드로어 검색은 `search-48` trailing variant + `search-icon-40` 사용
 - GNB 서브메뉴 링크 목록은 `ul[role=menu]` > `li[role=none]` > `a[role=menuitem]` 구조 유지
-- PC GNB·PC 전용 유틸은 `display-none-tablet`로 1280px 기준 전환
 - 정의되지 않은 임의 클래스 생성 금지 (`header-*` BEM 패턴만 사용)

@@ -1,37 +1,52 @@
 {
   "component": "header",
-  "description": "사이트 공통 헤더 컴포넌트. 로고·유틸 버튼·PC GNB·모바일 드로어로 구성",
+  "description": "사이트 공통 헤더 컴포넌트. 로고·유틸 버튼·PC GNB·통합검색 패널·모바일 드로어로 구성",
   "naming_pattern": "header, header-top, header-nav, header-search-panel, header-drawer (BEM: block__element--modifier)",
   "structure": {
     "root": "header.header[role=banner]",
     "top": "header-top > .inner-default.header-top__inner (로고 + 유틸 버튼)",
     "logo": "h1.header__logo > a > img",
-    "util": "header-util[role=group] (로그인/통합검색/모바일메뉴 버튼)",
+    "util": "header-util[role=group] (로그인 / 통합검색 / 모바일메뉴 버튼)",
     "nav": "nav.header-nav[role=navigation] > .header-nav__list > .header-nav__item (depth1 + depth2 드롭다운)",
-    "search_panel": "header-search-panel[role=dialog] (통합검색 오버레이, 선택적)",
-    "drawer": "header-drawer[role=dialog] (모바일 전체 메뉴)"
+    "search_panel": "header-search-panel[role=dialog][hidden] (통합검색 오버레이, hidden 속성으로 제어)",
+    "drawer": "header-drawer[role=dialog] (모바일 전체 메뉴, active 클래스로 제어)",
+    "drawer_head": "header-drawer__head (설정·브레드크럼 + 닫기 버튼)",
+    "drawer_login": "header-drawer__login (로그인 버튼)",
+    "drawer_quick": "header-drawer__quick > header-drawer__quick-list (4열 퀵메뉴)",
+    "drawer_search": "header-drawer__search (검색 입력, search-48 trailing variant)",
+    "drawer_chips": "header-drawer__chips > header-drawer__chip-list (가로 스크롤 칩)",
+    "drawer_nav": "nav.header-drawer__nav > header-drawer__list > header-drawer__section (1depth 섹션)",
+    "drawer_nav_depth2": "header-drawer__menu-list > li > header-drawer__menu-link (링크) 또는 header-drawer__menu-item > header-drawer__menu-toggle (아코디언)",
+    "drawer_nav_depth3": "header-drawer__depth3-list > li > header-drawer__depth3-link (불릿 목록, active 클래스로 표시)",
+    "drawer_util": "header-drawer__util-list > li > a (하단 유틸 링크)"
   },
   "states": {
     "nav_item_open": "header-nav__item에 active 토글, 트리거 aria-expanded 동기화",
-    "search_panel_open": "header-search-panel에 active 토글, 트리거 aria-expanded 동기화",
+    "search_panel_open": "header-search-panel의 hidden 속성 제거/추가, 트리거 aria-expanded 동기화",
     "drawer_open": "header-drawer에 active 토글, 트리거 aria-expanded 동기화",
-    "drawer_item_open": "header-drawer__item에 active 토글 (하위 메뉴 펼침)",
-    "filter_group_open": "header-search-panel__filter-group에 active 토글"
+    "drawer_menu_item_open": "header-drawer__menu-item에 active 토글, 트리거 aria-expanded 동기화"
   },
   "icons": {
     "header-login-24": "로그인 (24x24)",
     "header-search-24": "통합검색 (24x24)",
     "header-menu-24": "모바일 메뉴 (24x24)",
-    "arrow-icon": "GNB·드로어 펼침 화살표 (회전은 active 상태로 CSS 처리)",
-    "chevron-right-slate-700": "GNB 서브메뉴 링크 우측 꺽쇠",
-    "close-icon": "드로어 닫기"
+    "arrow-icon": "GNB·드로어 펼침 화살표 (active 시 CSS rotate(180deg))",
+    "chevron-right-slate-700": "GNB 서브메뉴 링크·드로어 유틸 링크 우측 꺽쇠",
+    "close-icon": "드로어 닫기 (24x24)",
+    "close-icon-lg": "통합검색 패널 닫기"
+  },
+  "responsive": {
+    "breakpoint": "768px",
+    "below": "header-nav 숨김, header-util__btn--login 숨김, header-util__btn--menu 표시, 검색 패널 전체 너비",
+    "above": "header-nav 표시, header-util__btn--login 표시, header-util__btn--menu 숨김"
   },
   "notes": [
-    "header-top, header-nav, header-search-panel, header-drawer 모두 inner-default로 컨텐츠 폭 제한",
-    "PC GNB(header-nav)와 모바일 메뉴 버튼은 display-none-tablet로 1280px 기준 전환",
-    "active 클래스 토글로만 열림/닫힘 제어 (인라인 스타일 금지)",
-    "팝업·드롭다운·드로어는 트리거에 aria-expanded, 패널에 role=dialog/aria-modal/aria-labelledby 또는 aria-label 부여",
-    "header-drawer__item, header-nav__item의 하위메뉴 화살표 회전은 CSS .active 선택자로 처리"
+    "PC GNB(header-nav) 반응형 기준은 768px (header.css 내 미디어쿼리로 처리, display-none-tablet 사용 안 함)",
+    "통합검색 패널은 hidden 속성 토글로 제어 (active 클래스 아님)",
+    "드로어는 active 클래스 토글로 제어",
+    "드로어 nav는 1Depth(섹션 제목, p 태그) → 2Depth(링크 또는 아코디언 토글) → 3Depth(불릿 링크) 3단 구조",
+    "드로어 2Depth 아코디언 active 시 토글 버튼만 slate-50 배경 적용 (3Depth 목록은 배경 없음)",
+    "팝업·드롭다운·드로어는 트리거에 aria-expanded, 패널에 role=dialog/aria-modal/aria-labelledby 부여"
   ],
   "rules": [
     "header 루트에 role=banner 필수",
@@ -40,13 +55,17 @@
     "통합검색/드로어 열기 버튼에 aria-expanded, aria-controls 필수 (패널 id와 일치)",
     "통합검색 패널·드로어에 role=dialog, aria-modal=true, aria-labelledby 필수 (제목은 blind 처리 가능)",
     "드로어 닫기 버튼에 aria-label 필수",
-    "유틸 버튼은 button.css의 transparent-button-{size} 기반, 아이콘 버튼은 flex align-center 추가",
-    "GNB 서브메뉴 링크 목록은 ul[role=menu] > li[role=none] > a[role=menuitem] 구조 유지"
+    "유틸 버튼은 transparent-button-{size} 기반, 아이콘 포함 시 flex align-center 추가",
+    "GNB 서브메뉴 링크 목록은 ul[role=menu] > li[role=none] > a[role=menuitem] 구조 유지",
+    "드로어 검색은 search-48 trailing variant 사용 (search-icon-40)",
+    "정의되지 않은 임의 클래스 생성 금지 (header-* BEM 패턴만 사용)"
   ],
   "do_not": [
-    "header-nav__sub, header-drawer__sub, header-search-panel을 display:none 외 인라인 스타일로 제어",
+    "통합검색 패널을 active 클래스로 제어 (반드시 hidden 속성 사용)",
+    "드로어를 hidden 속성으로 제어 (반드시 active 클래스 사용)",
+    "header-nav에 display-none-tablet 사용 (CSS 미디어쿼리로 처리됨)",
     "active 토글 없이 JS로 직접 style 조작",
-    "GNB·드로어·검색패널에 시맨틱하지 않은 div/span으로 nav/dialog 대체",
-    "정의되지 않은 임의 클래스 추가 (header-* 외 BEM 패턴 일탈 금지)"
+    "드로어 2Depth active 시 depth3-list에 배경색 적용",
+    "GNB·드로어·검색패널에 시맨틱하지 않은 div/span으로 nav/dialog 대체"
   ]
 }
