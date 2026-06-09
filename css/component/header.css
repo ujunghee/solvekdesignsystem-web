@@ -416,6 +416,7 @@ button.header-nav__link {
 .header-drawer__menu-item.active .header-drawer__menu-toggle {
   background-color: var(--slate-50);
   color: var(--slate-900);
+  border-radius: var(--radius-md-8);
 }
 
 .header-drawer__menu-item.active .header-drawer__menu-toggle .arrow-icon {
@@ -427,7 +428,6 @@ button.header-nav__link {
   list-style: none;
   margin: 0;
   padding: var(--spacing-4) 0 var(--spacing-8);
-  background-color: var(--slate-50);
 }
 
 .header-drawer__menu-item.active .header-drawer__depth3-list {
