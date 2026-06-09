@@ -145,123 +145,53 @@
   </header>
 
   <!-- 통합검색 패널 -->
-  <!-- <div class="header-search-panel" id="header-search-panel" role="dialog" aria-modal="true" aria-labelledby="header-search-title">
-    <div class="inner-default header-search-panel__inner">
-      <h2 class="blind" id="header-search-title">통합 검색</h2>
-      <button type="button" class="header-search-panel__close transparent-button-40" data-header-search-close>닫기</button>
+  <div class="header-search-panel" id="header-search-panel" role="dialog" aria-modal="true" aria-labelledby="header-search-title" hidden>
+    <div class="header-search-panel__inner inner-default">
+      <div class="header-search-panel__head flex justify-between align-start gap-16">
+        <h2 id="header-search-title" class="heading8-sb-24 color-slate-900">모든 환경 데이터, 이제 한 곳에서 찾아보세요.</h2>
+        <button type="button" class="header-search-panel__close" data-header-search-close aria-label="검색 닫기">
+          <i class="close-icon"><span class="blind">검색 닫기</span></i>
+        </button>
+      </div>
 
-      <div class="header-search-panel__top flex align-center gap-10">
-        <div class="search-54 flex pl-20 pr-16 justify-between flex-1">
-          <input type="search" id="header-search-input" class="body1-r-18 w-full" placeholder="찾으시는 국가유산 정보를 입력하세요">
+      <div class="header-search-panel__search mt-32">
+        <label for="header-search-input" class="blind">검색어</label>
+        <div class="search-54 flex pl-20 pr-16 justify-between">
+          <input type="search" id="header-search-input" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요" autocomplete="off">
           <button type="button" class="search-button">
             <i class="search-icon-54"><span class="blind">검색</span></i>
           </button>
         </div>
-        <button type="button" class="border-blue-button-48" data-header-search-detail aria-expanded="false" aria-controls="header-search-filter">상세검색</button>
       </div>
 
-      <div class="header-search-panel__recommend mt-24">
-        <p class="body2-sb-16 color-slate-900 mb-12">추천 검색조건</p>
-        <div class="flex flex-wrap gap-8">
-          <label class="checkbox-chip-label body2-r-16">
-            <input type="checkbox" class="checkbox-chip">
-            <span class="body2-m-16">#국보</span>
-          </label>
-          <label class="checkbox-chip-label body2-r-16">
-            <input type="checkbox" class="checkbox-chip">
-            <span class="body2-m-16">#보물</span>
-          </label>
-          <label class="checkbox-chip-label body2-r-16">
-            <input type="checkbox" class="checkbox-chip">
-            <span class="body2-m-16">#조선시대</span>
-          </label>
-          <label class="checkbox-chip-label body2-r-16">
-            <input type="checkbox" class="checkbox-chip">
-            <span class="body2-m-16">#천연기념물</span>
-          </label>
-        </div>
-      </div>
+      <div class="header-search-panel__body flex mt-40">
+        <section class="header-search-panel__section" aria-labelledby="header-search-popular-title">
+          <h3 id="header-search-popular-title" class="body2-sb-16 color-slate-900 mb-16">인기 검색어</h3>
+          <ol class="header-search-panel__popular-list">
+            <li><a href="/search?q=미세먼지" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">1</span>미세먼지</a></li>
+            <li><a href="/search?q=기후변화+분석" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">2</span>기후변화 분석</a></li>
+            <li><a href="/search?q=탄소배출량" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">3</span>탄소배출량</a></li>
+            <li><a href="/search?q=수질오염+예측" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">4</span>수질오염 예측</a></li>
+            <li><a href="/search?q=도시+열섬+현상" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">5</span>도시 열섬 현상</a></li>
+            <li><a href="/search?q=초미세먼지+현상" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">6</span>초미세먼지 현상</a></li>
+            <li><a href="/search?q=오존+경보+지역" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">7</span>오존 경보 지역</a></li>
+            <li><a href="/search?q=해수면+상승+모니터링" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">8</span>해수면 상승 모니터링</a></li>
+            <li><a href="/search?q=산불+위험도+지수" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">9</span>산불 위험도 지수</a></li>
+            <li><a href="/search?q=재생에너지+발전량" class="header-search-panel__keyword body2-r-16 color-slate-700"><span class="header-search-panel__rank body2-sb-16 color-teal-500">10</span>재생에너지 발전량</a></li>
+          </ol>
+        </section>
 
-      <div class="header-search-panel__filter mt-24" id="header-search-filter" aria-label="국가유산 검색 필터">
-        <div class="header-search-panel__filter-group active">
-          <button type="button" class="header-search-panel__filter-trigger body2-sb-16" aria-expanded="true">
-            지정종목
-            <i class="arrow-icon" aria-hidden="true"></i>
-          </button>
-          <div class="header-search-panel__filter-list">
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip" checked>
-              <span class="body2-m-16">전체</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">국보</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">보물</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">사적</span>
-            </label>
+        <section class="header-search-panel__section header-search-panel__section--recent" aria-labelledby="header-search-recent-title">
+          <div class="header-search-panel__recent-head flex justify-between align-center mb-16">
+            <h3 id="header-search-recent-title" class="body2-sb-16 color-slate-900">최근 검색어</h3>
+            <button type="button" class="transparent-button-40 body3-r-14 color-slate-500" data-header-search-clear>전체삭제</button>
           </div>
-        </div>
-        <div class="header-search-panel__filter-group">
-          <button type="button" class="header-search-panel__filter-trigger body2-sb-16" aria-expanded="false">
-            지역
-            <i class="arrow-icon" aria-hidden="true"></i>
-          </button>
-          <div class="header-search-panel__filter-list">
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip" checked>
-              <span class="body2-m-16">전체</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">서울</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">경기</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">제주</span>
-            </label>
-          </div>
-        </div>
-        <div class="header-search-panel__filter-group">
-          <button type="button" class="header-search-panel__filter-trigger body2-sb-16" aria-expanded="false">
-            시대
-            <i class="arrow-icon" aria-hidden="true"></i>
-          </button>
-          <div class="header-search-panel__filter-list">
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip" checked>
-              <span class="body2-m-16">전체</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">고려시대</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">조선시대</span>
-            </label>
-            <label class="checkbox-chip-label body2-r-16">
-              <input type="checkbox" class="checkbox-chip">
-              <span class="body2-m-16">일제강점기</span>
-            </label>
-          </div>
-        </div>
-        <div class="header-search-panel__actions flex justify-end gap-10">
-          <button type="button" class="border-slate-button-48 w-100">검색 초기화</button>
-          <button type="button" class="blue-button-48 w-100">검색</button>
-        </div>
+          <p class="header-search-panel__empty body2-r-16 color-slate-400 text-center">최근 검색어가 없습니다.</p>
+          <ul class="header-search-panel__recent-list hidden" data-header-search-recent-list></ul>
+        </section>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <!-- 모바일 드로어 -->
   <div class="header-drawer" id="header-drawer" role="dialog" aria-modal="true" aria-labelledby="header-drawer-title">
@@ -356,6 +286,11 @@
 
   <script>
     const headerNav = document.querySelector('.header-nav');
+    const searchPanel = document.getElementById('header-search-panel');
+    const searchOpenBtn = document.querySelector('[data-header-search-open]');
+    const searchInput = document.getElementById('header-search-input');
+    const searchEmpty = document.querySelector('.header-search-panel__empty');
+    const searchRecentList = document.querySelector('[data-header-search-recent-list]');
 
     function closeHeaderNavItems() {
       document.querySelectorAll('.header-nav__item.active').forEach((item) => {
@@ -363,6 +298,21 @@
         const trigger = item.querySelector('[data-header-nav-toggle]');
         if (trigger) trigger.setAttribute('aria-expanded', 'false');
       });
+    }
+
+    function openSearchPanel() {
+      closeHeaderNavItems();
+      searchPanel.hidden = false;
+      searchOpenBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      searchInput.focus();
+    }
+
+    function closeSearchPanel() {
+      searchPanel.hidden = true;
+      searchOpenBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      searchOpenBtn.focus();
     }
 
     document.querySelectorAll('[data-header-nav-toggle]').forEach((trigger) => {
@@ -380,14 +330,34 @@
       });
     });
 
+    if (searchOpenBtn) {
+      searchOpenBtn.addEventListener('click', openSearchPanel);
+    }
+
+    document.querySelectorAll('[data-header-search-close]').forEach((btn) => {
+      btn.addEventListener('click', closeSearchPanel);
+    });
+
+    document.querySelector('[data-header-search-clear]')?.addEventListener('click', () => {
+      if (!searchRecentList) return;
+      searchRecentList.innerHTML = '';
+      searchRecentList.classList.add('hidden');
+      searchEmpty.classList.remove('hidden');
+    });
+
     document.addEventListener('click', (e) => {
-      if (!headerNav || !headerNav.contains(e.target)) {
+      if (headerNav && !headerNav.contains(e.target)) {
         closeHeaderNavItems();
       }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeHeaderNavItems();
+      if (e.key !== 'Escape') return;
+      if (!searchPanel.hidden) {
+        closeSearchPanel();
+        return;
+      }
+      closeHeaderNavItems();
     });
   </script>
 </body>

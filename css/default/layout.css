@@ -657,6 +657,9 @@
 .h-half-screen {
   height: 50vh;
 }
+.h-fit {
+  height: fit-content;
+}
 
 
 /* hover s */
