@@ -372,11 +372,12 @@ button.header-nav__link {
 
 .header-drawer__section {
   border-bottom: 4px solid var(--slate-200);
+  padding: 0 var(--spacing-16);
 }
 
 .header-drawer__section-title {
   margin: 0;
-  padding: var(--spacing-16);
+  padding: var(--spacing-16) 0;
   border-bottom: 1px solid var(--slate-200);
 }
 
@@ -388,7 +389,7 @@ button.header-nav__link {
 
 .header-drawer__menu-link {
   display: block;
-  padding: var(--spacing-12) var(--spacing-20);
+  padding: var(--spacing-12) var(--spacing-8);
   text-decoration: none;
 }
 
@@ -398,7 +399,7 @@ button.header-nav__link {
 }
 
 .header-drawer__menu-toggle {
-  padding: var(--spacing-12) var(--spacing-20);
+  padding: var(--spacing-12) var(--spacing-8);
   border: none;
   background: transparent;
   cursor: pointer;
@@ -416,6 +417,7 @@ button.header-nav__link {
 .header-drawer__menu-item.active .header-drawer__menu-toggle {
   background-color: var(--slate-50);
   color: var(--slate-900);
+  font-weight: var(--font-weight-semibold);
   border-radius: var(--radius-md-8);
 }
 
@@ -436,7 +438,7 @@ button.header-nav__link {
 
 .header-drawer__depth3-link {
   display: block;
-  padding: var(--spacing-10) var(--spacing-20) var(--spacing-10) var(--spacing-32);
+  padding: var(--spacing-10) var(--spacing-8) var(--spacing-10) var(--spacing-16);
   text-decoration: none;
 }
 

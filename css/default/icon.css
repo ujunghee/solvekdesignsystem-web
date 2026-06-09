@@ -185,3 +185,10 @@
   background-color: var(--slate-50);
   border-radius: var(--radius-sm-4);
 }
+
+@media (max-width: 767px) {
+  .close-icon-lg {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}
