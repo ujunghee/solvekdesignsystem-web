@@ -361,6 +361,35 @@
 
     syncRecentSearchEmptyState();
 
+    // 모바일 드로어
+    const headerDrawer = document.getElementById('header-drawer');
+    const drawerOpenBtn = document.querySelector('[data-header-drawer-open]');
+
+    function openDrawer() {
+      headerDrawer.classList.add('active');
+      drawerOpenBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      headerDrawer.classList.remove('active');
+      drawerOpenBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    drawerOpenBtn?.addEventListener('click', openDrawer);
+    document.querySelectorAll('[data-header-drawer-close]').forEach((btn) => {
+      btn.addEventListener('click', closeDrawer);
+    });
+
+    document.querySelectorAll('.header-drawer__link').forEach((link) => {
+      link.addEventListener('click', () => {
+        const item = link.closest('.header-drawer__item');
+        const isOpen = item.classList.toggle('active');
+        link.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+
     document.addEventListener('click', (e) => {
       if (headerNav && !headerNav.contains(e.target)) {
         closeHeaderNavItems();
@@ -369,10 +398,8 @@
 
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
-      if (!searchPanel.hidden) {
-        closeSearchPanel();
-        return;
-      }
+      if (!searchPanel.hidden) { closeSearchPanel(); return; }
+      if (headerDrawer.classList.contains('active')) { closeDrawer(); return; }
       closeHeaderNavItems();
     });
   </script>
