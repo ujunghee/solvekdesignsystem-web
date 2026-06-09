@@ -53,15 +53,15 @@
 
 ### 후행형 (Trailing Icon)
 
-아이콘이 input 오른쪽에 위치합니다. 54 제외 `search-button`에 `h-fit` 추가.
+아이콘이 input 오른쪽에 위치합니다. 모든 사이즈 `align-center` + `search-button h-fit` 사용.
 
 **대표 상황:** 웹 배치, 빠른 조회
 
 ```html
 <!-- 54 -->
-<div class="search-54 flex pl-20 pr-16 justify-between">
+<div class="search-54 flex pl-20 pr-16 justify-between align-center">
   <input type="search" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요">
-  <button type="button" class="search-button">
+  <button type="button" class="search-button h-fit">
     <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
   </button>
 </div>
@@ -173,7 +173,7 @@ document.addEventListener('click', (e) => {
 ## 규칙
 
 - 선행형: `i.search-icon-{size}` 직접 사용, `button.search-button`으로 감싸지 않는다
-- 후행형: 54는 `search-button`만, 48·40·36은 `search-button h-fit` 사용
+- 후행형: 모든 사이즈 `align-center` + `search-button h-fit` 사용
 - 팝업형은 반드시 `search-wrapper`로 감싸야 함
 - 팝업 상태는 `search-popup`에 `active` 클래스 토글만 사용, 인라인 스타일 금지
 - 팝업에 `role="dialog"`, `aria-modal="true"`, `aria-labelledby`(input id와 일치) 필수

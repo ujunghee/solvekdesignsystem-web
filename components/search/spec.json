@@ -37,8 +37,7 @@
     "popup": "search-wrapper > search-{size}(trailing) + search-popup[role=dialog]"
   },
   "trailing_notes": {
-    "54": "search-button에 h-fit 없음 (높이가 컨테이너와 동일)",
-    "48_40_36": "search-button에 h-fit 추가"
+    "all": "모든 사이즈 align-center + search-button h-fit 사용"
   },
   "popup_states": {
     "open": "search-popup active",
