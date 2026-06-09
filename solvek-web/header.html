@@ -156,10 +156,11 @@
 
       <div class="header-search-panel__search mt-32">
         <label for="header-search-input" class="blind">검색어</label>
-        <div class="search-54 flex pl-20 pr-16 justify-between">
+        <!-- search 후행형 54 (components/search) -->
+        <div class="search-54 flex pl-20 pr-16 justify-between align-center">
           <input type="search" id="header-search-input" class="body1-r-18 w-full" placeholder="검색어를 입력해주세요" autocomplete="off">
-          <button type="button" class="search-button">
-            <i class="search-icon-54"><span class="blind">검색</span></i>
+          <button type="button" class="search-button h-fit">
+            <i class="search-icon-54"><span class="blind">검색 버튼</span></i>
           </button>
         </div>
       </div>
@@ -182,12 +183,15 @@
         </section>
 
         <section class="header-search-panel__section header-search-panel__section--recent" aria-labelledby="header-search-recent-title">
-          <div class="header-search-panel__recent-head flex justify-between align-center mb-16">
+          <!-- search 팝업형 최근 검색어 영역 (components/search) -->
+          <div class="flex align-center justify-between mb-16">
             <h3 id="header-search-recent-title" class="body2-sb-16 color-slate-900">최근 검색어</h3>
-            <button type="button" class="transparent-button-40 body3-r-14 color-slate-500" data-header-search-clear>전체삭제</button>
+            <button type="button" class="transparent-button-40" data-header-search-clear>전체삭제</button>
           </div>
-          <p class="header-search-panel__empty body2-r-16 color-slate-400 text-center">최근 검색어가 없습니다.</p>
-          <ul class="header-search-panel__recent-list hidden" data-header-search-recent-list></ul>
+          <p class="header-search-panel__empty body2-r-16 color-slate-400 text-center" data-header-search-empty>최근 검색어가 없습니다.</p>
+          <ul class="hidden" data-header-search-recent-list>
+            <!-- li.px-20.flex.align-center.justify-between > a[href] + button > i.close-icon -->
+          </ul>
         </section>
       </div>
     </div>
@@ -289,8 +293,15 @@
     const searchPanel = document.getElementById('header-search-panel');
     const searchOpenBtn = document.querySelector('[data-header-search-open]');
     const searchInput = document.getElementById('header-search-input');
-    const searchEmpty = document.querySelector('.header-search-panel__empty');
+    const searchEmpty = document.querySelector('[data-header-search-empty]');
     const searchRecentList = document.querySelector('[data-header-search-recent-list]');
+
+    function syncRecentSearchEmptyState() {
+      if (!searchRecentList || !searchEmpty) return;
+      const hasItems = searchRecentList.children.length > 0;
+      searchRecentList.classList.toggle('hidden', !hasItems);
+      searchEmpty.classList.toggle('hidden', hasItems);
+    }
 
     function closeHeaderNavItems() {
       document.querySelectorAll('.header-nav__item.active').forEach((item) => {
@@ -341,9 +352,17 @@
     document.querySelector('[data-header-search-clear]')?.addEventListener('click', () => {
       if (!searchRecentList) return;
       searchRecentList.innerHTML = '';
-      searchRecentList.classList.add('hidden');
-      searchEmpty.classList.remove('hidden');
+      syncRecentSearchEmptyState();
     });
+
+    searchRecentList?.addEventListener('click', (e) => {
+      const removeBtn = e.target.closest('[data-header-search-recent-remove]');
+      if (!removeBtn) return;
+      removeBtn.closest('li')?.remove();
+      syncRecentSearchEmptyState();
+    });
+
+    syncRecentSearchEmptyState();
 
     document.addEventListener('click', (e) => {
       if (headerNav && !headerNav.contains(e.target)) {
