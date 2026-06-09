@@ -28,6 +28,10 @@
   display: none;
 }
 
+.header-util__btn--login {
+  display: inline-flex;
+}
+
 
 /* PC GNB */
 .header-nav {
@@ -293,6 +297,12 @@ button.header-nav__link {
 
 
 @media (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+  .header-util__btn--login {
+    display: none;
+  }
   .header-util {
     gap: 0;
   }
