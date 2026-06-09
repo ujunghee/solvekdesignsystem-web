@@ -558,6 +558,10 @@
   margin-top: var(--spacing-20);
 }
 
+.mt-22 {
+  margin-top: var(--spacing-22);
+}
+
 .mt-24 {
   margin-top: var(--spacing-24);
 }
@@ -568,6 +572,10 @@
 
 .mt-32 {
   margin-top: var(--spacing-32);
+}
+
+.mt-36 {
+  margin-top: var(--spacing-36);
 }
 
 .mt-40 {

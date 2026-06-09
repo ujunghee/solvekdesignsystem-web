@@ -143,86 +143,52 @@ button.header-nav__link {
   inset: 0;
   z-index: 200;
   overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--slate-50);
+}
+
+.header-search-wrapper {
+  min-width: 60rem;
 }
 
 .header-search-panel[hidden] {
   display: none;
 }
 
-.header-search-panel__inner {
-  padding: var(--spacing-48) 0 var(--spacing-60);
-}
-
-.header-search-panel__head {
-  gap: var(--spacing-16);
-}
-
-.header-search-panel__close {
-  flex-shrink: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: var(--spacing-4);
-}
-
-.header-search-panel__body {
-  gap: var(--spacing-40);
-}
-
-.header-search-panel__section {
-  flex: 1;
+.header-search-panel__columns > section {
   min-width: 0;
 }
 
-.header-search-panel__section--recent {
+.header-search-panel__columns section ol li {
+  min-width: 23.6rem;
+  max-width: 23.6rem;
+  overflow: hidden;
+}
+
+.header-search-panel__columns section ol li a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-search-panel__columns section ol li a > span:first-child {
+  margin-right: var(--spacing-12);
+}
+
+.header-search-panel__recent {
   border-left: 1px solid var(--slate-200);
-  padding-left: var(--spacing-40);
+  padding-left: var(--spacing-32);
 }
 
-.header-search-panel__popular-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header-search-panel__section--recent ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header-search-panel__keyword {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-12);
-  padding: var(--spacing-10) 0;
-  text-decoration: none;
-}
-
-.header-search-panel__keyword:hover {
+.header-search-panel ol a:hover {
   color: var(--slate-900);
 }
 
-.header-search-panel__rank {
+.header-search-panel ol a > span:first-child {
   flex: 0 0 2.4rem;
-}
-
-.header-search-panel__empty {
-  padding: var(--spacing-48) 0;
-}
-
-@media (max-width: 1024px) {
-  .header-search-panel__body {
-    flex-direction: column;
-  }
-
-  .header-search-panel__section--recent {
-    border-left: none;
-    border-top: 1px solid var(--slate-200);
-    padding-left: 0;
-    padding-top: var(--spacing-32);
-  }
 }
 
 /* 모바일 드로어 */
@@ -335,5 +301,23 @@ button.header-nav__link {
   }
   .header-util__btn--menu {
     display: inline-flex;
+  }
+  .header-search-panel {
+    display: block;
+  }
+  .header-search-wrapper {
+    width: 100%;
+    min-height: 100svh;
+    min-width: 0;
+    padding: var(--spacing-24) var(--spacing-16);
+  }
+  .header-search-panel__columns {
+    flex-direction: column;
+  }
+  .header-search-panel__recent {
+    border-left: none;
+    border-top: 1px solid var(--slate-200);
+    padding-left: 0;
+    padding-top: var(--spacing-32);
   }
 }
