@@ -3,19 +3,29 @@
   "description": "사이트 공통 푸터 컴포넌트. 로고·연락처·정책 링크·저작권 정보로 구성",
   "naming_pattern": "footer__{element} (BEM)",
   "structure": {
-    "root": "footer.footer[role=contentinfo] > .inner-default.footer__inner",
+    "root": "footer.footer[role=contentinfo] > footer__quick + footer__body",
+    "quick": "footer__quick > .inner-default > footer__quick-list (3컬럼) > li > footer__quick-btn",
+    "body": "footer__body > .inner-default.footer__inner",
     "brand": "footer__brand > a.footer__logo > img",
     "info": "footer__info (연락처 + 이용안내 링크)",
     "divider": "footer__divider[role=presentation][aria-hidden=true]",
     "bottom": "footer__bottom (정책 링크 목록 + 저작권 문구)"
   },
+  "icons": {
+    "footer-plus-20": "footer__quick-btn 펼침 아이콘 (20x20)"
+  },
   "notes": [
+    "footer__quick은 footer__body 위에 위치, 산하기관·정부기관·현장운영기관 등 외부 링크 아코디언 영역",
+    "footer__quick-list는 3컬럼 grid, 1024px 이하에서 1컬럼 전환",
+    "footer__quick-btn은 hover 시 slate-50 배경 적용",
     "footer__inner은 inner-default로 컨텐츠 폭 제한",
     "footer__divider는 장식용 구분선이므로 role=presentation, aria-hidden=true 필수",
     "연락처·저작권 등 텍스트는 body3/body4 타이포 토큰과 color-slate 유틸만 사용"
   ],
   "rules": [
     "footer 루트에 role=contentinfo 필수",
+    "footer__quick-btn에 aria-expanded 필수, 버튼 텍스트 외 아이콘은 aria-hidden=true",
+    "footer__quick-btn 내부 안내 텍스트는 span.blind로 제공",
     "로고 링크에 aria-label로 사이트명 명시 (이미지 alt와 별개로 링크 목적 전달)",
     "장식용 구분선은 role=presentation aria-hidden=true 필수",
     "정책 링크 목록은 ul > li > a 구조 유지",
@@ -25,6 +35,7 @@
     "footer 루트를 div로 대체",
     "장식용 구분선에 role/aria-hidden 누락",
     "정의되지 않은 임의 클래스 추가 (footer__* BEM 패턴 외 사용 금지)",
-    "색상·간격·타이포 하드코딩 (반드시 토큰/유틸 클래스 사용)"
+    "색상·간격·타이포 하드코딩 (반드시 토큰/유틸 클래스 사용)",
+    "footer__quick-btn에 aria-expanded 누락"
   ]
 }
