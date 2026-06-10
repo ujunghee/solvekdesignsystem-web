@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>breadcrumb | 솔브케이</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  <!-- webkit only -->
+  <header class="breadcrumb">
+    <div class="inner-default breadcrumb__inner flex align-end gap-16">
+      <h1 class="breadcrumb__title heading4-b-32 color-slate-900">통합검색</h1>
+      <nav class="breadcrumb__nav" aria-label="현재 위치">
+        <ol class="breadcrumb__list flex align-center gap-10">
+          <li class="breadcrumb__item">
+            <a href="/" class="breadcrumb__link body2-r-16 color-slate-500">홈</a>
+          </li>
+          <li class="breadcrumb__item" aria-hidden="true">
+            <span class="breadcrumb-arrow" aria-hidden="true"></span>
+          </li>
+          <li class="breadcrumb__item">
+            <span class="body2-m-16 color-slate-900" aria-current="page">통합검색</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <!-- admin only -->
+  <header class="breadcrumb">
+    <div class="inner-default breadcrumb__inner flex align-end gap-8">
+      <h1 class="breadcrumb__title heading9-sb-22 color-slate-900">통합검색</h1>
+      <nav class="breadcrumb__nav" aria-label="현재 위치">
+        <ol class="breadcrumb__list flex align-center gap-4">
+          <li class="breadcrumb__item">
+            <a href="/" class="breadcrumb__link body2-r-16 color-slate-500">홈</a>
+          </li>
+          <li class="breadcrumb__item body2-m-16 color-slate-500" aria-hidden="true">
+            /
+          </li>
+          <li class="breadcrumb__item">
+            <span class="body2-m-16 color-slate-900" aria-current="page">통합검색</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+</body>
+</html>
