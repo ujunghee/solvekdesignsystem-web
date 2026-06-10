@@ -557,6 +557,27 @@ footer 3가지 레이아웃:
 
 ---
 
+### 6-13. Breadcrumb
+
+페이지 상단 타이틀 + 현재 위치 경로. webkit(일반) / admin 2가지 variant.
+
+**네이밍: `breadcrumb__{element}` (BEM)**
+
+| variant | 타이틀 | 구분자 | gap |
+|---|---|---|---|
+| webkit | `heading4-b-32` | `breadcrumb-arrow` 아이콘 | `gap-16` / `gap-10` |
+| admin | `heading9-sb-22` | `/` 텍스트 | `gap-8` / `gap-4` |
+
+규칙:
+- `header.breadcrumb > .inner-default.breadcrumb__inner > h1.breadcrumb__title + nav.breadcrumb__nav`
+- `breadcrumb__nav`에 `aria-label="현재 위치"` 필수
+- `breadcrumb__list`는 `ol > li` 구조, 마지막 항목은 `span[aria-current="page"]`
+- 구분자에 `aria-hidden="true"` 필수
+
+→ 마크업 예시: `components/breadcrumb/README.md`
+
+---
+
 ## 7. JS 패턴
 
 > 이 시스템은 순수 JS로 동작한다. 프레임워크 없이 아래 패턴을 그대로 사용한다.

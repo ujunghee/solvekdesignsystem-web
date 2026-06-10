@@ -1,0 +1,53 @@
+{
+  "component": "breadcrumb",
+  "description": "페이지 상단 타이틀 + 현재 위치 경로(브레드크럼) 컴포넌트. webkit(일반) / admin 2가지 variant 제공",
+  "naming_pattern": "breadcrumb__{element} (BEM)",
+  "variants": {
+    "webkit": {
+      "description": "일반 페이지용. heading4-b-32 타이틀 + breadcrumb-arrow 구분 아이콘",
+      "title_class": "heading4-b-32",
+      "gap": "gap-16 (inner) / gap-10 (list)",
+      "divider": "span.breadcrumb-arrow"
+    },
+    "admin": {
+      "description": "관리자 페이지용. heading9-sb-22 타이틀 + '/' 텍스트 구분자",
+      "title_class": "heading9-sb-22",
+      "gap": "gap-8 (inner) / gap-4 (list)",
+      "divider": "li.breadcrumb__item (텍스트 '/')"
+    }
+  },
+  "structure": {
+    "root": "header.breadcrumb > .inner-default.breadcrumb__inner",
+    "inner": "breadcrumb__inner flex align-end gap-{16|8} > breadcrumb__title(h1) + breadcrumb__nav",
+    "title": "h1.breadcrumb__title (variant별 heading 클래스 + color-slate-900)",
+    "nav": "nav.breadcrumb__nav[aria-label=현재 위치] > ol.breadcrumb__list",
+    "list": "ol.breadcrumb__list flex align-center gap-{10|4} > li.breadcrumb__item",
+    "link_item": "li.breadcrumb__item > a.breadcrumb__link (body2-r-16 color-slate-500)",
+    "current_item": "li.breadcrumb__item > span[aria-current=page] (body2-m-16 color-slate-900)",
+    "divider_webkit": "li.breadcrumb__item[aria-hidden=true] > span.breadcrumb-arrow[aria-hidden=true]",
+    "divider_admin": "li.breadcrumb__item.body2-m-16.color-slate-500[aria-hidden=true] (텍스트 '/')"
+  },
+  "icons": {
+    "breadcrumb-arrow": "webkit variant 구분 화살표 (8x14, slate-500)"
+  },
+  "notes": [
+    "breadcrumb__title은 h1로 페이지 타이틀을 의미하므로 페이지 내 h1과 중복되지 않도록 페이지 최상단 타이틀로 사용",
+    "마지막 항목(현재 위치)은 a가 아닌 span + aria-current=page로 표시",
+    "구분자(화살표 또는 '/')는 aria-hidden=true로 보조기기에서 숨김",
+    "breadcrumb는 inner-default로 폭 제한"
+  ],
+  "rules": [
+    "breadcrumb__nav에 aria-label='현재 위치' 필수",
+    "breadcrumb__list는 ol > li 구조 유지",
+    "마지막 li는 a가 아닌 span[aria-current=page] 사용",
+    "구분자 li/span에는 aria-hidden=true 필수",
+    "webkit variant는 heading4-b-32 + breadcrumb-arrow, admin variant는 heading9-sb-22 + '/' 텍스트 구분자만 사용"
+  ],
+  "do_not": [
+    "breadcrumb__nav에 aria-label 누락",
+    "마지막(현재 위치) 항목에 a 태그 사용",
+    "구분자에 aria-hidden 누락",
+    "webkit/admin variant 클래스 혼용 (타이틀·구분자 조합 임의 변경)",
+    "정의되지 않은 임의 클래스 추가 (breadcrumb__* BEM 패턴 외 사용 금지)"
+  ]
+}
