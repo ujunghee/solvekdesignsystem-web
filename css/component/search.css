@@ -3,7 +3,9 @@
   --search-height-36: 3.6rem;
   --search-height-40: 4rem;
   --search-height-48: 4.8rem;
-  --search-height-54: 5.4rem;
+  --search-height-54: 5rem;
+  --search-height-62: 5.8rem;
+
 }
 
 input[type="search"]:focus {
@@ -119,6 +121,14 @@ input[type="search"]:hover::-webkit-search-cancel-button {
 
 .main-search-54 {
   height: var(--search-height-54);
+}
+
+.main-search-62 {
+  height: var(--search-height-62);
+}
+
+.main-search-54,
+.main-search-62  {
   width: 100%;
   border-radius: var(--radius-md-6);
   background-color: var(--white);
@@ -129,7 +139,8 @@ input[type="search"]:hover::-webkit-search-cancel-button {
   width: auto;
 }
 
-.main-search-54 .select-48 {
+.main-search-54 .select-48,
+.main-search-62 .select-48 {
   width: auto;
   height: auto;
   border: none;
@@ -143,7 +154,9 @@ input[type="search"]:hover::-webkit-search-cancel-button {
 }
 
 .main-search-54 .select-48:active,
-.main-search-54 .select-48:open {
+.main-search-54 .select-48:open,
+.main-search-62 .select-48:open,
+.main-search-62 .select-48:active {
   border-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='8' viewBox='0 0 11 8' fill='none'%3E%3Cpath transform='rotate(180 5.5 4)' d='M5.89407 7.15329C5.49447 7.69711 4.682 7.69711 4.2824 7.15329L0.195976 1.59209C-0.289304 0.931677 0.182272 -4.37891e-05 1.00181 -4.37174e-05L9.17466 -4.30029e-05C9.9942 -4.29313e-05 10.4658 0.931677 9.9805 1.59209L5.89407 7.15329Z' fill='%2364748B'/%3E%3C/svg%3E");
   outline: none;

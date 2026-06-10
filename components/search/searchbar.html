@@ -100,10 +100,32 @@
 
     
 
-    <!-- 메인 검색창 -->
-    <p class="pt-10 pb-10 body2-r-16 color-slate-900">메인 검색창</p>
+    <!-- 메인 검색창 54 -->
+    <p class="pt-10 pb-10 body2-r-16 color-slate-900">메인 검색창 54</p>
     <div class="main-search-wrapper">
       <div class="main-search-54 flex align-center gap-8 px-12">
+        <div class="select-wrapper main-search__select-wrapper">
+          <label for="main-search-category" class="blind">검색 분류</label>
+          <select id="main-search-category" class="select-48 flex align-center" name="main-search-category" aria-label="검색 분류">
+            <option value="heritage" selected>국가유산명</option>
+            <option value="region">지역명</option>
+          </select>
+        </div>
+        <label for="main-search-example" class="blind">검색어</label>
+        <input type="search" id="main-search-example" class="main-search__input body1-r-18 flex-1"
+          placeholder="찾고 싶은 국가유산명을 입력해주세요" autocomplete="off">
+        <button type="button" class="search-button h-fit">
+          <i class="main-search-blue-icon">
+            <span class="blind">검색 버튼</span>
+          </i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 메인 검색창 62 -->
+    <p class="pt-10 pb-10 body2-r-16 color-slate-900">메인 검색창 62</p>
+    <div class="main-search-wrapper">
+      <div class="main-search-62 flex align-center gap-8 px-12">
         <div class="select-wrapper main-search__select-wrapper">
           <label for="main-search-category" class="blind">검색 분류</label>
           <select id="main-search-category" class="select-48 flex align-center" name="main-search-category" aria-label="검색 분류">
