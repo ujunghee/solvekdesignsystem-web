@@ -1,7 +1,7 @@
 {
   "component": "search",
-  "description": "검색 입력 컴포넌트. 선행형/후행형/CTA버튼형/팝업형 4가지 variant 제공",
-  "naming_pattern": "search-{size} (size: 54, 48, 40, 36)",
+  "description": "검색 입력 컴포넌트. 선행형/후행형/CTA버튼형/팝업형/메인검색형 5가지 variant 제공",
+  "naming_pattern": "search-{size} (size: 54, 48, 40, 36) / main-search-{size} (size: 54, 62)",
   "variants": {
     "leading": {
       "description": "아이콘이 input 왼쪽에 위치 (선행형)",
@@ -22,6 +22,11 @@
       "description": "최근 검색어 팝업 포함 응용형",
       "when_to_use": "최근 검색어 또는 자동완성을 제공해야 할 때",
       "use_cases": ["메인 검색창", "통합 검색"]
+    },
+    "main": {
+      "description": "카테고리 select + input + 그라데이션 테두리 강조형 (main-search-{size})",
+      "when_to_use": "카테고리(분류)를 선택해 검색해야 하는 핵심 검색창일 때",
+      "use_cases": ["메인 화면 검색창 (main-search-54)", "통합검색 검색창 (main-search-62)"]
     }
   },
   "sizes": {
@@ -30,11 +35,16 @@
     "40": { "class": "search-40", "icon": "search-icon-40", "font": "body2-r-16", "px": "px-12", "gap": "gap-10" },
     "36": { "class": "search-36", "icon": "search-icon-40", "font": "body3-r-14", "px": "px-8",  "gap": "gap-10" }
   },
+  "main_search_sizes": {
+    "54": { "class": "main-search-54", "use_case": "메인 화면 검색창" },
+    "62": { "class": "main-search-62", "use_case": "통합검색 검색창" }
+  },
   "structure": {
     "leading": "search-{size} flex px-{n} gap-{n} align-center > i.search-icon-{size} + input",
     "trailing": "search-{size} flex pl-{n} pr-{n} justify-between [align-center] > input + button.search-button[.h-fit]",
     "cta": "search-bar flex gap-8 align-center > input.search-{size}.px-{n}.w-full + button",
-    "popup": "search-wrapper > search-{size}(trailing) + search-popup[role=dialog]"
+    "popup": "search-wrapper > search-{size}(trailing) + search-popup[role=dialog]",
+    "main": "main-search-wrapper > main-search-{size} flex align-center gap-8 px-12 > select-wrapper.main-search__select-wrapper(select.select-48) + input.main-search__input.flex-1 + button.search-button.h-fit > i.main-search-blue-icon"
   },
   "trailing_notes": {
     "all": "모든 사이즈 align-center + search-button h-fit 사용"
@@ -53,20 +63,28 @@
     "search-input 클래스는 팝업형 input에 JS 이벤트 바인딩용으로 추가",
     "접근성: search-popup에 role=dialog, aria-modal=true, aria-labelledby로 input id 연결",
     "팝업 최근 검색어 링크에 href 반드시 포함",
-    "팝업 닫기 버튼: button > i.close-icon 구조"
+    "팝업 닫기 버튼: button > i.close-icon 구조",
+    "main-search-54는 메인 화면 검색창, main-search-62는 통합검색 검색창에 사용",
+    "main-search-{size}는 main-search-wrapper(그라데이션 테두리)로 감싸야 함",
+    "main-search-{size} 내 select는 select-48 + select-wrapper.main-search__select-wrapper 사용",
+    "main-search__input은 type=search, flex-1, placeholder 필수, label은 blind 처리"
   ],
   "rules": [
     "search-wrapper 없이 팝업형 단독 사용 금지",
     "팝업 상태는 search-popup에 active 토글만 사용, 인라인 스타일 금지",
     "접근성 속성 (role=dialog, aria-modal=true, aria-labelledby) 반드시 포함",
     "선행형에서 i.search-icon을 button으로 감싸지 않는다",
-    "최근 검색어 a 태그에 href 누락 금지"
+    "최근 검색어 a 태그에 href 누락 금지",
+    "main-search-{size}는 반드시 main-search-wrapper로 감싸야 함",
+    "main-search-{size}의 검색 버튼은 button.search-button > i.main-search-blue-icon 구조"
   ],
   "do_not": [
     "선행형 아이콘을 button.search-button으로 감싸기",
     "팝업 show/hide를 인라인 스타일로 처리",
     "search-wrapper 없이 search-popup 단독 사용",
     "최근 검색어 a 태그에 href 누락",
-    "close-icon을 button에 직접 클래스로 추가 (반드시 button > i.close-icon 구조)"
+    "close-icon을 button에 직접 클래스로 추가 (반드시 button > i.close-icon 구조)",
+    "main-search-54/62를 용도와 다르게 사용 (54=메인화면, 62=통합검색)",
+    "main-search-wrapper 없이 main-search-{size} 단독 사용"
   ]
 }

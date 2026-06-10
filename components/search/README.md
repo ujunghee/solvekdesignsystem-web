@@ -1,6 +1,6 @@
 # Search
 
-검색 입력 컴포넌트입니다. 선행형 / 후행형 / CTA버튼형 / 팝업형 4가지 variant를 제공합니다.
+검색 입력 컴포넌트입니다. 선행형 / 후행형 / CTA버튼형 / 팝업형 / 메인검색형 5가지 variant를 제공합니다.
 
 ---
 
@@ -145,6 +145,63 @@ input + 버튼 조합으로 검색 실행을 강조합니다.
 
 ---
 
+### 메인 검색창 (Main Search)
+
+카테고리 `select` + `input` + 그라데이션 테두리로 강조한 검색창입니다. 반드시 `main-search-wrapper`로 감쌉니다.
+
+**사이즈 구분**
+
+| 사이즈 | 클래스 | 사용 위치 |
+|---|---|---|
+| 54 | `main-search-54` | 메인 화면 검색창 |
+| 62 | `main-search-62` | 통합검색 검색창 |
+
+```html
+<!-- 메인 화면: main-search-54 -->
+<div class="main-search-wrapper">
+  <div class="main-search-54 flex align-center gap-8 px-12">
+    <div class="select-wrapper main-search__select-wrapper">
+      <label for="main-search-category" class="blind">검색 분류</label>
+      <select id="main-search-category" class="select-48 flex align-center" name="main-search-category" aria-label="검색 분류">
+        <option value="heritage" selected>국가유산명</option>
+        <option value="region">지역명</option>
+      </select>
+    </div>
+    <label for="main-search-example" class="blind">검색어</label>
+    <input type="search" id="main-search-example" class="main-search__input body1-r-18 flex-1"
+      placeholder="찾고 싶은 국가유산명을 입력해주세요" autocomplete="off">
+    <button type="button" class="search-button h-fit">
+      <i class="main-search-blue-icon">
+        <span class="blind">검색 버튼</span>
+      </i>
+    </button>
+  </div>
+</div>
+
+<!-- 통합검색: main-search-62 -->
+<div class="main-search-wrapper">
+  <div class="main-search-62 flex align-center gap-8 px-12">
+    <div class="select-wrapper main-search__select-wrapper">
+      <label for="main-search-category-2" class="blind">검색 분류</label>
+      <select id="main-search-category-2" class="select-48 flex align-center" name="main-search-category-2" aria-label="검색 분류">
+        <option value="heritage" selected>국가유산명</option>
+        <option value="region">지역명</option>
+      </select>
+    </div>
+    <label for="main-search-example-2" class="blind">검색어</label>
+    <input type="search" id="main-search-example-2" class="main-search__input body1-r-18 flex-1"
+      placeholder="찾고 싶은 국가유산명을 입력해주세요" autocomplete="off">
+    <button type="button" class="search-button h-fit">
+      <i class="main-search-blue-icon">
+        <span class="blind">검색 버튼</span>
+      </i>
+    </button>
+  </div>
+</div>
+```
+
+---
+
 ## JS — 팝업 열기/닫기
 
 ```javascript
@@ -179,4 +236,6 @@ document.addEventListener('click', (e) => {
 - 팝업에 `role="dialog"`, `aria-modal="true"`, `aria-labelledby`(input id와 일치) 필수
 - 최근 검색어 `<a>` 태그에 `href` 반드시 포함
 - 닫기 버튼: `<button> > <i class="close-icon">` 구조 (button에 close-icon 직접 금지)
+- 메인 검색창은 `main-search-wrapper`로 감싸고, `main-search-54`(메인 화면) / `main-search-62`(통합검색) 용도에 맞게 사용
+- 메인 검색창 검색 버튼: `<button class="search-button h-fit"> > <i class="main-search-blue-icon">` 구조
 - `search-input` 클래스는 팝업형 input에만 추가 (JS 이벤트 바인딩용)
