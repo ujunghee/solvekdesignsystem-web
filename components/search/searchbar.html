@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
     <!-- searchBar 54 -->
      <p class="pt-10 pb-10 body2-r-16 color-slate-900">선행형 54</p>
     <div class="search-54 flex px-16 gap-12 align-center">
@@ -97,6 +98,30 @@
       <button type="button" class="slate-button-48 w-100 h-fit">검색</button>
     </div>
 
+    
+
+    <!-- 메인 검색창 -->
+    <p class="pt-10 pb-10 body2-r-16 color-slate-900">메인 검색창</p>
+    <div class="main-search-wrapper">
+      <div class="main-search-54 flex align-center gap-8 px-12">
+        <div class="select-wrapper main-search__select-wrapper">
+          <label for="main-search-category" class="blind">검색 분류</label>
+          <select id="main-search-category" class="select-48 flex align-center" name="main-search-category" aria-label="검색 분류">
+            <option value="heritage" selected>국가유산명</option>
+            <option value="region">지역명</option>
+          </select>
+        </div>
+        <label for="main-search-example" class="blind">검색어</label>
+        <input type="search" id="main-search-example" class="main-search__input body1-r-18 flex-1"
+          placeholder="찾고 싶은 국가유산명을 입력해주세요" autocomplete="off">
+        <button type="button" class="search-button h-fit">
+          <i class="main-search-blue-icon">
+            <span class="blind">검색 버튼</span>
+          </i>
+        </button>
+      </div>
+    </div>
+
     <!-- 검색 응용 예시 -->
     <p class="pt-10 pb-10 body2-r-16 color-slate-900">검색 응용 예시</p>
     <div class="search-wrapper">
@@ -109,9 +134,9 @@
         </button>
       </div>
       <div class="search-popup py-8" role="dialog" aria-modal="true" aria-labelledby="example">
-        <div class="search flex align-center justify-between align-center">
-          <p class="body2-sb-16 color-slate-900 pl-20">최근 검색어</p>
-          <button type="button" class="transparent-button-40">전체삭제</button>
+        <div class="search flex align-center justify-between align-center px-20">
+          <p class="body2-sb-16 color-slate-900">최근 검색어</p>
+          <button type="button" class="">전체삭제</button>
         </div>
         <ul>
           <li class="px-20 flex align-center justify-between align-center">

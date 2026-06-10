@@ -52,6 +52,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -66,6 +69,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-button-36 {
@@ -79,6 +85,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-button-32 {
@@ -92,6 +101,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-button-28 {
@@ -105,6 +117,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 :is(.blue-button-48, .blue-button-40, .blue-button-36, .blue-button-32, .blue-button-28):hover {
@@ -133,6 +148,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-blue-button-40 {
@@ -146,6 +164,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-blue-button-36 {
@@ -159,6 +180,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-blue-button-32 {
@@ -172,6 +196,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-blue-button-28 {
@@ -185,6 +212,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 :is(.border-blue-button-48, .border-blue-button-40, .border-blue-button-36, .border-blue-button-32, .border-blue-button-28):hover {
@@ -213,6 +243,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 } 
 
 .slate-button-40 {
@@ -226,6 +259,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slate-button-36 {
@@ -239,6 +275,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slate-button-32 {
@@ -252,6 +291,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slate-button-28 {
@@ -265,6 +307,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 :is(.slate-button-48, .slate-button-40, .slate-button-36, .slate-button-32, .slate-button-28):hover {
@@ -292,6 +337,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-50-button-40 {
@@ -305,6 +353,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-50-button-36 {
@@ -318,6 +369,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-50-button-32 {
@@ -331,6 +385,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-50-button-28 {
@@ -344,6 +401,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -372,6 +432,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-slate-button-40 {
@@ -385,6 +448,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-slate-button-36 {
@@ -398,6 +464,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-slate-button-32 {
@@ -411,6 +480,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .border-slate-button-28 {
@@ -424,6 +496,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 :is(.border-slate-button-48, .border-slate-button-40, .border-slate-button-36, .border-slate-button-32, .border-slate-button-28):hover {
@@ -454,6 +529,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slate-50-button-40 {
@@ -467,6 +545,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slate-50-button-36 {
@@ -480,6 +561,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slate-50-button-32 {
@@ -493,6 +577,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slate-50-button-28 {
@@ -506,6 +593,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 } 
 
 :is(.slate-50-button-48, .slate-50-button-40, .slate-50-button-36, .slate-50-button-32, .slate-50-button-28):hover {
@@ -534,6 +624,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .transparent-button-40 {
@@ -547,6 +640,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .transparent-button-36 {
@@ -560,6 +656,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .transparent-button-32 {
@@ -573,6 +672,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .transparent-button-28 {
@@ -586,6 +688,9 @@ button:disabled, a:disabled {
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 :is(.transparent-button-48, .transparent-button-40, .transparent-button-36, .transparent-button-32, .transparent-button-28):hover {
