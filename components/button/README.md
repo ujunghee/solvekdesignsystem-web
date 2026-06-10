@@ -31,6 +31,7 @@ border-{color}-button-{size}
 
 | 사이즈 | 높이 |
 |---|---|
+| `54` | 5.4rem (border-slate 색상에만 정의됨) |
 | `48` | 4.8rem |
 | `40` | 4.0rem |
 | `36` | 3.6rem |
@@ -113,6 +114,17 @@ border-{color}-button-{size}
 | blue, slate | `chevron-right-white` |
 | slate-50, transparent | `chevron-right-slate-700` |
 
+### 필터/업로드 버튼 (54)
+
+`border-slate-button-54`에만 정의된 54 사이즈 + `filter-icon` 조합입니다.
+
+```html
+<button type="button" class="border-slate-button-54 button-54 gap-8 flex align-center">
+  필터
+  <span class="filter-icon"></span>
+</button>
+```
+
 ---
 
 ## 규칙
@@ -123,3 +135,4 @@ border-{color}-button-{size}
 - 아이콘 버튼은 반드시 `flex align-center` 추가
 - disabled 버튼은 색상 접두사 없이 `button-{size}` + `disabled` 속성
 - `div` / `span` 으로 버튼 대체 금지
+- `54` 사이즈는 `border-slate` 색상에서만 사용 (다른 색상은 미정의)

@@ -3,7 +3,7 @@
   "description": "사용자가 액션을 트리거하는 버튼",
   "naming_pattern": "{color}-button-{size} 또는 border-{color}-button-{size}",
   "base_rule": "색상과 사이즈가 하나로 합쳐진 클래스 사용",
-  "sizes": ["48", "40", "36", "32", "28"],
+  "sizes": ["54", "48", "40", "36", "32", "28"],
   "colors": {
     "blue": {
       "description": "주요 CTA",
@@ -54,11 +54,13 @@
     },
     "icons": {
       "chevron-right-white": "흰색 화살표 (blue, slate 계열에 사용)",
-      "chevron-right-slate-700": "진한 회색 화살표 (slate-50, transparent 계열에 사용)"
+      "chevron-right-slate-700": "진한 회색 화살표 (slate-50, transparent 계열에 사용)",
+      "filter-icon": "필터 아이콘 (24x24, slate-700) — border-slate-button-54 등 필터/업로드 버튼에 사용"
     },
     "examples": [
       "<button type='button' class='blue-button-48 icon-button-right flex align-center'>\n  저장\n  <span class='chevron-right-white'></span>\n</button>",
-      "<button type='button' class='slate-50-button-48 icon-button-left flex align-center'>\n  <span class='chevron-right-slate-700'></span>\n  목록보기\n</button>"
+      "<button type='button' class='slate-50-button-48 icon-button-left flex align-center'>\n  <span class='chevron-right-slate-700'></span>\n  목록보기\n</button>",
+      "<button type='button' class='border-slate-button-54 button-54 gap-8 flex align-center'>\n  필터\n  <span class='filter-icon'></span>\n</button>"
     ]
   },
   "examples": [
@@ -71,12 +73,17 @@
     "<button type='button' class='transparent-button-32'>더보기</button>",
     "<button type='button' class='button-48' disabled>비활성</button>"
   ],
+  "notes": [
+    "54 사이즈는 현재 border-slate 색상에만 정의됨 (border-slate-button-54). 다른 색상의 54 사이즈는 CSS 정의 전까지 사용 금지",
+    "필터/업로드형 버튼: border-slate-button-54 button-54 gap-8 flex align-center + span.filter-icon"
+  ],
   "rules": [
     "반드시 type 속성 명시 (button/submit/reset 중 하나)",
     "정의된 클래스만 사용",
     "naming_pattern 외 임의 클래스 생성 금지",
     "아이콘 버튼은 반드시 flex align-center 추가",
-    "disabled 버튼은 색상 접두사 없이 button-{size} + disabled 속성"
+    "disabled 버튼은 색상 접두사 없이 button-{size} + disabled 속성",
+    "54 사이즈는 border-slate 색상에서만 사용 (다른 색상은 미정의)"
   ],
   "do_not": [
     "사이즈 없이 색상만 단독 사용",
