@@ -578,6 +578,33 @@ footer 3가지 레이아웃:
 
 ---
 
+### 6-14. Search Filter
+
+검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·셀렉트 조합.
+
+**네이밍: `search-filter__{element}` (BEM)**
+
+| 블록 | 설명 |
+|---|---|
+| `search-filter` | 루트 (`aside[aria-labelledby]`, max-width 28.4rem) |
+| `search-filter__head` | 타이틀(`h2`) + 초기화 버튼 |
+| `search-filter__section` | 아코디언 섹션 (`active` 토글) |
+| `search-filter__toggle` | 섹션 토글 버튼 (`aria-expanded`) |
+| `search-filter__panel` | 섹션 본문 |
+| `search-filter__list`, `search-filter__list--cols-2` | 체크박스 목록 (1열/2열) |
+| `search-filter__selects` | 소재지 등 셀렉트 그룹 |
+| `search-filter__count` | 항목별 결과 건수 |
+
+규칙:
+- `aside`에 `aria-labelledby`로 `h2.search-filter__title` id 연결 필수
+- `search-filter__toggle`에 `aria-expanded` 필수, 펼침/접힘은 `active` 클래스 토글로만 제어
+- 체크박스는 `checkbox-basic checkbox-basic-sm` (id/for 분리), 셀렉트는 `select-wrapper` + `select-36`
+- 초기화 버튼은 `transparent-button-32` + `data-search-filter-reset`, `filter-reset-20` 아이콘 사용
+
+→ 마크업 예시: `components/filter/README.md`
+
+---
+
 ## 7. JS 패턴
 
 > 이 시스템은 순수 JS로 동작한다. 프레임워크 없이 아래 패턴을 그대로 사용한다.
