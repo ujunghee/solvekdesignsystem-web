@@ -325,16 +325,25 @@
     <section class="index-search" role="search" aria-labelledby="main-search-title">
       <div class="inner-default">
         <h2 id="main-search-title" class="blind">통합검색</h2>
-        <div class="search-bar flex gap-8 align-center">
-          <label for="main-search-input" class="blind">검색어</label>
-          <div class="search-54 flex pl-20 pr-16 justify-between align-center flex-1">
-            <input type="search" id="main-search-input" class="body1-r-18 w-full"
+        <div class="main-search-wrapper">
+          <div class="main-search-54 flex align-center gap-8 px-12">
+            <div class="select-wrapper main-search__select-wrapper">
+              <label for="main-search-category" class="blind">검색 분류</label>
+              <select id="main-search-category" class="select-48 flex align-center" name="main-search-category" aria-label="검색 분류">
+                <option value="all" selected>전체</option>
+                <option value="notice">공지사항</option>
+                <option value="data">자료실</option>
+              </select>
+            </div>
+            <label for="main-search-input" class="blind">검색어</label>
+            <input type="search" id="main-search-input" class="main-search__input body1-r-18 flex-1"
               placeholder="검색어를 입력해주세요" autocomplete="off">
             <button type="button" class="search-button h-fit">
-              <i class="search-icon-54"><span class="blind">검색</span></i>
+              <i class="main-search-blue-icon">
+                <span class="blind">검색 버튼</span>
+              </i>
             </button>
           </div>
-          <button type="button" class="blue-button-54 w-100 h-fit">검색</button>
         </div>
       </div>
     </section>
