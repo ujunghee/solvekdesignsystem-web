@@ -5,7 +5,7 @@
   "size": {
     "max_width": "28.4rem",
     "checkbox": "checkbox-basic checkbox-basic-sm",
-    "select": "select-36",
+    "select": "select-40",
     "option_label": "body3-r-14 color-slate-700",
     "count": "search-filter__count body3-r-14 color-slate-500"
   },
@@ -15,7 +15,7 @@
     "section": "search-filter__section.active > search-filter__toggle(button) + search-filter__panel",
     "list": "ul.search-filter__list > li.search-filter__item",
     "list_cols_2": "ul.search-filter__list.search-filter__list--cols-2",
-    "selects": "search-filter__selects > select-wrapper.flex-1 > select-36"
+    "selects": "search-filter__selects > select-wrapper.flex-1 > select-40"
   },
   "section_types": {
     "checkbox_single": "search-filter__list — 단일 열",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "checkbox": "components/checkbox — basic sm, id/for 분리",
-    "select": "components/select — select-wrapper + select-36",
+    "select": "components/select — select-wrapper + select-40",
     "button": "transparent-button-32 (초기화)"
   },
   "notes": [
@@ -42,7 +42,8 @@
     "섹션 펼침/접힘은 active 클래스 토글만 사용",
     "체크박스 basic형: label 감싸기 구조 금지",
     "셀렉트: wrapper 없이 단독 사용 금지",
-    "건수(search-filter__count)는 데이터 유형 섹션 등 결과 수 표시 시에만 사용"
+    "건수(search-filter__count)는 데이터 유형 섹션 등 결과 수 표시 시에만 사용",
+    "search-filter__item label은 긴 텍스트 줄바꿈(word-break: keep-all) 처리, 체크박스는 상단 정렬(margin-top)"
   ],
   "rules": [
     "aside에 aria-labelledby와 h2 id 연결 필수",

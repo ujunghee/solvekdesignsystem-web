@@ -28,7 +28,7 @@ aside.search-filter[aria-labelledby]
 |---|---|
 | max-width | `28.4rem` (284px) |
 | 체크박스 | `checkbox-basic checkbox-basic-sm` |
-| 셀렉트 (소재지) | `select-wrapper` + `select-36 flex align-center` + `error-message` (`components/select` 스펙 준수) |
+| 셀렉트 (소재지) | `select-wrapper` + `select-40 flex align-center` + `error-message` (`components/select` 스펙 준수) |
 | 옵션 라벨 | `body3-r-14 color-slate-700` |
 | 건수 | `search-filter__count body3-r-14 color-slate-500` |
 
@@ -107,9 +107,10 @@ aside.search-filter[aria-labelledby]
 ## 규칙
 
 - 체크박스는 `checkbox-basic checkbox-basic-sm` + id/for 분리만 사용
-- 셀렉트는 `components/select/README.md` 구조 그대로: `select-wrapper` > `label.blind`(또는 visible label) + `select-36 flex align-center` + `p.error-message`
-- 셀렉트에 `w-full` 불필요 (`select-36`이 이미 `width: 100%`)
+- 셀렉트는 `components/select/README.md` 구조 그대로: `select-wrapper` > `label.blind`(또는 visible label) + `select-40 flex align-center` + `p.error-message`
+- 셀렉트에 `w-full` 불필요 (`select-40`이 이미 `width: 100%`)
 - 소재지 등 기본값이 있는 셀렉트는 placeholder option 생략 가능, `error-message`는 DOM에 항상 포함
 - 섹션 토글은 `button` + `arrow-icon` (펼침 시 아래 방향)
 - 초기화 아이콘은 `filter-reset-20`만 사용
+- `search-filter__item`의 `label`은 긴 텍스트 줄바꿈(`word-break: keep-all`) 처리되며, 체크박스는 상단 정렬
 - `search-filter__*` BEM 외 임의 클래스 추가 금지
