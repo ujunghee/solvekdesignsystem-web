@@ -605,6 +605,31 @@ footer 3가지 레이아웃:
 
 ---
 
+### 6-15. Pagination
+
+목록/게시판 하단 페이지 이동 컴포넌트. 이전/다음 버튼 + 숫자 페이지 + 생략(...) 표시.
+
+**네이밍: `pagination__{element}` (BEM)**
+
+| 블록 | 설명 |
+|---|---|
+| `pagination` | 루트 (`nav[aria-label="페이지 이동"]`) |
+| `pagination__list` | `ul.flex.align-center.justify-center.gap-8` |
+| `pagination__nav` | 이전/다음 버튼 (`transparent-button-40 flex align-center body2-r-16 color-slate-700`) |
+| `pagination__link` | 숫자 페이지 (`body2-r-16`, 현재 페이지는 `aria-current="page"`) |
+| `pagination__ellipsis` | 생략(...) 표시 (`span` + `aria-hidden="true"`) |
+
+규칙:
+- `nav.pagination`에 `aria-label="페이지 이동"` 필수
+- `pagination__list`는 `ul > li` 구조 유지
+- 현재 페이지의 `pagination__link`에 `aria-current="page"` 필수 (배경 `slate-700` + 글자 `white`)
+- 생략(...) 항목은 `span.pagination__ellipsis` + `aria-hidden="true"` 사용, `a` 태그 금지
+- 이전/다음 버튼은 `pagination__nav` + `transparent-button-40 flex align-center` + 아이콘(`chevron-pagination-left-slate-700`/`chevron-pagination-slate-700`) 조합
+
+→ 마크업 예시: `components/pagination/README.md`
+
+---
+
 ## 7. JS 패턴
 
 > 이 시스템은 순수 JS로 동작한다. 프레임워크 없이 아래 패턴을 그대로 사용한다.

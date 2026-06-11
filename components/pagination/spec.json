@@ -1,0 +1,39 @@
+{
+  "component": "pagination",
+  "description": "목록/게시판 하단 페이지 이동 컴포넌트. 이전/다음 + 숫자 페이지 + 생략(...) 표시",
+  "naming_pattern": "pagination__{element} (BEM)",
+  "structure": {
+    "root": "nav.pagination[aria-label=페이지 이동] > ul.pagination__list",
+    "list": "ul.pagination__list flex align-center justify-center gap-8",
+    "prev": "li > a.pagination__nav.transparent-button-40[flex align-center][body2-r-16][color-slate-700] > span.chevron-pagination-left-slate-700 + '이전'",
+    "next": "li > a.pagination__nav.transparent-button-40[flex align-center][body2-r-16][color-slate-700] > '다음' + span.chevron-pagination-slate-700",
+    "page_link": "li > a.pagination__link.body2-r-16",
+    "current_page": "li > a.pagination__link.body2-r-16[aria-current=page]",
+    "ellipsis": "li > span.pagination__ellipsis.body2-r-16.color-slate-500[aria-hidden=true]"
+  },
+  "icons": {
+    "chevron-pagination-left-slate-700": "이전 화살표 (20x20, slate-700)",
+    "chevron-pagination-slate-700": "다음 화살표 (20x20, slate-700)"
+  },
+  "states": {
+    "current": "pagination__link에 aria-current=page, 배경 slate-700 + 글자 white"
+  },
+  "notes": [
+    "pagination__link는 min-width 3.2rem, height 3.2rem 정사각형에 가까운 클릭 영역",
+    "생략 표시(...)는 a가 아닌 span.pagination__ellipsis + aria-hidden=true",
+    "이전/다음 버튼은 transparent-button-40 기반에 아이콘 + 텍스트 조합"
+  ],
+  "rules": [
+    "nav.pagination에 aria-label='페이지 이동' 필수",
+    "pagination__list는 ul > li 구조 유지",
+    "현재 페이지 항목에 aria-current=page 필수",
+    "생략(...) 항목은 span + aria-hidden=true 사용, a 태그 금지",
+    "이전/다음 버튼은 transparent-button-40 + flex align-center 사용"
+  ],
+  "do_not": [
+    "nav에 aria-label 누락",
+    "현재 페이지에 aria-current 누락",
+    "생략(...) 항목을 a 태그로 작성",
+    "정의되지 않은 임의 클래스 추가 (pagination__* BEM 패턴 외 사용 금지)"
+  ]
+}

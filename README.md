@@ -63,6 +63,7 @@ component/ → button, input, search, textarea, checkbox, radio, datepicker, sel
 | [Footer](components/footer/README.md) | 퀵 아코디언·연락처·정책 링크 |
 | [Breadcrumb](components/breadcrumb/README.md) | webkit/admin 2가지 variant |
 | [Search Filter](components/filter/README.md) | 검색 결과 좌측 사이드바 아코디언 필터 |
+| [Pagination](components/pagination/README.md) | 이전/다음 + 숫자 페이지 + 생략(...) 표시 |
 
 ---
 
