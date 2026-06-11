@@ -580,7 +580,7 @@ footer 3가지 레이아웃:
 
 ### 6-14. Search Filter
 
-검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·셀렉트 조합.
+검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·라디오·셀렉트·기간(datepicker) 조합.
 
 **네이밍: `search-filter__{element}` (BEM)**
 
@@ -591,14 +591,18 @@ footer 3가지 레이아웃:
 | `search-filter__section` | 아코디언 섹션 (`active` 토글) |
 | `search-filter__toggle` | 섹션 토글 버튼 (`aria-expanded`) |
 | `search-filter__panel` | 섹션 본문 |
-| `search-filter__list`, `search-filter__list--cols-2` | 체크박스 목록 (1열/2열) |
-| `search-filter__selects` | 소재지 등 셀렉트 그룹 |
+| `search-filter__list`, `search-filter__list--cols-2` | 체크박스/라디오 목록 (1열/2열) |
+| `search-filter__period-radios` | 기간 선택 라디오 ('기간 전체'/'최근 N년'/'직접 설정') |
+| `search-filter__period-dates` | 기간 type1 — 시작일자·종료일자 단일 datepicker 2개 |
+| `search-filter__period-range` | 기간 type2 — range datepicker 1개 |
+| `search-filter__selects` | 셀렉트 그룹 |
 | `search-filter__count` | 항목별 결과 건수 |
 
 규칙:
 - `aside`에 `aria-labelledby`로 `h2.search-filter__title` id 연결 필수
 - `search-filter__toggle`에 `aria-expanded` 필수, 펼침/접힘은 `active` 클래스 토글로만 제어
-- 체크박스는 `checkbox-basic checkbox-basic-sm` (id/for 분리), 셀렉트는 `select-wrapper` + `select-36`
+- 체크박스는 `checkbox-basic checkbox-basic-md`, 라디오는 `radio-basic radio-basic-md` (모두 id/for 분리), 셀렉트는 `select-wrapper` + `select-40`
+- 기간 datepicker는 `components/datepicker` 구조 그대로(`input-field-default-40 input-with-trailing-icon` + `calendar-icon`), 페이지 로드 시 `disabled` 상태로 시작하고 라디오 '직접 설정' 선택 시에만 활성화
 - 초기화 버튼은 `transparent-button-32` + `data-search-filter-reset`, `filter-reset-20` 아이콘 사용
 
 → 마크업 예시: `components/filter/README.md`
