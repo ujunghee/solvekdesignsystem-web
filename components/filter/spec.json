@@ -1,0 +1,61 @@
+{
+  "component": "search-filter",
+  "description": "검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·셀렉트 조합",
+  "naming_pattern": "search-filter__{element} (BEM)",
+  "size": {
+    "max_width": "28.4rem",
+    "checkbox": "checkbox-basic checkbox-basic-sm",
+    "select": "select-36",
+    "option_label": "body3-r-14 color-slate-700",
+    "count": "search-filter__count body3-r-14 color-slate-500"
+  },
+  "structure": {
+    "root": "aside.search-filter[aria-labelledby]",
+    "head": "search-filter__head > search-filter__title(h2) + search-filter__reset(button)",
+    "section": "search-filter__section.active > search-filter__toggle(button) + search-filter__panel",
+    "list": "ul.search-filter__list > li.search-filter__item",
+    "list_cols_2": "ul.search-filter__list.search-filter__list--cols-2",
+    "selects": "search-filter__selects > select-wrapper.flex-1 > select-36"
+  },
+  "section_types": {
+    "checkbox_single": "search-filter__list — 단일 열",
+    "checkbox_with_count": "justify-between + search-filter__count — 데이터 유형",
+    "checkbox_cols_2": "search-filter__list--cols-2 — 지정종목, 파일형식",
+    "location_selects": "search-filter__selects — 소재지 2개 셀렉트"
+  },
+  "states": {
+    "expanded": "search-filter__section.active + aria-expanded=true",
+    "collapsed": "active 제거 + aria-expanded=false",
+    "reset": "data-search-filter-reset 클릭"
+  },
+  "icons": {
+    "arrow-icon": "섹션 토글 화살표 (펼침: 아래, 접힘: 우측)",
+    "filter-reset-20": "초기화 버튼 (20x20)"
+  },
+  "dependencies": {
+    "checkbox": "components/checkbox — basic sm, id/for 분리",
+    "select": "components/select — select-wrapper + select-36",
+    "button": "transparent-button-32 (초기화)"
+  },
+  "notes": [
+    "max-width 28.4rem(284px)은 search-filter 루트에 CSS 정의",
+    "섹션 펼침/접힘은 active 클래스 토글만 사용",
+    "체크박스 basic형: label 감싸기 구조 금지",
+    "셀렉트: wrapper 없이 단독 사용 금지",
+    "건수(search-filter__count)는 데이터 유형 섹션 등 결과 수 표시 시에만 사용"
+  ],
+  "rules": [
+    "aside에 aria-labelledby와 h2 id 연결 필수",
+    "search-filter__toggle에 aria-expanded 필수",
+    "체크박스 id/for 분리 필수",
+    "셀렉트는 select-wrapper + aria-label 또는 blind label",
+    "초기화 버튼 type=button + blind 텍스트 필수"
+  ],
+  "do_not": [
+    "checkbox chip/list variant 사용",
+    "select 단독 사용 (wrapper 없이)",
+    "섹션 토글에 div/span 사용",
+    "인라인 style로 펼침/접힘 제어",
+    "search-filter__* 외 임의 BEM 클래스 추가"
+  ]
+}

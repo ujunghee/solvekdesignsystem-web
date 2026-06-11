@@ -2,12 +2,6 @@
 button, a {
   transition: background-color 0.2s ease;
 }
-
-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--blue-200);
-} 
-
 /* button effect */
 button:disabled, a:disabled {
   background-color: var(--slate-50);

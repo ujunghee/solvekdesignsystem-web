@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색필터 | 솔브케이</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  <div class="inner-default py-24">
+    <aside class="search-filter" aria-labelledby="search-filter-title">
+      <div class="search-filter__head flex justify-between align-center">
+        <h2 id="search-filter-title" class="search-filter__title heading10-sb-20 color-slate-900">검색필터</h2>
+        <button type="button" class="search-filter__reset transparent-button-32 flex align-center gap-10" data-search-filter-reset>
+          <span class="body2-m-16 color-slate-500">초기화</span>
+          <i class="filter-reset-20" aria-hidden="true"></i>
+          <span class="blind">필터 초기화</span>
+        </button>
+      </div>
+
+      <!-- 데이터 유형 -->
+      <div class="search-filter__section active">
+        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
+          데이터 유형
+          <i class="arrow-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-filter__panel">
+          <ul class="search-filter__list">
+            <li class="search-filter__item">
+              <div class="flex align-center justify-between gap-8">
+                <div class="flex align-center gap-8">
+                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-data-1" checked>
+                  <label for="filter-data-1" class="body2-r-16 color-slate-900">지정유산</label>
+                </div>
+                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">8,270</span>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center justify-between gap-8">
+                <div class="flex align-center gap-8">
+                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-data-2">
+                  <label for="filter-data-2" class="body2-r-16 color-slate-900">매장유산유존지역</label>
+                </div>
+                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">320</span>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center justify-between gap-8">
+                <div class="flex align-center gap-8">
+                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-data-3">
+                  <label for="filter-data-3" class="body2-r-16 color-slate-900">문화유적분포지도</label>
+                </div>
+                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">96</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 지정구분 -->
+      <div class="search-filter__section active">
+        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
+          지정구분
+          <i class="arrow-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-filter__panel">
+          <ul class="search-filter__list">
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-1">
+                <label for="filter-designation-1" class="body2-r-16 color-slate-900">국가지정유산</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-2">
+                <label for="filter-designation-2" class="body2-r-16 color-slate-900">시도지정유산</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-3">
+                <label for="filter-designation-3" class="body2-r-16 color-slate-900">국가등록문화유산</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-4">
+                <label for="filter-designation-4" class="body2-r-16 color-slate-900">시도등록문화유산</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-5">
+                <label for="filter-designation-5" class="body2-r-16 color-slate-900">시도자연유산자료</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-6">
+                <label for="filter-designation-6" class="body2-r-16 color-slate-900">임시지정유산</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 지정종목 -->
+      <div class="search-filter__section active">
+        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
+          지정종목
+          <i class="arrow-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-filter__panel">
+          <ul class="search-filter__list search-filter__list--cols-2">
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-1">
+                <label for="filter-item-1" class="body2-r-16 color-slate-900">국보</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-2">
+                <label for="filter-item-2" class="body2-r-16 color-slate-900">보물</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-3">
+                <label for="filter-item-3" class="body2-r-16 color-slate-900">사적</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-4">
+                <label for="filter-item-4" class="body2-r-16 color-slate-900">명승</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-5">
+                <label for="filter-item-5" class="body2-r-16 color-slate-900">천연기념물</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-6">
+                <label for="filter-item-6" class="body2-r-16 color-slate-900">국가민속문화유산</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 관련 자료 -->
+      <div class="search-filter__section active">
+        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
+          관련 자료
+          <i class="arrow-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-filter__panel">
+          <ul class="search-filter__list">
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-related-1">
+                <label for="filter-related-1" class="body2-r-16 color-slate-900">현상변경허용기준</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-related-2">
+                <label for="filter-related-2" class="body2-r-16 color-slate-900">지형도면</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 소재지 -->
+      <div class="search-filter__section active">
+        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
+          소재지
+          <i class="arrow-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-filter__panel">
+          <div class="search-filter__selects flex gap-8 pb-16">
+            <div class="select-wrapper flex-1">
+              <label for="filter-location-1" class="blind">시도</label>
+              <select id="filter-location-1" class="select-36 flex align-center" name="filter-location-1" aria-label="시도">
+                <option value="nationwide" selected>전국</option>
+                <option value="seoul">서울</option>
+                <option value="busan">부산</option>
+              </select>
+              <p class="error-message">에러 메시지</p>
+            </div>
+            <div class="select-wrapper flex-1">
+              <label for="filter-location-2" class="blind">시군구</label>
+              <select id="filter-location-2" class="select-36 flex align-center" name="filter-location-2" aria-label="시군구">
+                <option value="all" selected>전체</option>
+              </select>
+              <p class="error-message">에러 메시지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 파일형식 -->
+      <div class="search-filter__section active">
+        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
+          파일형식
+          <i class="arrow-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-filter__panel">
+          <ul class="search-filter__list search-filter__list--cols-2">
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-1">
+                <label for="filter-format-1" class="body2-r-16 color-slate-900">CSV</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-2">
+                <label for="filter-format-2" class="body2-r-16 color-slate-900">XLSX</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-3">
+                <label for="filter-format-3" class="body2-r-16 color-slate-900">JSON</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-4">
+                <label for="filter-format-4" class="body2-r-16 color-slate-900">XML</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-5">
+                <label for="filter-format-5" class="body2-r-16 color-slate-900">SHP</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-6">
+                <label for="filter-format-6" class="body2-r-16 color-slate-900">PDF</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-7">
+                <label for="filter-format-7" class="body2-r-16 color-slate-900">GeoJSON</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const searchFilter = document.querySelector('.search-filter');
+
+    function openFilterPanel(section) {
+      const panel = section.querySelector('.search-filter__panel');
+      const toggle = section.querySelector('[data-search-filter-toggle]');
+
+      section.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      panel.classList.remove('is-open');
+      panel.style.overflow = 'hidden';
+      panel.style.height = 'auto';
+      const targetHeight = panel.scrollHeight;
+      panel.style.height = '0';
+      panel.offsetHeight;
+
+      requestAnimationFrame(() => {
+        panel.style.height = `${targetHeight}px`;
+      });
+
+      panel.addEventListener('transitionend', function onOpenEnd(e) {
+        if (e.propertyName !== 'height' || !section.classList.contains('active')) return;
+        panel.style.height = 'auto';
+        panel.style.overflow = 'visible';
+        panel.classList.add('is-open');
+        panel.removeEventListener('transitionend', onOpenEnd);
+      });
+    }
+
+    function closeFilterPanel(section) {
+      const panel = section.querySelector('.search-filter__panel');
+      const toggle = section.querySelector('[data-search-filter-toggle]');
+
+      panel.classList.remove('is-open');
+      panel.style.overflow = 'hidden';
+      panel.style.height = 'auto';
+      const currentHeight = panel.scrollHeight;
+      panel.style.height = `${currentHeight}px`;
+      panel.offsetHeight;
+
+      requestAnimationFrame(() => {
+        panel.style.height = '0';
+      });
+
+      section.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function initFilterPanels() {
+      searchFilter.querySelectorAll('.search-filter__section').forEach((section) => {
+        const panel = section.querySelector('.search-filter__panel');
+
+        if (section.classList.contains('active')) {
+          panel.style.height = 'auto';
+          panel.style.overflow = 'visible';
+          panel.classList.add('is-open');
+        } else {
+          panel.style.height = '0';
+          panel.style.overflow = 'hidden';
+          panel.classList.remove('is-open');
+        }
+      });
+    }
+
+    document.querySelectorAll('[data-search-filter-toggle]').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const section = toggle.closest('.search-filter__section');
+        if (section.classList.contains('active')) {
+          closeFilterPanel(section);
+        } else {
+          openFilterPanel(section);
+        }
+      });
+    });
+
+    document.querySelector('[data-search-filter-reset]')?.addEventListener('click', () => {
+      searchFilter.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        input.checked = false;
+      });
+      searchFilter.querySelectorAll('select').forEach((select) => {
+        select.selectedIndex = 0;
+      });
+    });
+
+    initFilterPanels();
+  </script>
+</body>
+</html>
