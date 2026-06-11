@@ -62,7 +62,6 @@
 .search-filter__list--cols-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 var(--spacing-8);
 }
 
 .search-filter__item {
@@ -105,18 +104,56 @@
   min-width: 0;
 }
 
-/* 필터 하단 셀렉트 — picker가 위로 뜨지 않도록 앵커 고정 (Chrome base-select) */
-.search-filter #filter-location-1 {
-  anchor-name: --filter-location-1;
+/* 기간 — 라디오 2열 (첫 항목 전체 너비) */
+.search-filter__period-radios.search-filter__list--cols-2 .search-filter__item:first-child {
+  grid-column: 1 / -1;
 }
 
-.search-filter #filter-location-2 {
-  anchor-name: --filter-location-2;
+.search-filter__period-dates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding-bottom: var(--spacing-16);
+}
+
+.search-filter__period-date .input-wrapper {
+  min-width: 0;
+}
+
+.search-filter__period-label {
+  flex-shrink: 0;
+  width: 6.4rem;
+}
+
+.search-filter .input-field-default-40.input-with-trailing-icon {
+  width: 100%;
+  padding-right: 4rem;
+}
+
+.search-filter__period-date button:disabled,
+.search-filter__period-range button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.search-filter__period-range .input-wrapper {
+  min-width: 0;
+}
+
+/* 필터 하단 셀렉트 — picker가 위로 뜨지 않도록 앵커 고정 (Chrome base-select) */
+.search-filter #filter-select-1 {
+  anchor-name: --filter-select-1;
+}
+
+.search-filter #filter-select-2 {
+  anchor-name: --filter-select-2;
 }
 
 @supports (appearance: base-select) {
-  .search-filter #filter-location-1::picker(select),
-  .search-filter #filter-location-2::picker(select) {
+  .search-filter #filter-select-1::picker(select),
+  .search-filter #filter-select-2::picker(select) {
     position: fixed;
     top: calc(anchor(bottom) + var(--spacing-2));
     left: anchor(left);

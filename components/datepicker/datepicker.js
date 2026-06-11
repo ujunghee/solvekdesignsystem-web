@@ -1,6 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-  (function () {
-    if (typeof flatpickr === 'undefined') return;
+(function () {
+  if (typeof flatpickr === 'undefined') return;
   
     var koLocale = flatpickr.l10ns && flatpickr.l10ns.ko ? flatpickr.l10ns.ko : undefined;
   
@@ -97,14 +96,23 @@ document.addEventListener('DOMContentLoaded', function() {
   
       var fp = flatpickr(input, opts);
       trigger.addEventListener('click', function () {
+        if (input.disabled) return;
         fp.toggle();
       });
+      return fp;
     }
-  
-    initPicker('input-datepicker');
-    initPicker('input-datepicker-range', {
-      mode: 'range',
-      defaultDate: ['2024-12-12', '2024-12-21']
+
+    window.initPicker = initPicker;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (document.getElementById('input-datepicker')) {
+        initPicker('input-datepicker');
+      }
+      if (document.getElementById('input-datepicker-range')) {
+        initPicker('input-datepicker-range', {
+          mode: 'range',
+          defaultDate: ['2024-12-12', '2024-12-21']
+        });
+      }
     });
-  })();
-})
+})();
