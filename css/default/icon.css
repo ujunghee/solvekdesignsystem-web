@@ -101,8 +101,29 @@
   height: 2.4rem;
 }
 
+.chevron-pagination-slate-700 {
+  background: url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M7.00439 16.4459C7.25069 16.7196 7.67221 16.7418 7.94589 16.4955L14.6126 10.4957C14.753 10.3693 14.8333 10.1892 14.8333 10.0002C14.8333 9.81124 14.7531 9.63113 14.6126 9.50469L7.94592 3.50429C7.67225 3.25797 7.25073 3.28014 7.00441 3.55381C6.75809 3.82747 6.78027 4.249 7.05393 4.49532L13.17 10.0002L7.05396 15.5044C6.78028 15.7507 6.75809 16.1723 7.00439 16.4459Z' fill='%23464C53'/></svg>") center center / contain no-repeat;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.chevron-pagination-left-slate-700 {
+  background: url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M12.9956 16.4459C12.7493 16.7196 12.3278 16.7418 12.0541 16.4955L5.3874 10.4957C5.247 10.3693 5.1667 10.1892 5.1667 10.0002C5.1667 9.81124 5.2469 9.63113 5.3874 9.50469L12.0541 3.50429C12.3278 3.25797 12.7493 3.28014 12.9956 3.55381C13.2419 3.82747 13.2197 4.249 12.9461 4.49532L6.83 10.0002L12.946 15.5044C13.2197 15.7507 13.2419 16.1723 12.9956 16.4459Z' fill='%23464C53'/></svg>") center center / contain no-repeat;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
 .chevron-right-slate-700 {
   background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 7L15 12L10 17' stroke='%23475263' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.chevron-left-slate-700 {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15 17L10 12L15 7' stroke='%23475263' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
   width: 2.4rem;
   height: 2.4rem;

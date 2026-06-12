@@ -578,6 +578,58 @@ footer 3가지 레이아웃:
 
 ---
 
+### 6-14. Search Filter
+
+검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·셀렉트 조합.
+
+**네이밍: `search-filter__{element}` (BEM)**
+
+| 블록 | 설명 |
+|---|---|
+| `search-filter` | 루트 (`aside[aria-labelledby]`, max-width 28.4rem) |
+| `search-filter__head` | 타이틀(`h2`) + 초기화 버튼 |
+| `search-filter__section` | 아코디언 섹션 (`active` 토글) |
+| `search-filter__toggle` | 섹션 토글 버튼 (`aria-expanded`) |
+| `search-filter__panel` | 섹션 본문 |
+| `search-filter__list`, `search-filter__list--cols-2` | 체크박스 목록 (1열/2열) |
+| `search-filter__selects` | 소재지 등 셀렉트 그룹 |
+| `search-filter__count` | 항목별 결과 건수 |
+
+규칙:
+- `aside`에 `aria-labelledby`로 `h2.search-filter__title` id 연결 필수
+- `search-filter__toggle`에 `aria-expanded` 필수, 펼침/접힘은 `active` 클래스 토글로만 제어
+- 체크박스는 `checkbox-basic checkbox-basic-sm` (id/for 분리), 셀렉트는 `select-wrapper` + `select-36`
+- 초기화 버튼은 `transparent-button-32` + `data-search-filter-reset`, `filter-reset-20` 아이콘 사용
+
+→ 마크업 예시: `components/filter/README.md`
+
+---
+
+### 6-15. Pagination
+
+목록/게시판 하단 페이지 이동 컴포넌트. 이전/다음 버튼 + 숫자 페이지 + 생략(...) 표시.
+
+**네이밍: `pagination__{element}` (BEM)**
+
+| 블록 | 설명 |
+|---|---|
+| `pagination` | 루트 (`nav[aria-label="페이지 이동"]`) |
+| `pagination__list` | `ul.flex.align-center.justify-center.gap-8` |
+| `pagination__nav` | 이전/다음 버튼 (`transparent-button-40 flex align-center body2-r-16 color-slate-700`) |
+| `pagination__link` | 숫자 페이지 (`body2-r-16`, 현재 페이지는 `aria-current="page"`) |
+| `pagination__ellipsis` | 생략(...) 표시 (`span` + `aria-hidden="true"`) |
+
+규칙:
+- `nav.pagination`에 `aria-label="페이지 이동"` 필수
+- `pagination__list`는 `ul > li` 구조 유지
+- 현재 페이지의 `pagination__link`에 `aria-current="page"` 필수 (배경 `slate-700` + 글자 `white`)
+- 생략(...) 항목은 `span.pagination__ellipsis` + `aria-hidden="true"` 사용, `a` 태그 금지
+- 이전/다음 버튼은 `pagination__nav` + `transparent-button-40 flex align-center` + 아이콘(`chevron-pagination-left-slate-700`/`chevron-pagination-slate-700`) 조합
+
+→ 마크업 예시: `components/pagination/README.md`
+
+---
+
 ## 7. JS 패턴
 
 > 이 시스템은 순수 JS로 동작한다. 프레임워크 없이 아래 패턴을 그대로 사용한다.
