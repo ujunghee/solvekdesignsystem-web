@@ -558,6 +558,22 @@ footer 3가지 레이아웃:
 
 ---
 
+### 6-13. View Toggle
+
+콘텐츠를 카드형/리스트형 등으로 전환해서 보는 보기 방식 토글 버튼 그룹.
+
+**구조: `div.view-toggle[role=group][aria-label]` > `button.view-toggle__btn[aria-pressed]` > `i.{icon}-blue-icon.view-toggle__icon--active` + `i.{icon}-gray-icon.view-toggle__icon--inactive` + `span.body2-r-16.color-slate-700`**
+
+규칙:
+- 그룹 wrapper에 `role="group"` + `aria-label` 필수
+- 각 버튼은 `button[type=button]` + `aria-pressed="true|false"` 필수, 한 그룹에 하나만 active
+- 아이콘은 `dashboards-blue/gray-icon`, `list-blue/gray-icon` 등 정의된 클래스만 사용
+- `.active` 클래스와 `aria-pressed`는 JS로 동기화 (JS 패턴 7-7 참조)
+
+→ 마크업 예시: `components/view-toggle/README.md`
+
+---
+
 ## 7. JS 패턴
 
 > 이 시스템은 순수 JS로 동작한다. 프레임워크 없이 아래 패턴을 그대로 사용한다.
@@ -687,6 +703,23 @@ document.querySelectorAll('.textarea-wrapper').forEach(wrapper => {
 
   textarea.addEventListener('input', () => {
     counter.textContent = textarea.value.length;
+  });
+});
+```
+
+### 7-7. View Toggle 보기 전환
+
+```js
+document.querySelectorAll('.view-toggle').forEach((group) => {
+  group.querySelectorAll('.view-toggle__btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      group.querySelectorAll('.view-toggle__btn').forEach((item) => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+    });
   });
 });
 ```

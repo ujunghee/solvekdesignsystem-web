@@ -47,6 +47,10 @@
 | <img src="../../image/icon/generated/footer-plus-20.svg" width="20" height="20"> | `footer-plus-20` | 20×20 | `#464C53` | 푸터 아코디언 펼침/접힘 + |
 | <img src="../../image/icon/generated/filter-reset-20.svg" width="18" height="18"> | `filter-reset-20` | 18×18 | `#475263` | 검색필터 초기화 |
 | <img src="../../image/icon/generated/filter-icon.svg" width="24" height="24"> | `filter-icon` | 24×24 | `#475263` | 필터 트리거 |
+| <img src="../../image/icon/generated/dashboards-blue-icon.svg" width="20" height="20"> | `dashboards-blue-icon` | 20×20 | `#1A76FF` | 카드형 보기 (선택됨) |
+| <img src="../../image/icon/generated/dashboards-gray-icon.svg" width="20" height="20"> | `dashboards-gray-icon` | 20×20 | `#64748B` | 카드형 보기 (선택 안 됨) |
+| <img src="../../image/icon/generated/list-blue-icon.svg" width="20" height="20"> | `list-blue-icon` | 20×20 | `#1A76FF` | 리스트형 보기 (선택됨) |
+| <img src="../../image/icon/generated/list-gray-icon.svg" width="20" height="20"> | `list-gray-icon` | 20×20 | `#64748B` | 리스트형 보기 (선택 안 됨) |
 
 > 위 미리보기 SVG는 `image/icon/generated/`에 보관된 별도 파일로, `css/default/icon.css`의 inline `data:image/svg+xml` 값을 그대로 추출한 것입니다. 실제 사용 시에는 클래스만 적용하면 되며, 이 SVG 파일을 직접 `<img>`로 사용하지 않습니다.
 

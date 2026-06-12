@@ -81,6 +81,7 @@ component/ → button, input, search, textarea, checkbox, radio, datepicker, sel
 | [Shadow](components/shadow/README.md) | `shadow-xs/s/md/lg` 고도 단계 |
 | [Breadcrumb](components/breadcrumb/README.md) | webkit/admin 2가지 variant |
 | [Chip](components/chip/README.md) | 선택/태그 표시 칩, 기본형/삭제 아이콘형 |
+| [View Toggle](components/view-toggle/README.md) | 카드형/리스트형 보기 방식 전환 버튼 그룹 |
 | [Icon](components/icon/README.md) | `css/default/icon.css` 아이콘 전체 목록 + 이미지 미리보기 |
 
 ### web 전용 컴포넌트

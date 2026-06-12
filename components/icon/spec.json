@@ -38,7 +38,11 @@
     { "class": "chips-close-icon", "size": "12x12", "color": "#475263", "source": "inline-svg", "desc": "칩 삭제 아이콘" },
     { "class": "footer-plus-20", "size": "20x20", "color": "#464C53", "source": "inline-svg", "desc": "푸터 아코디언 펼침/접힘 + 아이콘" },
     { "class": "filter-reset-20", "size": "18x18", "color": "#475263", "source": "inline-svg", "desc": "검색필터 초기화" },
-    { "class": "filter-icon", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "필터 트리거" }
+    { "class": "filter-icon", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "필터 트리거" },
+    { "class": "dashboards-blue-icon", "size": "20x20", "color": "#1A76FF", "source": "inline-svg", "desc": "카드형 보기 (선택됨) - view-toggle" },
+    { "class": "dashboards-gray-icon", "size": "20x20", "color": "#64748B", "source": "inline-svg", "desc": "카드형 보기 (선택 안 됨) - view-toggle" },
+    { "class": "list-blue-icon", "size": "20x20", "color": "#1A76FF", "source": "inline-svg", "desc": "리스트형 보기 (선택됨) - view-toggle" },
+    { "class": "list-gray-icon", "size": "20x20", "color": "#64748B", "source": "inline-svg", "desc": "리스트형 보기 (선택 안 됨) - view-toggle" }
   ],
   "notes": [
     "inline-svg 항목은 css/default/icon.css의 background: url(\"data:image/svg+xml,...\") 값을 그대로 사용하며, GitHub 미리보기를 위해 image/icon/generated/{class}.svg 로 동일 내용을 추출해 둠",
