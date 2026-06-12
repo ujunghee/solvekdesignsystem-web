@@ -54,11 +54,13 @@
     },
     "icons": {
       "chevron-right-white": "흰색 화살표 (blue, slate 계열에 사용)",
-      "chevron-right-slate-700": "진한 회색 화살표 (slate-50, transparent 계열에 사용)"
+      "chevron-right-slate-700": "진한 회색 화살표 (slate-50, transparent 계열에 사용)",
+      "filter-icon": "필터 아이콘 (24x24, slate-700) — border-slate-button-54 등 필터/업로드 버튼에 사용"
     },
     "examples": [
       "<button type='button' class='blue-button-48 icon-button-right flex align-center'>\n  저장\n  <span class='chevron-right-white'></span>\n</button>",
-      "<button type='button' class='slate-50-button-48 icon-button-left flex align-center'>\n  <span class='chevron-right-slate-700'></span>\n  목록보기\n</button>"
+      "<button type='button' class='slate-50-button-48 icon-button-left flex align-center'>\n  <span class='chevron-right-slate-700'></span>\n  목록보기\n</button>",
+      "<button type='button' class='border-slate-button-54 button-54 gap-8 flex align-center'>\n  필터\n  <span class='filter-icon'></span>\n</button>"
     ]
   },
   "examples": [
@@ -72,7 +74,8 @@
     "<button type='button' class='button-48' disabled>비활성</button>"
   ],
   "notes": [
-    "54 사이즈는 현재 border-slate 색상에만 정의됨 (border-slate-button-54). 다른 색상의 54 사이즈는 CSS 정의 전까지 사용 금지"
+    "54 사이즈는 현재 border-slate 색상에만 정의됨 (border-slate-button-54). 다른 색상의 54 사이즈는 CSS 정의 전까지 사용 금지",
+    "필터/업로드형 버튼: border-slate-button-54 button-54 gap-8 flex align-center + span.filter-icon"
   ],
   "rules": [
     "반드시 type 속성 명시 (button/submit/reset 중 하나)",

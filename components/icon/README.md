@@ -37,7 +37,9 @@
 | <img src="../../image/icon/generated/chevron-right-slate-700.svg" width="24" height="24"> | `chevron-right-slate-700` | 24×24 | `#475263` | 우측 꺽쇠 — slate-50/transparent 버튼 |
 | <img src="../../image/icon/generated/chevron-left-slate-700.svg" width="24" height="24"> | `chevron-left-slate-700` | 24×24 | `#475263` | 좌측 꺽쇠 |
 | <img src="../../image/icon/generated/chevron-down-white.svg" width="24" height="24"> | `chevron-down-white` | 24×24 | white | 아래 꺽쇠 |
-| <img src="../../image/icon/generated/download-02-white.svg" width="24" height="24"> | `download-02-white` | 24×24 | white | 다운로드 |
+| <img src="../../image/icon/generated/download-02-white.svg" width="24" height="24"> | `download-02-white` | 24×24 | white | 다운로드 (대) |
+| <img src="../../image/icon/generated/download-01-white.svg" width="14" height="16"> | `download-01-white` | 12×14 (viewBox 14x16) | white | 다운로드 (소, white) |
+| <img src="../../image/icon/generated/download-01-blue.svg" width="14" height="16"> | `download-01-blue` | 12×14 (viewBox 14x16) | `#1A76FF` | 다운로드 (소, blue) |
 | <img src="../../image/icon/generated/arrow-right-sm-white.svg" width="24" height="24"> | `arrow-right-sm-white` | 24×24 | white | 우측 화살표 small |
 | <img src="../../image/icon/generated/arrow-left-sm-white.svg" width="24" height="24"> | `arrow-left-sm-white` | 24×24 | white | 좌측 화살표 small |
 | <img src="../../image/icon/generated/breadcrumb-arrow.svg" width="8" height="14"> | `breadcrumb-arrow` | 8×14 | `#64748B` | 브레드크럼 구분자 |
@@ -47,6 +49,7 @@
 | <img src="../../image/icon/generated/footer-plus-20.svg" width="20" height="20"> | `footer-plus-20` | 20×20 | `#464C53` | 푸터 아코디언 펼침/접힘 + |
 | <img src="../../image/icon/generated/filter-reset-20.svg" width="18" height="18"> | `filter-reset-20` | 18×18 | `#475263` | 검색필터 초기화 |
 | <img src="../../image/icon/generated/filter-icon.svg" width="24" height="24"> | `filter-icon` | 24×24 | `#475263` | 필터 트리거 |
+| <img src="../../image/icon/generated/filter-icon-active.svg" width="24" height="24"> | `filter-icon.active` | 24×24 | `#1A76FF` | 필터 트리거 (활성/선택됨) |
 | <img src="../../image/icon/generated/dashboards-blue-icon.svg" width="20" height="20"> | `dashboards-blue-icon` | 20×20 | `#1A76FF` | 카드형 보기 (선택됨) |
 | <img src="../../image/icon/generated/dashboards-gray-icon.svg" width="20" height="20"> | `dashboards-gray-icon` | 20×20 | `#64748B` | 카드형 보기 (선택 안 됨) |
 | <img src="../../image/icon/generated/list-blue-icon.svg" width="20" height="20"> | `list-blue-icon` | 20×20 | `#1A76FF` | 리스트형 보기 (선택됨) |

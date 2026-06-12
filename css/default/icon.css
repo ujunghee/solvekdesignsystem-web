@@ -143,6 +143,22 @@
   height: 2.4rem;
 }
 
+.download-01-white {
+  background: url("data:image/svg+xml,<svg width='14' height='16' viewBox='0 0 14 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.75 10.2423L0.75 13.1108C0.75 13.5456 0.908035 13.9625 1.18934 14.2699C1.47064 14.5773 1.85218 14.75 2.25 14.75H11.25C11.6478 14.75 12.0294 14.5773 12.3107 14.2699C12.592 13.9625 12.75 13.5456 12.75 13.1108V10.2423M6.75084 0.75V10.0386M3.32227 6.48945L6.75084 10.0386L10.1794 6.48945' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  display: block;
+  width: 1.2rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+}
+
+.download-01-blue {
+  background: url("data:image/svg+xml,<svg width='14' height='16' viewBox='0 0 14 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.75 10.2423L0.75 13.1108C0.75 13.5456 0.908035 13.9625 1.18934 14.2699C1.47064 14.5773 1.85218 14.75 2.25 14.75H11.25C11.6478 14.75 12.0294 14.5773 12.3107 14.2699C12.592 13.9625 12.75 13.5456 12.75 13.1108V10.2423M6.75084 0.75V10.0386M3.32227 6.48945L6.75084 10.0386L10.1794 6.48945' stroke='%231A76FF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  display: block;
+  width: 1.2rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+}
+
 .arrow-right-sm-white {
   background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12.8333 16.375L17 12L12.8333 7.625M17 12L7 12' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   display: block;
@@ -290,6 +306,10 @@
   height: 2.4rem;
   display: block;
   flex-shrink: 0;
+}
+
+.filter-icon.active {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.75 4.50916C13.9446 4.50916 12.4263 5.80321 12.0762 7.50916H2.25C1.83579 7.50916 1.5 7.84495 1.5 8.25916C1.5 8.67337 1.83579 9.00916 2.25 9.00916H12.0762C12.4263 10.7151 13.9446 12.0092 15.75 12.0092C17.5554 12.0092 19.0737 10.7151 19.4238 9.00916H21.75C22.1642 9.00916 22.5 8.67337 22.5 8.25916C22.5 7.84495 22.1642 7.50916 21.75 7.50916H19.4238C19.0737 5.80321 17.5554 4.50916 15.75 4.50916ZM15.75 6.00916C17.0015 6.00916 18 7.00765 18 8.25916C18 9.51066 17.0015 10.5092 15.75 10.5092C14.4985 10.5092 13.5 9.51066 13.5 8.25916C13.5 7.00765 14.4985 6.00916 15.75 6.00916Z' fill='%231A76FF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.25 12.0092C6.44461 12.0092 4.92634 13.3032 4.57617 15.0092H2.25C1.83579 15.0092 1.5 15.3449 1.5 15.7592C1.5 16.1734 1.83579 16.5092 2.25 16.5092H4.57617C4.92634 18.2151 6.44461 19.5092 8.25 19.5092C10.0554 19.5092 11.5737 18.2151 11.9238 16.5092H21.75C22.1642 16.5092 22.5 16.1734 22.5 15.7592C22.5 15.3449 22.1642 15.0092 21.75 15.0092H11.9238C11.5737 13.3032 10.0554 12.0092 8.25 12.0092ZM8.25 13.5092C9.5015 13.5092 10.5 14.5077 10.5 15.7592C10.5 17.0107 9.5015 18.0092 8.25 18.0092C6.9985 18.0092 6 17.0107 6 15.7592C6 14.5077 6.9985 13.5092 8.25 13.5092Z' fill='%231A76FF'/%3E%3C/svg%3E") center center / contain no-repeat;
 }
 
 /* 조회수 아이콘 */
