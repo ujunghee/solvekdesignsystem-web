@@ -27,7 +27,6 @@
     { "class": "chevron-pagination-left-slate-700", "size": "20x20", "color": "#464C53", "source": "inline-svg", "desc": "페이지네이션 이전 버튼" },
     { "class": "chevron-right-slate-700", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "우측 꺽쇠 (slate-700) - slate-50/transparent 버튼" },
     { "class": "chevron-left-slate-700", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "좌측 꺽쇠 (slate-700)" },
-    { "class": "chevron-right-gray", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "우측 꺽쇠 (gray)" },
     { "class": "chevron-down-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "아래 꺽쇠 (white)" },
     { "class": "download-02-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "다운로드 (white)" },
     { "class": "arrow-right-sm-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "우측 화살표 small (white)" },

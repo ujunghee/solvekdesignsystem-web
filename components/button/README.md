@@ -80,30 +80,30 @@ border-{color}-button-{size}
 <!-- 아이콘 오른쪽 (blue/slate 계열: chevron-right-white) -->
 <button type="button" class="blue-button-48 icon-button-right flex align-center">
   저장
-  <span class="chevron-right-white"></span>
+  <span class="chevron-right-white" aria-hidden="true"></span>
 </button>
 
 <!-- 아이콘 왼쪽 -->
 <button type="button" class="blue-button-48 icon-button-left flex align-center">
-  <span class="chevron-right-white"></span>
+  <span class="chevron-right-white" aria-hidden="true"></span>
   저장
 </button>
 
 <!-- slate-50 계열: chevron-right-slate-700 -->
 <button type="button" class="slate-50-button-48 icon-button-right flex align-center">
   목록보기
-  <span class="chevron-right-slate-700"></span>
+  <span class="chevron-right-slate-700" aria-hidden="true"></span>
 </button>
 
 <button type="button" class="slate-50-button-48 icon-button-left flex align-center">
-  <span class="chevron-right-slate-700"></span>
+  <span class="chevron-right-slate-700" aria-hidden="true"></span>
   목록보기
 </button>
 
 <!-- slate 계열: chevron-right-white -->
 <button type="button" class="slate-button-48 icon-button-right flex align-center">
   확인
-  <span class="chevron-right-white"></span>
+  <span class="chevron-right-white" aria-hidden="true"></span>
 </button>
 ```
 
@@ -121,7 +121,7 @@ border-{color}-button-{size}
 ```html
 <button type="button" class="border-slate-button-54 button-54 gap-8 flex align-center">
   필터
-  <span class="filter-icon"></span>
+  <span class="filter-icon" aria-hidden="true"></span>
 </button>
 ```
 

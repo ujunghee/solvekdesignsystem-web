@@ -296,7 +296,6 @@ CSS 변수: `var(--spacing-16)` 등
 | `chevron-right-white` | 우측 꺽쇠 (white) — blue/slate 계열 버튼 아이콘 | 24×24 |
 | `chevron-left-white` | 좌측 꺽쇠 (white) | 24×24 |
 | `chevron-right-slate-700` | 우측 꺽쇠 (slate-700) — slate-50/transparent 계열 버튼 아이콘 | 24×24 |
-| `chevron-right-gray` | 우측 꺽쇠 (gray) | 24×24 |
 | `chevron-down-white` | 아래 꺽쇠 (white) | 24×24 |
 | `download-02-white` | 다운로드 (white) | 24×24 |
 | `arrow-right-sm-white` | 우측 화살표 small (white) | 24×24 |

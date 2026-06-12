@@ -36,7 +36,6 @@
 | <img src="../../image/icon/generated/chevron-pagination-left-slate-700.svg" width="20" height="20"> | `chevron-pagination-left-slate-700` | 20×20 | `#464C53` | 페이지네이션 이전 버튼 |
 | <img src="../../image/icon/generated/chevron-right-slate-700.svg" width="24" height="24"> | `chevron-right-slate-700` | 24×24 | `#475263` | 우측 꺽쇠 — slate-50/transparent 버튼 |
 | <img src="../../image/icon/generated/chevron-left-slate-700.svg" width="24" height="24"> | `chevron-left-slate-700` | 24×24 | `#475263` | 좌측 꺽쇠 |
-| <img src="../../image/icon/generated/chevron-right-gray.svg" width="24" height="24"> | `chevron-right-gray` | 24×24 | `#475263` | 우측 꺽쇠 (gray) |
 | <img src="../../image/icon/generated/chevron-down-white.svg" width="24" height="24"> | `chevron-down-white` | 24×24 | white | 아래 꺽쇠 |
 | <img src="../../image/icon/generated/download-02-white.svg" width="24" height="24"> | `download-02-white` | 24×24 | white | 다운로드 |
 | <img src="../../image/icon/generated/arrow-right-sm-white.svg" width="24" height="24"> | `arrow-right-sm-white` | 24×24 | white | 우측 화살표 small |
