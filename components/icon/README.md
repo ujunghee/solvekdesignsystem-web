@@ -51,6 +51,7 @@
 | <img src="../../image/icon/generated/dashboards-gray-icon.svg" width="20" height="20"> | `dashboards-gray-icon` | 20×20 | `#64748B` | 카드형 보기 (선택 안 됨) |
 | <img src="../../image/icon/generated/list-blue-icon.svg" width="20" height="20"> | `list-blue-icon` | 20×20 | `#1A76FF` | 리스트형 보기 (선택됨) |
 | <img src="../../image/icon/generated/list-gray-icon.svg" width="20" height="20"> | `list-gray-icon` | 20×20 | `#64748B` | 리스트형 보기 (선택 안 됨) |
+| <img src="../../image/icon/generated/view-count-icon.svg" width="24" height="24"> | `view-count-icon` | 24×24 | `#475263` | 조회수 |
 
 > 위 미리보기 SVG는 `image/icon/generated/`에 보관된 별도 파일로, `css/default/icon.css`의 inline `data:image/svg+xml` 값을 그대로 추출한 것입니다. 실제 사용 시에는 클래스만 적용하면 되며, 이 SVG 파일을 직접 `<img>`로 사용하지 않습니다.
 
