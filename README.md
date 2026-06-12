@@ -65,6 +65,7 @@ component/ → button, input, search, textarea, checkbox, radio, datepicker, sel
 | [Search Filter](components/filter/README.md) | 검색 결과 좌측 사이드바 아코디언 필터 |
 | [Pagination](components/pagination/README.md) | 이전/다음 + 숫자 페이지 + 생략(...) 표시 |
 | [Chip](components/chip/README.md) | 선택/태그 표시 칩, 기본형/삭제 아이콘형 |
+| [Icon](components/icon/README.md) | `css/default/icon.css` 아이콘 전체 목록 + 이미지 미리보기 |
 
 ---
 

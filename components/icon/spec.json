@@ -1,0 +1,61 @@
+{
+  "component": "icon",
+  "description": "css/default/icon.css에 정의된 아이콘 클래스 모음. 대부분 inline SVG(data:image/svg+xml) background-image이며, 일부는 파일 참조(SVG/PNG), 일부는 CSS ::before/::after로 생성됨",
+  "naming_pattern": "{name}-icon 또는 {name}-{size} (단일 클래스, BEM 아님)",
+  "usage": {
+    "default": "<i class=\"{class}\" aria-hidden=\"true\"></i>",
+    "with_label": "버튼/링크 내부에서 의미를 가질 경우 형제 요소로 span.blind 텍스트 제공"
+  },
+  "preview": "components/icon/README.md — image/icon/generated/*.svg 로 추출한 이미지 미리보기 제공 (close-icon 제외)",
+  "icons": [
+    { "class": "arrow-icon", "size": "24x24", "color": "#33363D", "source": "inline-svg", "desc": "드롭다운/펼침 화살표" },
+    { "class": "search-icon-54", "size": "24x24", "color": "#58616A", "source": "inline-svg", "desc": "검색 (대) - search-54/48" },
+    { "class": "search-icon-40", "size": "20x20", "color": "#58616A", "source": "inline-svg", "desc": "검색 (소) - search-40/36" },
+    { "class": "header-search-24", "size": "24x24", "color": "#58616A", "source": "inline-svg", "desc": "헤더 통합검색" },
+    { "class": "search-icon-teal-24", "size": "24x24", "color": "#3d8b81", "source": "inline-svg", "desc": "검색 (teal 강조)" },
+    { "class": "search-icon-blue-54", "size": "24x24", "color": "#1a76ff", "source": "inline-svg", "desc": "검색 (blue 강조)" },
+    { "class": "main-search-blue-icon", "size": "30x30 box / 24x24 icon", "color": "#1a76ff", "source": "inline-svg", "desc": "메인 통합검색 버튼 아이콘" },
+    { "class": "header-login-24", "size": "24x24", "color": "-", "source": "file:../../image/icon/login.svg", "desc": "헤더 로그인" },
+    { "class": "header-menu-24", "size": "24x24", "color": "#58616A", "source": "inline-svg", "desc": "헤더 모바일 메뉴(햄버거)" },
+    { "class": "eye-icon", "size": "24x24", "color": "-", "source": "file:../../image/icon/eye-closed.png", "desc": "비밀번호 숨김 (기본)" },
+    { "class": "eye-icon.active", "size": "24x24", "color": "-", "source": "file:../../image/icon/eye-open.png", "desc": "비밀번호 보임" },
+    { "class": "calendar-icon", "size": "24x24", "color": "#1E2124", "source": "inline-svg", "desc": "기간 datepicker 트리거" },
+    { "class": "clock-icon", "size": "24x24 (viewBox 22x22)", "color": "#6D7882", "source": "inline-svg", "desc": "시간 선택 트리거" },
+    { "class": "chevron-right-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "우측 꺽쇠 (white) - blue/slate 버튼" },
+    { "class": "chevron-left-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "좌측 꺽쇠 (white)" },
+    { "class": "chevron-pagination-slate-700", "size": "20x20", "color": "#464C53", "source": "inline-svg", "desc": "페이지네이션 다음 버튼" },
+    { "class": "chevron-pagination-left-slate-700", "size": "20x20", "color": "#464C53", "source": "inline-svg", "desc": "페이지네이션 이전 버튼" },
+    { "class": "chevron-right-slate-700", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "우측 꺽쇠 (slate-700) - slate-50/transparent 버튼" },
+    { "class": "chevron-left-slate-700", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "좌측 꺽쇠 (slate-700)" },
+    { "class": "chevron-right-gray", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "우측 꺽쇠 (gray)" },
+    { "class": "chevron-down-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "아래 꺽쇠 (white)" },
+    { "class": "download-02-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "다운로드 (white)" },
+    { "class": "arrow-right-sm-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "우측 화살표 small (white)" },
+    { "class": "arrow-left-sm-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "좌측 화살표 small (white)" },
+    { "class": "breadcrumb-arrow", "size": "8x14", "color": "#64748B", "source": "inline-svg", "desc": "브레드크럼 구분자" },
+    { "class": "close-icon", "size": "24x24", "color": "var(--color-icon-gray)", "source": "css-generated", "desc": "닫기 X — ::before/::after로 생성, 이미지 파일 없음" },
+    { "class": "close-icon-lg", "size": "48x48 (≤767px: 32x32)", "color": "#33363D", "source": "inline-svg", "desc": "큰 닫기 버튼" },
+    { "class": "modal__close", "size": "40x40 box / 22x22 icon", "color": "#33363D", "source": "inline-svg", "desc": "모달 닫기 (40x40 터치 영역)" },
+    { "class": "chips-close-icon", "size": "12x12", "color": "#475263", "source": "inline-svg", "desc": "칩 삭제 아이콘" },
+    { "class": "footer-plus-20", "size": "20x20", "color": "#464C53", "source": "inline-svg", "desc": "푸터 아코디언 펼침/접힘 + 아이콘" },
+    { "class": "filter-reset-20", "size": "18x18", "color": "#475263", "source": "inline-svg", "desc": "검색필터 초기화" },
+    { "class": "filter-icon", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "필터 트리거" }
+  ],
+  "notes": [
+    "inline-svg 항목은 css/default/icon.css의 background: url(\"data:image/svg+xml,...\") 값을 그대로 사용하며, GitHub 미리보기를 위해 image/icon/generated/{class}.svg 로 동일 내용을 추출해 둠",
+    "file 참조 항목(header-login-24, eye-icon)은 기존 image/icon/ 파일을 그대로 가리킴",
+    "close-icon은 이미지가 없는 CSS 전용 아이콘이라 미리보기 제공 불가",
+    "아이콘은 항상 i 또는 span + aria-hidden=true로 장식용 처리, 의미가 필요하면 형제 요소로 span.blind 텍스트 제공"
+  ],
+  "rules": [
+    "아이콘 클래스는 css/default/icon.css에 정의된 것만 사용",
+    "장식용 아이콘은 aria-hidden=true 필수",
+    "버튼/링크 내부 아이콘은 flex align-center와 함께 사용",
+    "아이콘에 인라인 style·색상 변경 금지 — 색상이 다른 아이콘이 필요하면 별도 클래스 추가를 제안"
+  ],
+  "do_not": [
+    "icon.css에 없는 임의 아이콘 클래스명 사용",
+    "아이콘 i/span에 style 속성 또는 색상 유틸리티 클래스 추가",
+    "의미 전달용 아이콘에 aria-hidden 누락 및 대체 텍스트 미제공"
+  ]
+}

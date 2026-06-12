@@ -313,6 +313,8 @@ CSS 변수: `var(--spacing-16)` 등
 | `header-search-24` | 헤더 통합검색 | 24×24 |
 | `header-menu-24` | 헤더 모바일 메뉴 | 24×24 |
 
+> 위 표는 자주 쓰이는 아이콘 요약이며, `css/default/icon.css`에 정의된 전체 아이콘 목록·이미지 미리보기·사용법은 `components/icon/README.md`(+ `components/icon/spec.json`)를 참고한다.
+
 ---
 
 ## 6. 컴포넌트
