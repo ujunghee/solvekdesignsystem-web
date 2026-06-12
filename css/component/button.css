@@ -737,3 +737,60 @@ a.icon-button-right:disabled {
   /* padding: 0 var(--spacing-16) 0 var(--spacing-6); */
   gap: var(--spacing-8);
 }
+
+/* view-toggle: 카드형·리스트형 보기 전환 */
+.view-toggle {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--slate-500);
+  border-radius: var(--radius-md-6);
+  overflow: hidden;
+}
+
+.view-toggle__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-6);
+  height: 3.6rem;
+  padding: 0 var(--spacing-12);
+  border: none;
+  border-right: 1px solid var(--slate-500);
+  background-color: var(--white);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.view-toggle__btn span {
+  line-height: unset;
+}
+
+.view-toggle__btn:last-child {
+  border-right: none;
+}
+
+.view-toggle__btn.active {
+  background-color: var(--slate-50);
+}
+
+.view-toggle__btn:focus-visible {
+  outline: 0.2rem solid var(--blue-200);
+  outline-offset: -0.2rem;
+  z-index: 1;
+}
+
+.view-toggle__btn .view-toggle__icon--active {
+  display: none;
+}
+
+.view-toggle__btn .view-toggle__icon--inactive {
+  display: block;
+}
+
+.view-toggle__btn.active .view-toggle__icon--active {
+  display: block;
+}
+
+.view-toggle__btn.active .view-toggle__icon--inactive {
+  display: none;
+}

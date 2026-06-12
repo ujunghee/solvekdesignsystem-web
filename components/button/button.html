@@ -225,11 +225,38 @@
   <!-- transparent button e -->
 
 
-  <!-- filter upload button s -->
-  <button type="button" class="border-slate-button-54 button-54 gap-8 flex align-center">
-    slate button
-    <span class="filter-icon" aria-hidden="true"></span>
-  </button>
+
+  <p class="body3-r-14 color-gray-700 pt-16">아이콘 조합</p>
+
+  <!-- view toggle button s -->
+  <div class="view-toggle" role="group" aria-label="보기 방식">
+    <button type="button" class="view-toggle__btn active" aria-pressed="true">
+      <i class="dashboards-blue-icon view-toggle__icon view-toggle__icon--active" aria-hidden="true"></i>
+      <i class="dashboards-gray-icon view-toggle__icon view-toggle__icon--inactive" aria-hidden="true"></i>
+      <span class="body2-r-16 color-slate-700">카드형</span>
+    </button>
+    <button type="button" class="view-toggle__btn" aria-pressed="false">
+      <i class="list-blue-icon view-toggle__icon view-toggle__icon--active" aria-hidden="true"></i>
+      <i class="list-gray-icon view-toggle__icon view-toggle__icon--inactive" aria-hidden="true"></i>
+      <span class="body2-r-16 color-slate-700">리스트형</span>
+    </button>
+  </div>
+  <!-- view toggle button e -->
+
+  <script>
+    document.querySelectorAll('.view-toggle').forEach((group) => {
+      group.querySelectorAll('.view-toggle__btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.view-toggle__btn').forEach((item) => {
+            item.classList.remove('active');
+            item.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
