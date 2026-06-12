@@ -37,7 +37,7 @@
 ```
 tokens/    → color, typography, spacing, radius
 default/   → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal, header, footer, breadcrumb
+component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal, breadcrumb, meta-tag, header, footer, filter, pagination
 ```
 
 ---
@@ -82,6 +82,7 @@ component/ → button, input, search, textarea, checkbox, radio, datepicker, sel
 | [Breadcrumb](components/breadcrumb/README.md) | webkit/admin 2가지 variant |
 | [Chip](components/chip/README.md) | 선택/태그 표시 칩, 기본형/삭제 아이콘형 |
 | [View Toggle](components/view-toggle/README.md) | 카드형/리스트형 보기 방식 전환 버튼 그룹 |
+| [Meta Tag](components/meta-tag/README.md) | API/데이터셋 카테고리 분류(대/중/소분류) 표시용 정적 태그 |
 | [Icon](components/icon/README.md) | `css/default/icon.css` 아이콘 전체 목록 + 이미지 미리보기 |
 
 ### web 전용 컴포넌트

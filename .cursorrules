@@ -51,7 +51,8 @@ index.css 구성:
 ```
 tokens/   → color, typography, spacing, radius
 default/  → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal
+component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal, breadcrumb, meta-tag
+(web 전용: header, footer, filter, pagination — solvek-web/components/{name}/ 참고)
 ```
 
 ---
@@ -571,6 +572,26 @@ footer 3가지 레이아웃:
 - `.active` 클래스와 `aria-pressed`는 JS로 동기화 (JS 패턴 7-7 참조)
 
 → 마크업 예시: `components/view-toggle/README.md`
+
+---
+
+### 6-14. Meta Tag
+
+API·데이터셋 등 정보 리소스의 카테고리 분류(대/중/소분류 등)를 표시하는 정적 태그. 분류 value만 노출하며 클릭·필터·선택 동작 없음.
+
+**구조: `ul.meta-tag-list` > `li` > `span.meta-tag[.meta-tag--active]`**
+
+| 유형 | 클래스 | 스타일 |
+|---|---|---|
+| 기본 | `meta-tag` | `slate-50` 배경 + `slate-700` 텍스트 (semibold) |
+| 강조 | `meta-tag--active` | `blue-50` 배경 + `blue-500` 텍스트 (medium) |
+
+규칙:
+- `span.meta-tag`에 분류 value 텍스트만 사용 (`button`/`a` 금지, `role`/`aria-pressed` 불필요)
+- 여러 depth 나열 시 `ul.meta-tag-list > li` 구조
+- 조회수·등록일 등 비분류 메타, 필터/선택 UI에는 사용 금지 — 삭제 가능한 태그는 `components/chip` 사용
+
+→ 마크업 예시: `components/meta-tag/README.md`
 
 ---
 

@@ -114,6 +114,17 @@ border-{color}-button-{size}
 | blue, slate | `chevron-right-white` |
 | slate-50, transparent | `chevron-right-slate-700` |
 
+### 필터/업로드 버튼 (54)
+
+`border-slate-button-54`에만 정의된 54 사이즈 + `filter-icon` 조합입니다.
+
+```html
+<button type="button" class="border-slate-button-54 button-54 gap-8 flex align-center">
+  필터
+  <span class="filter-icon" aria-hidden="true"></span>
+</button>
+```
+
 ---
 
 ## 규칙
