@@ -64,6 +64,7 @@ component/ → button, input, search, textarea, checkbox, radio, datepicker, sel
 | [Breadcrumb](components/breadcrumb/README.md) | webkit/admin 2가지 variant |
 | [Search Filter](components/filter/README.md) | 검색 결과 좌측 사이드바 아코디언 필터 |
 | [Pagination](components/pagination/README.md) | 이전/다음 + 숫자 페이지 + 생략(...) 표시 |
+| [Chip](components/chip/README.md) | 선택/태그 표시 칩, 기본형/삭제 아이콘형 |
 
 ---
 

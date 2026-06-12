@@ -154,6 +154,8 @@ CSS 변수: `var(--spacing-16)` 등
 | `--radius-lg-16` | 1.6rem | 큰 라운드 |
 | `--radius-full` | 10rem | 완전 원형 |
 
+유틸 클래스: `radius-xs-2`, `radius-sm-4`, `radius-md-6`, `radius-md-8`, `radius-lg-16`, `radius-full` (각 토큰과 동일한 값의 `border-radius`)
+
 ---
 
 ## 4. 레이아웃 유틸
@@ -249,6 +251,7 @@ CSS 변수: `var(--spacing-16)` 등
 | `h-xl` | height: 5.6rem |
 | `h-2xl` | height: 6.4rem |
 | `h-3xl` | height: 7.6rem |
+| `h-32`, `h-36`, `h-40`, `h-48`, `h-56`, `h-64`, `h-72`, `h-80`, `h-88`, `h-96`, `h-104`, `h-112`, `h-120`, `h-128`, `h-136` | height: 3.2rem ~ 13.6rem (px값/10) |
 | `h-full` | height: 100% |
 | `h-screen` | height: 100vh |
 
@@ -631,6 +634,21 @@ footer 3가지 레이아웃:
 - 이전/다음 버튼은 `pagination__nav` + `transparent-button-40 flex align-center` + 아이콘(`chevron-pagination-left-slate-700`/`chevron-pagination-slate-700`) 조합
 
 → 마크업 예시: `components/pagination/README.md`
+
+---
+
+### 6-16. Chip
+
+선택/태그 표시용 칩. `.chip` + 레이아웃 유틸리티 클래스 조합으로 구성, 텍스트만 있는 기본형과 삭제 아이콘이 있는 형태, 목록 형태 지원.
+
+**구성: `chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center` + `span.body2-r-16.color-slate-700`**
+
+규칙:
+- 삭제 가능한 칩은 `gap-6` 추가 + `chips-close-icon` 버튼(`button[type=button]` + `span.blind`로 "삭제")
+- 여러 개 나열 시 `ul.flex.gap-8 > li > div.chip(...)` 구조
+- 선택 입력이 필요한 태그 필터는 `components/checkbox`의 chip variant 사용, 단순 표시용은 이 컴포넌트 사용
+
+→ 마크업 예시: `components/chip/README.md`
 
 ---
 

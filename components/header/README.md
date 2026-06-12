@@ -131,13 +131,24 @@ header.header[role=banner]
       </button>
     </div>
     <div class="mt-36">
-      <label for="header-search-input" class="blind">검색어</label>
-      <div class="search-54 flex pl-20 pr-16 justify-between align-center">
-        <input type="search" id="header-search-input" class="body1-r-18 w-full"
-          placeholder="검색어를 입력해주세요" autocomplete="off">
-        <button type="button" class="search-button h-fit">
-          <i class="search-icon-54"><span class="blind">검색</span></i>
-        </button>
+      <div class="main-search-wrapper">
+        <div class="main-search-62 flex align-center gap-8 px-12">
+          <div class="select-wrapper main-search__select-wrapper">
+            <label for="header-search-category" class="blind">검색 분류</label>
+            <select id="header-search-category" class="select-48 flex align-center" name="header-search-category" aria-label="검색 분류">
+              <option value="heritage" selected>국가유산명</option>
+              <option value="region">지역명</option>
+            </select>
+          </div>
+          <label for="header-search-input" class="blind">검색어</label>
+          <input type="search" id="header-search-input" class="main-search__input body1-r-18 flex-1"
+            placeholder="찾고 싶은 국가유산명을 입력해주세요" autocomplete="off">
+          <button type="button" class="search-button h-fit">
+            <i class="main-search-blue-icon">
+              <span class="blind">검색 버튼</span>
+            </i>
+          </button>
+        </div>
       </div>
     </div>
     <div class="header-search-panel__columns flex mt-24 gap-32">
