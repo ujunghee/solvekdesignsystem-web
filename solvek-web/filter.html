@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>검색필터 | 솔브케이</title>
+  <title>검색필터 예시 | 솔브케이</title>
   <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 </head>
 <body>
   <div class="inner-default py-24">
     <aside class="search-filter" aria-labelledby="search-filter-title">
       <div class="search-filter__head flex justify-between align-center">
-        <h2 id="search-filter-title" class="search-filter__title heading10-sb-20 color-slate-900">검색필터</h2>
+        <h2 id="search-filter-title" class="search-filter__title heading10-sb-20 color-slate-900">검색필터 예시</h2>
         <button type="button" class="search-filter__reset transparent-button-32 flex align-center gap-10" data-search-filter-reset>
           <span class="body2-m-16 color-slate-500">초기화</span>
           <i class="filter-reset-20" aria-hidden="true"></i>
@@ -18,10 +19,10 @@
         </button>
       </div>
 
-      <!-- 데이터 유형 -->
+      <!-- 패턴: 1열 + 건수 (search-filter__list + search-filter__count) -->
       <div class="search-filter__section active">
         <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
-          데이터 유형
+          1열 + 건수
           <i class="arrow-icon" aria-hidden="true"></i>
         </button>
         <div class="search-filter__panel">
@@ -29,240 +30,329 @@
             <li class="search-filter__item">
               <div class="flex align-center justify-between gap-8">
                 <div class="flex align-center gap-8">
-                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-data-1" checked>
-                  <label for="filter-data-1" class="body2-r-16 color-slate-900">지정유산</label>
+                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-count-1" checked>
+                  <label for="filter-count-1" class="body2-r-16 color-slate-900">필터 항목 1</label>
                 </div>
-                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">8,270</span>
+                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">1,234</span>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center justify-between gap-8">
                 <div class="flex align-center gap-8">
-                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-data-2">
-                  <label for="filter-data-2" class="body2-r-16 color-slate-900">매장유산유존지역</label>
+                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-count-2">
+                  <label for="filter-count-2" class="body2-r-16 color-slate-900">긴 라벨 줄바꿈 확인용 예시 텍스트</label>
                 </div>
-                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">320</span>
+                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">567</span>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center justify-between gap-8">
                 <div class="flex align-center gap-8">
-                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-data-3">
-                  <label for="filter-data-3" class="body2-r-16 color-slate-900">문화유적분포지도</label>
+                  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-count-3">
+                  <label for="filter-count-3" class="body2-r-16 color-slate-900">필터 항목 3</label>
                 </div>
-                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">96</span>
+                <span class="search-filter__count body3-r-14 color-slate-500 text-nowrap">89</span>
               </div>
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- 지정구분 -->
+      <!-- 패턴: 1열 체크박스 (search-filter__list) -->
       <div class="search-filter__section active">
         <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
-          지정구분
+          1열 체크박스
           <i class="arrow-icon" aria-hidden="true"></i>
         </button>
         <div class="search-filter__panel">
           <ul class="search-filter__list">
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-1">
-                <label for="filter-designation-1" class="body2-r-16 color-slate-900">국가지정유산</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col1-1">
+                <label for="filter-col1-1" class="body2-r-16 color-slate-900">옵션 A</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-2">
-                <label for="filter-designation-2" class="body2-r-16 color-slate-900">시도지정유산</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col1-2">
+                <label for="filter-col1-2" class="body2-r-16 color-slate-900">옵션 B</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-3">
-                <label for="filter-designation-3" class="body2-r-16 color-slate-900">국가등록문화유산</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col1-3">
+                <label for="filter-col1-3" class="body2-r-16 color-slate-900">옵션 C — 긴 라벨 줄바꿈 확인용</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-4">
-                <label for="filter-designation-4" class="body2-r-16 color-slate-900">시도등록문화유산</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-5">
-                <label for="filter-designation-5" class="body2-r-16 color-slate-900">시도자연유산자료</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-designation-6">
-                <label for="filter-designation-6" class="body2-r-16 color-slate-900">임시지정유산</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col1-4">
+                <label for="filter-col1-4" class="body2-r-16 color-slate-900">옵션 D</label>
               </div>
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- 지정종목 -->
+      <!-- 패턴: 2열 체크박스 (search-filter__list--cols-2) -->
       <div class="search-filter__section active">
         <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
-          지정종목
+          2열 체크박스
           <i class="arrow-icon" aria-hidden="true"></i>
         </button>
         <div class="search-filter__panel">
           <ul class="search-filter__list search-filter__list--cols-2">
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-1">
-                <label for="filter-item-1" class="body2-r-16 color-slate-900">국보</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col2-1">
+                <label for="filter-col2-1" class="body2-r-16 color-slate-900">옵션 1</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-2">
-                <label for="filter-item-2" class="body2-r-16 color-slate-900">보물</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col2-2">
+                <label for="filter-col2-2" class="body2-r-16 color-slate-900">옵션 2</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-3">
-                <label for="filter-item-3" class="body2-r-16 color-slate-900">사적</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col2-3">
+                <label for="filter-col2-3" class="body2-r-16 color-slate-900">옵션 3</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-4">
-                <label for="filter-item-4" class="body2-r-16 color-slate-900">명승</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col2-4">
+                <label for="filter-col2-4" class="body2-r-16 color-slate-900">옵션 4</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-5">
-                <label for="filter-item-5" class="body2-r-16 color-slate-900">천연기념물</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col2-5">
+                <label for="filter-col2-5" class="body2-r-16 color-slate-900">긴 라벨 예시</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-item-6">
-                <label for="filter-item-6" class="body2-r-16 color-slate-900">국가민속문화유산</label>
+                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-col2-6">
+                <label for="filter-col2-6" class="body2-r-16 color-slate-900">옵션 6</label>
               </div>
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- 관련 자료 -->
+      <!-- 패턴: 기간 type1 (라디오 + 시작일·종료일 datepicker) -->
       <div class="search-filter__section active">
         <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
-          관련 자료
+          기간 type1
           <i class="arrow-icon" aria-hidden="true"></i>
         </button>
         <div class="search-filter__panel">
-          <ul class="search-filter__list">
+          <ul class="search-filter__list search-filter__list--cols-2 search-filter__period-radios">
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-related-1">
-                <label for="filter-related-1" class="body2-r-16 color-slate-900">현상변경허용기준</label>
+                <input type="radio" name="filter-period" class="radio-basic radio-basic-md" id="filter-period-all" value="all" checked>
+                <label for="filter-period-all" class="body2-r-16 color-slate-900">기간 전체</label>
               </div>
             </li>
             <li class="search-filter__item">
               <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-related-2">
-                <label for="filter-related-2" class="body2-r-16 color-slate-900">지형도면</label>
+                <input type="radio" name="filter-period" class="radio-basic radio-basic-md" id="filter-period-1y" value="1y">
+                <label for="filter-period-1y" class="body2-r-16 color-slate-900">최근 1년</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period" class="radio-basic radio-basic-md" id="filter-period-3y" value="3y">
+                <label for="filter-period-3y" class="body2-r-16 color-slate-900">최근 3년</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period" class="radio-basic radio-basic-md" id="filter-period-5y" value="5y">
+                <label for="filter-period-5y" class="body2-r-16 color-slate-900">최근 5년</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period" class="radio-basic radio-basic-md" id="filter-period-custom" value="custom">
+                <label for="filter-period-custom" class="body2-r-16 color-slate-900">직접 설정</label>
               </div>
             </li>
           </ul>
+          <div class="search-filter__period-dates">
+            <div class="search-filter__period-date flex align-center gap-8">
+              <label for="filter-period-start" class="search-filter__period-label body2-r-16 color-slate-900">시작일자</label>
+              <div class="input-wrapper flex-1">
+                <div class="relative w-full flex align-center">
+                  <input type="text" id="filter-period-start" class="input-field-default-40 input-with-trailing-icon w-full" placeholder="연도-월-일" autocomplete="off" disabled>
+                  <button type="button" class="absolute right-0 top-50 translate-y-50" data-datepicker-for="filter-period-start" disabled>
+                    <i class="calendar-icon" aria-hidden="true"></i>
+                    <span class="blind">시작일자 선택</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="search-filter__period-date flex align-center gap-8">
+              <label for="filter-period-end" class="search-filter__period-label body2-r-16 color-slate-900">종료일자</label>
+              <div class="input-wrapper flex-1">
+                <div class="relative w-full flex align-center">
+                  <input type="text" id="filter-period-end" class="input-field-default-40 input-with-trailing-icon w-full" placeholder="연도-월-일" autocomplete="off" disabled>
+                  <button type="button" class="absolute right-0 top-50 translate-y-50" data-datepicker-for="filter-period-end" disabled>
+                    <i class="calendar-icon" aria-hidden="true"></i>
+                    <span class="blind">종료일자 선택</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 소재지 -->
+      <!-- 패턴: 기간 type2 (라디오 + range datepicker) -->
       <div class="search-filter__section active">
         <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
-          소재지
+          기간 type2
+          <i class="arrow-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-filter__panel">
+          <ul class="search-filter__list search-filter__list--cols-2 search-filter__period-radios">
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period-2" class="radio-basic radio-basic-md" id="filter-period-2-all" value="all" checked>
+                <label for="filter-period-2-all" class="body2-r-16 color-slate-900">기간 전체</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period-2" class="radio-basic radio-basic-md" id="filter-period-2-1y" value="1y">
+                <label for="filter-period-2-1y" class="body2-r-16 color-slate-900">최근 1년</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period-2" class="radio-basic radio-basic-md" id="filter-period-2-3y" value="3y">
+                <label for="filter-period-2-3y" class="body2-r-16 color-slate-900">최근 3년</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period-2" class="radio-basic radio-basic-md" id="filter-period-2-5y" value="5y">
+                <label for="filter-period-2-5y" class="body2-r-16 color-slate-900">최근 5년</label>
+              </div>
+            </li>
+            <li class="search-filter__item">
+              <div class="flex align-center gap-8">
+                <input type="radio" name="filter-period-2" class="radio-basic radio-basic-md" id="filter-period-2-custom" value="custom">
+                <label for="filter-period-2-custom" class="body2-r-16 color-slate-900">직접 설정</label>
+              </div>
+            </li>
+          </ul>
+          <div class="search-filter__period-range pb-16">
+            <div class="input-wrapper">
+              <label for="filter-period-range" class="blind">기간</label>
+              <div class="relative w-full flex align-center">
+                <input type="text" id="filter-period-range" class="input-field-default-40 input-with-trailing-icon w-full" placeholder="시작일 ~ 종료일" autocomplete="off" disabled>
+                <button type="button" class="absolute right-0 top-50 translate-y-50" data-datepicker-for="filter-period-range" disabled>
+                  <i class="calendar-icon" aria-hidden="true"></i>
+                  <span class="blind">기간 선택</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 패턴: 셀렉트 2개 (search-filter__selects) -->
+      <div class="search-filter__section active">
+        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
+          셀렉트
           <i class="arrow-icon" aria-hidden="true"></i>
         </button>
         <div class="search-filter__panel">
           <div class="search-filter__selects flex gap-8 pb-16">
             <div class="select-wrapper flex-1">
-              <label for="filter-location-1" class="blind">시도</label>
-              <select id="filter-location-1" class="select-40 flex align-center" name="filter-location-1" aria-label="시도">
-                <option value="nationwide" selected>전국</option>
-                <option value="seoul">서울</option>
-                <option value="busan">부산</option>
+              <label for="filter-select-1" class="blind">셀렉트 1</label>
+              <select id="filter-select-1" class="select-40 flex align-center" name="filter-select-1" aria-label="셀렉트 1">
+                <option value="all" selected>전체</option>
+                <option value="option-a">옵션 A</option>
+                <option value="option-b">옵션 B</option>
+                <option value="option-c">옵션 C</option>
               </select>
               <p class="error-message">에러 메시지</p>
             </div>
             <div class="select-wrapper flex-1">
-              <label for="filter-location-2" class="blind">시군구</label>
-              <select id="filter-location-2" class="select-40 flex align-center" name="filter-location-2" aria-label="시군구">
+              <label for="filter-select-2" class="blind">셀렉트 2</label>
+              <select id="filter-select-2" class="select-40 flex align-center" name="filter-select-2" aria-label="셀렉트 2">
                 <option value="all" selected>전체</option>
+                <option value="option-a">옵션 A</option>
+                <option value="option-b">옵션 B</option>
               </select>
               <p class="error-message">에러 메시지</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- 파일형식 -->
-      <div class="search-filter__section active">
-        <button type="button" class="search-filter__toggle body1-m-18 color-slate-900 flex align-center justify-between w-full" aria-expanded="true" data-search-filter-toggle>
-          파일형식
-          <i class="arrow-icon" aria-hidden="true"></i>
-        </button>
-        <div class="search-filter__panel">
-          <ul class="search-filter__list search-filter__list--cols-2">
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-1">
-                <label for="filter-format-1" class="body2-r-16 color-slate-900">CSV</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-2">
-                <label for="filter-format-2" class="body2-r-16 color-slate-900">XLSX</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-3">
-                <label for="filter-format-3" class="body2-r-16 color-slate-900">JSON</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-4">
-                <label for="filter-format-4" class="body2-r-16 color-slate-900">XML</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-5">
-                <label for="filter-format-5" class="body2-r-16 color-slate-900">SHP</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-6">
-                <label for="filter-format-6" class="body2-r-16 color-slate-900">PDF</label>
-              </div>
-            </li>
-            <li class="search-filter__item">
-              <div class="flex align-center gap-8">
-                <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="filter-format-7">
-                <label for="filter-format-7" class="body2-r-16 color-slate-900">GeoJSON</label>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
     </aside>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ko.js"></script>
+  <script src="/components/datepicker/datepicker.js"></script>
+
   <script>
     const searchFilter = document.querySelector('.search-filter');
+    let periodStartPicker = null;
+    let periodEndPicker = null;
+    let periodRangePicker = null;
+
+    function setPeriodDatesEnabled(enabled) {
+      const startInput = document.getElementById('filter-period-start');
+      const endInput = document.getElementById('filter-period-end');
+      const startBtn = document.querySelector('[data-datepicker-for="filter-period-start"]');
+      const endBtn = document.querySelector('[data-datepicker-for="filter-period-end"]');
+
+      if (!startInput || !endInput) return;
+
+      startInput.disabled = !enabled;
+      endInput.disabled = !enabled;
+      if (startBtn) startBtn.disabled = !enabled;
+      if (endBtn) endBtn.disabled = !enabled;
+
+      if (periodStartPicker) {
+        if (!enabled) {
+          periodStartPicker.close();
+          periodStartPicker.clear();
+        }
+        periodStartPicker.set('clickOpens', enabled);
+      }
+      if (periodEndPicker) {
+        if (!enabled) {
+          periodEndPicker.close();
+          periodEndPicker.clear();
+        }
+        periodEndPicker.set('clickOpens', enabled);
+      }
+    }
+
+    function setPeriodRangeEnabled(enabled) {
+      const rangeInput = document.getElementById('filter-period-range');
+      const rangeBtn = document.querySelector('[data-datepicker-for="filter-period-range"]');
+
+      if (!rangeInput) return;
+
+      rangeInput.disabled = !enabled;
+      if (rangeBtn) rangeBtn.disabled = !enabled;
+
+      if (periodRangePicker) {
+        if (!enabled) {
+          periodRangePicker.close();
+          periodRangePicker.clear();
+        }
+        periodRangePicker.set('clickOpens', enabled);
+      }
+    }
 
     function openFilterPanel(section) {
       const panel = section.querySelector('.search-filter__panel');
@@ -343,7 +433,37 @@
       searchFilter.querySelectorAll('select').forEach((select) => {
         select.selectedIndex = 0;
       });
+      const periodAll = document.getElementById('filter-period-all');
+      if (periodAll) {
+        periodAll.checked = true;
+        setPeriodDatesEnabled(false);
+      }
+      const period2All = document.getElementById('filter-period-2-all');
+      if (period2All) {
+        period2All.checked = true;
+        setPeriodRangeEnabled(false);
+      }
     });
+
+    searchFilter.querySelectorAll('[name="filter-period"]').forEach((radio) => {
+      radio.addEventListener('change', () => {
+        setPeriodDatesEnabled(radio.value === 'custom');
+      });
+    });
+
+    searchFilter.querySelectorAll('[name="filter-period-2"]').forEach((radio) => {
+      radio.addEventListener('change', () => {
+        setPeriodRangeEnabled(radio.value === 'custom');
+      });
+    });
+
+    if (typeof initPicker === 'function') {
+      periodStartPicker = initPicker('filter-period-start');
+      periodEndPicker = initPicker('filter-period-end');
+      periodRangePicker = initPicker('filter-period-range', { mode: 'range' });
+      setPeriodDatesEnabled(false);
+      setPeriodRangeEnabled(false);
+    }
 
     initFilterPanels();
   </script>

@@ -1,12 +1,16 @@
 {
   "component": "search-filter",
-  "description": "검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·셀렉트 조합",
+  "description": "검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·라디오·셀렉트·기간(datepicker) 조합",
   "naming_pattern": "search-filter__{element} (BEM)",
   "size": {
     "max_width": "28.4rem",
-    "checkbox": "checkbox-basic checkbox-basic-sm",
+    "title": "heading10-sb-20 color-slate-900",
+    "toggle": "body1-m-18 color-slate-900",
+    "checkbox": "checkbox-basic checkbox-basic-md",
+    "radio": "radio-basic radio-basic-md",
     "select": "select-40",
-    "option_label": "body3-r-14 color-slate-700",
+    "datepicker_input": "input-field-default-40 input-with-trailing-icon",
+    "option_label": "body2-r-16 color-slate-900",
     "count": "search-filter__count body3-r-14 color-slate-500"
   },
   "structure": {
@@ -15,48 +19,67 @@
     "section": "search-filter__section.active > search-filter__toggle(button) + search-filter__panel",
     "list": "ul.search-filter__list > li.search-filter__item",
     "list_cols_2": "ul.search-filter__list.search-filter__list--cols-2",
-    "selects": "search-filter__selects > select-wrapper.flex-1 > select-40"
+    "selects": "search-filter__selects > select-wrapper.flex-1 > select-40",
+    "period_radios": "ul.search-filter__list.search-filter__list--cols-2.search-filter__period-radios > li.search-filter__item > radio-basic radio-basic-md (첫 항목 '기간 전체'는 grid-column: 1 / -1)",
+    "period_dates": "div.search-filter__period-dates > div.search-filter__period-date.flex.align-center.gap-8 > label.search-filter__period-label + input-wrapper(datepicker, 단일 2개)",
+    "period_range": "div.search-filter__period-range > input-wrapper(datepicker, range 1개)"
   },
   "section_types": {
-    "checkbox_single": "search-filter__list — 단일 열",
-    "checkbox_with_count": "justify-between + search-filter__count — 데이터 유형",
-    "checkbox_cols_2": "search-filter__list--cols-2 — 지정종목, 파일형식",
-    "location_selects": "search-filter__selects — 소재지 2개 셀렉트"
+    "checkbox_single": "search-filter__list — 1열 체크박스",
+    "checkbox_with_count": "justify-between + search-filter__count — 1열 + 건수",
+    "checkbox_cols_2": "search-filter__list--cols-2 — 2열 체크박스",
+    "period_type1": "기간 type1 — search-filter__period-radios(라디오, '기간 전체'/'최근 N년'/'직접 설정') + search-filter__period-dates(시작일자·종료일자 단일 datepicker 2개)",
+    "period_type2": "기간 type2 — search-filter__period-radios(라디오) + search-filter__period-range(range datepicker 1개)",
+    "selects": "search-filter__selects — 셀렉트 2개"
   },
   "states": {
     "expanded": "search-filter__section.active + aria-expanded=true",
     "collapsed": "active 제거 + aria-expanded=false",
-    "reset": "data-search-filter-reset 클릭"
+    "reset": "data-search-filter-reset 클릭 — 체크박스 해제, 셀렉트 첫 옵션, 기간 라디오는 '기간 전체'로 복원하고 datepicker 비활성화",
+    "period_custom": "기간 라디오 '직접 설정' 선택 시에만 datepicker input·버튼 활성화(disabled 해제), 그 외에는 disabled + 값 초기화"
   },
   "icons": {
     "arrow-icon": "섹션 토글 화살표 (펼침: 아래, 접힘: 우측)",
-    "filter-reset-20": "초기화 버튼 (20x20)"
+    "filter-reset-20": "초기화 버튼 (20x20)",
+    "calendar-icon": "기간 datepicker 트리거 (24x24)"
   },
   "dependencies": {
-    "checkbox": "components/checkbox — basic sm, id/for 분리",
+    "checkbox": "components/checkbox — basic md, id/for 분리",
+    "radio": "components/radio — basic md, id/for 분리, 같은 name",
     "select": "components/select — select-wrapper + select-40",
+    "datepicker": "components/datepicker — initPicker(id) / initPicker(id, { mode: 'range' }), 기간 섹션은 초기 disabled 상태로 시작",
     "button": "transparent-button-32 (초기화)"
   },
   "notes": [
     "max-width 28.4rem(284px)은 search-filter 루트에 CSS 정의",
     "섹션 펼침/접힘은 active 클래스 토글만 사용",
     "체크박스 basic형: label 감싸기 구조 금지",
+    "라디오 basic형: id/for 분리, 같은 섹션 내 동일 name 필수",
     "셀렉트: wrapper 없이 단독 사용 금지",
-    "건수(search-filter__count)는 데이터 유형 섹션 등 결과 수 표시 시에만 사용",
-    "search-filter__item label은 긴 텍스트 줄바꿈(word-break: keep-all) 처리, 체크박스는 상단 정렬(margin-top)"
+    "건수(search-filter__count)는 결과 수 표시 시에만 사용",
+    "search-filter__item label은 긴 텍스트 줄바꿈(word-break: keep-all) 처리, 체크박스/라디오는 상단 정렬(margin-top)",
+    "search-filter__list--cols-2는 컬럼 간 별도 gap 없음 (기본 gap-8만 사용)",
+    "기간 type1/type2의 라디오 그룹 첫 항목('기간 전체')은 search-filter__list--cols-2에서 grid-column: 1 / -1로 전체 너비 차지",
+    "기간 datepicker input은 input-field-default-40 input-with-trailing-icon + w-full, 트리거 버튼은 disabled 시 cursor:not-allowed + pointer-events:none",
+    "기간 datepicker는 페이지 로드시 비활성화 상태로 시작하며, '직접 설정' 라디오 선택 시에만 활성화",
+    "셀렉트(filter-select-1/2)는 Chrome base-select picker가 위로 뜨지 않도록 anchor-name(--filter-select-1/2)로 고정"
   ],
   "rules": [
     "aside에 aria-labelledby와 h2 id 연결 필수",
     "search-filter__toggle에 aria-expanded 필수",
     "체크박스 id/for 분리 필수",
+    "라디오는 id/for 분리 + 같은 섹션 내 동일 name 필수",
     "셀렉트는 select-wrapper + aria-label 또는 blind label",
+    "기간 datepicker는 components/datepicker 구조(input-wrapper, autocomplete=off, calendar-icon, data-datepicker-for) 그대로 사용",
     "초기화 버튼 type=button + blind 텍스트 필수"
   ],
   "do_not": [
     "checkbox chip/list variant 사용",
+    "radio segment/toggle variant 사용",
     "select 단독 사용 (wrapper 없이)",
     "섹션 토글에 div/span 사용",
     "인라인 style로 펼침/접힘 제어",
+    "input type=date 사용 (반드시 datepicker)",
     "search-filter__* 외 임의 BEM 클래스 추가"
   ]
 }

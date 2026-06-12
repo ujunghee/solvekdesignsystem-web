@@ -1,0 +1,36 @@
+{
+  "component": "chip",
+  "description": "선택/태그 표시용 칩. 텍스트만 있는 기본형과 삭제(닫기) 아이콘이 있는 형태, 목록(ul > li) 형태로 사용",
+  "naming_pattern": "chip + 유틸리티 클래스 조합 (BEM 아님)",
+  "structure": {
+    "base": "div.chip.border-slate-500.border.h-36.w-fit.px-12.radius-md-6.flex.align-center.justify-center > span.body2-r-16.color-slate-700",
+    "with_close": "div.chip(...).gap-6 > span.body2-r-16.color-slate-700 + button.chips-close-icon > span.blind",
+    "list": "ul.flex.gap-8 > li > div.chip(...)"
+  },
+  "size": {
+    "height": "h-36",
+    "padding": "px-12",
+    "radius": "radius-md-6",
+    "border": "border border-slate-500",
+    "text": "body2-r-16 color-slate-700",
+    "gap_with_close": "gap-6"
+  },
+  "icons": {
+    "chips-close-icon": "칩 삭제 아이콘 (12x12, slate-700 X 모양)"
+  },
+  "notes": [
+    "chip 자체는 새 BEM 블록이 아니라 .chip 클래스 + layout.css의 h-36/px-12/radius-md-6/border 유틸리티 조합으로 구성",
+    "너비는 w-fit으로 내용에 맞춤",
+    "여러 개 나열 시 ul.flex.gap-8 > li 구조 사용"
+  ],
+  "rules": [
+    "삭제 가능한 칩은 chips-close-icon 버튼에 span.blind로 '삭제' 텍스트 제공",
+    "닫기 버튼은 button[type=button] 사용, div/span 금지",
+    "텍스트는 span.body2-r-16.color-slate-700 사용"
+  ],
+  "do_not": [
+    "chip에 정의되지 않은 임의 색상/라운드 클래스 추가",
+    "닫기 아이콘에 blind 텍스트 누락",
+    "체크박스 chip variant(checkbox-chip)와 혼용 금지 — 선택 입력이 필요하면 components/checkbox의 chip variant 사용"
+  ]
+}

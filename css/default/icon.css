@@ -216,6 +216,7 @@
   background-color: var(--slate-50);
   border-radius: var(--radius-sm-4);
 }
+
 /* 모달 닫기 아이콘 */
 .modal__close {
   position: relative;
@@ -227,6 +228,15 @@
 .modal__close:hover {
   background-color: var(--slate-50);
   border-radius: var(--radius-sm-4);
+}
+
+/* chips 닫기 아이콘 */
+.chips-close-icon {
+  background: url("data:image/svg+xml,<svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10.75 0.750002L0.75 10.75M10.75 10.75L0.750001 0.75' stroke='%23475263' stroke-width='1.5' stroke-linecap='round'/></svg>") center center / contain no-repeat;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: block;
+  flex-shrink: 0;
 }
 
 .footer-plus-20 {
