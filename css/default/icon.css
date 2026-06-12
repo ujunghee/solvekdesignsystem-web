@@ -292,6 +292,15 @@
   flex-shrink: 0;
 }
 
+/* 조회수 아이콘 */
+.view-count-icon {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2.42012 12.7132C1.98936 12.3181 1.98936 11.6819 2.42012 11.2868C7.07936 7.089 16.9206 7.089 21.5799 11.2868C22.0106 11.6819 22.0106 12.3181 21.5799 12.7132C16.9206 16.911 7.07936 16.911 2.42012 12.7132Z' stroke='%23475263' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z' stroke='%23475263' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
 @media (max-width: 767px) {
   .close-icon-lg {
     width: 3.2rem;
