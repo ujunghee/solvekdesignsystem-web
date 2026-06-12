@@ -37,7 +37,9 @@
 | <img src="../../image/icon/generated/chevron-right-slate-700.svg" width="24" height="24"> | `chevron-right-slate-700` | 24×24 | `#475263` | 우측 꺽쇠 — slate-50/transparent 버튼 |
 | <img src="../../image/icon/generated/chevron-left-slate-700.svg" width="24" height="24"> | `chevron-left-slate-700` | 24×24 | `#475263` | 좌측 꺽쇠 |
 | <img src="../../image/icon/generated/chevron-down-white.svg" width="24" height="24"> | `chevron-down-white` | 24×24 | white | 아래 꺽쇠 |
-| <img src="../../image/icon/generated/download-02-white.svg" width="24" height="24"> | `download-02-white` | 24×24 | white | 다운로드 |
+| <img src="../../image/icon/generated/download-02-white.svg" width="24" height="24"> | `download-02-white` | 24×24 | white | 다운로드 (대) |
+| <img src="../../image/icon/generated/download-01-white.svg" width="14" height="16"> | `download-01-white` | 12×14 (viewBox 14x16) | white | 다운로드 (소, white) |
+| <img src="../../image/icon/generated/download-01-blue.svg" width="14" height="16"> | `download-01-blue` | 12×14 (viewBox 14x16) | `#1A76FF` | 다운로드 (소, blue) |
 | <img src="../../image/icon/generated/arrow-right-sm-white.svg" width="24" height="24"> | `arrow-right-sm-white` | 24×24 | white | 우측 화살표 small |
 | <img src="../../image/icon/generated/arrow-left-sm-white.svg" width="24" height="24"> | `arrow-left-sm-white` | 24×24 | white | 좌측 화살표 small |
 | <img src="../../image/icon/generated/breadcrumb-arrow.svg" width="8" height="14"> | `breadcrumb-arrow` | 8×14 | `#64748B` | 브레드크럼 구분자 |
