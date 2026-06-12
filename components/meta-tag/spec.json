@@ -1,0 +1,52 @@
+{
+  "component": "meta-tag",
+  "description": "API·데이터셋 등 정보 리소스의 카테고리 분류(대/중/소분류 등)를 표시하는 정적 태그. 분류 value만 노출하며 상호작용 없음",
+  "naming_pattern": "meta-tag, meta-tag--{modifier}, meta-tag-list (BEM)",
+  "use_cases": [
+    "API 목록·상세의 분류 체계 표시",
+    "데이터 카탈로그 데이터셋 소속 카테고리 표시",
+    "정보 리소스 메타의 분류 depth 표시"
+  ],
+  "not_for": [
+    "조회수·등록일 등 조회/통계 메타",
+    "필터·선택·토글 UI",
+    "삭제 가능한 태그(chip 컴포넌트 사용)"
+  ],
+  "structure": {
+    "list": "ul.meta-tag-list > li > span.meta-tag[.meta-tag--active]",
+    "single": "span.meta-tag[.meta-tag--active]"
+  },
+  "category_depth": {
+    "1depth": "대분류 — 최상위 카테고리 (예시)",
+    "2depth": "중분류 — 중간 카테고리 (예시)",
+    "3depth": "소분류 — 하위 카테고리 (예시)"
+  },
+  "modifiers": {
+    "meta-tag--active": "현재 맥락에서 강조할 분류 depth. 선택 상태가 아닌 표시 강조용"
+  },
+  "styles": {
+    "default": "slate-50 배경, slate-700 텍스트, body3 semibold",
+    "active": "blue-50 배경, blue-500 텍스트, medium"
+  },
+  "size": {
+    "height": "2.4rem",
+    "padding": "0 var(--spacing-6)",
+    "radius": "radius-sm-4",
+    "font": "body3",
+    "font_weight_default": "semibold",
+    "font_weight_active": "medium",
+    "gap_list": "spacing-8"
+  },
+  "rules": [
+    "span.meta-tag에 분류 category value만 표기",
+    "목록 나열 시 ul.meta-tag-list > li 구조",
+    "button, a, aria-pressed 사용 금지",
+    "스타일은 css/component/meta-tag.css만 사용"
+  ],
+  "do_not": [
+    "조회수·view-count-icon 등 비분류 메타에 사용",
+    "meta-tag를 클릭/필터 버튼으로 사용",
+    "chip/checkbox-chip과 혼용",
+    "정의되지 않은 임의 클래스로 스타일 우회"
+  ]
+}
