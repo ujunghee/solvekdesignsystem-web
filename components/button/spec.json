@@ -73,6 +73,32 @@
     "<button type='button' class='transparent-button-32'>더보기</button>",
     "<button type='button' class='button-48' disabled>비활성</button>"
   ],
+  "view_toggle": {
+    "description": "콘텐츠를 카드형/리스트형 등으로 전환해서 보는 보기 방식 토글 버튼 그룹",
+    "naming_pattern": "view-toggle (BEM: view-toggle__btn, view-toggle__icon--active/inactive)",
+    "structure": {
+      "group": "div.view-toggle[role=group][aria-label] > button.view-toggle__btn[aria-pressed]*",
+      "button": "button.view-toggle__btn > i.{icon}-icon.view-toggle__icon--active + i.{icon}-icon.view-toggle__icon--inactive + span.body2-r-16.color-slate-700"
+    },
+    "icons": {
+      "dashboards-blue-icon": "카드형 보기 아이콘 (선택됨, 20x20, #1A76FF)",
+      "dashboards-gray-icon": "카드형 보기 아이콘 (선택 안 됨, 20x20, #64748B)",
+      "list-blue-icon": "리스트형 보기 아이콘 (선택됨, 20x20, #1A76FF)",
+      "list-gray-icon": "리스트형 보기 아이콘 (선택 안 됨, 20x20, #64748B)"
+    },
+    "states": {
+      "active": "선택된 버튼에 .active 클래스 + aria-pressed='true', view-toggle__icon--active만 표시",
+      "inactive": "aria-pressed='false', view-toggle__icon--inactive만 표시"
+    },
+    "rules": [
+      "그룹 wrapper에 role='group' + aria-label로 그룹 목적 명시",
+      "각 버튼은 button[type=button] + aria-pressed 속성 필수",
+      "아이콘은 dashboards-blue/gray-icon, list-blue/gray-icon 등 정의된 클래스만 사용",
+      "버튼 텍스트는 span.body2-r-16.color-slate-700 사용",
+      "한 그룹 내에서 하나의 버튼만 active 상태를 가짐",
+      ".active 클래스와 aria-pressed는 JS로 토글 (JS 패턴 7-7 참조)"
+    ]
+  },
   "notes": [
     "54 사이즈는 현재 border-slate 색상에만 정의됨 (border-slate-button-54). 다른 색상의 54 사이즈는 CSS 정의 전까지 사용 금지",
     "필터/업로드형 버튼: border-slate-button-54 button-54 gap-8 flex align-center + span.filter-icon"
@@ -89,6 +115,8 @@
     "사이즈 없이 색상만 단독 사용",
     "div/span으로 버튼 대체",
     "아이콘 버튼에서 flex align-center 누락",
-    "disabled 버튼에 색상 클래스 사용"
+    "disabled 버튼에 색상 클래스 사용",
+    "view-toggle 그룹에 aria-pressed 속성 누락",
+    "view-toggle에서 정의되지 않은 아이콘 클래스 또는 인라인 style로 색상 변경"
   ]
 }
