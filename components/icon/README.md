@@ -49,6 +49,7 @@
 | <img src="../../image/icon/generated/footer-plus-20.svg" width="20" height="20"> | `footer-plus-20` | 20×20 | `#464C53` | 푸터 아코디언 펼침/접힘 + |
 | <img src="../../image/icon/generated/filter-reset-20.svg" width="18" height="18"> | `filter-reset-20` | 18×18 | `#475263` | 검색필터 초기화 |
 | <img src="../../image/icon/generated/filter-icon.svg" width="24" height="24"> | `filter-icon` | 24×24 | `#475263` | 필터 트리거 |
+| <img src="../../image/icon/generated/filter-icon-active.svg" width="24" height="24"> | `filter-icon.active` | 24×24 | `#1A76FF` | 필터 트리거 (활성/선택됨) |
 | <img src="../../image/icon/generated/dashboards-blue-icon.svg" width="20" height="20"> | `dashboards-blue-icon` | 20×20 | `#1A76FF` | 카드형 보기 (선택됨) |
 | <img src="../../image/icon/generated/dashboards-gray-icon.svg" width="20" height="20"> | `dashboards-gray-icon` | 20×20 | `#64748B` | 카드형 보기 (선택 안 됨) |
 | <img src="../../image/icon/generated/list-blue-icon.svg" width="20" height="20"> | `list-blue-icon` | 20×20 | `#1A76FF` | 리스트형 보기 (선택됨) |
