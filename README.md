@@ -10,7 +10,7 @@
 
 ## 페이지(레이아웃) 폴더
 
-실제 페이지는 사이트 성격에 따라 폴더를 구분해 관리합니다.
+이 저장소 안에 참조용 레이아웃을 보관할 때 사이트 성격에 따라 폴더를 구분합니다.
 
 | 폴더 | 용도 |
 |---|---|
@@ -18,7 +18,9 @@
 | `solvek-map/` | 지도/GIS 기반 서비스 레이아웃 |
 | `solvek-admin/` | 관리자 페이지 레이아웃 |
 
-모든 폴더는 동일한 `components/`, `css/index.css` 기준을 따르며, variant가 있는 컴포넌트는 폴더 성격에 맞는 variant(예: Breadcrumb admin variant는 `solvek-admin/`)를 사용합니다.
+> 실제 페이지를 만드는 위치는 사용자가 정합니다 — 이 저장소 바깥에 생성할 수도 있습니다. 위 폴더는 저장소 안에 레이아웃을 보관할 때의 분류 기준입니다.
+
+어느 위치에 만들든 동일한 `components/`, `css/index.css` 기준을 따르며, variant가 있는 컴포넌트는 사이트 성격에 맞는 variant(예: 관리자 페이지는 Breadcrumb admin variant)를 사용합니다.
 
 ---
 
