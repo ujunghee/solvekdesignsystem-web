@@ -344,6 +344,10 @@ CSS 변수: `var(--spacing-16)` 등
 - **`css/component/{name}.css`**: 시각·상태(`:hover`, `:focus-visible`, `.active`, `disabled` 등)는 HTML이 아니라 CSS에만 둔다. 클래스명은 이 파일의 선택자를 근거로만 정한다 — 읽지 않고 추측으로 만들지 않는다.
 - **인라인 `style` 금지.** `span`/`i`/`em` 등 내부 요소에도 `style=""`이나 spec·README·CSS에 없는 임의 클래스로 스타일 우회 금지.
 
+> **공통 컴포넌트 vs web 전용 컴포넌트**
+> - 아래 6-1~6-12는 모든 사이트에서 공통으로 쓰는 컴포넌트로, 정의는 루트 `components/{name}/`에 있다.
+> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Pagination)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, 사용처·목록은 `solvek-web/README.md`를 본다. (CSS는 `css/component/*.css`에 그대로 두고 `css/index.css`가 통합 호출)
+
 ### 상태 관리 공통 규칙
 
 - **에러 상태**: `is-error`는 반드시 wrapper에만 추가. field에 직접 추가 금지.
@@ -518,67 +522,7 @@ footer 3가지 레이아웃:
 - 배경색이 투명한 요소에 사용 금지
 - 고도 순서 역전 금지 (`shadow-xs` → `shadow-s` → `shadow-md` → `shadow-lg`)
 
-### 6-11. Header
-
-사이트 공통 헤더. 로고·유틸 버튼·PC GNB·통합검색 패널·모바일 드로어로 구성.
-
-**네이밍: `header-{block}__{element}--{modifier}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `header` | 루트 (`role="banner"`, sticky) |
-| `header-top` | 상단 바 (로고 + 유틸) |
-| `header__logo` | 로고 영역 (`h1 > a > img`) |
-| `header-util` | 유틸 버튼 그룹 (로그인/통합검색/모바일메뉴) |
-| `header-nav` | PC GNB (`role="navigation"`, depth1 + depth2 드롭다운) |
-| `header-search-panel` | 통합검색 오버레이 (`role="dialog"`) |
-| `header-drawer` | 모바일 전체 메뉴 드로어 (`role="dialog"`) |
-
-전용 아이콘:
-
-| 클래스 | 설명 | 크기 |
-|---|---|---|
-| `header-login-24` | 로그인 | 24×24 |
-| `header-search-24` | 통합검색 | 24×24 |
-| `header-menu-24` | 모바일 메뉴 | 24×24 |
-
-규칙:
-- `header`에 `role="banner"`, `header-nav`에 `role="navigation"` + `aria-label` 필수
-- GNB 트리거: `aria-expanded` / `aria-haspopup="true"` / `aria-controls`(서브메뉴 id 일치) 필수
-- 통합검색·드로어 열기 버튼: `aria-expanded` / `aria-controls`(패널 id 일치) 필수
-- 통합검색 패널·드로어: `role="dialog"` `aria-modal="true"` `aria-labelledby`(blind 제목) 필수
-- 열림/닫힘은 `active` 클래스 토글로만 제어 (인라인 스타일 금지)
-- 유틸 버튼은 `transparent-button-{size}` 기반, 아이콘 포함 시 `flex align-center` 추가
-- PC GNB·PC 전용 유틸은 `display-none-tablet`로 1280px 기준 전환
-
-→ 마크업 예시: `components/header/README.md`
-
-### 6-12. Footer
-
-사이트 공통 푸터. 로고·연락처·정책 링크·저작권 정보로 구성.
-
-**네이밍: `footer__{element}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `footer` | 루트 (`role="contentinfo"`) |
-| `footer__brand` | 로고 영역 (`a > img`) |
-| `footer__info` | 연락처 + 이용안내 링크 |
-| `footer__divider` | 장식용 구분선 (`role="presentation"` `aria-hidden="true"`) |
-| `footer__bottom` | 정책 링크 목록 + 저작권 문구 |
-
-규칙:
-- `footer`에 `role="contentinfo"` 필수
-- 로고 링크에 `aria-label`로 사이트명 명시
-- 장식용 구분선에 `role="presentation"` `aria-hidden="true"` 필수
-- 정책 링크 목록은 `ul > li > a` 구조 유지
-- 1024px 이하에서 `footer__info`, `footer__bottom`을 column으로 전환
-
-→ 마크업 예시: `components/footer/README.md`
-
----
-
-### 6-13. Breadcrumb
+### 6-11. Breadcrumb
 
 페이지 상단 타이틀 + 현재 위치 경로. webkit(일반) / admin 2가지 variant.
 
@@ -599,63 +543,7 @@ footer 3가지 레이아웃:
 
 ---
 
-### 6-14. Search Filter
-
-검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·라디오·셀렉트·기간(datepicker) 조합.
-
-**네이밍: `search-filter__{element}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `search-filter` | 루트 (`aside[aria-labelledby]`, max-width 28.4rem) |
-| `search-filter__head` | 타이틀(`h2`) + 초기화 버튼 |
-| `search-filter__section` | 아코디언 섹션 (`active` 토글) |
-| `search-filter__toggle` | 섹션 토글 버튼 (`aria-expanded`) |
-| `search-filter__panel` | 섹션 본문 |
-| `search-filter__list`, `search-filter__list--cols-2` | 체크박스/라디오 목록 (1열/2열) |
-| `search-filter__period-radios` | 기간 선택 라디오 ('기간 전체'/'최근 N년'/'직접 설정') |
-| `search-filter__period-dates` | 기간 type1 — 시작일자·종료일자 단일 datepicker 2개 |
-| `search-filter__period-range` | 기간 type2 — range datepicker 1개 |
-| `search-filter__selects` | 셀렉트 그룹 |
-| `search-filter__count` | 항목별 결과 건수 |
-
-규칙:
-- `aside`에 `aria-labelledby`로 `h2.search-filter__title` id 연결 필수
-- `search-filter__toggle`에 `aria-expanded` 필수, 펼침/접힘은 `active` 클래스 토글로만 제어
-- 체크박스는 `checkbox-basic checkbox-basic-md`, 라디오는 `radio-basic radio-basic-md` (모두 id/for 분리), 셀렉트는 `select-wrapper` + `select-40`
-- 기간 datepicker는 `components/datepicker` 구조 그대로(`input-field-default-40 input-with-trailing-icon` + `calendar-icon`), 페이지 로드 시 `disabled` 상태로 시작하고 라디오 '직접 설정' 선택 시에만 활성화
-- 초기화 버튼은 `transparent-button-32` + `data-search-filter-reset`, `filter-reset-20` 아이콘 사용
-
-→ 마크업 예시: `components/filter/README.md`
-
----
-
-### 6-15. Pagination
-
-목록/게시판 하단 페이지 이동 컴포넌트. 이전/다음 버튼 + 숫자 페이지 + 생략(...) 표시.
-
-**네이밍: `pagination__{element}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `pagination` | 루트 (`nav[aria-label="페이지 이동"]`) |
-| `pagination__list` | `ul.flex.align-center.justify-center.gap-8` |
-| `pagination__nav` | 이전/다음 버튼 (`transparent-button-40 flex align-center body2-r-16 color-slate-700`) |
-| `pagination__link` | 숫자 페이지 (`body2-r-16`, 현재 페이지는 `aria-current="page"`) |
-| `pagination__ellipsis` | 생략(...) 표시 (`span` + `aria-hidden="true"`) |
-
-규칙:
-- `nav.pagination`에 `aria-label="페이지 이동"` 필수
-- `pagination__list`는 `ul > li` 구조 유지
-- 현재 페이지의 `pagination__link`에 `aria-current="page"` 필수 (배경 `slate-700` + 글자 `white`)
-- 생략(...) 항목은 `span.pagination__ellipsis` + `aria-hidden="true"` 사용, `a` 태그 금지
-- 이전/다음 버튼은 `pagination__nav` + `transparent-button-40 flex align-center` + 아이콘(`chevron-pagination-left-slate-700`/`chevron-pagination-slate-700`) 조합
-
-→ 마크업 예시: `components/pagination/README.md`
-
----
-
-### 6-16. Chip
+### 6-12. Chip
 
 선택/태그 표시용 칩. `.chip` + 레이아웃 유틸리티 클래스 조합으로 구성, 텍스트만 있는 기본형과 삭제 아이콘이 있는 형태, 목록 형태 지원.
 
