@@ -8,6 +8,20 @@
 
 ---
 
+## 페이지(레이아웃) 폴더
+
+실제 페이지는 사이트 성격에 따라 폴더를 구분해 관리합니다.
+
+| 폴더 | 용도 |
+|---|---|
+| [`solvek-web/`](solvek-web) | 일반 웹사이트(공공기관 홈페이지 등) 레이아웃 |
+| `solvek-map/` | 지도/GIS 기반 서비스 레이아웃 |
+| `solvek-admin/` | 관리자 페이지 레이아웃 |
+
+모든 폴더는 동일한 `components/`, `css/index.css` 기준을 따르며, variant가 있는 컴포넌트는 폴더 성격에 맞는 variant(예: Breadcrumb admin variant는 `solvek-admin/`)를 사용합니다.
+
+---
+
 ## CSS 호출
 
 페이지에서는 아래 한 줄만 호출합니다.

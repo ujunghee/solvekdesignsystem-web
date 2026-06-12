@@ -20,6 +20,21 @@
 - 기본 단위: rem (html font-size: 62.5%, 1rem = 10px)
 - 접근성: KWCAG 2.1 기준 준수
 
+### 1-1. 페이지(레이아웃) 폴더 구조
+
+실제 페이지 레이아웃은 사이트 성격에 따라 아래 폴더로 구분해 관리한다.
+
+| 폴더 | 용도 |
+|---|---|
+| `solvek-web/` | 일반 웹사이트(공공기관 홈페이지 등) 레이아웃 |
+| `solvek-map/` | 지도/GIS 기반 서비스 레이아웃 |
+| `solvek-admin/` | 관리자 페이지 레이아웃 |
+
+규칙:
+- 페이지를 생성·수정할 때는 요청 대상이 웹사이트/지도/관리자 중 어디인지 확인하고, 해당 폴더(`solvek-web`/`solvek-map`/`solvek-admin`) 안에 파일을 생성·수정한다. 대상이 불명확하면 사용자에게 먼저 확인한다.
+- 폴더가 달라도 토큰·유틸 클래스·컴포넌트 마크업(`components/{name}/README.md`)·CSS(`css/index.css`) 기준은 동일하게 적용한다.
+- variant가 있는 컴포넌트(예: Breadcrumb의 webkit/admin)는 폴더 성격에 맞는 variant를 사용한다 — `solvek-admin/`에서는 admin variant.
+
 ---
 
 ## 2. CSS 호출
