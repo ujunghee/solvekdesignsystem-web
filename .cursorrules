@@ -20,6 +20,23 @@
 - 기본 단위: rem (html font-size: 62.5%, 1rem = 10px)
 - 접근성: KWCAG 2.1 기준 준수
 
+### 1-1. 페이지(레이아웃) 폴더 구조
+
+이 저장소 안에 보관하는 참조용 레이아웃은 사이트 성격에 따라 아래 폴더로 구분한다.
+
+| 폴더 | 용도 |
+|---|---|
+| `solvek-web/` | 일반 웹사이트(공공기관 홈페이지 등) 레이아웃 |
+| `solvek-map/` | 지도/GIS 기반 서비스 레이아웃 |
+| `solvek-admin/` | 관리자 페이지 레이아웃 |
+
+규칙:
+- **페이지 생성 위치는 사용자가 정한다.** 디자인시스템 저장소 바깥에 만들 수도 있으므로, 출력 경로를 임의로 강제하지 않는다. 위 폴더는 이 저장소 안에 레이아웃을 보관할 때의 분류 기준일 뿐이다.
+- 사용자가 "이 저장소 안에" 레이아웃을 만들어 달라고 했고 대상이 웹사이트/지도/관리자 중 명확하면 해당 폴더(`solvek-web`/`solvek-map`/`solvek-admin`)에 둔다. 대상이 불명확하면 사용자에게 먼저 확인한다.
+- 어느 위치·폴더에 만들든 토큰·유틸 클래스·컴포넌트 마크업(`components/{name}/README.md`)·CSS(`css/index.css`) 기준은 동일하게 적용한다.
+- `solvek-web/README.md`는 그 폴더의 참조 페이지가 어떤 컴포넌트로 구성되는지 안내하는 인덱스다. 마크업 단일 출처는 항상 `components/{name}/README.md`이며, `solvek-web/README.md`에 별도 마크업 예시를 추가하지 않는다.
+- variant가 있는 컴포넌트(예: Breadcrumb의 webkit/admin)는 사이트 성격에 맞는 variant를 사용한다 — 관리자 페이지에서는 admin variant.
+
 ---
 
 ## 2. CSS 호출
@@ -296,7 +313,6 @@ CSS 변수: `var(--spacing-16)` 등
 | `chevron-right-white` | 우측 꺽쇠 (white) — blue/slate 계열 버튼 아이콘 | 24×24 |
 | `chevron-left-white` | 좌측 꺽쇠 (white) | 24×24 |
 | `chevron-right-slate-700` | 우측 꺽쇠 (slate-700) — slate-50/transparent 계열 버튼 아이콘 | 24×24 |
-| `chevron-right-gray` | 우측 꺽쇠 (gray) | 24×24 |
 | `chevron-down-white` | 아래 꺽쇠 (white) | 24×24 |
 | `download-02-white` | 다운로드 (white) | 24×24 |
 | `arrow-right-sm-white` | 우측 화살표 small (white) | 24×24 |
@@ -313,6 +329,8 @@ CSS 변수: `var(--spacing-16)` 등
 | `header-search-24` | 헤더 통합검색 | 24×24 |
 | `header-menu-24` | 헤더 모바일 메뉴 | 24×24 |
 
+> 위 표는 자주 쓰이는 아이콘 요약이며, `css/default/icon.css`에 정의된 전체 아이콘 목록·이미지 미리보기·사용법은 `components/icon/README.md`(+ `components/icon/spec.json`)를 참고한다.
+
 ---
 
 ## 6. 컴포넌트
@@ -325,6 +343,10 @@ CSS 변수: `var(--spacing-16)` 등
 - **`components/{name}/README.md`**: 마크업 예시·주석·금지 사항의 단일 출처. 반드시 읽고 그대로 맞춘다.
 - **`css/component/{name}.css`**: 시각·상태(`:hover`, `:focus-visible`, `.active`, `disabled` 등)는 HTML이 아니라 CSS에만 둔다. 클래스명은 이 파일의 선택자를 근거로만 정한다 — 읽지 않고 추측으로 만들지 않는다.
 - **인라인 `style` 금지.** `span`/`i`/`em` 등 내부 요소에도 `style=""`이나 spec·README·CSS에 없는 임의 클래스로 스타일 우회 금지.
+
+> **공통 컴포넌트 vs web 전용 컴포넌트**
+> - 아래 6-1~6-12는 모든 사이트에서 공통으로 쓰는 컴포넌트로, 정의는 루트 `components/{name}/`에 있다.
+> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Pagination)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, 사용처·목록은 `solvek-web/README.md`를 본다. (CSS는 `css/component/*.css`에 그대로 두고 `css/index.css`가 통합 호출)
 
 ### 상태 관리 공통 규칙
 
@@ -500,67 +522,7 @@ footer 3가지 레이아웃:
 - 배경색이 투명한 요소에 사용 금지
 - 고도 순서 역전 금지 (`shadow-xs` → `shadow-s` → `shadow-md` → `shadow-lg`)
 
-### 6-11. Header
-
-사이트 공통 헤더. 로고·유틸 버튼·PC GNB·통합검색 패널·모바일 드로어로 구성.
-
-**네이밍: `header-{block}__{element}--{modifier}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `header` | 루트 (`role="banner"`, sticky) |
-| `header-top` | 상단 바 (로고 + 유틸) |
-| `header__logo` | 로고 영역 (`h1 > a > img`) |
-| `header-util` | 유틸 버튼 그룹 (로그인/통합검색/모바일메뉴) |
-| `header-nav` | PC GNB (`role="navigation"`, depth1 + depth2 드롭다운) |
-| `header-search-panel` | 통합검색 오버레이 (`role="dialog"`) |
-| `header-drawer` | 모바일 전체 메뉴 드로어 (`role="dialog"`) |
-
-전용 아이콘:
-
-| 클래스 | 설명 | 크기 |
-|---|---|---|
-| `header-login-24` | 로그인 | 24×24 |
-| `header-search-24` | 통합검색 | 24×24 |
-| `header-menu-24` | 모바일 메뉴 | 24×24 |
-
-규칙:
-- `header`에 `role="banner"`, `header-nav`에 `role="navigation"` + `aria-label` 필수
-- GNB 트리거: `aria-expanded` / `aria-haspopup="true"` / `aria-controls`(서브메뉴 id 일치) 필수
-- 통합검색·드로어 열기 버튼: `aria-expanded` / `aria-controls`(패널 id 일치) 필수
-- 통합검색 패널·드로어: `role="dialog"` `aria-modal="true"` `aria-labelledby`(blind 제목) 필수
-- 열림/닫힘은 `active` 클래스 토글로만 제어 (인라인 스타일 금지)
-- 유틸 버튼은 `transparent-button-{size}` 기반, 아이콘 포함 시 `flex align-center` 추가
-- PC GNB·PC 전용 유틸은 `display-none-tablet`로 1280px 기준 전환
-
-→ 마크업 예시: `components/header/README.md`
-
-### 6-12. Footer
-
-사이트 공통 푸터. 로고·연락처·정책 링크·저작권 정보로 구성.
-
-**네이밍: `footer__{element}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `footer` | 루트 (`role="contentinfo"`) |
-| `footer__brand` | 로고 영역 (`a > img`) |
-| `footer__info` | 연락처 + 이용안내 링크 |
-| `footer__divider` | 장식용 구분선 (`role="presentation"` `aria-hidden="true"`) |
-| `footer__bottom` | 정책 링크 목록 + 저작권 문구 |
-
-규칙:
-- `footer`에 `role="contentinfo"` 필수
-- 로고 링크에 `aria-label`로 사이트명 명시
-- 장식용 구분선에 `role="presentation"` `aria-hidden="true"` 필수
-- 정책 링크 목록은 `ul > li > a` 구조 유지
-- 1024px 이하에서 `footer__info`, `footer__bottom`을 column으로 전환
-
-→ 마크업 예시: `components/footer/README.md`
-
----
-
-### 6-13. Breadcrumb
+### 6-11. Breadcrumb
 
 페이지 상단 타이틀 + 현재 위치 경로. webkit(일반) / admin 2가지 variant.
 
@@ -581,63 +543,7 @@ footer 3가지 레이아웃:
 
 ---
 
-### 6-14. Search Filter
-
-검색 결과 페이지 좌측 사이드바 필터. 아코디언 섹션 + 체크박스·라디오·셀렉트·기간(datepicker) 조합.
-
-**네이밍: `search-filter__{element}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `search-filter` | 루트 (`aside[aria-labelledby]`, max-width 28.4rem) |
-| `search-filter__head` | 타이틀(`h2`) + 초기화 버튼 |
-| `search-filter__section` | 아코디언 섹션 (`active` 토글) |
-| `search-filter__toggle` | 섹션 토글 버튼 (`aria-expanded`) |
-| `search-filter__panel` | 섹션 본문 |
-| `search-filter__list`, `search-filter__list--cols-2` | 체크박스/라디오 목록 (1열/2열) |
-| `search-filter__period-radios` | 기간 선택 라디오 ('기간 전체'/'최근 N년'/'직접 설정') |
-| `search-filter__period-dates` | 기간 type1 — 시작일자·종료일자 단일 datepicker 2개 |
-| `search-filter__period-range` | 기간 type2 — range datepicker 1개 |
-| `search-filter__selects` | 셀렉트 그룹 |
-| `search-filter__count` | 항목별 결과 건수 |
-
-규칙:
-- `aside`에 `aria-labelledby`로 `h2.search-filter__title` id 연결 필수
-- `search-filter__toggle`에 `aria-expanded` 필수, 펼침/접힘은 `active` 클래스 토글로만 제어
-- 체크박스는 `checkbox-basic checkbox-basic-md`, 라디오는 `radio-basic radio-basic-md` (모두 id/for 분리), 셀렉트는 `select-wrapper` + `select-40`
-- 기간 datepicker는 `components/datepicker` 구조 그대로(`input-field-default-40 input-with-trailing-icon` + `calendar-icon`), 페이지 로드 시 `disabled` 상태로 시작하고 라디오 '직접 설정' 선택 시에만 활성화
-- 초기화 버튼은 `transparent-button-32` + `data-search-filter-reset`, `filter-reset-20` 아이콘 사용
-
-→ 마크업 예시: `components/filter/README.md`
-
----
-
-### 6-15. Pagination
-
-목록/게시판 하단 페이지 이동 컴포넌트. 이전/다음 버튼 + 숫자 페이지 + 생략(...) 표시.
-
-**네이밍: `pagination__{element}` (BEM)**
-
-| 블록 | 설명 |
-|---|---|
-| `pagination` | 루트 (`nav[aria-label="페이지 이동"]`) |
-| `pagination__list` | `ul.flex.align-center.justify-center.gap-8` |
-| `pagination__nav` | 이전/다음 버튼 (`transparent-button-40 flex align-center body2-r-16 color-slate-700`) |
-| `pagination__link` | 숫자 페이지 (`body2-r-16`, 현재 페이지는 `aria-current="page"`) |
-| `pagination__ellipsis` | 생략(...) 표시 (`span` + `aria-hidden="true"`) |
-
-규칙:
-- `nav.pagination`에 `aria-label="페이지 이동"` 필수
-- `pagination__list`는 `ul > li` 구조 유지
-- 현재 페이지의 `pagination__link`에 `aria-current="page"` 필수 (배경 `slate-700` + 글자 `white`)
-- 생략(...) 항목은 `span.pagination__ellipsis` + `aria-hidden="true"` 사용, `a` 태그 금지
-- 이전/다음 버튼은 `pagination__nav` + `transparent-button-40 flex align-center` + 아이콘(`chevron-pagination-left-slate-700`/`chevron-pagination-slate-700`) 조합
-
-→ 마크업 예시: `components/pagination/README.md`
-
----
-
-### 6-16. Chip
+### 6-12. Chip
 
 선택/태그 표시용 칩. `.chip` + 레이아웃 유틸리티 클래스 조합으로 구성, 텍스트만 있는 기본형과 삭제 아이콘이 있는 형태, 목록 형태 지원.
 
@@ -649,6 +555,22 @@ footer 3가지 레이아웃:
 - 선택 입력이 필요한 태그 필터는 `components/checkbox`의 chip variant 사용, 단순 표시용은 이 컴포넌트 사용
 
 → 마크업 예시: `components/chip/README.md`
+
+---
+
+### 6-13. View Toggle
+
+콘텐츠를 카드형/리스트형 등으로 전환해서 보는 보기 방식 토글 버튼 그룹.
+
+**구조: `div.view-toggle[role=group][aria-label]` > `button.view-toggle__btn[aria-pressed]` > `i.{icon}-blue-icon.view-toggle__icon--active` + `i.{icon}-gray-icon.view-toggle__icon--inactive` + `span.body2-r-16.color-slate-700`**
+
+규칙:
+- 그룹 wrapper에 `role="group"` + `aria-label` 필수
+- 각 버튼은 `button[type=button]` + `aria-pressed="true|false"` 필수, 한 그룹에 하나만 active
+- 아이콘은 `dashboards-blue/gray-icon`, `list-blue/gray-icon` 등 정의된 클래스만 사용
+- `.active` 클래스와 `aria-pressed`는 JS로 동기화 (JS 패턴 7-7 참조)
+
+→ 마크업 예시: `components/view-toggle/README.md`
 
 ---
 
@@ -781,6 +703,23 @@ document.querySelectorAll('.textarea-wrapper').forEach(wrapper => {
 
   textarea.addEventListener('input', () => {
     counter.textContent = textarea.value.length;
+  });
+});
+```
+
+### 7-7. View Toggle 보기 전환
+
+```js
+document.querySelectorAll('.view-toggle').forEach((group) => {
+  group.querySelectorAll('.view-toggle__btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      group.querySelectorAll('.view-toggle__btn').forEach((item) => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+    });
   });
 });
 ```
