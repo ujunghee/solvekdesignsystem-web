@@ -34,6 +34,7 @@
 - **페이지 생성 위치는 사용자가 정한다.** 디자인시스템 저장소 바깥에 만들 수도 있으므로, 출력 경로를 임의로 강제하지 않는다. 위 폴더는 이 저장소 안에 레이아웃을 보관할 때의 분류 기준일 뿐이다.
 - 사용자가 "이 저장소 안에" 레이아웃을 만들어 달라고 했고 대상이 웹사이트/지도/관리자 중 명확하면 해당 폴더(`solvek-web`/`solvek-map`/`solvek-admin`)에 둔다. 대상이 불명확하면 사용자에게 먼저 확인한다.
 - 어느 위치·폴더에 만들든 토큰·유틸 클래스·컴포넌트 마크업(`components/{name}/README.md`)·CSS(`css/index.css`) 기준은 동일하게 적용한다.
+- `solvek-web/README.md`는 그 폴더의 참조 페이지가 어떤 컴포넌트로 구성되는지 안내하는 인덱스다. 마크업 단일 출처는 항상 `components/{name}/README.md`이며, `solvek-web/README.md`에 별도 마크업 예시를 추가하지 않는다.
 - variant가 있는 컴포넌트(예: Breadcrumb의 webkit/admin)는 사이트 성격에 맞는 variant를 사용한다 — 관리자 페이지에서는 admin variant.
 
 ---

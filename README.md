@@ -63,25 +63,27 @@ component/ → button, input, search, textarea, checkbox, radio, datepicker, sel
 - **`README.md`** — 마크업 예시 (단일 출처)
 - **`css/component/{name}.css`** — 스타일·상태(`:hover`, `.active`, `disabled` 등)
 
-| 컴포넌트 | 설명 |
-|---|---|
-| [Button](components/button/README.md) | `{color}-button-{size}` 네이밍, 7색상 × 5~6사이즈, 아이콘/disabled 변형 |
-| [Input](components/input/README.md) | `input-field-default-{size}`, 에러/비밀번호/아이콘 변형 |
-| [Textarea](components/textarea/README.md) | `textarea-wrapper` + 글자수 카운터 |
-| [Search](components/search/README.md) | 선행/후행/CTA/팝업/메인검색 5가지 variant |
-| [Checkbox](components/checkbox/README.md) | basic / chip / list 3가지 variant |
-| [Radio](components/radio/README.md) | basic / segment / toggle 3가지 variant |
-| [Select](components/select/README.md) | `select-{size}`, wrapper 필수 |
-| [Datepicker](components/datepicker/README.md) | flatpickr 기반, 단일/기간 선택 |
-| [Modal](components/modal/README.md) | 일반/이벤트성, footer 3가지 레이아웃 |
-| [Shadow](components/shadow/README.md) | `shadow-xs/s/md/lg` 고도 단계 |
-| [Header](components/header/README.md) | 로고·GNB·통합검색·모바일 드로어 |
-| [Footer](components/footer/README.md) | 퀵 아코디언·연락처·정책 링크 |
-| [Breadcrumb](components/breadcrumb/README.md) | webkit/admin 2가지 variant |
-| [Search Filter](components/filter/README.md) | 검색 결과 좌측 사이드바 아코디언 필터 |
-| [Pagination](components/pagination/README.md) | 이전/다음 + 숫자 페이지 + 생략(...) 표시 |
-| [Chip](components/chip/README.md) | 선택/태그 표시 칩, 기본형/삭제 아이콘형 |
-| [Icon](components/icon/README.md) | `css/default/icon.css` 아이콘 전체 목록 + 이미지 미리보기 |
+| 컴포넌트 | 설명 | 사용 예시 |
+|---|---|---|
+| [Button](components/button/README.md) | `{color}-button-{size}` 네이밍, 7색상 × 5~6사이즈, 아이콘/disabled 변형 | |
+| [Input](components/input/README.md) | `input-field-default-{size}`, 에러/비밀번호/아이콘 변형 | |
+| [Textarea](components/textarea/README.md) | `textarea-wrapper` + 글자수 카운터 | |
+| [Search](components/search/README.md) | 선행/후행/CTA/팝업/메인검색 5가지 variant | |
+| [Checkbox](components/checkbox/README.md) | basic / chip / list 3가지 variant | |
+| [Radio](components/radio/README.md) | basic / segment / toggle 3가지 variant | |
+| [Select](components/select/README.md) | `select-{size}`, wrapper 필수 | |
+| [Datepicker](components/datepicker/README.md) | flatpickr 기반, 단일/기간 선택 | |
+| [Modal](components/modal/README.md) | 일반/이벤트성, footer 3가지 레이아웃 | |
+| [Shadow](components/shadow/README.md) | `shadow-xs/s/md/lg` 고도 단계 | |
+| [Header](components/header/README.md) | 로고·GNB·통합검색·모바일 드로어 | [solvek-web/header.html](solvek-web/header.html) |
+| [Footer](components/footer/README.md) | 퀵 아코디언·연락처·정책 링크 | [solvek-web/footer.html](solvek-web/footer.html) |
+| [Breadcrumb](components/breadcrumb/README.md) | webkit/admin 2가지 variant | |
+| [Search Filter](components/filter/README.md) | 검색 결과 좌측 사이드바 아코디언 필터 | [solvek-web/filter.html](solvek-web/filter.html) |
+| [Pagination](components/pagination/README.md) | 이전/다음 + 숫자 페이지 + 생략(...) 표시 | [solvek-web/number.html](solvek-web/number.html) |
+| [Chip](components/chip/README.md) | 선택/태그 표시 칩, 기본형/삭제 아이콘형 | |
+| [Icon](components/icon/README.md) | `css/default/icon.css` 아이콘 전체 목록 + 이미지 미리보기 | |
+
+> `solvek-web/` 폴더 페이지가 어떤 컴포넌트로 구성되는지는 [`solvek-web/README.md`](solvek-web/README.md) 인덱스에서도 확인할 수 있습니다.
 
 ---
 
