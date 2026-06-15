@@ -743,6 +743,32 @@ document.querySelectorAll('.view-toggle').forEach((group) => {
 });
 ```
 
+### 7-8. 펼치기/접기 토글 (arrow-icon)
+
+```js
+document.querySelectorAll('[aria-expanded]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.classList.toggle('active', !expanded);
+  });
+});
+```
+
+### 7-9. 검색필터 트리거 토글 (filter-icon)
+
+```js
+document.querySelectorAll('[data-filter-trigger]').forEach((btn) => {
+  const icon = btn.querySelector('.filter-icon');
+  btn.addEventListener('click', () => {
+    const pressed = btn.getAttribute('aria-pressed') === 'true';
+    btn.setAttribute('aria-pressed', String(!pressed));
+    btn.classList.toggle('active', !pressed);
+    icon?.classList.toggle('active', !pressed);
+  });
+});
+```
+
 ---
 
 ## 8. 절대 금지 사항

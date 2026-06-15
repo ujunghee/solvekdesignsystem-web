@@ -98,7 +98,7 @@ border-{color}-button-{size}
 
 #### 2) 펼치기/접기 (드롭다운 토글)
 
-`arrow-icon`(24x24, 아래 방향)을 사용하며, `aria-expanded`와 `.active` 클래스를 JS로 동기화합니다. `.active` 상태에서는 `arrow-icon`이 180도 회전해 위쪽을 향합니다.
+`arrow-icon`(24x24, 아래 방향)을 사용하며, `aria-expanded`와 `.active` 클래스를 JS로 동기화합니다. `.active` 상태에서는 `arrow-icon`이 180도 회전해 위쪽을 향합니다. (JS 패턴 7-8 참조)
 
 ```html
 <button type="button" class="border-slate-button-40 flex align-center gap-8" aria-expanded="false">
@@ -132,17 +132,17 @@ border-{color}-button-{size}
 
 #### 4) 검색필터 트리거 (active 상태)
 
-`filter-icon` / `filter-icon.active`를 사용하며, 선택 여부에 따라 버튼에 `.active` 클래스 + `aria-pressed`를 토글합니다. `.active` 상태에서는 `border-slate-button-*` → `border-blue` 톤(테두리·텍스트 `blue-500`)으로 전환되고, 아이콘도 `filter-icon active`(blue)로 교체됩니다.
+`filter-icon` / `filter-icon.active`를 사용하며, 선택 여부에 따라 버튼에 `.active` 클래스 + `aria-pressed`를 토글합니다. `.active` 상태에서는 `border-slate-button-*` → `border-blue` 톤(테두리·텍스트 `blue-500`)으로 전환되고, 아이콘도 `filter-icon active`(blue)로 교체됩니다. (JS 패턴 7-9 참조)
 
 ```html
 <!-- 기본 상태 -->
-<button type="button" class="border-slate-button-40 flex align-center gap-8" aria-pressed="false">
+<button type="button" class="border-slate-button-40 flex align-center gap-8" aria-pressed="false" data-filter-trigger>
   검색필터
   <i class="filter-icon" aria-hidden="true"></i>
 </button>
 
 <!-- 활성 상태 -->
-<button type="button" class="border-slate-button-40 flex align-center gap-8 active" aria-pressed="true">
+<button type="button" class="border-slate-button-40 flex align-center gap-8 active" aria-pressed="true" data-filter-trigger>
   검색필터
   <i class="filter-icon active" aria-hidden="true"></i>
 </button>
