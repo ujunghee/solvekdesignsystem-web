@@ -52,7 +52,7 @@ index.css 구성:
 tokens/   → color, typography, spacing, radius
 default/  → border, color, common, component, icon, layout, responsive, spacing, typography
 component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal, breadcrumb, meta-tag
-(web 전용: header, footer, filter, pagination — solvek-web/components/{name}/ 참고)
+(web 전용: header, footer, filter, applied-filter, pagination — solvek-web/components/{name}/ 참고)
 ```
 
 ---
@@ -347,7 +347,7 @@ CSS 변수: `var(--spacing-16)` 등
 
 > **공통 컴포넌트 vs web 전용 컴포넌트**
 > - 아래 6-1~6-12는 모든 사이트에서 공통으로 쓰는 컴포넌트로, 정의는 루트 `components/{name}/`에 있다.
-> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Pagination)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, 사용처·목록은 `solvek-web/README.md`를 본다. (CSS는 `css/component/*.css`에 그대로 두고 `css/index.css`가 통합 호출)
+> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Applied Filter / Pagination)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, 사용처·목록은 `solvek-web/README.md`를 본다. (CSS는 `css/component/*.css`에 그대로 두고 `css/index.css`가 통합 호출)
 
 ### 상태 관리 공통 규칙
 
