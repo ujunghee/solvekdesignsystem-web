@@ -1,0 +1,49 @@
+{
+  "component": "header (map)",
+  "description": "지도/GIS 서비스용 헤더 컴포넌트. 공유포털형(외부 사용자용)과 인트라넷형(내부 관리자용) 2가지 variant 제공",
+  "naming_pattern": "header.{variant}, map-header-search-44 (중앙 주소 검색창)",
+  "variants": {
+    "portal": {
+      "description": "환경정보 융합 공유포털형 — 로고 + 중앙 주소 검색창 + GNB + 로그인 버튼",
+      "when_to_use": "외부 사용자에게 공개되는 지도/GIS 포털 헤더",
+      "structure": "header[role=banner].bg-white.border-b.border-slate-200.px-16 > div.flex.align-center.justify-between.h-64.gap-24 > (h1.header__logo + div.map-header-search-44 + nav[role=navigation])"
+    },
+    "intranet": {
+      "description": "GIS통합인트라넷시스템형 — 로고 + 1depth 메뉴 + 중앙 주소 검색창 + 사용자정보/시간/로그아웃",
+      "when_to_use": "내부 사용자(직원/관리자)가 로그인 후 사용하는 인트라넷 지도 헤더",
+      "structure": "header[role=banner].bg-white.border-b.border-slate-200.px-16 > div.flex.align-center.justify-between.h-64.gap-24 > (div.flex.align-center.gap-24.flex-none[h1.header__logo + nav] + div.map-header-search-44 + div.flex.align-center.gap-12.flex-none[user info + 로그아웃 button])"
+    }
+  },
+  "search": {
+    "class": "map-header-search-44",
+    "icon": "map-search-icon",
+    "structure": "div.map-header-search-44.flex.pl-8.pr-16.gap-8.align-center > i.map-search-icon + label.blind + input[type=search]"
+  },
+  "intranet_user_info": {
+    "structure": "div.flex.align-center.gap-12.flex-none > (div.flex.align-center.gap-6 > (div.flex.align-center.gap-8[i.user-icon + span 사용자명] + div.flex.align-center.gap-6[i.clock-icon + time])) + button.transparent-button-48[로그아웃 + i.admin-logout-icon]"
+  },
+  "icons": {
+    "map-search-icon": "중앙 주소 검색창 아이콘 (30x30)",
+    "user-icon": "사용자(프로필) 아이콘 (32x32)",
+    "clock-icon": "현재 시간 표시 아이콘 (20x20)",
+    "admin-logout-icon": "로그아웃 아이콘 (24x24)"
+  },
+  "notes": [
+    "두 variant 모두 header[role=banner].bg-white.border-b.border-slate-200.px-16 공통 래퍼 사용",
+    "중앙 주소 검색창은 search-{size} 패턴이 아닌 별도 클래스 map-header-search-44 사용",
+    "portal형 GNB는 ul > li > a.body2-m-16.color-slate-700 구조 + border-slate-button-40 로그인 버튼",
+    "intranet형은 1depth 메뉴(홈/지도)를 로고와 같은 flex 그룹에 배치하고, 현재 위치는 color-slate-900 + body2-sb-16으로 강조"
+  ],
+  "rules": [
+    "header 루트에 role=banner 필수",
+    "nav에 role=navigation, aria-label=\"주 메뉴\" 필수",
+    "로고는 h1.header__logo > a[aria-label] > img 구조",
+    "중앙 주소 검색창은 map-header-search-44 + map-search-icon + label.blind + input[type=search] 구조 (components/search/README.md 지도 헤더 검색창 참고)",
+    "intranet형 로그아웃 버튼은 transparent-button-48 + i.admin-logout-icon, 사용자 아이콘은 aria-hidden=true"
+  ],
+  "do_not": [
+    "중앙 검색창에 search-{size} 클래스 사용 (map-header-search-44만 사용)",
+    "정의되지 않은 임의 클래스 생성",
+    "header 루트 role=banner 누락"
+  ]
+}
