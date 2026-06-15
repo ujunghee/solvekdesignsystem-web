@@ -76,6 +76,12 @@ border-{color}-button-{size}
 
 ### 아이콘 버튼
 
+아이콘 버튼은 텍스트와 함께 방향성·보조 의미를 전달하는 화살표형과, 텍스트 옆에 동작을 보조하는 기능형(초기화 등) 두 가지로 나뉩니다.
+
+#### 1) 화살표형 (다음 동작/이동을 암시)
+
+다음 화면으로 이동하거나 더 보기/상세보기처럼 진행 방향을 암시할 때 사용합니다. 아이콘 위치에 따라 `icon-button-right`(텍스트 → 아이콘) 또는 `icon-button-left`(아이콘 → 텍스트)를 추가하고, 반드시 `flex align-center`를 함께 사용합니다.
+
 ```html
 <!-- 아이콘 오른쪽 (blue/slate 계열: chevron-right-white) -->
 <button type="button" class="blue-button-48 icon-button-right flex align-center">
@@ -107,23 +113,36 @@ border-{color}-button-{size}
 </button>
 ```
 
-### 아이콘 색상 매핑
+아이콘 색상 매핑:
 
 | 버튼 색상 | 아이콘 클래스 |
 |---|---|
 | blue, slate | `chevron-right-white` |
 | slate-50, transparent | `chevron-right-slate-700` |
 
-### 필터/업로드 버튼 (54)
+#### 2) 기능형 (초기화 등 보조 동작)
 
-`border-slate-button-54`에만 정의된 54 사이즈 + `filter-icon` 조합입니다.
+텍스트로 동작을 설명하고 아이콘으로 의미를 보강하는 형태입니다. `icon-button-right/left` 없이 `gap-{n} flex align-center`만 추가하며, 주로 `transparent` 계열에 사용합니다.
 
 ```html
-<button type="button" class="border-slate-button-54 button-54 gap-8 flex align-center">
-  필터
-  <span class="filter-icon" aria-hidden="true"></span>
+<!-- 검색필터 영역 초기화: filter-reset-20 -->
+<button type="button" class="transparent-button-32 flex align-center gap-10">
+  <span class="body2-m-16 color-slate-500">초기화</span>
+  <i class="filter-reset-20" aria-hidden="true"></i>
+  <span class="blind">필터 초기화</span>
+</button>
+
+<!-- 적용된 필터 초기화: applied-reset-icon -->
+<button type="button" class="transparent-button-32 flex align-center gap-10">
+  <span class="body2-m-16 color-slate-500">초기화</span>
+  <i class="applied-reset-icon" aria-hidden="true"></i>
+  <span class="blind">적용된 필터 초기화</span>
 </button>
 ```
+
+- 텍스트는 의미를 전달하는 주체이므로 `span.blind`로 대체 텍스트를 추가하지 않아도 되지만, 아이콘이 별도 의미를 더하는 경우(예: 필터 영역 구분) `span.blind`로 보강합니다.
+- 아이콘은 항상 `aria-hidden="true"`로 장식 처리합니다.
+- `filter-reset-20`, `applied-reset-icon` 등 정의된 아이콘 클래스만 사용하며, 색상은 인라인 style로 변경하지 않습니다.
 
 ### View Toggle (보기 방식 전환)
 
