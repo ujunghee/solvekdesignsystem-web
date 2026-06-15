@@ -9,8 +9,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   position: relative;
-  border: 2px solid var(--slate-900);
-  border-radius: var(--radius-lg-16);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md-8);
   background-color: var(--white);
   overflow: hidden;
 }
@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 6.4rem;
+  height: 4rem;
   padding: 0 var(--spacing-16);
   border: none;
   background-color: var(--white);
@@ -76,10 +76,9 @@
 .region-select__item {
   display: flex;
   align-items: center;
-  height: 4rem;
-  padding: 0 var(--spacing-12);
+  justify-content: center;
   border-radius: var(--radius-sm-4);
-  font-size: var(--font-size-body2);
+  font-size: var(--font-size-body3);
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--letter-spacing-md);
   color: var(--slate-900);
