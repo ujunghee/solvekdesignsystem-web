@@ -351,6 +351,129 @@
 
 /* ------- 여기서부터 지도 아이콘 --------- */
 
+/* GPS (현재 위치) */
+.gps-icon {
+  background: url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 6.36361C7.9909 6.36361 6.36366 7.9909 6.36366 9.99996C6.36366 12.009 7.9909 13.6363 10 13.6363C12.0091 13.6363 13.6363 12.0091 13.6363 10C13.6363 7.99094 12.0091 6.36361 10 6.36361ZM18.1273 9.09088C17.7091 5.29998 14.7 2.29091 10.9091 1.87274V0H9.09088V1.87274C5.29998 2.29091 2.29091 5.29998 1.87274 9.09088H0V10.9091H1.87274C2.29091 14.7 5.30002 17.7091 9.09092 18.1273V20H10.9091V18.1273C14.7 17.7091 17.7091 14.7 18.1273 10.9091H20V9.09088H18.1273ZM10 16.3636C6.48638 16.3636 3.63639 13.5136 3.63639 10C3.63639 6.48638 6.48638 3.63639 10 3.63639C13.5136 3.63639 16.3636 6.48634 16.3636 10C16.3636 13.5137 13.5136 16.3636 10 16.3636Z' fill='%23464C53'/></svg>") center center / contain no-repeat;
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.gps-icon.active {
+  background: url("data:image/svg+xml,<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 6.36361C7.9909 6.36361 6.36366 7.9909 6.36366 9.99996C6.36366 12.009 7.9909 13.6363 10 13.6363C12.0091 13.6363 13.6363 12.0091 13.6363 10C13.6363 7.99094 12.0091 6.36361 10 6.36361ZM18.1273 9.09088C17.7091 5.29998 14.7 2.29091 10.9091 1.87274V0H9.09088V1.87274C5.29998 2.29091 2.29091 5.29998 1.87274 9.09088H0V10.9091H1.87274C2.29091 14.7 5.30002 17.7091 9.09092 18.1273V20H10.9091V18.1273C14.7 17.7091 17.7091 14.7 18.1273 10.9091H20V9.09088H18.1273ZM10 16.3636C6.48638 16.3636 3.63639 13.5136 3.63639 10C3.63639 6.48638 6.48638 3.63639 10 3.63639C13.5136 3.63639 16.3636 6.48634 16.3636 10C16.3636 13.5137 13.5136 16.3636 10 16.3636Z' fill='%231A76FF'/></svg>") center center / contain no-repeat;
+}
+
+/* 지도 확대 */
+.plus-icon {
+  background: url("data:image/svg+xml,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.75 0.75L7.75 14.75M14.75 7.75L0.75 7.75' stroke='%23464C53' stroke-width='1.5' stroke-linecap='round'/></svg>") center center / contain no-repeat;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.plus-icon.active {
+  background: url("data:image/svg+xml,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.75 0.75L7.75 14.75M14.75 7.75L0.75 7.75' stroke='%231A76FF' stroke-width='1.5' stroke-linecap='round'/></svg>") center center / contain no-repeat;
+}
+
+/* 지도 축소 */
+.minus-icon {
+  background: url("data:image/svg+xml,<svg width='16' height='2' viewBox='0 0 16 2' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M14.75 0.75H0.75' stroke='%23464C53' stroke-width='1.5' stroke-linecap='round'/></svg>") center center / contain no-repeat;
+  width: 1.6rem;
+  height: 0.2rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.minus-icon.active {
+  background: url("data:image/svg+xml,<svg width='16' height='2' viewBox='0 0 16 2' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M14.75 0.75H0.75' stroke='%231A76FF' stroke-width='1.5' stroke-linecap='round'/></svg>") center center / contain no-repeat;
+}
+
+/* 지도 면적 재기 */
+.arrow-expand-icon {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 16V20H8M4 20L8.5 15.5M20 8V4H16M20 4L15.5 8.5M8 4L4 4L4 8M4 4L8.5 8.5M16 20H20L20 16M20 20L15.5 15.5' stroke='%23464C53' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.arrow-expand-icon.active {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 16V20H8M4 20L8.5 15.5M20 8V4H16M20 4L15.5 8.5M8 4L4 4L4 8M4 4L8.5 8.5M16 20H20L20 16M20 20L15.5 15.5' stroke='%231A76FF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+}
+
+/* 지도 분할 */
+.divider-icon {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3 21V18.0811C3 17.0064 3.88316 16.1351 4.9726 16.1351L19.0274 16.1351C20.1168 16.1351 21 17.0064 21 18.0811V21M3 3V5.91892C3 6.99363 3.88316 7.86486 4.9726 7.86486H19.0274C20.1168 7.86486 21 6.99363 21 5.91892V3M3 12.0001H3.06007M7.42492 12.0001H7.48498M11.97 12.0001H12.03M16.455 12.0001H16.515M20.9399 12.0001H21' stroke='%23475263' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.divider-icon.active {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3 21V18.0811C3 17.0064 3.88316 16.1351 4.9726 16.1351L19.0274 16.1351C20.1168 16.1351 21 17.0064 21 18.0811V21M3 3V5.91892C3 6.99363 3.88316 7.86486 4.9726 7.86486H19.0274C20.1168 7.86486 21 6.99363 21 5.91892V3M3 12.0001H3.06007M7.42492 12.0001H7.48498M11.97 12.0001H12.03M16.455 12.0001H16.515M20.9399 12.0001H21' stroke='%231A76FF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+}
+
+/* 지도 사용자 아이콘 */
+.user-icon {
+  background: url("data:image/svg+xml,<svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='16' cy='16' r='16' fill='%23F4F5F6'/><path d='M19.8823 12.1175C19.8823 14.0969 18.2636 15.7015 16.2668 15.7015C14.27 15.7015 12.6513 14.0969 12.6513 12.1175C12.6513 10.1381 14.27 8.53351 16.2668 8.53351C18.2636 8.53351 19.8823 10.1381 19.8823 12.1175Z' fill='%23F4F5F6'/><path d='M7.4668 23.4668C8.79791 21.2659 11.7153 19.7596 16.2668 19.7596C20.8183 19.7596 23.7357 21.2659 25.0668 23.4668M19.8823 12.1175C19.8823 14.0969 18.2636 15.7015 16.2668 15.7015C14.27 15.7015 12.6513 14.0969 12.6513 12.1175C12.6513 10.1381 14.27 8.53351 16.2668 8.53351C18.2636 8.53351 19.8823 10.1381 19.8823 12.1175Z' stroke='%236D7882' stroke-width='1.5' stroke-linecap='round'/></svg>") center center / contain no-repeat;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* 지도 헤더 검색창 아이콘 */
+.map-search-icon {
+  background: url("data:image/svg+xml,<svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M19.6922 19.8L23 23M21.9333 14.4667C21.9333 18.5904 18.5904 21.9333 14.4667 21.9333C10.3429 21.9333 7 18.5904 7 14.4667C7 10.3429 10.3429 7 14.4667 7C18.5904 7 21.9333 10.3429 21.9333 14.4667Z' stroke='%23464C53' stroke-width='1.5' stroke-linecap='round'/></svg>") center center / contain no-repeat;
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* 로그아웃 (로그인 시 rotate) */
+.admin-logout-icon {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9.50769 6H6.63916C6.20443 6 5.7875 6.1712 5.4801 6.47595C5.1727 6.7807 5 7.19402 5 7.625V17.375C5 17.806 5.1727 18.2193 5.4801 18.524C5.7875 18.8288 6.20443 19 6.63916 19H9.50769M9.71142 12.5H19M15.4509 16.2143L19 12.5L15.4509 8.78571' stroke='%2333363D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.admin-logout-icon.active {
+  transform: rotate(180deg);
+}
+
+/* 지도 영역 주소 아이콘 */
+.map-icon {
+  background: url("data:image/svg+xml,<svg width='14' height='18' viewBox='0 0 14 18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M13.2152 3.79571C12.6942 2.76066 11.9234 1.87419 10.9736 1.2178C10.0238 0.561411 8.9255 0.15616 7.77965 0.0393066C7.26131 -0.0131022 6.73905 -0.0131022 6.22071 0.0393066C5.07488 0.156237 3.97659 0.561476 3.02675 1.21779C2.07692 1.8741 1.30599 2.76044 0.784824 3.79536C0.129113 5.11586 -0.124161 6.60236 0.0569026 8.06764C0.237966 9.53291 0.845269 10.9114 1.80232 12.0296L6.46927 17.7473C6.53372 17.8263 6.61475 17.89 6.70651 17.9336C6.79828 17.9773 6.89851 18 7.00001 18C7.1015 18 7.20174 17.9773 7.2935 17.9336C7.38527 17.89 7.46629 17.8263 7.53074 17.7473L12.1977 12.0296C13.1547 10.9115 13.762 9.53304 13.9431 8.06782C14.1242 6.6026 13.8709 5.11615 13.2152 3.79571ZM7.00001 9.69194C6.45648 9.69194 5.92515 9.52952 5.47323 9.22523C5.0213 8.92093 4.66906 8.48843 4.46106 7.98241C4.25306 7.47639 4.19864 6.91958 4.30468 6.38239C4.41071 5.8452 4.67245 5.35176 5.05678 4.96447C5.44112 4.57718 5.93079 4.31343 6.46387 4.20657C6.99696 4.09972 7.54952 4.15456 8.05167 4.36416C8.55383 4.57376 8.98303 4.92871 9.285 5.38412C9.58697 5.83952 9.74814 6.37494 9.74814 6.92265C9.74729 7.65685 9.45748 8.36072 8.94229 8.87988C8.4271 9.39904 7.7286 9.69108 7.00001 9.69194Z' fill='%23CFD4DB'/></svg>") center center / contain no-repeat;
+  width: 1.4rem;
+  height: 1.8rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* 지도용 캘린더 아이콘 */
+.map-calendar-icon {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20.25 9.02997H3.74995C3.33604 9.02997 3 9.36601 3 9.77992V18.75C3 19.9905 4.00951 21 5.25 21H18.75C19.9905 21 21 19.9905 21 18.75V9.77992C21 9.36601 20.664 9.02997 20.25 9.02997Z' fill='%23CDD1D5'/><path d='M18.75 5.25H5.25C4.00731 5.25 3 6.25731 3 7.5V9.77994H21V7.5C21 6.25731 19.9927 5.25 18.75 5.25Z' fill='%238A949E'/><path d='M7.50005 3H6.75009C6.33604 3 6 3.33604 6 3.74995V6.75005C6 7.16396 6.33604 7.5 6.75009 7.5H7.50005C7.91409 7.5 8.25 7.16396 8.25 6.75005V3.74995C8.25 3.33604 7.91409 3 7.50005 3Z' fill='%2358616A'/><path d='M17.2499 3H16.5C16.0859 3 15.75 3.33604 15.75 3.74995V6.75005C15.75 7.16396 16.0859 7.5 16.5 7.5H17.2499C17.664 7.5 18 7.16396 18 6.75005V3.74995C18 3.33604 17.664 3 17.2499 3Z' fill='%2358616A'/></svg>") center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* 사이드바 접기/메뉴 닫기 */
+.menu-off-icon {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M13.0337 6.00002L7.20039 12L13.0337 18M7.20039 12H21.6004M2.40039 2.40002V21.6' stroke='%236D7882' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
 @media (max-width: 767px) {
   .close-icon-lg {
     width: 3.2rem;

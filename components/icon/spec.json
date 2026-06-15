@@ -49,12 +49,31 @@
     { "class": "view-count-icon", "size": "24x24", "color": "#8A949E", "source": "inline-svg", "desc": "조회수" },
     { "class": "applied-reset-icon", "size": "17x16 (viewBox 19x18)", "color": "#464C53", "source": "inline-svg", "desc": "적용된 필터 초기화" },
     { "class": "button-arrow-icon", "size": "12x7", "color": "#1E2124", "source": "inline-svg", "desc": "버튼 펼치기/접기 화살표" },
-    { "class": "all-search-close-icon", "size": "24x24", "color": "#6D7882", "source": "inline-svg", "desc": "통합검색 닫기 아이콘" }
+    { "class": "all-search-close-icon", "size": "24x24", "color": "#6D7882", "source": "inline-svg", "desc": "통합검색 닫기 아이콘" },
+    { "class": "gps-icon", "size": "20x20", "color": "#464C53", "source": "inline-svg", "desc": "지도 컨트롤 - 현재 위치 (GPS)" },
+    { "class": "gps-icon.active", "size": "20x20", "color": "#1A76FF", "source": "inline-svg", "desc": "현재 위치 (클릭 시 활성)" },
+    { "class": "plus-icon", "size": "16x16", "color": "#464C53", "source": "inline-svg", "desc": "지도 확대" },
+    { "class": "plus-icon.active", "size": "16x16", "color": "#1A76FF", "source": "inline-svg", "desc": "지도 확대 (클릭 시 활성)" },
+    { "class": "minus-icon", "size": "16x2", "color": "#464C53", "source": "inline-svg", "desc": "지도 축소" },
+    { "class": "minus-icon.active", "size": "16x2", "color": "#1A76FF", "source": "inline-svg", "desc": "지도 축소 (클릭 시 활성)" },
+    { "class": "arrow-expand-icon", "size": "24x24", "color": "#464C53", "source": "inline-svg", "desc": "지도 면적 재기" },
+    { "class": "arrow-expand-icon.active", "size": "24x24", "color": "#1A76FF", "source": "inline-svg", "desc": "지도 면적 재기 (클릭 시 활성)" },
+    { "class": "divider-icon", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "지도 분할" },
+    { "class": "divider-icon.active", "size": "24x24", "color": "#1A76FF", "source": "inline-svg", "desc": "지도 분할 (클릭 시 활성)" },
+    { "class": "user-icon", "size": "32x32", "color": "#F4F5F6 / #6D7882", "source": "inline-svg", "desc": "지도 사용자(프로필) 아이콘" },
+    { "class": "map-search-icon", "size": "30x30", "color": "#464C53", "source": "inline-svg", "desc": "지도 헤더 중앙 검색창 아이콘" },
+    { "class": "admin-logout-icon", "size": "24x24", "color": "#33363D", "source": "inline-svg", "desc": "로그아웃" },
+    { "class": "admin-logout-icon.active", "size": "24x24", "color": "#33363D", "source": "css-generated", "desc": "로그인 상태 — admin-logout-icon을 180deg rotate" },
+    { "class": "map-icon", "size": "14x18", "color": "#CFD4DB", "source": "inline-svg", "desc": "검색창 - 지도 영역 주소 표시" },
+    { "class": "map-calendar-icon", "size": "24x24", "color": "#CDD1D5 / #8A949E / #58616A", "source": "inline-svg", "desc": "지도용 캘린더 아이콘 (web calendar-icon의 map 버전)" },
+    { "class": "menu-off-icon", "size": "24x24", "color": "#6D7882", "source": "inline-svg", "desc": "사이드바 접기/메뉴 닫기" }
   ],
   "notes": [
     "inline-svg 항목은 css/default/icon.css의 background: url(\"data:image/svg+xml,...\") 값을 그대로 사용하며, GitHub 미리보기를 위해 image/icon/generated/{class}.svg 로 동일 내용을 추출해 둠",
     "file 참조 항목(header-login-24, eye-icon)은 기존 image/icon/ 파일을 그대로 가리킴",
     "close-icon은 이미지가 없는 CSS 전용 아이콘이라 미리보기 제공 불가",
+    "지도 컨트롤 아이콘(gps/plus/minus/arrow-expand/divider-icon)은 클릭 시 .active 클래스를 토글해 강조색(#1A76FF)으로 전환 (eye-icon, filter-icon과 동일한 패턴)",
+    "admin-logout-icon.active는 별도 이미지가 아닌 180deg rotate(transform)로 처리",
     "아이콘은 항상 i 또는 span + aria-hidden=true로 장식용 처리, 의미가 필요하면 형제 요소로 span.blind 텍스트 제공"
   ],
   "rules": [
