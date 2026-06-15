@@ -370,6 +370,9 @@
 .flex-none {
   flex: 0 0 auto;
 }
+.flex-shrink-0-auto {
+  flex: 1 0 auto;
+}
 
 
 /* position s =====*/
