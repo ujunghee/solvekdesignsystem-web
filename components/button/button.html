@@ -228,12 +228,46 @@
 
   <p class="body3-r-14 color-gray-700 pt-16">아이콘 조합</p>
 
-  <!-- filter upload button s -->
-  <button type="button" class="border-slate-button-54 button-54 gap-8 flex align-center">
-    slate button
-    <span class="filter-icon" aria-hidden="true"></span>
+  <!-- functional reset icon button s -->
+  <button type="button" class="transparent-button-32 flex align-center gap-10">
+    <span class="body2-m-16 color-slate-500">초기화</span>
+    <i class="filter-reset-20" aria-hidden="true"></i>
+    <span class="blind">필터 초기화</span>
   </button>
-  <!-- filter upload button e -->
+
+  <button type="button" class="transparent-button-32 flex align-center gap-10">
+    <span class="body2-m-16 color-slate-500">초기화</span>
+    <i class="applied-reset-icon" aria-hidden="true"></i>
+    <span class="blind">적용된 필터 초기화</span>
+  </button>
+  <!-- functional reset icon button e -->
+
+  <!-- dropdown toggle button s -->
+  <button type="button" class="border-slate-button-48 flex align-center gap-8" aria-expanded="false">
+    고급 검색
+    <i class="button-arrow-icon" aria-hidden="true"></i>
+  </button>
+  <!-- dropdown toggle button e -->
+
+  <!-- remove icon button s -->
+  <button type="button" class="transparent-button-32 flex align-center gap-6">
+    <span class="body2-m-16 color-slate-700">대기</span>
+    <i class="chips-close-icon" aria-hidden="true"></i>
+    <span class="blind">삭제</span>
+  </button>
+  <!-- remove icon button e -->
+
+  <!-- filter trigger button s -->
+  <button type="button" class="border-slate-button-48 flex align-center gap-8" aria-pressed="false" data-filter-trigger>
+    검색필터
+    <i class="filter-icon" aria-hidden="true"></i>
+  </button>
+
+  <button type="button" class="border-slate-button-48 flex align-center gap-8 active" aria-pressed="true" data-filter-trigger>
+    검색필터
+    <i class="filter-icon active" aria-hidden="true"></i>
+  </button>
+  <!-- filter trigger button e -->
 
   <!-- view toggle button s -->
   <div class="view-toggle" role="group" aria-label="보기 방식">
@@ -261,6 +295,24 @@
           btn.classList.add('active');
           btn.setAttribute('aria-pressed', 'true');
         });
+      });
+    });
+
+    document.querySelectorAll('[aria-expanded]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.classList.toggle('active', !expanded);
+      });
+    });
+
+    document.querySelectorAll('[data-filter-trigger]').forEach((btn) => {
+      const icon = btn.querySelector('.filter-icon');
+      btn.addEventListener('click', () => {
+        const pressed = btn.getAttribute('aria-pressed') === 'true';
+        btn.setAttribute('aria-pressed', String(!pressed));
+        btn.classList.toggle('active', !pressed);
+        icon?.classList.toggle('active', !pressed);
       });
     });
   </script>

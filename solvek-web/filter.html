@@ -9,6 +9,29 @@
 </head>
 <body>
   <div class="inner-default py-24">
+    <!-- 적용된 필터 s -->
+    <div class="applied-filter bg-slate-50 radius-md-8 px-16 py-16 flex justify-between align-start gap-8 mb-24">
+      <div class="applied-filter__list flex align-start gap-16">
+        <span class="flex gap-8 align-center body2-sb-16 color-slate-900 flex-shrink-0-auto pt-4">적용된 필터 <span class="applied-filter__count color-blue-500">1</span></span>
+        <ul class="flex flex-wrap gap-8">
+          <li>
+            <div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 gap-6 flex align-center justify-center bg-white">
+              <span class="body2-r-16 color-slate-700">지정유산</span>
+              <button type="button" class="chips-close-icon" data-applied-filter-remove>
+                <span class="blind">지정유산 필터 삭제</span>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button type="button" class="mt-2 applied-filter__reset transparent-button-32 flex align-center gap-10" data-applied-filter-reset>
+        <span class="body2-m-16 color-slate-700">초기화</span>
+        <i class="applied-reset-icon" aria-hidden="true"></i>
+        <span class="blind">적용된 필터 초기화</span>
+      </button>
+    </div>
+    <!-- 적용된 필터 e -->
+
     <aside class="search-filter" aria-labelledby="search-filter-title">
       <div class="search-filter__head flex justify-between align-center">
         <h2 id="search-filter-title" class="search-filter__title heading10-sb-20 color-slate-900">검색필터 예시</h2>
@@ -466,6 +489,31 @@
     }
 
     initFilterPanels();
+
+    const appliedFilter = document.querySelector('.applied-filter');
+    if (appliedFilter) {
+      const countEl = appliedFilter.querySelector('.applied-filter__count');
+      const list = appliedFilter.querySelector('.applied-filter__list ul');
+
+      function updateAppliedFilterCount() {
+        const count = list.querySelectorAll('li').length;
+        countEl.textContent = count;
+        appliedFilter.hidden = count === 0;
+      }
+
+      appliedFilter.addEventListener('click', (e) => {
+        const removeBtn = e.target.closest('[data-applied-filter-remove]');
+        if (removeBtn) {
+          removeBtn.closest('li').remove();
+          updateAppliedFilterCount();
+        }
+      });
+
+      document.querySelector('[data-applied-filter-reset]')?.addEventListener('click', () => {
+        list.querySelectorAll('li').forEach((li) => li.remove());
+        updateAppliedFilterCount();
+      });
+    }
   </script>
 </body>
 </html>

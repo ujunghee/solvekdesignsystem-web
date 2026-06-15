@@ -52,7 +52,7 @@ index.css 구성:
 tokens/   → color, typography, spacing, radius
 default/  → border, color, common, component, icon, layout, responsive, spacing, typography
 component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal, breadcrumb, meta-tag
-(web 전용: header, footer, filter, pagination — solvek-web/components/{name}/ 참고)
+(web 전용: header, footer, filter, applied-filter, pagination — solvek-web/components/{name}/ 참고)
 ```
 
 ---
@@ -142,6 +142,18 @@ weight 약자: `b`(bold), `sb`(semi-bold), `m`(medium), `r`(regular)
 | `body3-b-14`, `body3-sb-14`, `body3-m-14`, `body3-r-14` | 14px | bold, semi-bold, medium, regular |
 | `body4-b-13`, `body4-sb-13`, `body4-m-13`, `body4-r-13` | 13px | bold, semi-bold, medium, regular |
 | `body5-b-12`, `body5-sb-12`, `body5-m-12`, `body5-r-12` | 12px | bold, semi-bold, medium, regular |
+
+**Line-height 예외 유틸 클래스 (`css/default/typography.css`)**
+
+타이포 클래스에 정의된 기본 `line-height`를 덮어써야 할 때만 사용한다.
+
+| 클래스 | line-height |
+|---|---|
+| `line-auto` | normal |
+| `line-140` | 1.4 (`--line-height-140`) |
+| `line-160` | 1.6 (`--line-height-160`) |
+| `line-170` | 1.7 (`--line-height-170`) |
+
 
 ### 3-3. 간격 (tokens/spacing.css)
 
@@ -235,6 +247,7 @@ CSS 변수: `var(--spacing-16)` 등
 | `flex-1` | flex: 1 |
 | `flex-auto` | flex: 1 1 auto |
 | `flex-none` | flex: 0 0 auto |
+| `flex-shrink-0-auto` | flex: 1 0 auto |
 
 ### 4-4. Position
 
@@ -347,7 +360,7 @@ CSS 변수: `var(--spacing-16)` 등
 
 > **공통 컴포넌트 vs web 전용 컴포넌트**
 > - 아래 6-1~6-12는 모든 사이트에서 공통으로 쓰는 컴포넌트로, 정의는 루트 `components/{name}/`에 있다.
-> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Pagination)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, 사용처·목록은 `solvek-web/README.md`를 본다. (CSS는 `css/component/*.css`에 그대로 두고 `css/index.css`가 통합 호출)
+> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Applied Filter / Pagination)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, 사용처·목록은 `solvek-web/README.md`를 본다. (CSS는 `css/component/*.css`에 그대로 두고 `css/index.css`가 통합 호출)
 
 ### 상태 관리 공통 규칙
 
@@ -562,7 +575,7 @@ footer 3가지 레이아웃:
 
 선택/태그 표시용 칩. `.chip` + 레이아웃 유틸리티 클래스 조합으로 구성, 텍스트만 있는 기본형과 삭제 아이콘이 있는 형태, 목록 형태 지원.
 
-**구성: `chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center` + `span.body2-r-16.color-slate-700`**
+**구성: `chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center bg-white` + `span.body2-r-16.color-slate-700`**
 
 규칙:
 - 삭제 가능한 칩은 `gap-6` 추가 + `chips-close-icon` 버튼(`button[type=button]` + `span.blind`로 "삭제")
@@ -739,6 +752,32 @@ document.querySelectorAll('.view-toggle').forEach((group) => {
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
     });
+  });
+});
+```
+
+### 7-8. 펼치기/접기 토글 (button-arrow-icon)
+
+```js
+document.querySelectorAll('[aria-expanded]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.classList.toggle('active', !expanded);
+  });
+});
+```
+
+### 7-9. 검색필터 트리거 토글 (filter-icon)
+
+```js
+document.querySelectorAll('[data-filter-trigger]').forEach((btn) => {
+  const icon = btn.querySelector('.filter-icon');
+  btn.addEventListener('click', () => {
+    const pressed = btn.getAttribute('aria-pressed') === 'true';
+    btn.setAttribute('aria-pressed', String(!pressed));
+    btn.classList.toggle('active', !pressed);
+    icon?.classList.toggle('active', !pressed);
   });
 });
 ```

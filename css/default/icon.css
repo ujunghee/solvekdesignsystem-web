@@ -5,6 +5,14 @@
   display: block;
 }
 
+.button-arrow-icon {
+  background: url("data:image/svg+xml,<svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.75 0.75L5.75081 5.33L10.75 0.75' stroke='%231E2124' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  width: 1.2rem;
+  height: 0.7rem;
+  display: block;
+  flex-shrink: 0;
+}
+
 .search-icon-54 {
   background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10.8984 2.40039C15.5929 2.40039 19.3984 6.20597 19.3984 10.9004C19.3984 12.9589 18.6658 14.8457 17.4482 16.3164L20.7666 19.6348C21.0785 19.9471 21.0786 20.4533 20.7666 20.7656C20.4542 21.078 19.9472 21.078 19.6348 20.7656L16.3174 17.4482C14.8462 18.6671 12.9582 19.4004 10.8984 19.4004C6.20402 19.4004 2.39844 15.5948 2.39844 10.9004C2.39844 6.20597 6.20402 2.40039 10.8984 2.40039ZM10.8984 4C7.08767 4 3.99805 7.08963 3.99805 10.9004C3.99805 14.7112 7.08767 17.8008 10.8984 17.8008C12.7149 17.8008 14.3655 17.0966 15.5977 15.9492C15.6349 15.8757 15.6847 15.8065 15.7461 15.7451C15.8078 15.6834 15.8773 15.634 15.9512 15.5967C17.0966 14.3649 17.7988 12.7151 17.7988 10.9004C17.7988 7.08963 14.7092 4 10.8984 4Z' fill='%2358616A'/></svg>") center center / contain no-repeat;
   width: 2.4rem;
@@ -256,6 +264,15 @@
   flex-shrink: 0;
 }
 
+/* 통합검색 닫기 아이콘 */
+.all-search-close-icon {
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M16.9746 6.1757C17.2088 5.94141 17.5889 5.94146 17.8232 6.1757C18.0575 6.41 18.0575 6.79002 17.8232 7.02433L12.8486 11.998L17.8261 16.9755C18.0604 17.2098 18.0603 17.5898 17.8261 17.8241C17.5918 18.0584 17.2118 18.0584 16.9775 17.8241L11.9999 12.8466L7.02338 17.8241C6.78911 18.0584 6.41003 18.0583 6.17573 17.8241C5.94142 17.5898 5.94143 17.2098 6.17573 16.9755L11.1513 11.998L6.17768 7.02433C5.94359 6.79001 5.94442 6.40993 6.17866 6.1757C6.41291 5.94175 6.79209 5.94171 7.02631 6.1757L11.9999 11.1493L16.9746 6.1757Z' fill='%236D7882'/></svg>") center center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
 
 /* 필터 초기화 아이콘 */
 .filter-reset-20 {
@@ -324,7 +341,7 @@
 
 /* 조회수 아이콘 */
 .view-count-icon {
-  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1.5 12C4.5 5.5 8 4 12 4C16 4 19.5 5.5 22.5 12C19.5 18.5 16 20 12 20C8 20 4.5 18.5 1.5 12Z' stroke='%23475263' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><path d='M12 15.25C13.7949 15.25 15.25 13.7949 15.25 12C15.25 10.2051 13.7949 8.75 12 8.75C10.2051 8.75 8.75 10.2051 8.75 12C8.75 13.7949 10.2051 15.25 12 15.25Z' stroke='%23475263' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
+  background: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1.5 12C4.5 5.5 8 4 12 4C16 4 19.5 5.5 22.5 12C19.5 18.5 16 20 12 20C8 20 4.5 18.5 1.5 12Z' stroke='%238390a2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M12 14.5C13.3807 14.5 14.5 13.3807 14.5 12C14.5 10.6193 13.3807 9.5 12 9.5C10.6193 9.5 9.5 10.6193 9.5 12C9.5 13.3807 10.6193 14.5 12 14.5Z' stroke='%238390a2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") center center / contain no-repeat;
   width: 2.4rem;
   height: 2.4rem;
   display: block;

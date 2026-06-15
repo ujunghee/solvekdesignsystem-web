@@ -46,8 +46,10 @@
     { "class": "dashboards-gray-icon", "size": "20x20", "color": "#64748B", "source": "inline-svg", "desc": "카드형 보기 (선택 안 됨) - view-toggle" },
     { "class": "list-blue-icon", "size": "20x20", "color": "#1A76FF", "source": "inline-svg", "desc": "리스트형 보기 (선택됨) - view-toggle" },
     { "class": "list-gray-icon", "size": "20x20", "color": "#64748B", "source": "inline-svg", "desc": "리스트형 보기 (선택 안 됨) - view-toggle" },
-    { "class": "view-count-icon", "size": "24x24", "color": "#475263", "source": "inline-svg", "desc": "조회수" },
-    { "class": "applied-reset-icon", "size": "17x16 (viewBox 19x18)", "color": "#464C53", "source": "inline-svg", "desc": "적용된 필터 초기화" }
+    { "class": "view-count-icon", "size": "24x24", "color": "#8A949E", "source": "inline-svg", "desc": "조회수" },
+    { "class": "applied-reset-icon", "size": "17x16 (viewBox 19x18)", "color": "#464C53", "source": "inline-svg", "desc": "적용된 필터 초기화" },
+    { "class": "button-arrow-icon", "size": "12x7", "color": "#1E2124", "source": "inline-svg", "desc": "버튼 펼치기/접기 화살표" },
+    { "class": "all-search-close-icon", "size": "24x24", "color": "#6D7882", "source": "inline-svg", "desc": "통합검색 닫기 아이콘" }
   ],
   "notes": [
     "inline-svg 항목은 css/default/icon.css의 background: url(\"data:image/svg+xml,...\") 값을 그대로 사용하며, GitHub 미리보기를 위해 image/icon/generated/{class}.svg 로 동일 내용을 추출해 둠",

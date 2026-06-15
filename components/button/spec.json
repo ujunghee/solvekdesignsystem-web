@@ -47,21 +47,50 @@
     "example": "<button type='button' class='button-48' disabled>비활성</button>"
   },
   "icon_button": {
-    "description": "아이콘 포함 버튼. 아이콘 위치에 따라 클래스 추가",
-    "patterns": {
-      "icon-button-right": "텍스트 왼쪽, 아이콘 오른쪽",
-      "icon-button-left": "아이콘 왼쪽, 텍스트 오른쪽"
-    },
-    "icons": {
-      "chevron-right-white": "흰색 화살표 (blue, slate 계열에 사용)",
-      "chevron-right-slate-700": "진한 회색 화살표 (slate-50, transparent 계열에 사용)",
-      "filter-icon": "필터 아이콘 (24x24, slate-700) — border-slate-button-54 등 필터/업로드 버튼에 사용"
-    },
-    "examples": [
-      "<button type='button' class='blue-button-48 icon-button-right flex align-center'>\n  저장\n  <span class='chevron-right-white'></span>\n</button>",
-      "<button type='button' class='slate-50-button-48 icon-button-left flex align-center'>\n  <span class='chevron-right-slate-700'></span>\n  목록보기\n</button>",
-      "<button type='button' class='border-slate-button-54 button-54 gap-8 flex align-center'>\n  필터\n  <span class='filter-icon'></span>\n</button>"
-    ]
+    "description": "아이콘 포함 버튼. icon-button-right/left 없이 gap-{n} flex align-center로 텍스트+아이콘 조합을 구성하며, 4가지 기능형으로 구분",
+    "types": {
+      "reset": {
+        "description": "초기화 동작. transparent 계열에 사용",
+        "icons": {
+          "filter-reset-20": "검색필터 영역 초기화 아이콘 (18x18, slate-700)",
+          "applied-reset-icon": "적용된 필터 초기화 아이콘 (17x16, #464C53)"
+        },
+        "examples": [
+          "<button type='button' class='transparent-button-32 flex align-center gap-10'>\n  <span class='body2-m-16 color-slate-500'>초기화</span>\n  <i class='filter-reset-20'></i>\n  <span class='blind'>필터 초기화</span>\n</button>",
+          "<button type='button' class='transparent-button-32 flex align-center gap-10'>\n  <span class='body2-m-16 color-slate-500'>초기화</span>\n  <i class='applied-reset-icon'></i>\n  <span class='blind'>적용된 필터 초기화</span>\n</button>"
+        ]
+      },
+      "dropdown_toggle": {
+        "description": "펼치기/접기. button-arrow-icon(12x7, 아래 방향) 사용, aria-expanded + .active 클래스를 JS로 동기화 (JS 패턴 7-8 참조). .active 상태에서 button-arrow-icon 180도 회전",
+        "icons": {
+          "button-arrow-icon": "버튼 펼치기/접기 화살표 (12x7, #1E2124)"
+        },
+        "examples": [
+          "<button type='button' class='border-slate-button-48 flex align-center gap-8' aria-expanded='false'>\n  고급 검색\n  <i class='button-arrow-icon'></i>\n</button>",
+          "<button type='button' class='border-slate-button-48 flex align-center gap-8 active' aria-expanded='true'>\n  고급 검색\n  <i class='button-arrow-icon'></i>\n</button>"
+        ]
+      },
+      "remove": {
+        "description": "닫기/삭제. chips-close-icon(12x12) 사용, span.blind로 동작 의미 전달. 칩(태그) 삭제는 components/chip/README.md 마크업 따름",
+        "icons": {
+          "chips-close-icon": "삭제 아이콘 (12x12, #475263)"
+        },
+        "examples": [
+          "<button type='button' class='transparent-button-32 flex align-center gap-6'>\n  <span class='body2-m-16 color-slate-700'>대기</span>\n  <i class='chips-close-icon'></i>\n  <span class='blind'>삭제</span>\n</button>"
+        ]
+      },
+      "filter_trigger": {
+        "description": "검색필터 트리거. filter-icon/filter-icon.active 사용, data-filter-trigger 속성 + .active 클래스 + aria-pressed를 JS로 동기화 (JS 패턴 7-9 참조). .active 상태에서 배경 slate-50 + 텍스트 blue-500으로 전환(테두리 변경 없음), 아이콘은 filter-icon active(blue)로 교체",
+        "icons": {
+          "filter-icon": "필터 트리거 아이콘 (24x24, slate-700)",
+          "filter-icon.active": "필터 트리거 아이콘 - 활성 (24x24, #1A76FF)"
+        },
+        "examples": [
+          "<button type='button' class='border-slate-button-48 flex align-center gap-8' aria-pressed='false' data-filter-trigger>\n  검색필터\n  <i class='filter-icon'></i>\n</button>",
+          "<button type='button' class='border-slate-button-48 flex align-center gap-8 active' aria-pressed='true' data-filter-trigger>\n  검색필터\n  <i class='filter-icon active'></i>\n</button>"
+        ]
+      }
+    }
   },
   "examples": [
     "<button type='button' class='blue-button-40'>저장</button>",
@@ -100,8 +129,7 @@
     ]
   },
   "notes": [
-    "54 사이즈는 현재 border-slate 색상에만 정의됨 (border-slate-button-54). 다른 색상의 54 사이즈는 CSS 정의 전까지 사용 금지",
-    "필터/업로드형 버튼: border-slate-button-54 button-54 gap-8 flex align-center + span.filter-icon"
+    "54 사이즈는 현재 border-slate 색상에만 정의됨 (border-slate-button-54). 다른 색상의 54 사이즈는 CSS 정의 전까지 사용 금지"
   ],
   "rules": [
     "반드시 type 속성 명시 (button/submit/reset 중 하나)",
@@ -117,6 +145,8 @@
     "아이콘 버튼에서 flex align-center 누락",
     "disabled 버튼에 색상 클래스 사용",
     "view-toggle 그룹에 aria-pressed 속성 누락",
-    "view-toggle에서 정의되지 않은 아이콘 클래스 또는 인라인 style로 색상 변경"
+    "view-toggle에서 정의되지 않은 아이콘 클래스 또는 인라인 style로 색상 변경",
+    "펼치기/접기, 검색필터 트리거 버튼에서 .active 클래스와 aria-expanded/aria-pressed 동기화 누락",
+    "icon_button에서 정의되지 않은 아이콘 클래스 또는 인라인 style로 색상 변경"
   ]
 }
