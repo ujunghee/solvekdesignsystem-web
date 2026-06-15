@@ -10,59 +10,83 @@
 
   <div class="region-select">
     <div class="region-select__tabs">
-      <div class="region-select__tab">
+      <button type="button" class="region-select__tab" aria-haspopup="listbox" aria-expanded="false" aria-controls="region-select-panel-0">
         <span class="heading10-sb-20 color-slate-900">광역시・도</span>
-      </div>
+      </button>
       <i class="chevron-right-slate-700 region-select__divider-icon" aria-hidden="true"></i>
-      <div class="region-select__tab">
+      <button type="button" class="region-select__tab" aria-haspopup="listbox" aria-expanded="false" aria-controls="region-select-panel-1">
         <span class="heading10-sb-20 color-slate-900">시・군・구</span>
-      </div>
+      </button>
       <i class="chevron-right-slate-700 region-select__divider-icon" aria-hidden="true"></i>
-      <div class="region-select__tab">
+      <button type="button" class="region-select__tab" aria-haspopup="listbox" aria-expanded="false" aria-controls="region-select-panel-2">
         <span class="heading10-sb-20 color-slate-900">읍・면・동</span>
-      </div>
+      </button>
     </div>
 
-    <div class="region-select__body">
-      <ul class="region-select__column" role="listbox" aria-label="광역시・도 선택">
-        <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
-        <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">인천광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">광주광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">대전광역시</li>
-      </ul>
-      <ul class="region-select__column" role="listbox" aria-label="시・군・구 선택">
-        <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
-        <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">인천광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">광주광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">대전광역시</li>
-      </ul>
-      <ul class="region-select__column" role="listbox" aria-label="읍・면・동 선택">
-        <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
-        <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">인천광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">광주광역시</li>
-        <li class="region-select__item" role="option" aria-selected="false">대전광역시</li>
-      </ul>
-    </div>
+    <ul id="region-select-panel-0" class="region-select__panel shadow-s z-index-10" role="listbox" aria-label="광역시・도 선택">
+      <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
+      <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">인천광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">광주광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">대전광역시</li>
+    </ul>
+    <ul id="region-select-panel-1" class="region-select__panel shadow-s z-index-10" role="listbox" aria-label="시・군・구 선택">
+      <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
+      <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">인천광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">광주광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">대전광역시</li>
+    </ul>
+    <ul id="region-select-panel-2" class="region-select__panel shadow-s z-index-10" role="listbox" aria-label="읍・면・동 선택">
+      <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
+      <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">인천광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">광주광역시</li>
+      <li class="region-select__item" role="option" aria-selected="false">대전광역시</li>
+    </ul>
   </div>
 
   <script>
-    document.querySelectorAll('.region-select__column').forEach((column) => {
-      column.querySelectorAll('.region-select__item').forEach((item) => {
+    const tabs = document.querySelectorAll('.region-select__tab');
+    const panels = document.querySelectorAll('.region-select__panel');
+
+    function closeAllPanels() {
+      tabs.forEach((tab) => tab.setAttribute('aria-expanded', 'false'));
+      panels.forEach((panel) => panel.classList.remove('active'));
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        const panel = panels[index];
+        const isOpen = panel.classList.contains('active');
+        closeAllPanels();
+        if (!isOpen) {
+          tab.setAttribute('aria-expanded', 'true');
+          panel.classList.add('active');
+        }
+      });
+    });
+
+    panels.forEach((panel, index) => {
+      panel.querySelectorAll('.region-select__item').forEach((item) => {
         item.addEventListener('click', () => {
-          column.querySelectorAll('.region-select__item').forEach((el) => {
+          panel.querySelectorAll('.region-select__item').forEach((el) => {
             el.classList.remove('active');
             el.setAttribute('aria-selected', 'false');
           });
           item.classList.add('active');
           item.setAttribute('aria-selected', 'true');
+          tabs[index].querySelector('span').textContent = item.textContent;
+          closeAllPanels();
         });
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.region-select')) closeAllPanels();
     });
   </script>
 

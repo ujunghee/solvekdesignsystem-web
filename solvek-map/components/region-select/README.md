@@ -1,32 +1,33 @@
 # Region Select
 
-주소 선택을 위한 3단(광역시・도 → 시・군・구 → 읍・면・동) 캐스케이딩 리스트박스입니다. 각 컬럼은 독립된 목록이며, 항목을 클릭하면 해당 컬럼 안에서만 선택 상태가 바뀝니다.
+주소 선택을 위한 3단(광역시・도 → 시・군・구 → 읍・면・동) 드롭다운입니다. 탭을 클릭하면 해당 단계의 선택 목록이 팝업(panel)으로 나타나고, 항목을 선택하면 탭 레이블이 선택값으로 바뀌면서 팝업이 닫힙니다.
 
 ---
 
 ## 구조
 
 ```
-div.region-select
+div.region-select (position: relative)
 ├── div.region-select__tabs
-│   ├── div.region-select__tab > span.heading10-sb-20.color-slate-900 (광역시・도)
+│   ├── button.region-select__tab[type=button][aria-haspopup=listbox][aria-expanded][aria-controls]
+│   │   └── span.heading10-sb-20.color-slate-900 (광역시・도)
 │   ├── i.chevron-right-slate-700.region-select__divider-icon[aria-hidden=true]
-│   ├── div.region-select__tab > span.heading10-sb-20.color-slate-900 (시・군・구)
+│   ├── button.region-select__tab[...] > span (시・군・구)
 │   ├── i.chevron-right-slate-700.region-select__divider-icon[aria-hidden=true]
-│   └── div.region-select__tab > span.heading10-sb-20.color-slate-900 (읍・면・동)
-└── div.region-select__body
-    ├── ul.region-select__column[role=listbox][aria-label="광역시・도 선택"]
-    │   └── li.region-select__item[role=option][aria-selected] × n
-    ├── ul.region-select__column[role=listbox][aria-label="시・군・구 선택"]
-    │   └── li.region-select__item[role=option][aria-selected] × n
-    └── ul.region-select__column[role=listbox][aria-label="읍・면・동 선택"]
-        └── li.region-select__item[role=option][aria-selected] × n
+│   └── button.region-select__tab[...] > span (읍・면・동)
+├── ul#region-select-panel-0.region-select__panel.shadow-s.z-index-10[role=listbox][aria-label="광역시・도 선택"]
+│   └── li.region-select__item[role=option][aria-selected] × n
+├── ul#region-select-panel-1.region-select__panel.shadow-s.z-index-10[role=listbox][aria-label="시・군・구 선택"]
+│   └── li.region-select__item[role=option][aria-selected] × n
+└── ul#region-select-panel-2.region-select__panel.shadow-s.z-index-10[role=listbox][aria-label="읍・면・동 선택"]
+    └── li.region-select__item[role=option][aria-selected] × n
 ```
 
-- 항목 높이: `4rem` (40px)
-- 컬럼 최대 높이: `28rem` (280px), 넘으면 `overflow-y: auto`
 - 탭 높이: `6.4rem` (64px)
-- 탭 영역과 본문은 동일한 3컬럼 그리드(`repeat(3, 1fr)`)로 정렬
+- 항목 높이: `4rem` (40px)
+- panel 너비: 탭 너비와 동일한 `33.3333%`
+- panel 최대 높이: `28rem` (280px), 넘으면 `overflow-y: auto`
+- panel은 탭 바로 아래에 절대 위치로 떠 있으며, 클릭한 탭의 panel만 `.active`로 노출
 
 ---
 
@@ -35,53 +36,77 @@ div.region-select
 ```html
 <div class="region-select">
   <div class="region-select__tabs">
-    <div class="region-select__tab">
+    <button type="button" class="region-select__tab" aria-haspopup="listbox" aria-expanded="false" aria-controls="region-select-panel-0">
       <span class="heading10-sb-20 color-slate-900">광역시・도</span>
-    </div>
+    </button>
     <i class="chevron-right-slate-700 region-select__divider-icon" aria-hidden="true"></i>
-    <div class="region-select__tab">
+    <button type="button" class="region-select__tab" aria-haspopup="listbox" aria-expanded="false" aria-controls="region-select-panel-1">
       <span class="heading10-sb-20 color-slate-900">시・군・구</span>
-    </div>
+    </button>
     <i class="chevron-right-slate-700 region-select__divider-icon" aria-hidden="true"></i>
-    <div class="region-select__tab">
+    <button type="button" class="region-select__tab" aria-haspopup="listbox" aria-expanded="false" aria-controls="region-select-panel-2">
       <span class="heading10-sb-20 color-slate-900">읍・면・동</span>
-    </div>
+    </button>
   </div>
 
-  <div class="region-select__body">
-    <ul class="region-select__column" role="listbox" aria-label="광역시・도 선택">
-      <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
-      <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
-      <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
-    </ul>
-    <ul class="region-select__column" role="listbox" aria-label="시・군・구 선택">
-      <li class="region-select__item active" role="option" aria-selected="true">종로구</li>
-      <li class="region-select__item" role="option" aria-selected="false">중구</li>
-    </ul>
-    <ul class="region-select__column" role="listbox" aria-label="읍・면・동 선택">
-      <li class="region-select__item active" role="option" aria-selected="true">청운효자동</li>
-      <li class="region-select__item" role="option" aria-selected="false">사직동</li>
-    </ul>
-  </div>
+  <ul id="region-select-panel-0" class="region-select__panel shadow-s z-index-10" role="listbox" aria-label="광역시・도 선택">
+    <li class="region-select__item active" role="option" aria-selected="true">서울특별시</li>
+    <li class="region-select__item" role="option" aria-selected="false">부산광역시</li>
+    <li class="region-select__item" role="option" aria-selected="false">대구광역시</li>
+  </ul>
+  <ul id="region-select-panel-1" class="region-select__panel shadow-s z-index-10" role="listbox" aria-label="시・군・구 선택">
+    <li class="region-select__item active" role="option" aria-selected="true">종로구</li>
+    <li class="region-select__item" role="option" aria-selected="false">중구</li>
+  </ul>
+  <ul id="region-select-panel-2" class="region-select__panel shadow-s z-index-10" role="listbox" aria-label="읍・면・동 선택">
+    <li class="region-select__item active" role="option" aria-selected="true">청운효자동</li>
+    <li class="region-select__item" role="option" aria-selected="false">사직동</li>
+  </ul>
 </div>
 ```
 
 ---
 
-## JS — 컬럼별 단일 선택
+## JS — 탭 클릭 시 panel 토글 + 항목 선택
 
 ```javascript
-document.querySelectorAll('.region-select__column').forEach((column) => {
-  column.querySelectorAll('.region-select__item').forEach((item) => {
+const tabs = document.querySelectorAll('.region-select__tab');
+const panels = document.querySelectorAll('.region-select__panel');
+
+function closeAllPanels() {
+  tabs.forEach((tab) => tab.setAttribute('aria-expanded', 'false'));
+  panels.forEach((panel) => panel.classList.remove('active'));
+}
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    const panel = panels[index];
+    const isOpen = panel.classList.contains('active');
+    closeAllPanels();
+    if (!isOpen) {
+      tab.setAttribute('aria-expanded', 'true');
+      panel.classList.add('active');
+    }
+  });
+});
+
+panels.forEach((panel, index) => {
+  panel.querySelectorAll('.region-select__item').forEach((item) => {
     item.addEventListener('click', () => {
-      column.querySelectorAll('.region-select__item').forEach((el) => {
+      panel.querySelectorAll('.region-select__item').forEach((el) => {
         el.classList.remove('active');
         el.setAttribute('aria-selected', 'false');
       });
       item.classList.add('active');
       item.setAttribute('aria-selected', 'true');
+      tabs[index].querySelector('span').textContent = item.textContent;
+      closeAllPanels();
     });
   });
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.region-select')) closeAllPanels();
 });
 ```
 
@@ -89,10 +114,11 @@ document.querySelectorAll('.region-select__column').forEach((column) => {
 
 ## 규칙
 
-- 루트는 `div.region-select`, 내부 구조는 `region-select__*` 패턴만 사용
-- 각 컬럼은 `ul[role=listbox][aria-label]` + `li[role=option][aria-selected]` 구조 필수
+- 루트는 `div.region-select`(position: relative), 내부 구조는 `region-select__*` 패턴만 사용
+- 탭은 `button[type=button]` + `aria-haspopup="listbox"` + `aria-expanded` + `aria-controls` 필수, `div`/`span` 대체 금지
+- 각 panel은 `ul[role=listbox][aria-label][id]` + `li[role=option][aria-selected]` 구조 필수
 - 탭 레이블은 `heading10-sb-20 color-slate-900` 사용
 - 구분 아이콘은 `chevron-right-slate-700` + `aria-hidden="true"` 필수
-- 항목 높이는 `4rem`(40px) 고정, 한 컬럼 내 항목은 1개만 `active`/`aria-selected="true"` 상태
-- 컬럼 간 구분은 1px `slate-100` 좌측 border
+- 항목 높이는 `4rem`(40px) 고정, 한 panel 내 항목은 1개만 `active`/`aria-selected="true"` 상태
+- panel에는 `shadow-s`, `z-index-10` 유틸리티 클래스 적용
 - 정의되지 않은 임의 클래스 생성 금지 (`region-select__*` 패턴만 사용)
