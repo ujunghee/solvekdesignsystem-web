@@ -143,6 +143,18 @@ weight 약자: `b`(bold), `sb`(semi-bold), `m`(medium), `r`(regular)
 | `body4-b-13`, `body4-sb-13`, `body4-m-13`, `body4-r-13` | 13px | bold, semi-bold, medium, regular |
 | `body5-b-12`, `body5-sb-12`, `body5-m-12`, `body5-r-12` | 12px | bold, semi-bold, medium, regular |
 
+**Line-height 예외 유틸 클래스 (`css/default/typography.css`)**
+
+타이포 클래스에 정의된 기본 `line-height`를 덮어써야 할 때만 사용한다.
+
+| 클래스 | line-height |
+|---|---|
+| `line-auto` | normal |
+| `line-140` | 1.4 (`--line-height-140`) |
+| `line-160` | 1.6 (`--line-height-160`) |
+| `line-170` | 1.7 (`--line-height-170`) |
+
+
 ### 3-3. 간격 (tokens/spacing.css)
 
 **사용 가능한 값: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 26, 28, 32, 40, 48, 50, 60, 80, 92, 100, 120**
