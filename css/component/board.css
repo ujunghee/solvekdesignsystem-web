@@ -9,7 +9,6 @@
   border-bottom: 1px solid var(--slate-200);
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-md);
   color: var(--slate-900);
   text-align: center;
@@ -24,13 +23,12 @@
 .board-table__type {
   font-size: var(--font-size-body2);
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-160);
   letter-spacing: var(--letter-spacing-md);
   color: var(--slate-700);
 }
 
 .board-table__type--important {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-regular);
   color: var(--blue-500);
 }
 
@@ -48,7 +46,7 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border-radius: var(--radius-sm-4);
+  border-radius: var(--radius-xs-2);
   background-color: var(--green-500);
   color: var(--white);
   font-size: var(--font-size-body5);
