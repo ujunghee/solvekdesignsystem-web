@@ -41,34 +41,34 @@ table.board-table.w-full
         <span class="board-table__type">알림</span>
       </td>
       <td class="board-table__td">
-        <a href="#" class="board-table__link body2-r-16 color-slate-900 flex align-center gap-8">
+        <a href="#" class="board-table__link body2-r-16 color-slate-900 flex align-center gap-8 line-auto">
           [기후에너지환경부] 피싱 문자 및 공공기관 위장 사이트, 웹 주의 안내
           <span class="board-table__badge-new"><span class="blind">신규 게시물</span>N</span>
         </a>
       </td>
-      <td class="board-table__td text-center body3-r-14 color-slate-500">2025.07.23</td>
+      <td class="board-table__td line-auto text-center body2-r-16 color-slate-700">2025.07.23</td>
     </tr>
     <tr>
       <td class="board-table__td text-center">
         <span class="board-table__type board-table__type--important">중요</span>
       </td>
       <td class="board-table__td">
-        <a href="#" class="board-table__link body2-r-16 color-slate-900">
+        <a href="#" class="board-table__link body2-r-16 color-slate-900 line-auto">
           [기후에너지환경부] 피싱 문자 및 공공기관 위장 사이트, 웹 주의 안내
         </a>
       </td>
-      <td class="board-table__td text-center body3-r-14 color-slate-500">2025.07.23</td>
+      <td class="board-table__td line-auto text-center body2-r-16 color-slate-700">2025.07.23</td>
     </tr>
     <tr>
       <td class="board-table__td text-center">
         <span class="board-table__type">알림</span>
       </td>
       <td class="board-table__td">
-        <a href="#" class="board-table__link body2-r-16 color-slate-900">
+        <a href="#" class="board-table__link body2-r-16 color-slate-900 line-auto">
           [기후에너지환경부] 피싱 문자 및 공공기관 위장 사이트, 웹 주의 안내
         </a>
       </td>
-      <td class="board-table__td text-center body3-r-14 color-slate-500">2025.07.23</td>
+      <td class="board-table__td line-auto text-center body2-r-16 color-slate-700">2025.07.23</td>
     </tr>
   </tbody>
 </table>
@@ -80,8 +80,10 @@ table.board-table.w-full
 
 - `table`에 `caption.blind` 필수 (게시판 목록임을 스크린리더에 안내)
 - `thead th`에 `scope="col"` 필수
-- 유형 셀: `span.board-table__type` 사용, "중요"인 경우 `board-table__type--important` 추가 (blue-500, semibold)
+- 유형 셀: `span.board-table__type` 사용, "중요"인 경우 `board-table__type--important` 추가 (blue-500, regular)
 - 제목 셀: `a.board-table__link[href]` 필수, div/span으로 대체 금지
+- 제목 링크·게시일 셀에는 `line-auto` 추가 (타이포 기본 line-height를 normal로 재정의)
+- 게시일 셀은 `body2-r-16 color-slate-700`로 표시
 - 신규 게시물 표시: `span.board-table__badge-new` + 내부 `span.blind`("신규 게시물") 구조
 - 유형/게시일 컬럼은 가운데 정렬(`text-center`), 제목 컬럼은 좌측 정렬(기본값)
 - 가로 스크롤이 필요하면 `table`을 `div.overflow-auto`로 감싸서 사용

@@ -9,20 +9,21 @@
     "body": "tbody > tr > td.board-table__td",
     "type_cell": "td.board-table__td > span.board-table__type[.board-table__type--important]",
     "title_cell": "td.board-table__td > a.board-table__link[href] (+ span.board-table__badge-new 신규 게시물 표시 시)",
-    "date_cell": "td.board-table__td (날짜 텍스트, body3-r-14 color-slate-500)"
+    "date_cell": "td.board-table__td.line-auto (날짜 텍스트, body2-r-16 color-slate-700)"
   },
   "type_values": {
     "default": "알림 — board-table__type (slate-700, regular)",
-    "important": "중요 — board-table__type board-table__type--important (blue-500, semibold)"
+    "important": "중요 — board-table__type board-table__type--important (blue-500, regular)"
   },
   "badge_new": {
     "class": "board-table__badge-new",
-    "desc": "신규 게시물 표시용 'N' 배지 (green-500 배경, white 텍스트, 2x2rem)",
+    "desc": "신규 게시물 표시용 'N' 배지 (green-500 배경, white 텍스트, radius-xs-2, 2x2rem)",
     "accessibility": "배지 내부에 span.blind로 '신규 게시물' 텍스트 제공"
   },
   "notes": [
     "유형/게시일 컬럼은 board-table__th에 의해 가운데 정렬, 제목 컬럼은 좌측 정렬",
     "제목 링크에 마우스오버 시 밑줄 표시 (board-table__link:hover)",
+    "제목 링크와 게시일 셀에는 line-auto를 추가해 line-height를 normal로 재정의",
     "행 구분은 board-table__td의 border-bottom (slate-200)으로 처리, 별도 줄무늬(zebra) 없음",
     "가로 스크롤이 필요한 경우 table을 div.overflow-auto로 감싸 사용 가능"
   ],
