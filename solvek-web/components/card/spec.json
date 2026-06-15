@@ -1,16 +1,17 @@
 {
   "component": "card",
-  "description": "데이터셋·API 등 정보 리소스를 목록 형태로 보여주는 카드. 분류 태그(meta-tag) + 조회수, 제목, 업데이트일/제공기관, 파일형식으로 구성",
+  "description": "데이터셋·API 등 정보 리소스를 목록 형태로 보여주는 카드. 분류 태그(meta-tag) + 조회수, 제목, 업데이트일/제공기관, 파일형식으로 구성. 카드 전체가 상세 페이지로 이동하는 링크",
   "naming_pattern": "card + 레이아웃/색상/타이포 유틸리티 클래스 조합 (BEM 아님)",
   "structure": {
-    "root": "div.border.border-slate-200.radius-md-8.p-24.flex.flex-col.bg-white.gap-10",
+    "list_wrap": "ul.flex.flex-row.gap-24 > li.flex-1",
+    "root": "a[href].border.border-slate-200.radius-md-8.p-24.flex.flex-col.bg-white.gap-10.h-full[itemscope][itemtype=https://schema.org/Dataset]",
     "meta_row": "div.flex.justify-between.align-center",
     "meta_tags": "ul.meta-tag-list(components/meta-tag 구조 그대로)",
     "view_count": "div.flex.align-center.gap-6 > i.view-count-icon[aria-hidden=true] + span.blind(조회수) + span.body3-r-14.color-slate-400",
-    "title": "h3.body1-sb-18.color-slate-900.line-160",
+    "title": "h3.body1-sb-18.color-slate-900.line-160[itemprop=name]",
     "meta_info": "div.flex.flex-col.gap-6",
-    "date_org": "p.body3-r-14.color-slate-700.line-auto.flex.align-center.gap-6 > span(날짜) + span.color-slate-200[aria-hidden=true](구분자 |) + span(제공기관)",
-    "format": "p.body2-m-16.color-slate-900.line-160"
+    "date_org": "p.body3-r-14.color-slate-700.line-auto.flex.align-center.gap-6 > time[datetime][itemprop=dateModified](날짜) + span(업데이트) + span.color-slate-200[aria-hidden=true](구분자 |) + span[itemprop=creator](제공기관)",
+    "format": "p.body2-m-16.color-slate-900.line-160 > span.blind(제공 형식) + span[itemprop=encodingFormat](형식 값)"
   },
   "dependencies": {
     "meta-tag": "components/meta-tag — 대/중/소분류 표시, meta-tag--active로 1개 강조",
@@ -21,7 +22,7 @@
     "radius": "radius-md-8",
     "border": "border border-slate-200",
     "background": "bg-white",
-    "gap": "gap-10 (root), gap-6 (view_count, meta_info, date_org)",
+    "gap": "gap-10 (root), gap-6 (view_count, meta_info, date_org), gap-24 (list_wrap)",
     "title": "body1-sb-18 color-slate-900 line-160",
     "view_count_text": "body3-r-14 color-slate-400",
     "date_org": "body3-r-14 color-slate-700 line-auto, 구분자 | 는 color-slate-200",
@@ -31,19 +32,25 @@
     "view-count-icon": "조회수 (24x24, #8A949E)"
   },
   "rules": [
+    "카드 전체를 a[href]로 감싸 상세 페이지 링크로 사용 (div/button 대체 금지)",
+    "여러 개 나열 시 ul.flex.flex-row.gap-24 > li.flex-1 > a.card... 구조 사용, 카드 높이를 맞추려면 a에 h-full 추가",
     "분류 태그는 components/meta-tag의 ul.meta-tag-list > li > span.meta-tag[.meta-tag--active] 구조 그대로 사용, 강조 depth만 meta-tag--active",
     "조회수는 view-count-icon + span.blind(조회수) + 숫자(body3-r-14 color-slate-400) 조합으로 표시",
-    "업데이트일/제공기관 사이 구분자 |는 span.color-slate-200[aria-hidden=true]로 표시",
+    "업데이트일은 time[datetime][itemprop=dateModified]로 표시, 업데이트일/제공기관 사이 구분자 |는 span.color-slate-200[aria-hidden=true]로 표시",
+    "파일형식 값 앞에 span.blind(제공 형식)로 의미 제공",
+    "카드에 schema.org/Dataset 마이크로데이터(itemscope/itemtype/itemprop) 적용 — name, dateModified, creator, encodingFormat",
     "line-height 보정이 필요한 텍스트에만 line-auto/line-160 유틸리티 클래스 사용",
-    "card 자체는 새 BEM 블록이 아니라 .card 또는 레이아웃 유틸리티 조합으로만 구성"
+    "card 자체는 새 BEM 블록이 아니라 border-slate-200 radius-md-8 p-24 bg-white 등 정의된 유틸리티 조합으로만 구성",
+    "카드 목록 페이지는 main[role=main] + h1.blind(목록 제목) + section[role=region][aria-labelledby] + h2.blind(섹션 제목) 구조로 감싼다"
   ],
   "do_not": [
     "meta-tag/icon 구조를 임의로 변형",
     "card 내부에 정의되지 않은 임의 색상·간격·타이포 클래스 사용",
     "인라인 style 사용",
-    "조회수 등 비분류 메타에 meta-tag 사용 (components/meta-tag do_not 참고)"
+    "조회수 등 비분류 메타에 meta-tag 사용 (components/meta-tag do_not 참고)",
+    "카드 루트를 div/button으로 대체 (반드시 a[href])"
   ],
   "examples": [
-    "<div class=\"border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10\">\n  <div class=\"flex justify-between align-center\">\n    <ul class=\"meta-tag-list\">\n      <li><span class=\"meta-tag meta-tag--active\">대분류</span></li>\n      <li><span class=\"meta-tag\">중분류</span></li>\n      <li><span class=\"meta-tag\">소분류</span></li>\n    </ul>\n    <div class=\"flex align-center gap-6\">\n      <i class=\"view-count-icon\" aria-hidden=\"true\"></i>\n      <span class=\"blind\">조회수</span>\n      <span class=\"body3-r-14 color-slate-400\">675</span>\n    </div>\n  </div>\n  <h3 class=\"body1-sb-18 color-slate-900 line-160\">한국언론진흥재단 뉴스빅데이터 메타데이터 미세먼지</h3>\n  <div class=\"flex flex-col gap-6\">\n    <p class=\"body3-r-14 color-slate-700 line-auto flex align-center gap-6\">\n      <span>2025.10.27 업데이트</span>\n      <span class=\"color-slate-200\" aria-hidden=\"true\">|</span>\n      <span>환경부 · 국립환경과학원</span>\n    </p>\n    <p class=\"body2-m-16 color-slate-900 line-160\">CSV, JSON+XML</p>\n  </div>\n</div>"
+    "<main role=\"main\" class=\"inner-default py-24\">\n  <h1 class=\"blind\">데이터셋 목록</h1>\n  <section role=\"region\" aria-labelledby=\"dataset-list-title\">\n    <h2 id=\"dataset-list-title\" class=\"blind\">미세먼지 관련 데이터셋</h2>\n    <ul class=\"flex flex-row gap-24\">\n      <li class=\"flex-1\">\n        <a href=\"#\" class=\"border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full\" itemscope itemtype=\"https://schema.org/Dataset\">\n          <div class=\"flex justify-between align-center\">\n            <ul class=\"meta-tag-list\">\n              <li><span class=\"meta-tag meta-tag--active\">대분류</span></li>\n              <li><span class=\"meta-tag\">중분류</span></li>\n              <li><span class=\"meta-tag\">소분류</span></li>\n            </ul>\n            <div class=\"flex align-center gap-6\">\n              <i class=\"view-count-icon\" aria-hidden=\"true\"></i>\n              <span class=\"blind\">조회수</span>\n              <span class=\"body3-r-14 color-slate-400\">675</span>\n            </div>\n          </div>\n          <h3 class=\"body1-sb-18 color-slate-900 line-160\" itemprop=\"name\">한국언론진흥재단 뉴스빅데이터 메타데이터 미세먼지</h3>\n          <div class=\"flex flex-col gap-6\">\n            <p class=\"body3-r-14 color-slate-700 line-auto flex align-center gap-6\">\n              <time datetime=\"2025-10-27\" itemprop=\"dateModified\">2025.10.27</time>\n              <span>업데이트</span>\n              <span class=\"color-slate-200\" aria-hidden=\"true\">|</span>\n              <span itemprop=\"creator\">환경부 · 국립환경과학원</span>\n            </p>\n            <p class=\"body2-m-16 color-slate-900 line-160\">\n              <span class=\"blind\">제공 형식</span>\n              <span itemprop=\"encodingFormat\">CSV, JSON+XML</span>\n            </p>\n          </div>\n        </a>\n      </li>\n    </ul>\n  </section>\n</main>"
   ]
 }
