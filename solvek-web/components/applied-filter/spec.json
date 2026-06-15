@@ -1,22 +1,22 @@
 {
   "component": "applied-filter",
   "description": "검색 결과 영역 상단에 표시되는 '적용된 필터' 요약 바. 현재 적용된 필터 조건을 칩으로 나열하고 전체 초기화 버튼을 제공",
-  "naming_pattern": "applied-filter__{element} (BEM) + 레이아웃/색상 유틸리티 클래스 조합",
+  "naming_pattern": "applied-filter__{element} (BEM, count만 사용) + 레이아웃/색상 유틸리티 클래스 조합",
   "structure": {
-    "root": "div.applied-filter.bg-slate-50.radius-md-8.px-16.py-12.flex.justify-between.align-center.flex-wrap.gap-8",
-    "list_wrap": "div.applied-filter__list.flex.align-center.flex-wrap.gap-8",
-    "label": "span.applied-filter__label.body2-sb-16.color-slate-900 > span.applied-filter__count.color-blue-500",
+    "root": "div.applied-filter.bg-slate-50.radius-md-8.px-16.py-16.flex.justify-between.align-start.gap-8",
+    "list_wrap": "div.applied-filter__list.flex.align-start.gap-16",
+    "label": "span.flex.gap-8.align-center.body2-sb-16.color-slate-900.flex-shrink-0-auto.pt-4 > span.applied-filter__count.color-blue-500",
     "chips": "ul.flex.flex-wrap.gap-8 > li > div.chip(components/chip with_close 구조)",
-    "reset": "button.applied-filter__reset.transparent-button-32.flex.align-center.gap-10[data-applied-filter-reset] (components/button reset 아이콘 패턴과 동일)"
+    "reset": "button.mt-2.applied-filter__reset.transparent-button-32.flex.align-center.gap-10[data-applied-filter-reset] (components/button reset 아이콘 패턴, 텍스트 color-slate-700)"
   },
   "size": {
-    "padding": "px-16 py-12",
+    "padding": "px-16 py-16",
     "radius": "radius-md-8",
     "background": "bg-slate-50",
-    "label": "body2-sb-16 color-slate-900",
+    "label": "flex gap-8 align-center body2-sb-16 color-slate-900 flex-shrink-0-auto pt-4",
     "count": "color-blue-500 (label과 동일 크기, 강조용)",
-    "chip": "components/chip 스펙 그대로 — h-36, px-12, radius-md-6, border border-slate-500, gap-6 + chips-close-icon",
-    "reset": "transparent-button-32 + applied-reset-icon (components/button icon_button.types.reset 패턴)"
+    "chip": "components/chip 스펙 그대로 — h-36, px-12, radius-md-6, border border-slate-500, bg-white, gap-6 + chips-close-icon",
+    "reset": "mt-2 + transparent-button-32 + applied-reset-icon (components/button icon_button.types.reset 패턴, 텍스트 color-slate-700)"
   },
   "icons": {
     "chips-close-icon": "칩 개별 삭제 (12x12, #475263)",
@@ -31,7 +31,7 @@
     "reset_all": "applied-filter__reset(data-applied-filter-reset) 클릭 시 모든 칩 제거 + count 0 + .applied-filter hidden 처리 (search-filter 초기화와 함께 사용 시 동기화)"
   },
   "examples": [
-    "<div class=\"applied-filter bg-slate-50 radius-md-8 px-16 py-12 flex justify-between align-center flex-wrap gap-8\">\n  <div class=\"applied-filter__list flex align-center flex-wrap gap-8\">\n    <span class=\"applied-filter__label body2-sb-16 color-slate-900\">적용된 필터 <span class=\"applied-filter__count color-blue-500\">1</span></span>\n    <ul class=\"flex flex-wrap gap-8\">\n      <li>\n        <div class=\"chip border-slate-500 border h-36 w-fit px-12 radius-md-6 gap-6 flex align-center justify-center bg-white\">\n          <span class=\"body2-r-16 color-slate-700\">지정유산</span>\n          <button type=\"button\" class=\"chips-close-icon\" data-applied-filter-remove>\n            <span class=\"blind\">지정유산 필터 삭제</span>\n          </button>\n        </div>\n      </li>\n    </ul>\n  </div>\n  <button type=\"button\" class=\"applied-filter__reset transparent-button-32 flex align-center gap-10\" data-applied-filter-reset>\n    <span class=\"body2-m-16 color-slate-500\">초기화</span>\n    <i class=\"applied-reset-icon\" aria-hidden=\"true\"></i>\n    <span class=\"blind\">적용된 필터 초기화</span>\n  </button>\n</div>"
+    "<div class=\"applied-filter bg-slate-50 radius-md-8 px-16 py-16 flex justify-between align-start gap-8\">\n  <div class=\"applied-filter__list flex align-start gap-16\">\n    <span class=\"flex gap-8 align-center body2-sb-16 color-slate-900 flex-shrink-0-auto pt-4\">적용된 필터 <span class=\"applied-filter__count color-blue-500\">1</span></span>\n    <ul class=\"flex flex-wrap gap-8\">\n      <li>\n        <div class=\"chip border-slate-500 border h-36 w-fit px-12 radius-md-6 gap-6 flex align-center justify-center bg-white\">\n          <span class=\"body2-r-16 color-slate-700\">지정유산</span>\n          <button type=\"button\" class=\"chips-close-icon\" data-applied-filter-remove>\n            <span class=\"blind\">지정유산 필터 삭제</span>\n          </button>\n        </div>\n      </li>\n    </ul>\n  </div>\n  <button type=\"button\" class=\"mt-2 applied-filter__reset transparent-button-32 flex align-center gap-10\" data-applied-filter-reset>\n    <span class=\"body2-m-16 color-slate-700\">초기화</span>\n    <i class=\"applied-reset-icon\" aria-hidden=\"true\"></i>\n    <span class=\"blind\">적용된 필터 초기화</span>\n  </button>\n</div>"
   ],
   "rules": [
     "검색 결과 영역(search-filter와 함께 사용 시 결과 목록) 상단에 위치",
@@ -42,7 +42,7 @@
   ],
   "do_not": [
     "chip/button 구조를 임의로 변형",
-    "applied-filter__* 외 임의 BEM 클래스 추가",
-    "bg-slate-50/radius-md-8/px-16/py-12 등 정의된 유틸리티 외 임의 값·인라인 style 사용"
+    "applied-filter__* 외 임의 BEM 클래스 추가 (label은 BEM 클래스 없이 유틸리티 클래스 조합만 사용)",
+    "bg-slate-50/radius-md-8/px-16/py-16 등 정의된 유틸리티 외 임의 값·인라인 style 사용"
   ]
 }

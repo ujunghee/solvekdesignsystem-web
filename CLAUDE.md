@@ -235,6 +235,7 @@ CSS 변수: `var(--spacing-16)` 등
 | `flex-1` | flex: 1 |
 | `flex-auto` | flex: 1 1 auto |
 | `flex-none` | flex: 0 0 auto |
+| `flex-shrink-0-auto` | flex: 1 0 auto |
 
 ### 4-4. Position
 

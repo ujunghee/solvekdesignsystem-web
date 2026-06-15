@@ -7,14 +7,14 @@
 ## 구조
 
 ```
-div.applied-filter.bg-slate-50.radius-md-8.px-16.py-12.flex.justify-between.align-center.flex-wrap.gap-8
-├── div.applied-filter__list.flex.align-center.flex-wrap.gap-8
-│   ├── span.applied-filter__label.body2-sb-16.color-slate-900
+div.applied-filter.bg-slate-50.radius-md-8.px-16.py-16.flex.justify-between.align-start.gap-8
+├── div.applied-filter__list.flex.align-start.gap-16
+│   ├── span.flex.gap-8.align-center.body2-sb-16.color-slate-900.flex-shrink-0-auto.pt-4
 │   │   └── span.applied-filter__count.color-blue-500 (적용 개수)
 │   └── ul.flex.flex-wrap.gap-8
 │       └── li > div.chip(components/chip with_close)
-└── button.applied-filter__reset.transparent-button-32.flex.align-center.gap-10[data-applied-filter-reset]
-    └── components/button icon_button.types.reset 패턴 (applied-reset-icon)
+└── button.mt-2.applied-filter__reset.transparent-button-32.flex.align-center.gap-10[data-applied-filter-reset]
+    └── components/button icon_button.types.reset 패턴 (applied-reset-icon, 텍스트 color-slate-700)
 ```
 
 ---
@@ -23,22 +23,22 @@ div.applied-filter.bg-slate-50.radius-md-8.px-16.py-12.flex.justify-between.alig
 
 | 속성 | 값 |
 |---|---|
-| padding | `px-16 py-12` |
+| padding | `px-16 py-16` |
 | radius | `radius-md-8` |
 | 배경 | `bg-slate-50` |
-| 라벨 | `body2-sb-16 color-slate-900` |
+| 라벨 | `flex gap-8 align-center body2-sb-16 color-slate-900 flex-shrink-0-auto pt-4` (BEM 클래스 없이 유틸리티만 사용) |
 | 개수 강조 | `color-blue-500` |
-| 칩 | `components/chip` 스펙 그대로 (`h-36 px-12 radius-md-6 border border-slate-500 gap-6` + `chips-close-icon`) |
-| 초기화 버튼 | `transparent-button-32` + `applied-reset-icon` |
+| 칩 | `components/chip` 스펙 그대로 (`h-36 px-12 radius-md-6 border border-slate-500 gap-6 bg-white` + `chips-close-icon`) |
+| 초기화 버튼 | `mt-2` + `transparent-button-32` + `applied-reset-icon` (텍스트 `color-slate-700`) |
 
 ---
 
 ## 사용 예시
 
 ```html
-<div class="applied-filter bg-slate-50 radius-md-8 px-16 py-12 flex justify-between align-center flex-wrap gap-8">
-  <div class="applied-filter__list flex align-center flex-wrap gap-8">
-    <span class="applied-filter__label body2-sb-16 color-slate-900">적용된 필터 <span class="applied-filter__count color-blue-500">1</span></span>
+<div class="applied-filter bg-slate-50 radius-md-8 px-16 py-16 flex justify-between align-start gap-8">
+  <div class="applied-filter__list flex align-start gap-16">
+    <span class="flex gap-8 align-center body2-sb-16 color-slate-900 flex-shrink-0-auto pt-4">적용된 필터 <span class="applied-filter__count color-blue-500">1</span></span>
     <ul class="flex flex-wrap gap-8">
       <li>
         <div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 gap-6 flex align-center justify-center bg-white">
@@ -50,8 +50,8 @@ div.applied-filter.bg-slate-50.radius-md-8.px-16.py-12.flex.justify-between.alig
       </li>
     </ul>
   </div>
-  <button type="button" class="applied-filter__reset transparent-button-32 flex align-center gap-10" data-applied-filter-reset>
-    <span class="body2-m-16 color-slate-500">초기화</span>
+  <button type="button" class="mt-2 applied-filter__reset transparent-button-32 flex align-center gap-10" data-applied-filter-reset>
+    <span class="body2-m-16 color-slate-700">초기화</span>
     <i class="applied-reset-icon" aria-hidden="true"></i>
     <span class="blind">적용된 필터 초기화</span>
   </button>
@@ -114,4 +114,5 @@ if (appliedFilter) {
 - 초기화 버튼은 `components/button`의 reset 아이콘 버튼 패턴(`transparent-button-32` + `applied-reset-icon` + `span.blind`) 그대로 사용
 - `applied-filter__count`는 `color-blue-500`만 사용
 - 칩이 0개이면 `.applied-filter` 전체를 `hidden` 처리
+- 라벨(`applied-filter__label`)은 별도 BEM 클래스 없이 `flex gap-8 align-center body2-sb-16 color-slate-900 flex-shrink-0-auto pt-4` 유틸리티 조합 사용
 - `applied-filter__*` 외 임의 BEM 클래스 추가 금지
