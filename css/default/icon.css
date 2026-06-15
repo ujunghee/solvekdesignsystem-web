@@ -348,6 +348,9 @@
   flex-shrink: 0;
 }
 
+
+/* ------- 여기서부터 지도 아이콘 --------- */
+
 @media (max-width: 767px) {
   .close-icon-lg {
     width: 3.2rem;
