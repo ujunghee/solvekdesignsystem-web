@@ -33,7 +33,7 @@
     "arrow-icon": "GNB·드로어 펼침 화살표 (active 시 CSS rotate(180deg))",
     "chevron-right-slate-700": "GNB 서브메뉴 링크·드로어 유틸 링크 우측 꺽쇠",
     "close-icon": "드로어 닫기 (24x24)",
-    "all-search-close-icon": "통합검색 패널 닫기 (24x24)"
+    "close-icon-lg": "통합검색 패널 닫기 (48x48, ≤767px: 32x32)"
   },
   "responsive": {
     "breakpoint": "768px",

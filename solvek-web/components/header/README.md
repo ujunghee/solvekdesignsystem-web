@@ -127,7 +127,7 @@ header.header[role=banner]
     <div class="flex justify-between align-center gap-16">
       <h2 id="header-search-title" class="heading8-sb-24 color-slate-900">통합검색</h2>
       <button type="button" data-header-search-close aria-label="검색 닫기">
-        <i class="all-search-close-icon"><span class="blind">검색 닫기</span></i>
+        <i class="close-icon-lg"><span class="blind">검색 닫기</span></i>
       </button>
     </div>
     <div class="mt-36">
