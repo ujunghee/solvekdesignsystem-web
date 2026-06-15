@@ -54,7 +54,7 @@
 | <img src="../../image/icon/generated/dashboards-gray-icon.svg" width="20" height="20"> | `dashboards-gray-icon` | 20×20 | `#64748B` | 카드형 보기 (선택 안 됨) |
 | <img src="../../image/icon/generated/list-blue-icon.svg" width="20" height="20"> | `list-blue-icon` | 20×20 | `#1A76FF` | 리스트형 보기 (선택됨) |
 | <img src="../../image/icon/generated/list-gray-icon.svg" width="20" height="20"> | `list-gray-icon` | 20×20 | `#64748B` | 리스트형 보기 (선택 안 됨) |
-| <img src="../../image/icon/generated/view-count-icon.svg" width="24" height="24"> | `view-count-icon` | 24×24 | `#475263` | 조회수 |
+| <img src="../../image/icon/generated/view-count-icon.svg" width="24" height="24"> | `view-count-icon` | 24×24 | `#8A949E` | 조회수 |
 | <img src="../../image/icon/generated/applied-reset-icon.svg" width="19" height="18"> | `applied-reset-icon` | 17×16 (viewBox 19x18) | `#464C53` | 적용된 필터 초기화 |
 | <img src="../../image/icon/generated/button-arrow-icon.svg" width="12" height="7"> | `button-arrow-icon` | 12×7 | `#1E2124` | 버튼 펼치기/접기 화살표 |
 | <img src="../../image/icon/generated/all-search-close-icon.svg" width="24" height="24"> | `all-search-close-icon` | 24×24 | `#6D7882` | 통합검색 닫기 아이콘 |

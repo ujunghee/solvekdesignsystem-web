@@ -412,3 +412,17 @@
   line-height: var(--line-height-170);
   letter-spacing: var(--letter-spacing-md);
 }
+
+/* 예외 list s */
+.line-auto {
+  line-height: normal;
+}
+.line-160 {
+  line-height: var(--line-height-160);
+}
+.line-170 {
+  line-height: var(--line-height-170);
+}
+.line-140 {
+  line-height: var(--line-height-140);
+}
