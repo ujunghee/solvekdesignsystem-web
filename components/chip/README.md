@@ -7,7 +7,7 @@
 ## 구조
 
 ```
-div.chip.border-slate-500.border.h-36.w-fit.px-12.radius-md-6.flex.align-center.justify-center
+div.chip.border-slate-500.border.h-36.w-fit.px-12.radius-md-6.flex.align-center.justify-center.bg-white
 └── span.body2-r-16.color-slate-700 (칩 텍스트)
 
 div.chip(...).gap-6
@@ -25,7 +25,7 @@ ul.flex.gap-8
 ### 기본 칩
 
 ```html
-<div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center">
+<div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center bg-white">
   <span class="body2-r-16 color-slate-700">Chip Text</span>
 </div>
 ```
@@ -33,7 +33,7 @@ ul.flex.gap-8
 ### 삭제 아이콘 칩
 
 ```html
-<div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 gap-6 flex align-center justify-center">
+<div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 gap-6 flex align-center justify-center bg-white">
   <span class="body2-r-16 color-slate-700">Chip Text</span>
   <button type="button" class="chips-close-icon">
     <span class="blind">삭제</span>
@@ -46,12 +46,12 @@ ul.flex.gap-8
 ```html
 <ul class="flex gap-8">
   <li>
-    <div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center">
+    <div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center bg-white">
       <span class="body2-r-16 color-slate-700">Chip Text</span>
     </div>
   </li>
   <li>
-    <div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center">
+    <div class="chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center bg-white">
       <span class="body2-r-16 color-slate-700">Chip Text</span>
     </div>
   </li>
@@ -69,7 +69,7 @@ ul.flex.gap-8
 
 ## 규칙
 
-- `.chip` + `border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center` 조합 유지
+- `.chip` + `border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center bg-white` 조합 유지
 - 삭제 아이콘이 있는 칩은 `gap-6` 추가, `chips-close-icon` 버튼 사용
 - 여러 개 나열 시 `ul.flex.gap-8 > li` 구조 사용
 - 선택 입력(체크박스)이 필요한 태그 필터는 `components/checkbox`의 chip variant(`checkbox-chip-label`/`checkbox-chip`)를 사용하고, 단순 표시용 칩은 이 컴포넌트 사용

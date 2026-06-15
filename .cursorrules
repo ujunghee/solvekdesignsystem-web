@@ -562,7 +562,7 @@ footer 3가지 레이아웃:
 
 선택/태그 표시용 칩. `.chip` + 레이아웃 유틸리티 클래스 조합으로 구성, 텍스트만 있는 기본형과 삭제 아이콘이 있는 형태, 목록 형태 지원.
 
-**구성: `chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center` + `span.body2-r-16.color-slate-700`**
+**구성: `chip border-slate-500 border h-36 w-fit px-12 radius-md-6 flex align-center justify-center bg-white` + `span.body2-r-16.color-slate-700`**
 
 규칙:
 - 삭제 가능한 칩은 `gap-6` 추가 + `chips-close-icon` 버튼(`button[type=button]` + `span.blind`로 "삭제")
