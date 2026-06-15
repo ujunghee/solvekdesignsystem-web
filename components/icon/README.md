@@ -56,6 +56,7 @@
 | <img src="../../image/icon/generated/list-gray-icon.svg" width="20" height="20"> | `list-gray-icon` | 20×20 | `#64748B` | 리스트형 보기 (선택 안 됨) |
 | <img src="../../image/icon/generated/view-count-icon.svg" width="24" height="24"> | `view-count-icon` | 24×24 | `#475263` | 조회수 |
 | <img src="../../image/icon/generated/applied-reset-icon.svg" width="19" height="18"> | `applied-reset-icon` | 17×16 (viewBox 19x18) | `#464C53` | 적용된 필터 초기화 |
+| <img src="../../image/icon/generated/button-arrow-icon.svg" width="12" height="7"> | `button-arrow-icon` | 12×7 | `#1E2124` | 버튼 펼치기/접기 화살표 |
 
 > 위 미리보기 SVG는 `image/icon/generated/`에 보관된 별도 파일로, `css/default/icon.css`의 inline `data:image/svg+xml` 값을 그대로 추출한 것입니다. 실제 사용 시에는 클래스만 적용하면 되며, 이 SVG 파일을 직접 `<img>`로 사용하지 않습니다.
 

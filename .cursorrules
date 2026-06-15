@@ -743,7 +743,7 @@ document.querySelectorAll('.view-toggle').forEach((group) => {
 });
 ```
 
-### 7-8. 펼치기/접기 토글 (arrow-icon)
+### 7-8. 펼치기/접기 토글 (button-arrow-icon)
 
 ```js
 document.querySelectorAll('[aria-expanded]').forEach((btn) => {

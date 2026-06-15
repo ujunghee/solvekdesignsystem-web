@@ -527,14 +527,14 @@ button:disabled, a:disabled {
   box-shadow: 0 0 0 3px var(--slate-200);
 }
 
-/* 검색필터 트리거 active 상태: border-blue 톤으로 전환 */
+/* 검색필터 트리거 active 상태: 배경 slate-50 + 텍스트 blue-500 */
 :is(.border-slate-button-54, .border-slate-button-48, .border-slate-button-40, .border-slate-button-36, .border-slate-button-32, .border-slate-button-28).active {
   background-color: var(--slate-50);
   color: var(--blue-500);
 }
 
-/* 펼치기/접기 토글: active 상태에서 arrow-icon 180도 회전 */
-.active .arrow-icon {
+/* 펼치기/접기 토글: active 상태에서 button-arrow-icon 180도 회전 */
+.active .button-arrow-icon {
   transform: rotate(180deg);
 }
 
