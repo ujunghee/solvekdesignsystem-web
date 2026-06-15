@@ -1,0 +1,48 @@
+{
+  "component": "region-select",
+  "description": "주소 선택을 위한 3단(광역시・도 / 시・군・구 / 읍・면・동) 캐스케이딩 리스트박스. 각 단계는 독립된 리스트이며, 선택 시 active 상태로 표시",
+  "naming_pattern": "region-select, region-select__{element} (BEM)",
+  "structure": {
+    "root": "div.region-select",
+    "tabs": "div.region-select__tabs (3단 레이블 + 구분 아이콘)",
+    "tab": "div.region-select__tab > span (heading10-sb-20)",
+    "divider_icon": "i.chevron-right-slate-700.region-select__divider-icon[aria-hidden=true] (탭 사이 구분, 33.33%/66.67% 위치에 절대 배치)",
+    "body": "div.region-select__body (3컬럼 그리드)",
+    "column": "ul.region-select__column[role=listbox][aria-label]",
+    "item": "li.region-select__item[role=option][aria-selected] (선택 시 .active)"
+  },
+  "size": {
+    "tab_height": "6.4rem (64px)",
+    "item_height": "4rem (40px)",
+    "column_max_height": "28rem (280px), overflow-y: auto",
+    "column_gap": "spacing-2 (2px) — 항목 간 간격",
+    "column_padding": "spacing-8 (8px)",
+    "item_radius": "radius-sm-4 (4px)"
+  },
+  "states": {
+    "default": "color-slate-900, font-weight-regular",
+    "hover": ".region-select__item:hover → bg-slate-50",
+    "active": ".region-select__item.active → bg-slate-100, aria-selected=true"
+  },
+  "notes": [
+    "탭 영역(region-select__tabs)과 본문(region-select__body)은 동일한 3컬럼 그리드(repeat(3, 1fr))를 사용해 정렬을 맞춘다",
+    "구분 아이콘(chevron-right-slate-700)은 tabs 컨테이너에 position: relative를 주고 절대 위치(33.3333%, 66.6667%)로 배치해 본문 컬럼 너비에 영향을 주지 않는다",
+    "각 컬럼은 독립적인 listbox이며, 한 컬럼 내에서는 항목 1개만 active/aria-selected=true 상태를 가진다",
+    "컬럼 간 구분은 1px slate-100 좌측 border로 처리",
+    "항목 클릭 시 JS로 active 클래스와 aria-selected를 동기화 (JS 패턴 참조)"
+  ],
+  "rules": [
+    "루트는 div.region-select, 내부 구조는 region-select__* 패턴만 사용",
+    "각 컬럼은 ul[role=listbox][aria-label] + li[role=option][aria-selected] 구조 필수",
+    "탭 레이블은 heading10-sb-20 color-slate-900 사용",
+    "구분 아이콘은 chevron-right-slate-700 + aria-hidden=true 필수",
+    "항목 높이는 4rem(40px) 고정",
+    "정의되지 않은 임의 클래스 생성 금지 (region-select__* 패턴만 사용)"
+  ],
+  "do_not": [
+    "항목 높이를 4rem 외 다른 값으로 변경",
+    "컬럼 수를 3개 외 다른 값으로 변경",
+    "listbox/option 구조 대신 div/span으로 대체",
+    "구분 아이콘에 aria-hidden 누락"
+  ]
+}
