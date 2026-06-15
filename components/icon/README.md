@@ -58,6 +58,23 @@
 | <img src="../../image/icon/generated/applied-reset-icon.svg" width="19" height="18"> | `applied-reset-icon` | 17×16 (viewBox 19x18) | `#464C53` | 적용된 필터 초기화 |
 | <img src="../../image/icon/generated/button-arrow-icon.svg" width="12" height="7"> | `button-arrow-icon` | 12×7 | `#1E2124` | 버튼 펼치기/접기 화살표 |
 | <img src="../../image/icon/generated/all-search-close-icon.svg" width="24" height="24"> | `all-search-close-icon` | 24×24 | `#6D7882` | 통합검색 닫기 아이콘 |
+| <img src="../../image/icon/generated/gps-icon.svg" width="20" height="20"> | `gps-icon` | 20×20 | `#464C53` | 지도 컨트롤 - 현재 위치 (GPS) |
+| <img src="../../image/icon/generated/gps-icon-active.svg" width="20" height="20"> | `gps-icon.active` | 20×20 | `#1A76FF` | 현재 위치 (클릭 시 활성) |
+| <img src="../../image/icon/generated/plus-icon.svg" width="16" height="16"> | `plus-icon` | 16×16 | `#464C53` | 지도 확대 |
+| <img src="../../image/icon/generated/plus-icon-active.svg" width="16" height="16"> | `plus-icon.active` | 16×16 | `#1A76FF` | 지도 확대 (클릭 시 활성) |
+| <img src="../../image/icon/generated/minus-icon.svg" width="16" height="2"> | `minus-icon` | 16×2 | `#464C53` | 지도 축소 |
+| <img src="../../image/icon/generated/minus-icon-active.svg" width="16" height="2"> | `minus-icon.active` | 16×2 | `#1A76FF` | 지도 축소 (클릭 시 활성) |
+| <img src="../../image/icon/generated/arrow-expand-icon.svg" width="24" height="24"> | `arrow-expand-icon` | 24×24 | `#464C53` | 지도 면적 재기 |
+| <img src="../../image/icon/generated/arrow-expand-icon-active.svg" width="24" height="24"> | `arrow-expand-icon.active` | 24×24 | `#1A76FF` | 지도 면적 재기 (클릭 시 활성) |
+| <img src="../../image/icon/generated/divider-icon.svg" width="24" height="24"> | `divider-icon` | 24×24 | `#475263` | 지도 분할 |
+| <img src="../../image/icon/generated/divider-icon-active.svg" width="24" height="24"> | `divider-icon.active` | 24×24 | `#1A76FF` | 지도 분할 (클릭 시 활성) |
+| <img src="../../image/icon/generated/user-icon.svg" width="32" height="32"> | `user-icon` | 32×32 | `#F4F5F6` / `#6D7882` | 지도 사용자(프로필) 아이콘 |
+| <img src="../../image/icon/generated/map-search-icon.svg" width="30" height="30"> | `map-search-icon` | 30×30 | `#464C53` | 지도 헤더 중앙 검색창 아이콘 |
+| <img src="../../image/icon/generated/admin-logout-icon.svg" width="24" height="24"> | `admin-logout-icon` | 24×24 | `#33363D` | 로그아웃 |
+| <img src="../../image/icon/generated/admin-logout-icon.svg" width="24" height="24"> | `admin-logout-icon.active` | 24×24 | `#33363D` | 로그인 상태 — `admin-logout-icon`을 180deg rotate |
+| <img src="../../image/icon/generated/map-icon.svg" width="14" height="18"> | `map-icon` | 14×18 | `#CFD4DB` | 검색창 - 지도 영역 주소 표시 |
+| <img src="../../image/icon/generated/map-calendar-icon.svg" width="24" height="24"> | `map-calendar-icon` | 24×24 | `#CDD1D5` / `#8A949E` / `#58616A` | 지도용 캘린더 아이콘 (web `calendar-icon`의 map 버전) |
+| <img src="../../image/icon/generated/menu-off-icon.svg" width="24" height="24"> | `menu-off-icon` | 24×24 | `#6D7882` | 사이드바 접기/메뉴 닫기 |
 
 > 위 미리보기 SVG는 `image/icon/generated/`에 보관된 별도 파일로, `css/default/icon.css`의 inline `data:image/svg+xml` 값을 그대로 추출한 것입니다. 실제 사용 시에는 클래스만 적용하면 되며, 이 SVG 파일을 직접 `<img>`로 사용하지 않습니다.
 
