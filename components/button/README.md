@@ -76,53 +76,9 @@ border-{color}-button-{size}
 
 ### 아이콘 버튼
 
-아이콘 버튼은 텍스트와 함께 방향성·보조 의미를 전달하는 화살표형과, 텍스트 옆에 동작을 보조하는 기능형(초기화 등) 두 가지로 나뉩니다.
+텍스트로 동작을 설명하고 아이콘으로 의미를 보강하는 형태입니다. `icon-button-right/left` 없이 `gap-{n} flex align-center`만 추가하며, 주로 `border-slate` / `transparent` 계열에 사용합니다. 아이콘은 항상 `aria-hidden="true"`로 장식 처리하고, `filter-reset-20` / `applied-reset-icon` / `arrow-icon` / `chips-close-icon` / `filter-icon` 등 정의된 아이콘 클래스만 사용하며 색상은 인라인 style로 변경하지 않습니다.
 
-#### 1) 화살표형 (다음 동작/이동을 암시)
-
-다음 화면으로 이동하거나 더 보기/상세보기처럼 진행 방향을 암시할 때 사용합니다. 아이콘 위치에 따라 `icon-button-right`(텍스트 → 아이콘) 또는 `icon-button-left`(아이콘 → 텍스트)를 추가하고, 반드시 `flex align-center`를 함께 사용합니다.
-
-```html
-<!-- 아이콘 오른쪽 (blue/slate 계열: chevron-right-white) -->
-<button type="button" class="blue-button-48 icon-button-right flex align-center">
-  저장
-  <span class="chevron-right-white" aria-hidden="true"></span>
-</button>
-
-<!-- 아이콘 왼쪽 -->
-<button type="button" class="blue-button-48 icon-button-left flex align-center">
-  <span class="chevron-right-white" aria-hidden="true"></span>
-  저장
-</button>
-
-<!-- slate-50 계열: chevron-right-slate-700 -->
-<button type="button" class="slate-50-button-48 icon-button-right flex align-center">
-  목록보기
-  <span class="chevron-right-slate-700" aria-hidden="true"></span>
-</button>
-
-<button type="button" class="slate-50-button-48 icon-button-left flex align-center">
-  <span class="chevron-right-slate-700" aria-hidden="true"></span>
-  목록보기
-</button>
-
-<!-- slate 계열: chevron-right-white -->
-<button type="button" class="slate-button-48 icon-button-right flex align-center">
-  확인
-  <span class="chevron-right-white" aria-hidden="true"></span>
-</button>
-```
-
-아이콘 색상 매핑:
-
-| 버튼 색상 | 아이콘 클래스 |
-|---|---|
-| blue, slate | `chevron-right-white` |
-| slate-50, transparent | `chevron-right-slate-700` |
-
-#### 2) 기능형 (초기화 등 보조 동작)
-
-텍스트로 동작을 설명하고 아이콘으로 의미를 보강하는 형태입니다. `icon-button-right/left` 없이 `gap-{n} flex align-center`만 추가하며, 주로 `transparent` 계열에 사용합니다.
+#### 1) 초기화
 
 ```html
 <!-- 검색필터 영역 초기화: filter-reset-20 -->
@@ -140,13 +96,62 @@ border-{color}-button-{size}
 </button>
 ```
 
-- 텍스트는 의미를 전달하는 주체이므로 `span.blind`로 대체 텍스트를 추가하지 않아도 되지만, 아이콘이 별도 의미를 더하는 경우(예: 필터 영역 구분) `span.blind`로 보강합니다.
-- 아이콘은 항상 `aria-hidden="true"`로 장식 처리합니다.
-- `filter-reset-20`, `applied-reset-icon` 등 정의된 아이콘 클래스만 사용하며, 색상은 인라인 style로 변경하지 않습니다.
+#### 2) 펼치기/접기 (드롭다운 토글)
+
+`arrow-icon`(24x24, 아래 방향)을 사용하며, `aria-expanded`와 `.active` 클래스를 JS로 동기화합니다. `.active` 상태에서는 `arrow-icon`이 180도 회전해 위쪽을 향합니다.
+
+```html
+<button type="button" class="border-slate-button-40 flex align-center gap-8" aria-expanded="false">
+  고급 검색
+  <i class="arrow-icon" aria-hidden="true"></i>
+</button>
+```
+
+펼친 상태(`aria-expanded="true"` + `.active`):
+
+```html
+<button type="button" class="border-slate-button-40 flex align-center gap-8 active" aria-expanded="true">
+  고급 검색
+  <i class="arrow-icon" aria-hidden="true"></i>
+</button>
+```
+
+#### 3) 닫기/삭제
+
+`chips-close-icon`(12x12)을 사용하며, 버튼의 동작 의미는 `span.blind`로 전달합니다.
+
+```html
+<button type="button" class="transparent-button-32 flex align-center gap-6">
+  <span class="body2-m-16 color-slate-700">대기</span>
+  <i class="chips-close-icon" aria-hidden="true"></i>
+  <span class="blind">삭제</span>
+</button>
+```
+
+> 칩(태그) 형태의 삭제 버튼은 `components/chip/README.md`의 마크업을 따릅니다.
+
+#### 4) 검색필터 트리거 (active 상태)
+
+`filter-icon` / `filter-icon.active`를 사용하며, 선택 여부에 따라 버튼에 `.active` 클래스 + `aria-pressed`를 토글합니다. `.active` 상태에서는 `border-slate-button-*` → `border-blue` 톤(테두리·텍스트 `blue-500`)으로 전환되고, 아이콘도 `filter-icon active`(blue)로 교체됩니다.
+
+```html
+<!-- 기본 상태 -->
+<button type="button" class="border-slate-button-40 flex align-center gap-8" aria-pressed="false">
+  검색필터
+  <i class="filter-icon" aria-hidden="true"></i>
+</button>
+
+<!-- 활성 상태 -->
+<button type="button" class="border-slate-button-40 flex align-center gap-8 active" aria-pressed="true">
+  검색필터
+  <i class="filter-icon active" aria-hidden="true"></i>
+</button>
+```
 
 ### View Toggle (보기 방식 전환)
 
 콘텐츠를 카드형/리스트형 등으로 전환해서 보는 보기 방식 토글 버튼 그룹입니다.
+
 
 구조:
 

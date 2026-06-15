@@ -47,25 +47,10 @@
     "example": "<button type='button' class='button-48' disabled>비활성</button>"
   },
   "icon_button": {
-    "description": "아이콘 포함 버튼. 용도에 따라 화살표형(다음 동작/이동 암시)과 기능형(초기화 등 보조 동작) 두 가지로 구분",
+    "description": "아이콘 포함 버튼. icon-button-right/left 없이 gap-{n} flex align-center로 텍스트+아이콘 조합을 구성하며, 4가지 기능형으로 구분",
     "types": {
-      "arrow": {
-        "description": "다음 화면 이동, 더보기/상세보기 등 진행 방향을 암시할 때 사용. icon-button-right/left + flex align-center 필수",
-        "patterns": {
-          "icon-button-right": "텍스트 왼쪽, 아이콘 오른쪽",
-          "icon-button-left": "아이콘 왼쪽, 텍스트 오른쪽"
-        },
-        "icons": {
-          "chevron-right-white": "흰색 화살표 (blue, slate 계열에 사용)",
-          "chevron-right-slate-700": "진한 회색 화살표 (slate-50, transparent 계열에 사용)"
-        },
-        "examples": [
-          "<button type='button' class='blue-button-48 icon-button-right flex align-center'>\n  저장\n  <span class='chevron-right-white'></span>\n</button>",
-          "<button type='button' class='slate-50-button-48 icon-button-left flex align-center'>\n  <span class='chevron-right-slate-700'></span>\n  목록보기\n</button>"
-        ]
-      },
-      "functional": {
-        "description": "초기화 등 보조 동작을 텍스트 + 아이콘으로 함께 표시. icon-button-right/left 없이 gap-{n} flex align-center만 추가, 주로 transparent 계열에 사용",
+      "reset": {
+        "description": "초기화 동작. transparent 계열에 사용",
         "icons": {
           "filter-reset-20": "검색필터 영역 초기화 아이콘 (18x18, slate-700)",
           "applied-reset-icon": "적용된 필터 초기화 아이콘 (17x16, #464C53)"
@@ -73,6 +58,36 @@
         "examples": [
           "<button type='button' class='transparent-button-32 flex align-center gap-10'>\n  <span class='body2-m-16 color-slate-500'>초기화</span>\n  <i class='filter-reset-20'></i>\n  <span class='blind'>필터 초기화</span>\n</button>",
           "<button type='button' class='transparent-button-32 flex align-center gap-10'>\n  <span class='body2-m-16 color-slate-500'>초기화</span>\n  <i class='applied-reset-icon'></i>\n  <span class='blind'>적용된 필터 초기화</span>\n</button>"
+        ]
+      },
+      "dropdown_toggle": {
+        "description": "펼치기/접기. arrow-icon(24x24, 아래 방향) 사용, aria-expanded + .active 클래스를 JS로 동기화. .active 상태에서 arrow-icon 180도 회전",
+        "icons": {
+          "arrow-icon": "드롭다운/펼침 화살표 (24x24, #33363D)"
+        },
+        "examples": [
+          "<button type='button' class='border-slate-button-40 flex align-center gap-8' aria-expanded='false'>\n  고급 검색\n  <i class='arrow-icon'></i>\n</button>",
+          "<button type='button' class='border-slate-button-40 flex align-center gap-8 active' aria-expanded='true'>\n  고급 검색\n  <i class='arrow-icon'></i>\n</button>"
+        ]
+      },
+      "remove": {
+        "description": "닫기/삭제. chips-close-icon(12x12) 사용, span.blind로 동작 의미 전달. 칩(태그) 삭제는 components/chip/README.md 마크업 따름",
+        "icons": {
+          "chips-close-icon": "삭제 아이콘 (12x12, #475263)"
+        },
+        "examples": [
+          "<button type='button' class='transparent-button-32 flex align-center gap-6'>\n  <span class='body2-m-16 color-slate-700'>대기</span>\n  <i class='chips-close-icon'></i>\n  <span class='blind'>삭제</span>\n</button>"
+        ]
+      },
+      "filter_trigger": {
+        "description": "검색필터 트리거. filter-icon/filter-icon.active 사용, .active 클래스 + aria-pressed를 JS로 동기화. .active 상태에서 border-slate-button-* → border-blue 톤(테두리·텍스트 blue-500)으로 전환, 아이콘은 filter-icon active(blue)로 교체",
+        "icons": {
+          "filter-icon": "필터 트리거 아이콘 (24x24, slate-700)",
+          "filter-icon.active": "필터 트리거 아이콘 - 활성 (24x24, #1A76FF)"
+        },
+        "examples": [
+          "<button type='button' class='border-slate-button-40 flex align-center gap-8' aria-pressed='false'>\n  검색필터\n  <i class='filter-icon'></i>\n</button>",
+          "<button type='button' class='border-slate-button-40 flex align-center gap-8 active' aria-pressed='true'>\n  검색필터\n  <i class='filter-icon active'></i>\n</button>"
         ]
       }
     }
@@ -130,6 +145,8 @@
     "아이콘 버튼에서 flex align-center 누락",
     "disabled 버튼에 색상 클래스 사용",
     "view-toggle 그룹에 aria-pressed 속성 누락",
-    "view-toggle에서 정의되지 않은 아이콘 클래스 또는 인라인 style로 색상 변경"
+    "view-toggle에서 정의되지 않은 아이콘 클래스 또는 인라인 style로 색상 변경",
+    "펼치기/접기, 검색필터 트리거 버튼에서 .active 클래스와 aria-expanded/aria-pressed 동기화 누락",
+    "icon_button에서 정의되지 않은 아이콘 클래스 또는 인라인 style로 색상 변경"
   ]
 }
