@@ -61,14 +61,20 @@ div.region-select
 const tabs = document.querySelectorAll('.region-select__tab');
 const panels = document.querySelectorAll('.region-select__panel');
 
+function getPanel(tab) {
+  return document.getElementById(tab.getAttribute('aria-controls'));
+}
+
 function closeAllPanels() {
   tabs.forEach((tab) => tab.setAttribute('aria-expanded', 'false'));
   panels.forEach((panel) => panel.classList.remove('active'));
 }
 
-tabs.forEach((tab, index) => {
+tabs.forEach((tab) => {
+  const panel = getPanel(tab);
+  if (!panel) return;
+
   tab.addEventListener('click', () => {
-    const panel = panels[index];
     const isOpen = panel.classList.contains('active');
     closeAllPanels();
     if (!isOpen) {
@@ -76,9 +82,7 @@ tabs.forEach((tab, index) => {
       panel.classList.add('active');
     }
   });
-});
 
-panels.forEach((panel, index) => {
   panel.querySelectorAll('.region-select__item').forEach((item) => {
     item.addEventListener('click', () => {
       panel.querySelectorAll('.region-select__item').forEach((el) => {
@@ -87,7 +91,7 @@ panels.forEach((panel, index) => {
       });
       item.classList.add('active');
       item.setAttribute('aria-selected', 'true');
-      tabs[index].querySelector('span').textContent = item.textContent;
+      tab.querySelector('span').textContent = item.textContent;
       closeAllPanels();
     });
   });
