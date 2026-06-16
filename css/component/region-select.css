@@ -1,14 +1,12 @@
 /* Region Select (주소 선택 - 광역시도/시군구/읍면동 3단 선택) */
 .region-select {
-  position: relative;
   display: inline-flex;
   flex-direction: column;
 }
 
 .region-select__tabs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  position: relative;
+  display: flex;
+  align-items: center;
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-md-8);
   background-color: var(--white);
@@ -16,73 +14,58 @@
 }
 
 .region-select__tab {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 4rem;
-  padding: 0 var(--spacing-16);
   border: none;
+  padding: 0 var(--spacing-20) 0 var(--spacing-16);
   background-color: var(--white);
   cursor: pointer;
 }
 
+.region-select__tab > span {
+  white-space: nowrap;
+}
+
 .region-select__divider-icon {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  flex: none;
   pointer-events: none;
-}
-
-.region-select__divider-icon:nth-of-type(1) {
-  left: 33.3333%;
-}
-
-.region-select__divider-icon:nth-of-type(2) {
-  left: 66.6667%;
+  background-size: cover;
+  width: 1rem;
 }
 
 .region-select__panel {
-  position: absolute;
-  top: calc(100% + var(--spacing-8));
-  width: 33.3333%;
+  width: 100%;
+  border: 1px solid var(--slate-200);
   display: none;
   flex-direction: column;
   gap: var(--spacing-2);
   max-height: 28rem;
   overflow-y: auto;
-  margin: 0;
+  margin: var(--spacing-2) 0 0;
   padding: var(--spacing-8);
   list-style: none;
   background-color: var(--white);
-  border-radius: var(--radius-lg-16);
+  border-radius: var(--radius-sm-4);
 }
 
 .region-select__panel.active {
   display: flex;
 }
 
-.region-select__panel:nth-of-type(1) {
-  left: 0;
-}
-
-.region-select__panel:nth-of-type(2) {
-  left: 33.3333%;
-}
-
-.region-select__panel:nth-of-type(3) {
-  left: 66.6667%;
-}
-
 .region-select__item {
   display: flex;
   align-items: center;
-  justify-content: center;
   border-radius: var(--radius-sm-4);
   font-size: var(--font-size-body3);
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--letter-spacing-md);
+  padding: 0 var(--spacing-8);
   color: var(--slate-900);
   cursor: pointer;
+  height: 3.2rem;
 }
 
 .region-select__item:hover {
@@ -90,5 +73,5 @@
 }
 
 .region-select__item.active {
-  background-color: var(--slate-100);
+  background-color: var(--slate-50);
 }
