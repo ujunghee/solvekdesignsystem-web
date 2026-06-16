@@ -31,20 +31,44 @@
       <li class="region-select__item" role="option" aria-selected="false">광주광역시</li>
       <li class="region-select__item" role="option" aria-selected="false">대전광역시</li>
     </ul>
+
+    <ul id="region-select-panel-1" class="region-select__panel z-index-10" role="listbox" aria-label="시・군・구 선택">
+      <li class="region-select__item active" role="option" aria-selected="true">강남구</li>
+      <li class="region-select__item" role="option" aria-selected="false">강동구</li>
+      <li class="region-select__item" role="option" aria-selected="false">강북구</li>
+      <li class="region-select__item" role="option" aria-selected="false">강서구</li>
+      <li class="region-select__item" role="option" aria-selected="false">관악구</li>
+      <li class="region-select__item" role="option" aria-selected="false">광진구</li>
+    </ul>
+
+    <ul id="region-select-panel-2" class="region-select__panel z-index-10" role="listbox" aria-label="읍・면・동 선택">
+      <li class="region-select__item active" role="option" aria-selected="true">역삼동</li>
+      <li class="region-select__item" role="option" aria-selected="false">삼성동</li>
+      <li class="region-select__item" role="option" aria-selected="false">대치동</li>
+      <li class="region-select__item" role="option" aria-selected="false">청담동</li>
+      <li class="region-select__item" role="option" aria-selected="false">논현동</li>
+      <li class="region-select__item" role="option" aria-selected="false">개포동</li>
+    </ul>
   </div>
 
   <script>
     const tabs = document.querySelectorAll('.region-select__tab');
     const panels = document.querySelectorAll('.region-select__panel');
 
+    function getPanel(tab) {
+      return document.getElementById(tab.getAttribute('aria-controls'));
+    }
+
     function closeAllPanels() {
       tabs.forEach((tab) => tab.setAttribute('aria-expanded', 'false'));
       panels.forEach((panel) => panel.classList.remove('active'));
     }
 
-    tabs.forEach((tab, index) => {
+    tabs.forEach((tab) => {
+      const panel = getPanel(tab);
+      if (!panel) return;
+
       tab.addEventListener('click', () => {
-        const panel = panels[index];
         const isOpen = panel.classList.contains('active');
         closeAllPanels();
         if (!isOpen) {
@@ -52,9 +76,7 @@
           panel.classList.add('active');
         }
       });
-    });
 
-    panels.forEach((panel, index) => {
       panel.querySelectorAll('.region-select__item').forEach((item) => {
         item.addEventListener('click', () => {
           panel.querySelectorAll('.region-select__item').forEach((el) => {
@@ -63,7 +85,7 @@
           });
           item.classList.add('active');
           item.setAttribute('aria-selected', 'true');
-          tabs[index].querySelector('span').textContent = item.textContent;
+          tab.querySelector('span').textContent = item.textContent;
           closeAllPanels();
         });
       });
