@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>환경정보 융합 공유포털 | 솔브케이</title>
+  <meta name="description" content="다양한 환경 데이터를 통합 검색하고 시각화 도구로 더 깊이 이해해보세요.">
+  <meta name="keywords" content="환경정보, 환경데이터, 공공데이터, 대기환경, 물환경, 미세먼지">
+  <meta name="author" content="Solvek">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="환경정보 융합 공유포털 | 솔브케이">
+  <meta property="og:description" content="다양한 환경 데이터를 통합 검색하고 시각화 도구로 더 깊이 이해해보세요.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="환경정보 융합 공유포털 | 솔브케이">
+  <meta name="twitter:description" content="다양한 환경 데이터를 통합 검색하고 시각화 도구로 더 깊이 이해해보세요.">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <div class="header-top">
+      <div class="inner-default header-top__inner flex align-center justify-between">
+        <h1 class="header__logo">
+          <a href="/" aria-label="환경정보 융합 공유포털 홈으로 이동">
+            <img src="/image/icon/header-logo.svg" alt="환경정보 융합 공유포털">
+          </a>
+        </h1>
+        <div class="header-util flex align-center" role="group" aria-label="사용자 계정 관리">
+          <button type="button" class="header-util__btn header-util__btn--login transparent-button-40 gap-8 flex align-center">
+            <i class="header-login-24" aria-hidden="true"></i>
+            <span class="body2-m-16">로그인</span>
+          </button>
+          <button type="button" class="header-util__btn transparent-button-40 gap-8 flex align-center"
+            data-header-search-open aria-expanded="false" aria-controls="header-search-panel">
+            <i class="header-search-24" aria-hidden="true"></i>
+            <span class="body2-m-16">통합검색</span>
+          </button>
+          <button type="button" class="header-util__btn header-util__btn--menu transparent-button-48 flex align-center"
+            data-header-drawer-open aria-expanded="false" aria-controls="header-drawer">
+            <i class="header-menu-24" aria-hidden="true"></i>
+            <span class="blind">메뉴</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="header-nav" role="navigation" aria-label="주 메뉴">
+      <div class="inner-default">
+        <ul class="header-nav__list">
+          <li class="header-nav__item">
+            <button type="button" class="header-nav__link body1-m-18" data-header-nav-toggle
+              aria-expanded="false" aria-haspopup="true" aria-controls="header-nav-sub-1">
+              데이터 탐색
+              <i class="arrow-icon" aria-hidden="true"></i>
+            </button>
+            <div class="header-nav__sub" id="header-nav-sub-1">
+              <div class="inner-default header-nav__sub-inner">
+                <div class="header-nav__sub-aside">
+                  <p class="heading9-sb-22 color-slate-900">데이터 탐색</p>
+                </div>
+                <div class="header-nav__sub-content">
+                  <ul class="header-nav__sub-list" role="menu" aria-label="데이터 탐색 하위 메뉴">
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">데이터셋 목록<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">Open API<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">파일데이터<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="header-nav__item">
+            <a href="#" class="header-nav__link body1-m-18">환경 지도</a>
+          </li>
+          <li class="header-nav__item">
+            <a href="#" class="header-nav__link body1-m-18">Open API</a>
+          </li>
+          <li class="header-nav__item">
+            <button type="button" class="header-nav__link body1-m-18" data-header-nav-toggle
+              aria-expanded="false" aria-haspopup="true" aria-controls="header-nav-sub-4">
+              고객센터
+              <i class="arrow-icon" aria-hidden="true"></i>
+            </button>
+            <div class="header-nav__sub" id="header-nav-sub-4">
+              <div class="inner-default header-nav__sub-inner">
+                <div class="header-nav__sub-aside">
+                  <p class="heading9-sb-22 color-slate-900">고객센터</p>
+                </div>
+                <div class="header-nav__sub-content">
+                  <ul class="header-nav__sub-list" role="menu" aria-label="고객센터 하위 메뉴">
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">공지사항<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">1:1 문의하기<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                    <li role="none"><a href="#" class="header-nav__sub-link body2-r-16" role="menuitem">이용 안내<span class="chevron-right-slate-700" aria-hidden="true"></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- 통합검색 패널 -->
+    <div class="header-search-panel" id="header-search-panel"
+      role="dialog" aria-modal="true" aria-labelledby="header-search-title" hidden>
+      <div class="header-search-wrapper">
+        <div class="flex justify-between align-center gap-16">
+          <h2 id="header-search-title" class="heading8-sb-24 color-slate-900">통합검색</h2>
+          <button type="button" data-header-search-close aria-label="검색 닫기">
+            <i class="close-icon"><span class="blind">검색 닫기</span></i>
+          </button>
+        </div>
+        <div class="mt-36">
+          <div class="search-54 flex pl-20 pr-12 align-center gap-8">
+            <label for="header-search-input" class="blind">검색어</label>
+            <input type="search" id="header-search-input" class="search-input body1-r-18 flex-1" placeholder="검색어를 입력하세요" autocomplete="off">
+            <button type="button" class="search-button h-fit">
+              <i class="search-icon-54"><span class="blind">검색</span></i>
+            </button>
+          </div>
+        </div>
+        <div class="header-search-panel__columns flex mt-24 gap-32">
+          <section aria-labelledby="header-search-recent-title">
+            <div class="flex align-center justify-between">
+              <h3 id="header-search-recent-title" class="heading10-sb-20 color-slate-900">최근 검색어</h3>
+              <button type="button" class="transparent-button-32" data-header-search-clear>전체삭제</button>
+            </div>
+            <p class="body2-m-16 color-slate-500 mt-16" data-header-search-empty>최근 검색어가 없습니다.</p>
+            <ul class="hidden" data-header-search-recent-list></ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- 모바일 드로어 -->
+    <div class="header-drawer" id="header-drawer" role="dialog" aria-modal="true" aria-labelledby="header-drawer-title">
+      <div class="header-drawer__overlay" data-header-drawer-close></div>
+      <div class="header-drawer__panel">
+        <h2 class="blind" id="header-drawer-title">전체 메뉴</h2>
+        <div class="header-drawer__head flex align-center justify-between">
+          <div class="flex align-center gap-16">
+            <a href="#" class="body3-r-14 color-slate-700">이용안내</a>
+          </div>
+          <button type="button" data-header-drawer-close aria-label="메뉴 닫기">
+            <i class="close-icon"><span class="blind">메뉴 닫기</span></i>
+          </button>
+        </div>
+        <div class="header-drawer__login">
+          <button type="button" class="flex align-center w-full gap-8">
+            <i class="header-login-24" aria-hidden="true"></i>
+            <span class="heading10-b-20">로그인을 해주세요</span>
+          </button>
+        </div>
+        <div class="header-drawer__search">
+          <div class="search-48 flex pl-16 pr-12 justify-between align-center">
+            <label for="header-drawer-search-input" class="blind">검색어</label>
+            <input type="search" id="header-drawer-search-input" class="body2-r-16 w-full" placeholder="검색어를 입력하세요">
+            <button type="button" class="search-button h-fit">
+              <i class="search-icon-40"><span class="blind">검색</span></i>
+            </button>
+          </div>
+        </div>
+        <nav class="header-drawer__nav" role="navigation" aria-label="전체 메뉴">
+          <ul class="header-drawer__list">
+            <li class="header-drawer__section">
+              <p class="header-drawer__section-title body1-sb-18 color-slate-900">데이터 탐색</p>
+              <ul class="header-drawer__menu-list">
+                <li><a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700">데이터셋 목록</a></li>
+                <li><a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700">Open API</a></li>
+                <li><a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700">파일데이터</a></li>
+              </ul>
+            </li>
+            <li class="header-drawer__section">
+              <p class="header-drawer__section-title body1-sb-18 color-slate-900">환경 지도</p>
+            </li>
+            <li class="header-drawer__section">
+              <p class="header-drawer__section-title body1-sb-18 color-slate-900">Open API</p>
+            </li>
+            <li class="header-drawer__section">
+              <p class="header-drawer__section-title body1-sb-18 color-slate-900">고객센터</p>
+              <ul class="header-drawer__menu-list">
+                <li><a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700">공지사항</a></li>
+                <li><a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700">1:1 문의하기</a></li>
+                <li><a href="#" class="header-drawer__menu-link body2-r-16 color-slate-700">이용 안내</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <!-- ===== SEARCH HERO ===== -->
+    <section class="bg-slate-50 py-32" aria-labelledby="main-search-title">
+      <div class="inner-default">
+        <h2 id="main-search-title" class="blind">데이터 검색</h2>
+        <div class="flex align-center gap-12">
+          <div class="flex-1 search-wrapper relative">
+            <div class="search-48 flex pl-16 pr-12 align-center">
+              <label for="main-search-input" class="blind">검색어</label>
+              <input type="search" id="main-search-input" class="search-input body2-r-16 flex-1" placeholder="검색어를 입력하세요" autocomplete="off">
+              <button type="button" class="search-button h-fit">
+                <i class="search-icon-40"><span class="blind">검색</span></i>
+              </button>
+            </div>
+          </div>
+          <button type="button" class="border-slate-button-40 flex align-center gap-8" aria-pressed="false" data-filter-trigger>
+            <i class="filter-icon" aria-hidden="true"></i>
+            <span class="body2-m-16">상세검색</span>
+          </button>
+          <div class="select-wrapper">
+            <label for="category-filter" class="blind">데이터 분류 선택</label>
+            <select id="category-filter" class="select-40 flex align-center" name="categoryFilter" aria-label="데이터 분류 선택">
+              <option value="1" selected>1 미세먼지</option>
+              <option value="2">대기환경</option>
+              <option value="3">물환경</option>
+              <option value="4">생활환경</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 분야별 카테고리 -->
+        <nav class="mt-32" aria-label="환경 분야별 데이터 탐색">
+          <ul class="flex gap-8 justify-center flex-wrap">
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">🌫️</span>
+                <span class="body3-r-14 color-slate-700">대기환경</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">💧</span>
+                <span class="body3-r-14 color-slate-700">물환경</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">♻️</span>
+                <span class="body3-r-14 color-slate-700">생활환경</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">🌿</span>
+                <span class="body3-r-14 color-slate-700">환경일반</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">🌳</span>
+                <span class="body3-r-14 color-slate-700">자연환경</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">🌁</span>
+                <span class="body3-r-14 color-slate-700">미세먼지</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">🌍</span>
+                <span class="body3-r-14 color-slate-700">기후변화</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">⚠️</span>
+                <span class="body3-r-14 color-slate-700">재난·재해</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">🌱</span>
+                <span class="body3-r-14 color-slate-700">탄소중립</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex flex-col align-center gap-6 px-16 py-12 radius-md-8 bg-white border border-slate-200">
+                <span class="heading8-sb-24" aria-hidden="true">🗑️</span>
+                <span class="body3-r-14 color-slate-700">폐기물·자원</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ===== 메인 배너 + 시각화 도구 ===== -->
+    <section class="py-40" aria-labelledby="banner-title">
+      <div class="inner-default">
+        <div class="grid-column-default gap-24">
+
+          <!-- 배너 (8컬럼) -->
+          <div class="grid-column-8">
+            <div class="radius-lg-16 overflow-hidden border border-slate-200 relative">
+              <!-- 배너 이미지 영역 -->
+              <div class="bg-slate-100 h-128 flex flex-col justify-end p-24 relative">
+                <div>
+                  <h2 id="banner-title" class="heading5-b-30 color-slate-900">환경 빅데이터를 한눈에</h2>
+                  <p class="body2-r-16 color-slate-700 mt-8">다양한 환경 데이터를 통합 검색하고<br>시각화 도구로 더 깊이 이해해보세요.</p>
+                </div>
+                <div class="flex align-center gap-8 mt-12">
+                  <a href="#" class="body3-r-14 color-slate-500">이전</a>
+                  <span class="body3-r-14 color-slate-900">1 / 3</span>
+                  <button type="button" class="transparent-button-32">
+                    <i class="chevron-right-slate-700" aria-hidden="true"></i>
+                    <span class="blind">다음</span>
+                  </button>
+                  <button type="button" class="transparent-button-32">
+                    <i class="chevron-left-white" aria-hidden="true"></i>
+                    <span class="blind">이전</span>
+                  </button>
+                </div>
+              </div>
+              <!-- 통계 -->
+              <div class="flex border-t border-slate-200 bg-white">
+                <div class="flex-1 flex flex-col align-center py-16 px-20">
+                  <span class="body3-r-14 color-slate-500">누적 조회 건수</span>
+                  <span class="heading9-b-22 color-slate-900 mt-4">105,242건</span>
+                </div>
+                <div class="border-l border-slate-200 flex-1 flex flex-col align-center py-16 px-20">
+                  <span class="body3-r-14 color-slate-500">오늘 다운로드 건수</span>
+                  <span class="heading9-b-22 color-slate-900 mt-4">1,482건</span>
+                </div>
+                <div class="border-l border-slate-200 flex-1 flex flex-col align-center py-16 px-20">
+                  <span class="body3-r-14 color-slate-500">API 신청 건수</span>
+                  <span class="heading9-b-22 color-slate-900 mt-4">124,578건</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 환경 시각화 도구 (4컬럼) -->
+          <div class="grid-column-4">
+            <div class="border border-slate-200 radius-lg-16 bg-white h-full p-24 flex flex-col gap-16">
+              <h2 class="heading10-sb-20 color-slate-900">환경 시각화 도구</h2>
+              <ul class="flex flex-col gap-12">
+                <li>
+                  <a href="#" class="flex align-center gap-12 p-12 radius-md-8 border border-slate-200 bg-white">
+                    <div class="flex flex-col flex-1 gap-4">
+                      <span class="body2-sb-16 color-slate-900">트리맵</span>
+                      <span class="body3-r-14 color-slate-500">분류별 데이터 비율 비교</span>
+                    </div>
+                    <div class="bg-green-500 radius-md-6 h-56 w-100 flex-none"></div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex align-center gap-12 p-12 radius-md-8 border border-slate-200 bg-white">
+                    <div class="flex flex-col flex-1 gap-4">
+                      <span class="body2-sb-16 color-slate-900">관계도맵</span>
+                      <span class="body3-r-14 color-slate-500">데이터 간 연결 관계 탐색</span>
+                    </div>
+                    <div class="bg-teal-500 radius-md-6 h-56 w-100 flex-none"></div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex align-center gap-12 p-12 radius-md-8 border border-slate-200 bg-white">
+                    <div class="flex flex-col flex-1 gap-4">
+                      <span class="body2-sb-16 color-slate-900">확장맵</span>
+                      <span class="body3-r-14 color-slate-500">상하위 구조로 정보 탐색</span>
+                    </div>
+                    <div class="bg-blue-500 radius-md-6 h-56 w-100 flex-none"></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 실시간 인기 데이터 ===== -->
+    <section class="py-40 border-t border-slate-100" aria-labelledby="popular-title">
+      <div class="inner-default">
+        <div class="grid-column-default gap-40">
+
+          <!-- 메인 영역 (8컬럼) -->
+          <div class="grid-column-8">
+            <div class="flex align-center justify-between mb-20">
+              <h2 id="popular-title" class="heading9-b-22 color-slate-900">실시간 인기 데이터</h2>
+            </div>
+
+            <!-- 필터 탭 -->
+            <div class="flex gap-4 mb-20" role="group" aria-label="데이터 분야 필터">
+              <label class="radio-segment-label body3-r-14">
+                <input type="radio" name="popular-filter" class="radio-segment" checked>
+                <span>전체</span>
+              </label>
+              <label class="radio-segment-label body3-r-14">
+                <input type="radio" name="popular-filter" class="radio-segment">
+                <span>대기환경</span>
+              </label>
+              <label class="radio-segment-label body3-r-14">
+                <input type="radio" name="popular-filter" class="radio-segment">
+                <span>물환경</span>
+              </label>
+              <label class="radio-segment-label body3-r-14">
+                <input type="radio" name="popular-filter" class="radio-segment">
+                <span>생활환경</span>
+              </label>
+              <label class="radio-segment-label body3-r-14">
+                <input type="radio" name="popular-filter" class="radio-segment">
+                <span>환경일반</span>
+              </label>
+              <label class="radio-segment-label body3-r-14">
+                <input type="radio" name="popular-filter" class="radio-segment">
+                <span>자연환경</span>
+              </label>
+              <label class="radio-segment-label body3-r-14">
+                <input type="radio" name="popular-filter" class="radio-segment">
+                <span>자원순환</span>
+              </label>
+            </div>
+
+            <!-- 카드 목록 -->
+            <ul class="flex flex-col gap-16">
+              <li class="flex flex-row gap-16">
+                <div class="flex-1">
+                  <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                    <div class="flex justify-between align-center">
+                      <ul class="meta-tag-list">
+                        <li><span class="meta-tag meta-tag--active">대기환경</span></li>
+                        <li><span class="meta-tag">대기</span></li>
+                        <li><span class="meta-tag">미세먼지</span></li>
+                      </ul>
+                      <div class="flex align-center gap-6">
+                        <i class="view-count-icon" aria-hidden="true"></i>
+                        <span class="blind">조회수</span>
+                        <span class="body3-r-14 color-slate-400">4842</span>
+                      </div>
+                    </div>
+                    <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 미세먼지(PM2.5) 측정소 시간별 관측 데이터</h3>
+                    <div class="flex flex-col gap-6">
+                      <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                        <time datetime="2025-10-27" itemprop="dateModified">2025.10.27</time>
+                        <span>업데이트</span>
+                        <span class="color-slate-200" aria-hidden="true">|</span>
+                        <span itemprop="creator">환경부 · 국가미세먼지정보센터</span>
+                      </p>
+                      <p class="body2-m-16 color-slate-900 line-160">
+                        <span class="blind">제공 형식</span>
+                        <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <div class="flex-1">
+                  <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                    <div class="flex justify-between align-center">
+                      <ul class="meta-tag-list">
+                        <li><span class="meta-tag meta-tag--active">대기환경</span></li>
+                        <li><span class="meta-tag">대기</span></li>
+                        <li><span class="meta-tag">오존</span></li>
+                      </ul>
+                      <div class="flex align-center gap-6">
+                        <i class="view-count-icon" aria-hidden="true"></i>
+                        <span class="blind">조회수</span>
+                        <span class="body3-r-14 color-slate-400">3675</span>
+                      </div>
+                    </div>
+                    <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 대기오염측정소 오존 농도 관측 데이터</h3>
+                    <div class="flex flex-col gap-6">
+                      <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                        <time datetime="2025-05-08" itemprop="dateModified">2025.05.08</time>
+                        <span>업데이트</span>
+                        <span class="color-slate-200" aria-hidden="true">|</span>
+                        <span itemprop="creator">환경부 · 국립환경과학원</span>
+                      </p>
+                      <p class="body2-m-16 color-slate-900 line-160">
+                        <span class="blind">제공 형식</span>
+                        <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="flex flex-row gap-16">
+                <div class="flex-1">
+                  <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                    <div class="flex justify-between align-center">
+                      <ul class="meta-tag-list">
+                        <li><span class="meta-tag meta-tag--active">물환경</span></li>
+                        <li><span class="meta-tag">수질</span></li>
+                        <li><span class="meta-tag">하천</span></li>
+                      </ul>
+                      <div class="flex align-center gap-6">
+                        <i class="view-count-icon" aria-hidden="true"></i>
+                        <span class="blind">조회수</span>
+                        <span class="body3-r-14 color-slate-400">2593</span>
+                      </div>
+                    </div>
+                    <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 주요 하천 수질 측정량 관측 데이터</h3>
+                    <div class="flex flex-col gap-6">
+                      <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                        <time datetime="2025-04-13" itemprop="dateModified">2025.04.13</time>
+                        <span>업데이트</span>
+                        <span class="color-slate-200" aria-hidden="true">|</span>
+                        <span itemprop="creator">환경부 · 한국수자원공사</span>
+                      </p>
+                      <p class="body2-m-16 color-slate-900 line-160">
+                        <span class="blind">제공 형식</span>
+                        <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <div class="flex-1">
+                  <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                    <div class="flex justify-between align-center">
+                      <ul class="meta-tag-list">
+                        <li><span class="meta-tag meta-tag--active">물환경</span></li>
+                        <li><span class="meta-tag">수자원</span></li>
+                        <li><span class="meta-tag">수위</span></li>
+                      </ul>
+                      <div class="flex align-center gap-6">
+                        <i class="view-count-icon" aria-hidden="true"></i>
+                        <span class="blind">조회수</span>
+                        <span class="body3-r-14 color-slate-400">1512</span>
+                      </div>
+                    </div>
+                    <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 하천 수위 관측 및 수문 데이터</h3>
+                    <div class="flex flex-col gap-6">
+                      <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                        <time datetime="2023-08-12" itemprop="dateModified">2023.08.12</time>
+                        <span>업데이트</span>
+                        <span class="color-slate-200" aria-hidden="true">|</span>
+                        <span itemprop="creator">환경부 · 한국홍수통제소</span>
+                      </p>
+                      <p class="body2-m-16 color-slate-900 line-160">
+                        <span class="blind">제공 형식</span>
+                        <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 자료 현황 사이드바 (4컬럼) -->
+          <div class="grid-column-4">
+            <div class="border border-slate-200 radius-lg-16 bg-white p-24 h-full">
+              <h2 class="heading10-sb-20 color-slate-900 mb-16">자료 현황</h2>
+              <ul class="flex flex-col">
+                <li class="flex justify-between align-center py-12 border-b border-slate-100">
+                  <span class="body2-r-16 color-slate-700">대기환경</span>
+                  <span class="body2-sb-16 color-slate-900">182,540</span>
+                </li>
+                <li class="flex justify-between align-center py-12 border-b border-slate-100">
+                  <span class="body2-r-16 color-slate-700">물환경</span>
+                  <span class="body2-sb-16 color-slate-900">156,380</span>
+                </li>
+                <li class="flex justify-between align-center py-12 border-b border-slate-100">
+                  <span class="body2-r-16 color-slate-700">생활환경</span>
+                  <span class="body2-sb-16 color-slate-900">124,950</span>
+                </li>
+                <li class="flex justify-between align-center py-12 border-b border-slate-100">
+                  <span class="body2-r-16 color-slate-700">환경일반</span>
+                  <span class="body2-sb-16 color-slate-900">98,240</span>
+                </li>
+                <li class="flex justify-between align-center py-12 border-b border-slate-100">
+                  <span class="body2-r-16 color-slate-700">자연환경</span>
+                  <span class="body2-sb-16 color-slate-900">65,780</span>
+                </li>
+                <li class="flex justify-between align-center py-12">
+                  <span class="body2-r-16 color-slate-700">자원순환</span>
+                  <span class="body2-sb-16 color-slate-900">52,310</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 최신 데이터 ===== -->
+    <section class="py-40 border-t border-slate-100" aria-labelledby="latest-title">
+      <div class="inner-default">
+        <h2 id="latest-title" class="heading9-b-22 color-slate-900 mb-20">최신 데이터</h2>
+        <div class="flex flex-row gap-24">
+
+          <!-- 피처 이미지 카드 -->
+          <div class="border border-slate-200 radius-md-8 overflow-hidden bg-white flex-none">
+            <a href="#" class="flex flex-col h-full">
+              <div class="bg-slate-200 h-128 flex align-center justify-center p-16">
+                <span class="body3-r-14 color-slate-500 text-center">업데이트된 환경 데이터를<br>바로 확인해보세요.</span>
+              </div>
+              <div class="p-16 flex-1">
+                <span class="body3-r-14 color-slate-700">최신 데이터 보기</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 카드 2×2 -->
+          <div class="flex-1 flex flex-col gap-16">
+            <div class="flex flex-row gap-16">
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">대기환경</span></li>
+                      <li><span class="meta-tag">대기</span></li>
+                      <li><span class="meta-tag">미세먼지</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">842</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 대기오염측정소 미세먼지(PM2.5) 시간별 관측 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2024-04-13" itemprop="dateModified">2024.04.13</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">환경부 · 국가미세먼지정보센터</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">물환경</span></li>
+                      <li><span class="meta-tag">수질</span></li>
+                      <li><span class="meta-tag">하천</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">613</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 주요 하천 수질 측정량 및 수문 관측 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2024-06-14" itemprop="dateModified">2024.06.14</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">환경부 · 한국수자원공사</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="flex flex-row gap-16">
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">자연환경</span></li>
+                      <li><span class="meta-tag">생태</span></li>
+                      <li><span class="meta-tag">생물종</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">476</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 생물종 서식지 및 생태계 조사 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2022-08-23" itemprop="dateModified">2022.08.23</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">환경부 · 국립생물자원관</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">CSV, SHP, GeoJSON</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">생활환경</span></li>
+                      <li><span class="meta-tag">소음</span></li>
+                      <li><span class="meta-tag">생활소음</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">389</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">도시 생활소음 측정량 소음도 관측 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2025-10-27" itemprop="dateModified">2025.10.27</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">환경부 · 한국환경공단</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 추천 데이터 ===== -->
+    <section class="py-40 border-t border-slate-100" aria-labelledby="recommend-title">
+      <div class="inner-default">
+        <h2 id="recommend-title" class="heading9-b-22 color-slate-900 mb-20">추천 데이터</h2>
+        <div class="flex flex-row gap-24">
+
+          <!-- 피처 이미지 카드 -->
+          <div class="border border-slate-200 radius-md-8 overflow-hidden bg-white flex-none">
+            <a href="#" class="flex flex-col h-full">
+              <div class="bg-slate-200 h-128 flex align-center justify-center p-16">
+                <span class="body3-r-14 color-slate-500 text-center">의미 있는 환경 데이터를<br>제공합니다.</span>
+              </div>
+              <div class="p-16 flex-1">
+                <span class="body3-r-14 color-slate-700">추천 데이터 보기</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 카드 2×2 -->
+          <div class="flex-1 flex flex-col gap-16">
+            <div class="flex flex-row gap-16">
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">환경일반</span></li>
+                      <li><span class="meta-tag">환경지표</span></li>
+                      <li><span class="meta-tag">환경통계</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">1276</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">국가 환경지표 및 환경통계 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2023-06-17" itemprop="dateModified">2023.06.17</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">환경부</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">대기환경</span></li>
+                      <li><span class="meta-tag">대기</span></li>
+                      <li><span class="meta-tag">오존</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">754</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 대기오염측정소 오존 농도 관측 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2024-03-04" itemprop="dateModified">2024.03.04</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">환경부 · 국립환경과학원</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">CSV, JSON+XML</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="flex flex-row gap-16">
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">물환경</span></li>
+                      <li><span class="meta-tag">수자원</span></li>
+                      <li><span class="meta-tag">수위</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">882</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">전국 생태보호지역 위치 및 관리 현황 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2024-04-13" itemprop="dateModified">2024.04.13</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">환경부 · 한국환경수문세계</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">SHP, GeoJSON</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="flex-1">
+                <a href="#" class="border border-slate-200 radius-md-8 p-24 flex flex-col bg-white gap-10 h-full" itemscope itemtype="https://schema.org/Dataset">
+                  <div class="flex justify-between align-center">
+                    <ul class="meta-tag-list">
+                      <li><span class="meta-tag meta-tag--active">자연환경</span></li>
+                      <li><span class="meta-tag">생태</span></li>
+                      <li><span class="meta-tag">보호지역</span></li>
+                    </ul>
+                    <div class="flex align-center gap-6">
+                      <i class="view-count-icon" aria-hidden="true"></i>
+                      <span class="blind">조회수</span>
+                      <span class="body3-r-14 color-slate-400">534</span>
+                    </div>
+                  </div>
+                  <h3 class="body1-sb-18 color-slate-900 line-160" itemprop="name">국가 생태보호지역 위치 및 관리 현황 데이터</h3>
+                  <div class="flex flex-col gap-6">
+                    <p class="body3-r-14 color-slate-700 line-auto flex align-center gap-6">
+                      <time datetime="2024-10-22" itemprop="dateModified">2024.10.22</time>
+                      <span>업데이트</span>
+                      <span class="color-slate-200" aria-hidden="true">|</span>
+                      <span itemprop="creator">국립환경과학원</span>
+                    </p>
+                    <p class="body2-m-16 color-slate-900 line-160">
+                      <span class="blind">제공 형식</span>
+                      <span itemprop="encodingFormat">SHP, GeoJSON</span>
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 공지사항 + 도움이 필요하신가요? ===== -->
+    <section class="py-40 border-t border-slate-100" aria-labelledby="notice-help-title">
+      <div class="inner-default">
+        <h2 id="notice-help-title" class="blind">공지사항 및 도움말</h2>
+        <div class="grid-column-default gap-40">
+
+          <!-- 공지사항 (8컬럼) -->
+          <div class="grid-column-8">
+            <div class="flex align-center justify-between mb-20">
+              <h3 class="heading9-b-22 color-slate-900">공지사항</h3>
+              <a href="#" class="flex align-center gap-4 body3-r-14 color-slate-500">
+                + 더보기
+              </a>
+            </div>
+            <ul class="flex flex-col">
+              <li class="flex align-center justify-between py-14 border-b border-slate-100">
+                <a href="#" class="body2-r-16 color-slate-900 flex-1">「수입오염물질 지정 등에 관한 지침(기후·대기환경부훈령)」 개정·공표</a>
+                <time datetime="2025-11-03" class="body3-r-14 color-slate-500 flex-none ml-16">2025-11-03</time>
+              </li>
+              <li class="flex align-center justify-between py-14 border-b border-slate-100">
+                <a href="#" class="body2-r-16 color-slate-900 flex-1 flex align-center gap-8">
+                  환경 빅데이터센터 신규 50만 건 업데이트에 관해
+                  <span class="board-table__badge-new" aria-label="새 게시물">N</span>
+                </a>
+                <time datetime="2025-05-18" class="body3-r-14 color-slate-500 flex-none ml-16">2025-05-18</time>
+              </li>
+              <li class="flex align-center justify-between py-14 border-b border-slate-100">
+                <a href="#" class="body2-r-16 color-slate-900 flex-1">탄소중립 실현을 위한 데이터 활용 우수 아이디어 공모전 개최</a>
+                <time datetime="2025-05-11" class="body3-r-14 color-slate-500 flex-none ml-16">2025-05-11</time>
+              </li>
+              <li class="flex align-center justify-between py-14 border-b border-slate-100">
+                <a href="#" class="body2-r-16 color-slate-900 flex-1">오픈데이터 활용 우수사례 도입 (–6/30)</a>
+                <time datetime="2025-05-07" class="body3-r-14 color-slate-500 flex-none ml-16">2025-05-07</time>
+              </li>
+              <li class="flex align-center justify-between py-14">
+                <a href="#" class="body2-r-16 color-slate-900 flex-1">지자체 환경자료 최신 갱신(대기/수질/자원순환)</a>
+                <time datetime="2025-04-24" class="body3-r-14 color-slate-500 flex-none ml-16">2025-04-24</time>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 도움이 필요하신가요? (4컬럼) -->
+          <div class="grid-column-4">
+            <h3 class="heading9-b-22 color-slate-900 mb-20">도움이 필요하신가요?</h3>
+            <div class="flex flex-col gap-12">
+              <a href="#" class="border border-slate-200 radius-md-8 p-20 bg-white flex flex-col gap-8">
+                <span class="body2-sb-16 color-slate-900">1:1 문의하기</span>
+                <p class="body3-r-14 color-slate-500">궁금한 사항이나 문제가 있으신가요?<br>상세 내용을 남겨주세요.</p>
+                <span class="body3-sb-14 color-blue-500 flex align-center gap-4 mt-4">
+                  문의하기
+                  <i class="chevron-right-slate-700" aria-hidden="true"></i>
+                </span>
+              </a>
+              <a href="#" class="border border-slate-200 radius-md-8 p-20 bg-white flex flex-col gap-8">
+                <span class="body2-sb-16 color-slate-900">이용 안내</span>
+                <p class="body3-r-14 color-slate-500">데이터에 감사해드리는 다운로드,<br>활용 방법을 단계별로 안내합니다.</p>
+                <span class="body3-sb-14 color-blue-500 flex align-center gap-4 mt-4">
+                  자세히 보기
+                  <i class="chevron-right-slate-700" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__body">
+      <div class="inner-default footer__inner">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo" aria-label="환경정보 융합 공유포털 홈으로 이동">
+            <img src="/image/icon/footer-logo.svg" alt="환경정보 융합 공유포털">
+          </a>
+        </div>
+        <div class="footer__info flex justify-between align-start">
+          <div class="footer__contact">
+            <p class="body3-r-14 color-slate-700">(우)35208 대전광역시 서구 둔산로 189 정부대전청사 1동 8층, 2동 14층 국가유산청</p>
+            <p class="body3-r-14 color-slate-700 mt-4">지정유산 관련 문의: 공간정보 운영팀 042-481-3177</p>
+            <p class="body3-r-14 color-slate-700 mt-2">매장유산 관련 문의: 유적발굴과 042-481-3142</p>
+          </div>
+          <a href="/guide" class="footer__guide body3-r-14 color-slate-700 flex align-center gap-8">
+            이용안내
+            <i class="chevron-right-slate-700" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="footer__divider border-t border-slate-200 mt-28 mb-16" role="presentation" aria-hidden="true"></div>
+        <div class="footer__bottom flex justify-between align-center">
+          <ul class="footer__policy-list flex flex-wrap gap-16">
+            <li><a href="#" class="body4-r-13 color-slate-500">이용약관</a></li>
+            <li><a href="#" class="body4-r-13 color-slate-500">개인정보처리방침</a></li>
+            <li><a href="#" class="body4-r-13 color-slate-500">데이터이용정책수립이행</a></li>
+            <li><a href="#" class="body4-r-13 color-slate-500">지자체정보포털</a></li>
+          </ul>
+          <p class="body4-r-13 color-slate-400">© Ministry of Climate, Energy and Environment. The Government of the Republic of Korea. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // GNB
+    document.querySelectorAll('[data-header-nav-toggle]').forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const item = trigger.closest('.header-nav__item');
+        const isOpen = item.classList.contains('active');
+        closeNavItems();
+        if (!isOpen) {
+          item.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    function closeNavItems() {
+      document.querySelectorAll('.header-nav__item.active').forEach((item) => {
+        item.classList.remove('active');
+        item.querySelector('[data-header-nav-toggle]')?.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // 통합검색
+    const searchPanel = document.getElementById('header-search-panel');
+    const searchOpenBtn = document.querySelector('[data-header-search-open]');
+    const searchEmpty = document.querySelector('[data-header-search-empty]');
+    const searchRecentList = document.querySelector('[data-header-search-recent-list]');
+
+    function openSearch() {
+      closeNavItems();
+      searchPanel.hidden = false;
+      searchOpenBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('header-search-input').focus();
+    }
+
+    function closeSearch() {
+      searchPanel.hidden = true;
+      searchOpenBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      searchOpenBtn.focus();
+    }
+
+    searchOpenBtn?.addEventListener('click', openSearch);
+    document.querySelectorAll('[data-header-search-close]').forEach((btn) => btn.addEventListener('click', closeSearch));
+    document.querySelector('[data-header-search-clear]')?.addEventListener('click', () => {
+      if (searchRecentList) searchRecentList.innerHTML = '';
+    });
+
+    // 드로어
+    const headerDrawer = document.getElementById('header-drawer');
+    const drawerOpenBtn = document.querySelector('[data-header-drawer-open]');
+
+    function openDrawer() {
+      headerDrawer.classList.add('active');
+      drawerOpenBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      headerDrawer.classList.remove('active');
+      drawerOpenBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    drawerOpenBtn?.addEventListener('click', openDrawer);
+    document.querySelectorAll('[data-header-drawer-close]').forEach((btn) => btn.addEventListener('click', closeDrawer));
+
+    // 상세검색 토글
+    document.querySelectorAll('[data-filter-trigger]').forEach((btn) => {
+      const icon = btn.querySelector('.filter-icon');
+      btn.addEventListener('click', () => {
+        const pressed = btn.getAttribute('aria-pressed') === 'true';
+        btn.setAttribute('aria-pressed', String(!pressed));
+        btn.classList.toggle('active', !pressed);
+        icon?.classList.toggle('active', !pressed);
+      });
+    });
+
+    // 공통 외부 클릭 닫기
+    document.addEventListener('click', (e) => {
+      const headerNav = document.querySelector('.header-nav');
+      if (headerNav && !headerNav.contains(e.target)) closeNavItems();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (searchPanel && !searchPanel.hidden) { closeSearch(); return; }
+      if (headerDrawer?.classList.contains('active')) { closeDrawer(); return; }
+      closeNavItems();
+    });
+  </script>
+
+</body>
+</html>
