@@ -284,38 +284,9 @@
   </div>
   <!-- view toggle button e -->
 
-  <script>
-    document.querySelectorAll('.view-toggle').forEach((group) => {
-      group.querySelectorAll('.view-toggle__btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          group.querySelectorAll('.view-toggle__btn').forEach((item) => {
-            item.classList.remove('active');
-            item.setAttribute('aria-pressed', 'false');
-          });
-          btn.classList.add('active');
-          btn.setAttribute('aria-pressed', 'true');
-        });
-      });
-    });
-
-    document.querySelectorAll('[aria-expanded]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        btn.classList.toggle('active', !expanded);
-      });
-    });
-
-    document.querySelectorAll('[data-filter-trigger]').forEach((btn) => {
-      const icon = btn.querySelector('.filter-icon');
-      btn.addEventListener('click', () => {
-        const pressed = btn.getAttribute('aria-pressed') === 'true';
-        btn.setAttribute('aria-pressed', String(!pressed));
-        btn.classList.toggle('active', !pressed);
-        icon?.classList.toggle('active', !pressed);
-      });
-    });
-  </script>
+  <script src="/js/view-toggle.js"></script>
+  <script src="/js/accordion.js"></script>
+  <script src="/js/filter-trigger.js"></script>
 
 </body>
 </html>

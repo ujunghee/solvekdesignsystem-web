@@ -187,34 +187,5 @@
       </div>
     </div>
   </body>
-  <script>
-    const searchWrapper = document.querySelector('.search-wrapper')
-    const searchPopup = document.querySelector('.search-popup')
-    const searchInput = searchWrapper.querySelector('.search-input')
-
-    function openSearchPopup() {
-      searchPopup.classList.add('active')
-    }
-
-    function closeSearchPopup() {
-      searchPopup.classList.remove('active')
-    }
-
-    // input 클릭·포커스 시 열림 (호버 대신)
-    searchInput.addEventListener('click', (e) => {
-      e.stopPropagation()
-      openSearchPopup()
-    })
-
-    searchInput.addEventListener('focus', () => {
-      openSearchPopup()
-    })
-
-    // 래퍼 바깥 클릭 시 닫힘 (팝업·검색줄 안은 유지)
-    document.addEventListener('click', (e) => {
-      if (!searchWrapper.contains(e.target)) {
-        closeSearchPopup()
-      }
-    })
-  </script>
+  <script src="/js/search-popup.js"></script>
   </html>

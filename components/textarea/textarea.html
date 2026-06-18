@@ -29,24 +29,5 @@
 
   </body>
 
-  <script>
-    const textarea = document.querySelectorAll('.textarea-field-default');
-    const counter = document.querySelectorAll('.counter');
-    const errorMessage = document.querySelectorAll('.error-message');
-    const textareaWrapper = document.querySelectorAll('.textarea-wrapper');
-    
-
-    const maxLength = 100;
-
-    textarea.forEach((textarea, index) => {
-      textarea.addEventListener('input', () => {
-        counter[index].textContent = textarea.value.length;
-        if(textarea.value.length > maxLength) {
-        textareaWrapper[index].classList.add('is-error');
-      } else {
-        textareaWrapper[index].classList.remove('is-error');
-      }
-      });
-    });
-  </script>
+  <script src="/js/textarea-counter.js"></script>
   </html>
