@@ -1,0 +1,54 @@
+{
+  "component": "navigation (map)",
+  "description": "지도 화면 좌측에 고정되는 도구 내비게이션. 주요 지도 메뉴를 세로 목록으로 제공하고 선택된 메뉴는 active 클래스와 aria-pressed로 상태를 동기화한다.",
+  "naming_pattern": "map-navigation, map-navigation__{element} (BEM), map-nav-icon",
+  "structure": {
+    "root": "nav.map-navigation[aria-label=\"지도 도구\"]",
+    "list": "ul.map-navigation__list",
+    "item": "li > button.map-navigation__item[type=button][aria-pressed] > i.map-nav-icon[aria-hidden=true] + span.map-navigation__label.body3-m-14",
+    "bottom_item": "li.map-navigation__bottom > button.map-navigation__item[type=button] > i.map-nav-icon[aria-hidden=true] + span.map-navigation__label.body3-m-14"
+  },
+  "size": {
+    "width": "7.2rem (72px)",
+    "height": "100vh",
+    "item_min_height": "6.4rem (64px)",
+    "icon": "2.4rem x 2.4rem",
+    "list_padding": "spacing-4",
+    "list_gap": "spacing-4",
+    "item_radius": "radius-md-8"
+  },
+  "states": {
+    "default": "transparent background, slate-700 text",
+    "hover": "slate-50 background",
+    "active": "map-navigation__item.active + aria-pressed=true, blue-50 background, inset blue-500 border, slate-900 text",
+    "inactive": "aria-pressed=false and no active class"
+  },
+  "icons": {
+    "map-nav-icon": "메뉴 아이콘 자리. 실제 아이콘이 확정되기 전까지 24x24 placeholder 영역으로 사용"
+  },
+  "notes": [
+    "map-navigation은 지도 화면 좌측 고정 영역에 배치되는 세로형 내비게이션이다.",
+    "map-navigation__list는 min-height 100%를 사용해 하단 안내 항목을 map-navigation__bottom으로 밀어낸다.",
+    "선택형 메뉴는 aria-pressed를 사용하고, 단발성 안내 항목처럼 선택 상태가 필요 없는 항목은 aria-pressed를 생략할 수 있다.",
+    "아이콘은 장식 요소이므로 aria-hidden=true를 유지하고, 접근 가능한 이름은 레이블 텍스트로 제공한다.",
+    "실제 아이콘 리소스가 확정되면 map-nav-icon의 배경 placeholder를 아이콘 클래스 또는 이미지로 교체한다."
+  ],
+  "rules": [
+    "루트는 nav.map-navigation과 aria-label=\"지도 도구\"를 사용한다.",
+    "목록은 ul.map-navigation__list > li > button.map-navigation__item 구조를 유지한다.",
+    "메뉴 항목은 button[type=button]을 사용하고 div/span으로 대체하지 않는다.",
+    "선택 가능한 메뉴 항목은 aria-pressed를 필수로 사용하고 active 클래스와 JS로 동기화한다.",
+    "동시에 하나의 선택형 메뉴만 aria-pressed=true와 active 상태를 가진다.",
+    "아이콘은 i.map-nav-icon[aria-hidden=true], 레이블은 span.map-navigation__label.body3-m-14 구조를 사용한다.",
+    "하단 안내 항목은 li.map-navigation__bottom을 사용한다.",
+    "정의되지 않은 임의 클래스 생성 금지 (map-navigation__* 패턴 + map-nav-icon만 사용)"
+  ],
+  "do_not": [
+    "nav에 aria-label 누락",
+    "선택 가능한 메뉴에 aria-pressed 누락",
+    "button 대신 a/div/span으로 메뉴 항목 작성",
+    "active 클래스와 aria-pressed 상태를 서로 다르게 유지",
+    "아이콘에 aria-hidden 누락",
+    "정의되지 않은 임의 클래스 추가"
+  ]
+}
