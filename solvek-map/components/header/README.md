@@ -1,30 +1,49 @@
 # Header (지도)
 
-지도/GIS 서비스용 헤더 컴포넌트입니다. 공유포털형(외부 사용자용) / 인트라넷형(내부 관리자용) 2가지 variant를 제공합니다.
+지도/GIS 서비스용 헤더 컴포넌트입니다. 공유포털형(외부 사용자용) / 인트라넷형(내부 관리자용) 2가지 variant를 제공합니다. 양쪽 모두 중앙 주소 검색창에 검색 결과 드롭다운 + 지도 미리보기를 포함합니다.
 
 ---
 
 ## variant
 
-### 공유포털형 (Portal)
+### 공유포털형 (Portal / type1)
 
-로고 + 중앙 주소 검색창 + GNB + 로그인 버튼으로 구성됩니다.
+로고 + 중앙 주소 검색창(결과 드롭다운 포함) + GNB + 로그인 버튼으로 구성됩니다.
 
-**대표 상황:** 환경정보 융합 공유포털 등 외부 사용자에게 공개되는 지도 포털
+**대표 상황:** 외부 사용자에게 공개되는 지도 포털
 
 ```html
 <header role="banner" class="bg-white border-b border-slate-200 px-16">
   <div class="flex align-center justify-between h-64 gap-24">
     <h1 class="header__logo flex-none">
-      <a href="/" aria-label="환경정보 융합 공유포털 홈으로 이동">
-        <img src="/image/icon/header-logo.svg" alt="환경정보 융합 공유포털">
+      <a href="/" aria-label="사이트명 홈으로">
+        <img src="/image/icon/header-logo.svg" alt="사이트명">
       </a>
     </h1>
 
-    <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
-      <i class="map-search-icon"><span class="blind">검색</span></i>
-      <label for="map-header-search-1" class="blind">주소 검색</label>
-      <input type="search" id="map-header-search-1" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+    <div class="map-search-wrapper">
+      <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+        <i class="map-search-icon"><span class="blind">검색</span></i>
+        <label for="map-header-search-1" class="blind">주소 검색</label>
+        <input type="search" id="map-header-search-1" class="body2-r-16 w-full" placeholder="주소를 검색해주세요" autocomplete="off" aria-controls="map-search-result-1" aria-expanded="false">
+      </div>
+      <div class="map-search-dropdown">
+        <ul id="map-search-result-1" class="map-search-result" aria-label="검색 결과">
+          <li>
+            <a href="#" class="map-search-result__item active">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+        </ul>
+        <div id="map-search-preview-1" class="map-search-result__preview" aria-hidden="true">
+          <div class="map-search-result__preview-empty bg-slate-100"></div>
+        </div>
+      </div>
     </div>
 
     <nav role="navigation" aria-label="주 메뉴" class="flex align-center gap-24 flex-none">
@@ -42,19 +61,19 @@
 
 ---
 
-### 인트라넷형 (Intranet)
+### 인트라넷형 (Intranet / type2)
 
-로고 + 1depth 메뉴 + 중앙 주소 검색창 + 사용자정보/시간/로그아웃으로 구성됩니다.
+로고 + 1depth 메뉴 + 중앙 주소 검색창(결과 드롭다운 포함) + 사용자정보/시간/로그아웃으로 구성됩니다.
 
-**대표 상황:** GIS통합인트라넷시스템 등 로그인한 내부 사용자가 사용하는 지도 헤더
+**대표 상황:** 로그인한 내부 사용자가 사용하는 인트라넷 지도 헤더
 
 ```html
 <header role="banner" class="bg-white border-b border-slate-200 px-16">
   <div class="flex align-center justify-between h-64 gap-24">
     <div class="flex align-center gap-24 flex-none">
       <h1 class="header__logo">
-        <a href="/" aria-label="GIS통합인트라넷시스템 홈으로 이동">
-          <img src="/image/icon/header-logo.svg" alt="GIS통합인트라넷시스템">
+        <a href="/" aria-label="사이트명 홈으로">
+          <img src="/image/icon/header-logo.svg" alt="사이트명">
         </a>
       </h1>
       <nav role="navigation" aria-label="주 메뉴">
@@ -65,11 +84,31 @@
       </nav>
     </div>
 
-    <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
-      <i class="map-search-icon"><span class="blind">검색</span></i>
-      <label for="map-header-search-2" class="blind">주소 검색</label>
-      <input type="search" id="map-header-search-2" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+    <div class="map-search-wrapper">
+      <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+        <i class="map-search-icon"><span class="blind">검색</span></i>
+        <label for="map-header-search-2" class="blind">주소 검색</label>
+        <input type="search" id="map-header-search-2" class="body2-r-16 w-full" placeholder="주소를 검색해주세요" autocomplete="off" aria-controls="map-search-result-2" aria-expanded="false">
+      </div>
+      <div class="map-search-dropdown">
+        <ul id="map-search-result-2" class="map-search-result" aria-label="검색 결과">
+          <li>
+            <a href="#" class="map-search-result__item active">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+        </ul>
+        <div id="map-search-preview-2" class="map-search-result__preview" aria-hidden="true">
+          <div class="map-search-result__preview-empty bg-slate-100"></div>
+        </div>
+      </div>
     </div>
+
     <div class="flex align-center gap-12 flex-none">
       <div class="flex align-center gap-6">
         <div class="flex align-center gap-8">
@@ -97,8 +136,12 @@
 - `header` 루트에 `role="banner"` 필수
 - 로고는 `h1.header__logo > a[aria-label] > img` 구조
 - `nav`에 `role="navigation"`, `aria-label="주 메뉴"` 필수
-- 중앙 주소 검색창은 `map-header-search-44` + `map-search-icon` + `label.blind` + `input[type=search]` 구조 (`components/search/README.md` 지도 헤더 검색창 참고)
+- 중앙 주소 검색창은 `map-search-wrapper` > `map-header-search-44` + `map-search-icon` + `label.blind` + `input[type=search]` 구조 (`components/search/README.md` 지도 헤더 검색창 참고)
+- 검색 결과 드롭다운은 `map-search-dropdown` > `ul.map-search-result` + `div.map-search-result__preview` 구조
+- `map-search-result`는 `active` 클래스로 노출, 항목 hover/active 시 `bg-slate-50`
+- `map-search-result__preview`는 검색 결과 옆에 지도 미리보기(320×200), `active` 클래스로 노출
+- input에 `autocomplete="off"`, `aria-controls`(결과 리스트 id), `aria-expanded` 필수
+- `.map-header-search-44.active`로 검색창 포커스 시 `border-color: blue-500`, `background: white`
 - 인트라넷형 현재 위치(1depth)는 `body2-sb-16 color-slate-900`, 비활성은 `body2-sb-16 color-slate-400`으로 구분
 - 인트라넷형 사용자 아이콘(`user-icon`)·시계 아이콘(`clock-icon`)·로그아웃 아이콘(`admin-logout-icon`)은 `aria-hidden="true"` 처리
-- 로그아웃 버튼은 `transparent-button-48 flex align-center gap-6` 구조
-- 정의되지 않은 임의 클래스 생성 금지 (`map-header-search-44`, `header__logo` 등 정의된 클래스만 사용)
+- 정의되지 않은 임의 클래스 생성 금지

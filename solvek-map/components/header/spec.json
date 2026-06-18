@@ -17,7 +17,10 @@
   "search": {
     "class": "map-header-search-44",
     "icon": "map-search-icon",
-    "structure": "div.map-header-search-44.flex.pl-8.pr-16.gap-8.align-center > i.map-search-icon + label.blind + input[type=search]"
+    "wrapper": "map-search-wrapper (검색 결과 드롭다운 배치용, position: relative)",
+    "structure": "div.map-search-wrapper > div.map-header-search-44.flex.pl-8.pr-16.gap-8.align-center(i.map-search-icon + label.blind + input[type=search][autocomplete=off][aria-controls][aria-expanded]) + div.map-search-dropdown(ul.map-search-result[aria-label] + div.map-search-result__preview[aria-hidden=true])",
+    "dropdown_item": "li > a.map-search-result__item > (i.map-icon + div.map-search-result__body(p 장소명 + p 주소) + span.map-search-result__category)",
+    "active_state": ".map-header-search-44.active → border-color blue-500, bg white"
   },
   "intranet_user_info": {
     "structure": "div.flex.align-center.gap-12.flex-none > (div.flex.align-center.gap-6 > (div.flex.align-center.gap-8[i.user-icon + span 사용자명] + div.flex.align-center.gap-6[i.clock-icon + time])) + button.transparent-button-48[로그아웃 + i.admin-logout-icon]"
@@ -32,7 +35,11 @@
     "두 variant 모두 header[role=banner].bg-white.border-b.border-slate-200.px-16 공통 래퍼 사용",
     "중앙 주소 검색창은 search-{size} 패턴이 아닌 별도 클래스 map-header-search-44 사용",
     "portal형 GNB는 ul > li > a.body2-m-16.color-slate-700 구조 + border-slate-button-40 로그인 버튼",
-    "intranet형은 1depth 메뉴(홈/지도)를 로고와 같은 flex 그룹에 배치하고, 현재 위치는 color-slate-900 + body2-sb-16으로 강조"
+    "intranet형은 1depth 메뉴(홈/지도)를 로고와 같은 flex 그룹에 배치하고, 현재 위치는 color-slate-900 + body2-sb-16으로 강조",
+    "검색창은 map-search-wrapper로 감싸서 검색 결과 드롭다운(map-search-dropdown)을 절대 위치로 배치",
+    "map-search-result는 active 클래스로 노출, 항목 hover/active 시 bg-slate-50",
+    "map-search-result__preview는 검색 결과 옆에 지도 미리보기(320×200)를 표시, active 클래스로 노출",
+    "input에 autocomplete=off, aria-controls(결과 리스트 id), aria-expanded 필수"
   ],
   "rules": [
     "header 루트에 role=banner 필수",
