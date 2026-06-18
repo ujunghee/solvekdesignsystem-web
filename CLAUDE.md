@@ -57,6 +57,46 @@ component/ → button, input, search, textarea, checkbox, radio, datepicker, sel
 
 ---
 
+## 2-1. JS 호출
+
+컴포넌트별 JS를 개별 파일로 분리하여 관리한다. 페이지 하단(`</body>` 직전)에서 필요한 파일만 호출한다.
+
+```html
+<script src="/js/modal.js"></script>
+<script src="/js/datepicker.js"></script>
+```
+
+JS 파일 구조:
+```
+js/                          ← 공통 컴포넌트 JS
+├── modal.js                 모달 열기/닫기/ESC
+├── datepicker.js            flatpickr 초기화 (initPicker)
+├── search-popup.js          검색 팝업 토글
+├── textarea-counter.js      글자수 카운터 + 에러
+├── password-toggle.js       비밀번호 보기/숨기기
+├── checkbox.js              전체선택/indeterminate (initCheckAll)
+├── view-toggle.js           보기 방식 전환
+├── accordion.js             펼치기/접기 토글
+└── filter-trigger.js        검색필터 트리거 토글
+
+solvek-web/js/               ← 웹 전용 JS
+├── header.js                GNB, 통합검색, 모바일 드로어
+├── search-filter.js         검색 필터 아코디언, 기간 선택, 초기화
+└── applied-filter.js        적용필터 칩 삭제/초기화
+
+solvek-map/js/               ← 지도 전용 JS
+├── map-header-search.js     지도 검색 드롭다운 + 키워드 하이라이트
+├── region-select.js         지역 선택 탭/패널
+└── control-panel.js         컨트롤 패널 토글
+```
+
+규칙:
+- 인라인 `<script>` 금지 — 반드시 외부 JS 파일로 분리
+- 공통 컴포넌트 JS는 `/js/` 경로, 사이트별 JS는 `solvek-{type}/js/` 경로
+- 의존성이 있는 경우 순서대로 호출 (예: `datepicker.js` → `search-filter.js`)
+
+---
+
 ## 3. 디자인 토큰
 
 ### 3-1. 색상 (tokens/color.css)
@@ -609,6 +649,7 @@ API·데이터셋 등 정보 리소스의 카테고리 분류(대/중/소분류 
 ## 7. JS 패턴
 
 > 이 시스템은 순수 JS로 동작한다. 프레임워크 없이 아래 패턴을 그대로 사용한다.
+> 모든 JS는 외부 파일(`js/`, `solvek-web/js/`, `solvek-map/js/`)로 분리되어 있다. 코드 예시는 해당 파일의 실제 내용과 동일하다.
 
 ### 7-1. 모달 열기/닫기
 
@@ -838,6 +879,10 @@ document.querySelectorAll('[data-filter-trigger]').forEach((btn) => {
   <div class="inner-default">
     <!-- 컨텐츠 -->
   </div>
+
+  <!-- 필요한 JS만 호출 -->
+  <!-- <script src="/js/modal.js"></script> -->
+  <!-- <script src="/js/datepicker.js"></script> -->
 </body>
 </html>
 ```

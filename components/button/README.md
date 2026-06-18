@@ -100,6 +100,8 @@ border-{color}-button-{size}
 
 `button-arrow-icon`(12x7, 아래 방향)을 사용하며, `aria-expanded`와 `.active` 클래스를 JS로 동기화합니다. `.active` 상태에서는 `button-arrow-icon`이 180도 회전해 위쪽을 향합니다. (JS 패턴 7-8 참조)
 
+> 파일: `js/accordion.js`
+
 ```html
 <button type="button" class="border-slate-button-48 flex align-center gap-8" aria-expanded="false">
   고급 검색
@@ -133,6 +135,8 @@ border-{color}-button-{size}
 #### 4) 검색필터 트리거 (active 상태)
 
 `filter-icon` / `filter-icon.active`를 사용하며, 선택 여부에 따라 버튼에 `.active` 클래스 + `aria-pressed`를 토글합니다. `.active` 상태에서는 배경이 `slate-50`, 텍스트가 `blue-500`으로 전환되고(테두리는 변경 없음), 아이콘도 `filter-icon active`(blue)로 교체됩니다. (JS 패턴 7-9 참조)
+
+> 파일: `js/filter-trigger.js`
 
 ```html
 <!-- 기본 상태 -->
@@ -179,6 +183,8 @@ div.view-toggle[role=group][aria-label="보기 방식"]
 ```
 
 선택된 버튼에 `.active` 클래스를 토글하고 `aria-pressed`를 동기화합니다. 한 그룹 내에서 하나의 버튼만 선택 상태를 가집니다. (JS 패턴 7-7 참조)
+
+> 파일: `js/view-toggle.js`
 
 아이콘:
 

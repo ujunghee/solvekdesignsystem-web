@@ -117,6 +117,8 @@ master 체크박스와 item 체크박스를 조합한 패턴입니다.
 
 ### JS — indeterminate 설정
 
+> 파일: `js/checkbox.js`
+
 ```javascript
 // indeterminate는 반드시 JS로만 설정 가능
 const master = document.getElementById('checkall-master');
