@@ -1,0 +1,37 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도 사이드 패널 | 솔브케이</title>
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <aside class="map-side-panel" aria-labelledby="map-side-panel-title">
+      <div class="map-side-panel__head flex align-center justify-between">
+        <h2 id="map-side-panel-title" class="heading10-sb-20 color-slate-900">지정유산</h2>
+        <button type="button" class="map-side-panel__close" aria-label="닫기">
+          <i class="map-close-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="map-side-panel__search flex align-center gap-8">
+        <button type="button" class="border-slate-button-48 flex align-center gap-8">
+          상세필터
+          <i class="filter-icon" aria-hidden="true"></i>
+        </button>
+        <div class="search-48 flex pl-12 pr-10 justify-between align-center">
+          <label for="map-side-panel-search" class="blind">국가유산명 검색</label>
+          <input type="search" id="map-side-panel-search" class="body2-r-16 w-full" placeholder="국가유산명 입력" autocomplete="off">
+          <button type="button" class="search-button h-fit">
+            <i class="search-icon-40"><span class="blind">검색</span></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="map-side-panel__body">
+        <!-- 검색 결과 등 콘텐츠 영역 -->
+      </div>
+    </aside>
+  </body>
+  </html>
