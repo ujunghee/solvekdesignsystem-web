@@ -180,6 +180,98 @@ input[type="search"]:hover::-webkit-search-cancel-button {
 
 
 /* 지도 헤더 검색창 */
+.map-search-wrapper {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: 50rem;
+}
+
+.map-search-wrapper .map-header-search-44 {
+  max-width: none;
+}
+
+/* 지도 검색 결과 드롭다운 (리스트 + 미리보기 묶음) */
+.map-search-dropdown {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-16);
+  z-index: 1000;
+}
+
+.map-search-result {
+  flex: 0 0 100%;
+  margin: 0;
+  padding: var(--spacing-8) 0;
+  list-style: none;
+  background-color: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md-8);
+  max-height: 40rem;
+  overflow-y: auto;
+  display: none;
+}
+
+.map-search-result.active {
+  display: block;
+}
+
+.map-search-result__item {
+  display: flex;
+  align-items: start;
+  gap: var(--spacing-12);
+  padding: var(--spacing-10) var(--spacing-16);
+}
+
+.map-search-result__item:hover,
+.map-search-result__item.active {
+  background-color: var(--slate-50);
+}
+
+.map-search-result__item .map-icon {
+  flex: none;
+}
+
+.map-search-result__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.map-search-result__category {
+  flex: none;
+}
+
+/* 검색 결과 호버 시 지도 미리보기 (팝업 하단에 맞춰 정렬) */
+.map-search-result__preview {
+  flex: none;
+  width: 32rem;
+  height: 20rem;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md-8);
+  background-color: var(--slate-100);
+  overflow: hidden;
+  display: none;
+}
+
+.map-search-result__preview.active {
+  display: block;
+}
+
+.map-search-result__preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-search-result__preview-empty {
+  width: 100%;
+  height: 100%;
+}
+
 .map-header-search-44 {
   max-width: 50rem;
   width: 100%;
@@ -202,11 +294,15 @@ input[type="search"]:hover::-webkit-search-cancel-button {
   &:active {
     border-color: var(--blue-500);
   }
+  &.active {
+    border-color: var(--blue-500);
+    background-color: var(--white);
+  }
   &:disabled {
     background-color: var(--slate-200);
   }
   input {
     border: none;
-   background-color: var(--slate-50);
+    background-color: inherit;
   }
 }

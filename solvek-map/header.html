@@ -8,19 +8,89 @@
 </head>
 <body>
 
-  <!-- 헤더 변형 1: 환경정보 융합 공유포털 -->
+  <!-- 헤더 변형 1: type1 -->
   <header role="banner" class="bg-white border-b border-slate-200 px-16">
     <div class="flex align-center justify-between h-64 gap-24">
       <h1 class="header__logo flex-none">
-        <a href="/" aria-label="환경정보 융합 공유포털 홈으로 이동">
-          <img src="/image/icon/header-logo.svg" alt="환경정보 융합 공유포털">
+        <a href="/" aria-label="사이트명 홈으로">
+          <img src="/image/icon/header-logo.svg" alt="사이트명">
         </a>
       </h1>
 
-      <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
-        <i class="map-search-icon"><span class="blind">검색</span></i>
-        <label for="map-header-search-1" class="blind">주소 검색</label>
-        <input type="search" id="map-header-search-1" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+      <div class="map-search-wrapper">
+        <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+          <i class="map-search-icon"><span class="blind">검색</span></i>
+          <label for="map-header-search-1" class="blind">주소 검색</label>
+          <input type="search" id="map-header-search-1" class="body2-r-16 w-full" placeholder="주소를 검색해주세요" autocomplete="off" aria-controls="map-search-result-1" aria-expanded="false">
+        </div>
+        <div class="map-search-dropdown">
+        <ul id="map-search-result-1" class="map-search-result " aria-label="검색 결과">
+          <li>
+            <a href="#" class="map-search-result__item active">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 01</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 02</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 03</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 04</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 05</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 06</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+        </ul>
+        <div id="map-search-preview-1" class="map-search-result__preview " aria-hidden="true">
+          <!-- 지도 렌더링 영역(320x200) : 여기에 정적 지도 이미지나 지도 SDK를 삽입 -->
+          <div class="map-search-result__preview-empty bg-slate-100"></div>
+        </div>
+        </div>
       </div>
 
       <nav role="navigation" aria-label="주 메뉴" class="flex align-center gap-24 flex-none">
@@ -35,13 +105,13 @@
     </div>
   </header>
 
-  <!-- 헤더 변형 2: GIS통합인트라넷시스템 -->
+  <!-- 헤더 변형 2: type2 -->
   <header role="banner" class="bg-white border-b border-slate-200 px-16">
     <div class="flex align-center justify-between h-64 gap-24">
       <div class="flex align-center gap-24 flex-none">
         <h1 class="header__logo">
-          <a href="/" aria-label="GIS통합인트라넷시스템 홈으로 이동">
-            <img src="/image/icon/header-logo.svg" alt="GIS통합인트라넷시스템">
+          <a href="/" aria-label="사이트명 홈으로">
+            <img src="/image/icon/header-logo.svg" alt="사이트명">
           </a>
         </h1>
         <nav role="navigation" aria-label="주 메뉴">
@@ -52,10 +122,80 @@
         </nav>
       </div>
 
-      <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
-        <i class="map-search-icon"><span class="blind">검색</span></i>
-        <label for="map-header-search-2" class="blind">주소 검색</label>
-        <input type="search" id="map-header-search-2" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+      <div class="map-search-wrapper">
+        <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+          <i class="map-search-icon"><span class="blind">검색</span></i>
+          <label for="map-header-search-2" class="blind">주소 검색</label>
+          <input type="search" id="map-header-search-2" class="body2-r-16 w-full" placeholder="주소를 검색해주세요" autocomplete="off" aria-controls="map-search-result-2" aria-expanded="false">
+        </div>
+        <div class="map-search-dropdown">
+        <ul id="map-search-result-2" class="map-search-result " aria-label="검색 결과">
+          <li>
+            <a href="#" class="map-search-result__item active">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 01</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 02</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 03</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 04</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 05</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="map-search-result__item">
+              <i class="map-icon mt-6" aria-hidden="true"></i>
+              <div class="map-search-result__body">
+                <p class="body2-m-16 color-slate-900">장소명 06</p>
+                <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명 00</p>
+              </div>
+              <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+            </a>
+          </li>
+        </ul>
+        <div id="map-search-preview-2" class="map-search-result__preview" aria-hidden="true">
+          <!-- 지도 렌더링 영역(320x200) : 여기에 정적 지도 이미지나 지도 SDK를 삽입 -->
+          <div class="map-search-result__preview-empty bg-slate-100"></div>
+        </div>
+        </div>
       </div>
       <div class="flex align-center gap-12 flex-none">
         <div class="flex align-center gap-6">
@@ -75,6 +215,84 @@
       </div>
     </div>
   </header>
+
+  <script>
+    document.querySelectorAll('.map-search-wrapper').forEach((wrapper) => {
+      const input = wrapper.querySelector('input[type="search"]');
+      const result = wrapper.querySelector('.map-search-result');
+      const preview = wrapper.querySelector('.map-search-result__preview');
+      if (!input || !result) return;
+
+      const escapeHtml = (s) => s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+      const escapeReg = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+      // 검색 키워드를 결과 텍스트에서 blue-500으로 강조
+      const renderHighlight = (keyword) => {
+        result.querySelectorAll('.map-search-result__body p').forEach((p) => {
+          const base = p.dataset.text || (p.dataset.text = p.textContent);
+          if (!keyword) { p.textContent = base; return; }
+          const re = new RegExp('(' + escapeReg(escapeHtml(keyword)) + ')', 'gi');
+          p.innerHTML = escapeHtml(base).replace(re, '<span class="color-blue-500">$1</span>');
+        });
+      };
+      renderHighlight('');
+
+      const box = wrapper.querySelector('.map-header-search-44');
+      const hidePreview = () => preview && preview.classList.remove('active');
+      const open = () => {
+        result.classList.add('active');
+        if (box) box.classList.add('active');
+        input.setAttribute('aria-expanded', 'true');
+      };
+      const close = () => {
+        result.classList.remove('active');
+        if (box) box.classList.remove('active');
+        input.setAttribute('aria-expanded', 'false');
+        hidePreview();
+      };
+
+      input.addEventListener('focus', open);
+      input.addEventListener('input', () => {
+        const keyword = input.value.trim();
+        renderHighlight(keyword);
+        keyword ? open() : close();
+      });
+
+      result.querySelectorAll('.map-search-result__item').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+          if (preview) preview.classList.add('active');
+        });
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          result.querySelectorAll('.map-search-result__item').forEach((el) => el.classList.remove('active'));
+          item.classList.add('active');
+          const name = item.querySelector('.map-search-result__body p');
+          if (name) input.value = name.textContent.trim();
+          close();
+        });
+      });
+
+      result.addEventListener('mouseleave', hidePreview);
+
+      document.addEventListener('click', (e) => {
+        if (!wrapper.contains(e.target)) close();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.map-search-result.active').forEach((result) => {
+          result.classList.remove('active');
+          const wrapper = result.closest('.map-search-wrapper');
+          if (!wrapper) return;
+          const input = wrapper.querySelector('input[type="search"]');
+          const preview = wrapper.querySelector('.map-search-result__preview');
+          if (input) input.setAttribute('aria-expanded', 'false');
+          if (preview) preview.classList.remove('active');
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
