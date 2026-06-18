@@ -11,8 +11,13 @@ function initCheckAll(masterId, itemSelector) {
 
   master.addEventListener('change', () => {
     items.forEach((item) => { item.checked = master.checked; });
+    syncMaster();
   });
 
   items.forEach((item) => item.addEventListener('change', syncMaster));
   syncMaster();
 }
+
+document.querySelectorAll('[data-checkall-target]').forEach((master) => {
+  initCheckAll(master.id, master.dataset.checkallTarget);
+});

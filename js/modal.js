@@ -1,7 +1,7 @@
 function openModal(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  container.style.display = 'flex';
+  container.hidden = false;
   container.focus();
   document.body.style.overflow = 'hidden';
 }
@@ -9,7 +9,7 @@ function openModal(containerId) {
 function closeModal(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  container.style.display = 'none';
+  container.hidden = true;
   document.body.style.overflow = '';
 }
 
@@ -26,7 +26,7 @@ document.querySelectorAll('.modal-container').forEach((container) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.modal-container').forEach((c) => {
-      if (c.style.display !== 'none') closeModal(c.id);
+      if (!c.hidden) closeModal(c.id);
     });
   }
 });

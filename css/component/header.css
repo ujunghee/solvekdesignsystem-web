@@ -206,7 +206,7 @@ button.header-nav__link {
 .header-drawer__overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--overlay-50);
 }
 
 .header-drawer__panel {

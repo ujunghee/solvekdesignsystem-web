@@ -197,4 +197,9 @@
 
   --color-icon-gray:#33363D;
 
+  --overlay-50: rgba(0, 0, 0, 0.5);
+  --overlay-75: rgba(0, 0, 0, 0.75);
+  --scrollbar-thumb: rgb(196, 198, 200);
+  --tap-highlight-slate: rgb(240 241 243 / 0.45);
+
 }

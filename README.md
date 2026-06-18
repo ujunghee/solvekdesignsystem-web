@@ -37,7 +37,7 @@
 ```
 tokens/    → color, typography, spacing, radius
 default/   → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal, breadcrumb, meta-tag, header, footer, filter, pagination
+component/ → button, input, search, textarea, checkbox, radio, chip, datepicker, select, shadow, modal, breadcrumb, meta-tag, header, footer, filter, applied-filter, pagination, board, map-control, region-select
 ```
 
 ---

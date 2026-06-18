@@ -523,7 +523,7 @@
   background-color: var(--black);
 }
 .bg-popup-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--overlay-50);
 }
 
 

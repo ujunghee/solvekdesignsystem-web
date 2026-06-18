@@ -18,6 +18,7 @@
 @import url('./component/textarea.css');
 @import url('./component/checkbox.css');
 @import url('./component/radio.css');
+@import url('./component/chip.css');
 @import url('./component/datepicker.css');
 @import url('./component/select.css');
 @import url('./component/shadow.css');
@@ -26,6 +27,7 @@
 @import url('./component/footer.css');
 @import url('./component/breadcrumb.css');
 @import url('./component/filter.css');
+@import url('./component/applied-filter.css');
 @import url('./component/pagination.css');
 @import url('./component/meta-tag.css');
 @import url('./component/board.css');

@@ -90,7 +90,7 @@
     "modal__content만 overflow-y: auto, 헤더·푸터는 flex-shrink: 0",
     "이벤트 모달 주 CTA는 footer가 아닌 modal__content-action",
     "포커스 트랩·ESC·body scroll lock은 JS 구현 필요",
-    "데모 HTML의 style=display:none은 미리보기용, 실서비스 금지"
+    "닫힌 초기 상태는 hidden 속성으로 표현"
   ],
   "examples": {
     "default_footer_type_1": "<div class=\"modal-container\" tabindex=\"0\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-title\">\n  <div class=\"modal shadow-lg\">\n    <div class=\"modal__header\">\n      <h2 class=\"heading8-sb-24 color-slate-900\" id=\"modal-title\">모달 제목</h2>\n      <button type=\"button\" aria-label=\"닫기\">\n        <i class=\"modal__close\"><span class=\"blind\">닫기</span></i>\n      </button>\n    </div>\n    <div class=\"modal__content px-24 pb-24\">\n      <p class=\"body2-r-16 color-slate-700\">모달 내용</p>\n    </div>\n    <div class=\"modal__footer flex justify-center\">\n      <button type=\"button\" class=\"blue-button-48 w-300\">완료</button>\n    </div>\n  </div>\n</div>",

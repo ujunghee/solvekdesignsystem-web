@@ -98,7 +98,7 @@
     <div class="flex gap-24 align-start">
       <div class="flex flex-1 flex-col w-full overflow-hidden">
         <div class="flex align-center gap-8">
-          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-master">
+          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-master" data-checkall-target="[id^='checkall-item-']">
           <label for="checkall-master" class="body2-r-16 color-slate-700">전체 선택</label>
         </div>
         <div class="w-full border-b border-slate-200 my-12" role="presentation" aria-hidden="true"></div>
@@ -133,7 +133,7 @@
     <div class="flex gap-24 align-start">
       <div class="flex flex-1 flex-col w-full overflow-hidden">
         <div class="flex align-center gap-8">
-          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-master" checked>
+          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-all-master" data-checkall-target="[id^='checkall-all-item-']" checked>
           <label for="checkall-all-master" class="body2-r-16 color-slate-700">전체 선택</label>
         </div>
         <div class="w-full border-b border-slate-200 my-12" role="presentation" aria-hidden="true"></div>
@@ -168,7 +168,7 @@
     <div class="flex gap-24 align-start">
       <div class="flex flex-1 flex-col w-full overflow-hidden">
         <div class="flex align-center gap-8">
-          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-master">
+          <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-ind-master" data-checkall-target="[id^='checkall-ind-item-']">
           <label for="checkall-ind-master" class="body2-r-16 color-slate-700">전체 선택</label>
         </div>
         <div class="w-full border-b border-slate-200 my-12" role="presentation" aria-hidden="true"></div>
@@ -198,7 +198,6 @@
     </div>
 
     <script src="/js/checkbox.js"></script>
-    <script>initCheckAll('checkall-master', '[id^="checkall-item-"]'); initCheckAll('checkall-all-master', '[id^="checkall-all-item-"]'); initCheckAll('checkall-ind-master', '[id^="checkall-ind-item-"]');</script>
 
   </body>
   </html>

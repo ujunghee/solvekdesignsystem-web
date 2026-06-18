@@ -3,7 +3,7 @@ input[type="date"],
 input[type="time"],
 input[type="datetime-local"] {
   background-color: transparent;
-  background-image: url('../image/icon/calendar.svg');
+  background-image: url('/image/icon/calendar.svg');
   background-repeat: no-repeat;
   background-position: calc(100% - 1.4rem) 50%;
   background-size: 2.4rem;

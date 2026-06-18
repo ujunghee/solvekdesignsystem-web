@@ -51,8 +51,8 @@ index.css 구성:
 ```
 tokens/   → color, typography, spacing, radius
 default/  → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, search, textarea, checkbox, radio, datepicker, select, shadow, modal, breadcrumb, meta-tag
-(web 전용: header, footer, filter, applied-filter, pagination — solvek-web/components/{name}/ 참고)
+component/ → button, input, search, textarea, checkbox, radio, chip, datepicker, select, shadow, modal, breadcrumb, meta-tag, header, footer, filter, applied-filter, pagination, board, map-control, region-select
+(web 전용: header, footer, filter, applied-filter, pagination, board — solvek-web/components/{name}/ 참고 / map 전용: header, map-control, region-select — solvek-map/components/{name}/ 참고)
 ```
 
 ---
@@ -132,7 +132,7 @@ solvek-map/js/               ← 지도 전용 JS
 | `bg-{palette}-{step}` | 배경 색상 | `bg-slate-50`, `bg-blue-500`, `bg-white` |
 | `border-{palette}-{step}` | 테두리 색상 | `border-slate-200`, `border-blue-500`, `border-red-500` |
 
-특수: `bg-popup-overlay` (rgba(0,0,0,0.5) 오버레이)
+특수: `--overlay-50`, `--overlay-75`, `bg-popup-overlay` 오버레이 / `--scrollbar-thumb` / `--tap-highlight-slate`
 
 **절대 금지: #fff, rgb(), hsl() 같은 하드코딩. 반드시 CSS 변수 또는 유틸 클래스 사용**
 
@@ -280,7 +280,7 @@ CSS 변수: `var(--spacing-16)` 등
 | `justify-start` | justify-content: flex-start |
 | `justify-center` | justify-content: center |
 | `justify-end` | justify-content: flex-end |
-| `justify-between` | justify-content: justify-between |
+| `justify-between` | justify-content: space-between |
 | `justify-around` | justify-content: space-around |
 | `flex-center` | justify-content + align-items: center |
 | `flex-between` | justify-content: justify-between + align-items: center |
@@ -728,13 +728,18 @@ function initCheckAll(masterId, itemSelector) {
 
   master.addEventListener('change', () => {
     items.forEach(item => { item.checked = master.checked; });
+    syncMaster();
   });
 
   items.forEach(item => item.addEventListener('change', syncMaster));
+  syncMaster();
 }
 
 // 사용 예
 initCheckAll('checkall-master', '.item-checkbox');
+
+// 또는 HTML에서 자동 초기화
+// <input id="checkall-master" data-checkall-target=".item-checkbox">
 ```
 
 ### 7-4. 비밀번호 보기/숨기기 토글

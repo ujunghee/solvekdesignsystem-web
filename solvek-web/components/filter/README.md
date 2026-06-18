@@ -204,7 +204,7 @@ aside.search-filter[aria-labelledby]
 </div>
 ```
 
-> 전체 페이지 예시(`solvek-web/filter.html`)에는 위 섹션들과 함께 초기화·기간 활성/비활성 토글·아코디언 펼침/접힘을 처리하는 JS가 포함되어 있습니다. 기간 datepicker는 `components/datepicker/datepicker.js`의 `initPicker(id)` / `initPicker(id, { mode: 'range' })`로 초기화합니다.
+> 전체 페이지 예시(`solvek-web/filter.html`)에는 위 섹션들과 함께 초기화·기간 활성/비활성 토글·아코디언 펼침/접힘을 처리하는 JS가 포함되어 있습니다. 기간 datepicker는 `/js/datepicker.js`의 `initPicker(id)` / `initPicker(id, { mode: 'range' })`로 초기화합니다.
 
 ---
 

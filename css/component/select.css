@@ -88,7 +88,7 @@
     width: 1.4rem;
     height: 1.2rem;
     content: "";
-    background: url(../image/icon/check.svg) no-repeat center / contain;
+    background: url(/image/icon/check.svg) no-repeat center / contain;
   }
 
   &::picker(select) option:disabled::checkmark {
@@ -152,7 +152,7 @@
 .select-48:disabled:open,
 .select-40:disabled:open,
 .select-36:disabled:open {
-  background: url(../image/icon/check.svg) no-repeat center / contain;
+  background: url(/image/icon/check.svg) no-repeat center / contain;
 }
 
 /* 에러 — input-wrapper 와 동일 패턴 */
@@ -166,7 +166,7 @@
 .select-wrapper.is-error .select-40:open,
 .select-wrapper.is-error .select-36:open {
   border-color: var(--red-500);
-  background: url(../image/icon/check.svg) no-repeat center / contain;
+  background: url(/image/icon/check.svg) no-repeat center / contain;
 }
 
 .select-wrapper.is-error .error-message {

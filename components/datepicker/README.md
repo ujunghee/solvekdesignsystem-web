@@ -15,7 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ko.js"></script>
 
-<script src="./datepicker.js"></script>
+<script src="/js/datepicker.js"></script>
 ```
 
 ---
@@ -83,7 +83,7 @@ input-wrapper
 
 ## JS 초기화
 
-> 파일: `js/datepicker.js`
+> 파일: `/js/datepicker.js`
 
 ```javascript
 // 단일 날짜

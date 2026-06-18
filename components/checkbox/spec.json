@@ -44,6 +44,7 @@
       "master checkbox id와 label for 반드시 일치",
       "각 item checkbox id와 label for 반드시 고유하게 일치",
       "master와 item 사이 구분선: div.w-full.border-b.border-slate-200.my-12 (role=presentation, aria-hidden=true)",
+      "자동 초기화: master checkbox에 data-checkall-target=\"item selector\" 추가",
       "indeterminate 상태는 JS로만 설정 가능 (HTML 속성으로 불가)",
       "item 그리드 배치: grid-column-default + gap-x-16 gap-y-10, 각 item은 grid-column-4"
     ]
@@ -57,6 +58,7 @@
     "basic형은 input과 label 반드시 id/for로 연결",
     "chip/list형은 label이 input을 감싸는 구조 사용",
     "전체선택 패턴 사용 시 master와 item id 모두 고유하게 부여",
+    "전체선택 master에는 data-checkall-target 또는 initCheckAll(masterId, itemSelector) 사용",
     "indeterminate 상태는 반드시 JS로 설정"
   ],
   "do_not": [

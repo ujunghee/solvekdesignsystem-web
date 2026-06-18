@@ -22,7 +22,7 @@
   background: var(--white);
   cursor: pointer;
   box-shadow: 0 0 0 0 transparent;
-  -webkit-tap-highlight-color: rgb(240 241 243 / 0.45);
+  -webkit-tap-highlight-color: var(--tap-highlight-slate);
   transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s ease;
   position: relative;
   vertical-align: middle;

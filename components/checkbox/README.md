@@ -95,7 +95,7 @@ master 체크박스와 item 체크박스를 조합한 패턴입니다.
 
 ```html
 <div class="flex align-center gap-8">
-  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-master">
+  <input type="checkbox" class="checkbox-basic checkbox-basic-md" id="checkall-master" data-checkall-target="[id^='checkall-item-']">
   <label for="checkall-master" class="body2-r-16 color-slate-700">전체 선택</label>
 </div>
 
@@ -115,14 +115,14 @@ master 체크박스와 item 체크박스를 조합한 패턴입니다.
 </div>
 ```
 
-### JS — indeterminate 설정
+### JS — 전체선택 초기화
 
 > 파일: `js/checkbox.js`
 
 ```javascript
-// indeterminate는 반드시 JS로만 설정 가능
-const master = document.getElementById('checkall-master');
-master.indeterminate = true;
+// data-checkall-target 속성이 있으면 checkbox.js 로드 시 자동 초기화됩니다.
+// 직접 초기화가 필요하면 아래 함수를 사용합니다.
+initCheckAll('checkall-master', '[id^="checkall-item-"]');
 ```
 
 ---
@@ -132,5 +132,6 @@ master.indeterminate = true;
 - basic형은 `input`과 `label` 반드시 `id`/`for`로 연결
 - chip/list형은 `label`이 `input`을 감싸는 구조 사용 (id/for 분리 구조 사용 금지)
 - 전체선택 패턴 사용 시 master와 item `id` 모두 고유하게 부여
+- 전체선택 master에는 `data-checkall-target` 또는 `initCheckAll(masterId, itemSelector)` 사용
 - `indeterminate` 상태는 반드시 JS로 설정 (HTML 속성으로 불가)
 - 구분선에 `role="presentation"`, `aria-hidden="true"` 반드시 포함
