@@ -32,4 +32,5 @@
 @import url('./component/meta-tag.css');
 @import url('./component/board.css');
 @import url('./component/map-control.css');
+@import url('./component/map-navigation.css');
 @import url('./component/region-select.css');

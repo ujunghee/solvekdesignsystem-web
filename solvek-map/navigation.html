@@ -1,0 +1,101 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도 내비게이션 | 솔브케이</title>
+
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <nav class="map-navigation" aria-label="지도 도구">
+      <ul class="map-navigation__list">
+        <li>
+          <button type="button" class="map-navigation__item active" aria-pressed="true">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 01</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 02</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 03</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 04</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 05</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 06</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 07</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 08</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 09</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 10</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="map-navigation__item" aria-pressed="false">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">메뉴명 11</span>
+          </button>
+        </li>
+        <li class="map-navigation__bottom">
+          <button type="button" class="map-navigation__item">
+            <i class="map-nav-icon" aria-hidden="true"></i>
+            <span class="map-navigation__label body3-m-14">안내</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <script>
+      document.querySelectorAll('.map-navigation__item[aria-pressed]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.map-navigation__item[aria-pressed]').forEach((el) => {
+            el.classList.remove('active');
+            el.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        });
+      });
+    </script>
+  </body>
+  </html>
