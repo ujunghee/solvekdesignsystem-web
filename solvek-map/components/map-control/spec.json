@@ -1,0 +1,54 @@
+{
+  "component": "map-control",
+  "description": "지도 우측에 배치되는 컨트롤 패널. 현재위치/확대축소/면적재기·지도분할/거리·면적 측정/인쇄 버튼을 그룹으로 묶어 세로로 배치",
+  "naming_pattern": "map-control, map-control__{element} (BEM)",
+  "structure": {
+    "root": "div.map-control[role=group][aria-label=\"지도 컨트롤\"]",
+    "group": "div.map-control__group (1~2개의 버튼을 묶는 흰색 박스)",
+    "button": "button.map-control__btn[type=button] (아이콘 또는 텍스트)"
+  },
+  "size": {
+    "button": "40x40 (4rem x 4rem)",
+    "group_radius": "radius-sm-4 (4px)",
+    "group_gap": "spacing-12 (12px) — 그룹 간 간격"
+  },
+  "groups": [
+    { "buttons": ["gps-icon"], "desc": "현재 위치(GPS)" },
+    { "buttons": ["plus-icon", "minus-icon"], "desc": "지도 확대 / 축소" },
+    { "buttons": ["arrow-expand-icon", "divider-icon"], "desc": "면적 재기 / 지도 분할" },
+    { "buttons": ["거리(텍스트)", "면적(텍스트)"], "desc": "거리 측정 / 면적 측정" },
+    { "buttons": ["인쇄(텍스트)"], "desc": "인쇄" }
+  ],
+  "icons": {
+    "gps-icon": "현재 위치 (20x20), 활성 시 gps-icon.active (blue)",
+    "plus-icon": "지도 확대 (16x16), 클릭(:active) 시 blue 아이콘으로 전환",
+    "minus-icon": "지도 축소 (16x2), 클릭(:active) 시 blue 아이콘으로 전환",
+    "arrow-expand-icon": "면적 재기 (24x24), 활성 시 arrow-expand-icon.active (blue)",
+    "divider-icon": "지도 분할 (24x24), 활성 시 divider-icon.active (blue)"
+  },
+  "states": {
+    "toggle_active": "현재위치/면적재기/지도분할/거리/면적 버튼은 aria-pressed 토글 + 버튼 active 클래스(텍스트형) 또는 내부 i 아이콘에 active 클래스(아이콘형) 토글, 활성 시 blue-500로 전환",
+    "press_active": "확대(plus-icon)/축소(minus-icon) 버튼은 토글이 아닌 클릭하는 동안(CSS :active)만 아이콘이 blue로 전환되는 일시적 피드백"
+  },
+  "notes": [
+    "그룹 내부 버튼 사이는 1px slate-200 구분선(border-top)으로 구분",
+    "아이콘 버튼은 i[aria-hidden=true] + span.blind로 의미 전달",
+    "텍스트 버튼(거리/면적/인쇄)은 body3 크기, slate-700 기본 / 활성 시 blue-500",
+    "확대/축소 버튼은 :active(누르는 동안)에만 아이콘이 blue로 전환되며 aria-pressed를 사용하지 않음",
+    "인쇄 버튼은 토글이 아닌 단발성 액션이므로 aria-pressed 없이 button만 사용"
+  ],
+  "rules": [
+    "루트에 role=\"group\", aria-label=\"지도 컨트롤\" 필수",
+    "모든 버튼은 button[type=button] 사용, div/span으로 대체 금지",
+    "현재위치/면적재기/지도분할/거리/면적 버튼은 aria-pressed 필수, active 클래스와 JS로 동기화",
+    "확대/축소 버튼은 aria-pressed 없이 CSS :active로만 처리",
+    "아이콘 버튼은 i[aria-hidden=true] + span.blind 구조 필수",
+    "정의되지 않은 임의 클래스 생성 금지 (map-control__* 패턴만 사용)"
+  ],
+  "do_not": [
+    "버튼 크기를 40x40 외 다른 값으로 변경",
+    "그룹 간 간격을 spacing-12 외 다른 값으로 변경",
+    "아이콘 버튼에 span.blind 누락",
+    "토글형 버튼에 aria-pressed 누락"
+  ]
+}

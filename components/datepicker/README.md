@@ -83,6 +83,8 @@ input-wrapper
 
 ## JS 초기화
 
+> 파일: `js/datepicker.js`
+
 ```javascript
 // 단일 날짜
 initPicker('input-datepicker');

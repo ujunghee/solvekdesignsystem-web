@@ -48,7 +48,16 @@
     "font": "body2-r-16",
     "px": "pl-8 pr-16",
     "gap": "gap-8",
-    "use_case": "지도/GIS 헤더 중앙 주소 검색창"
+    "use_case": "지도/GIS 헤더 중앙 주소 검색창",
+    "wrapper": "map-search-wrapper (position: relative, flex: 1, width: 100%, max-width: 50rem)",
+    "active_state": ".map-header-search-44.active → border-color: blue-500, background-color: white",
+    "dropdown": {
+      "container": "map-search-dropdown (position: absolute, top: calc(100% + 0.4rem), z-index: 1000, display: flex, gap: spacing-16, align-items: flex-end)",
+      "result_list": "ul.map-search-result[aria-label] (.active로 노출, border 1px slate-200, radius-md-8, max-height: 40rem, overflow-y: auto)",
+      "result_item": "li > a.map-search-result__item (flex, align-start, gap-12, padding spacing-10 spacing-16)",
+      "result_item_structure": "map-icon + map-search-result__body (장소명 body2-m-16 + 주소 body3-r-14 color-slate-500) + map-search-result__category (body3-m-14 color-slate-500)",
+      "preview": "div.map-search-result__preview[aria-hidden=true] (320×200, border slate-200, radius-md-8, .active로 노출)"
+    }
   },
   "structure": {
     "leading": "search-{size} flex px-{n} gap-{n} align-center > i.search-icon-{size} + input",
@@ -79,7 +88,11 @@
     "main-search-{size}는 main-search-wrapper(그라데이션 테두리)로 감싸야 함",
     "main-search-{size} 내 select는 select-48 + select-wrapper.main-search__select-wrapper 사용",
     "main-search__input은 type=search, flex-1, placeholder 필수, label은 blind 처리",
-    "map-header-search-44는 지도 헤더 중앙 주소 검색창에 사용, search-{size} 패턴과 별개의 자체 클래스"
+    "map-header-search-44는 지도 헤더 중앙 주소 검색창에 사용, search-{size} 패턴과 별개의 자체 클래스",
+    "map-search-wrapper로 감싸면 검색 결과 드롭다운(map-search-dropdown) 배치 가능",
+    "map-search-result는 active 클래스로 노출, 항목 호버/active 시 bg-slate-50",
+    "map-search-result__preview는 결과 항목 호버 시 지도 미리보기(320×200)를 표시, active 클래스로 노출",
+    "input에 autocomplete=off, aria-controls(결과 리스트 id), aria-expanded 필수"
   ],
   "rules": [
     "search-wrapper 없이 팝업형 단독 사용 금지",

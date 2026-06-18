@@ -204,15 +204,46 @@ input + 버튼 조합으로 검색 실행을 강조합니다.
 
 ### 지도 헤더 검색창 (Map Header Search)
 
-지도/GIS 헤더 중앙에 위치하는 주소 검색창입니다. `search-{size}` 패턴과 별개의 자체 클래스 `map-header-search-44`를 사용합니다.
+지도/GIS 헤더 중앙에 위치하는 주소 검색창입니다. `search-{size}` 패턴과 별개의 자체 클래스 `map-header-search-44`를 사용합니다. `map-search-wrapper`로 감싸면 검색 결과 드롭다운 + 지도 미리보기를 배치할 수 있습니다.
 
 **대표 상황:** 지도 헤더 중앙 주소 검색창
+
+#### 기본형 (드롭다운 없음)
 
 ```html
 <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
   <i class="map-search-icon"><span class="blind">검색</span></i>
   <label for="map-header-search-example" class="blind">주소 검색</label>
   <input type="search" id="map-header-search-example" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+</div>
+```
+
+#### 검색 결과 드롭다운 포함
+
+```html
+<div class="map-search-wrapper">
+  <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+    <i class="map-search-icon"><span class="blind">검색</span></i>
+    <label for="map-header-search-1" class="blind">주소 검색</label>
+    <input type="search" id="map-header-search-1" class="body2-r-16 w-full" placeholder="주소를 검색해주세요" autocomplete="off" aria-controls="map-search-result-1" aria-expanded="false">
+  </div>
+  <div class="map-search-dropdown">
+    <ul id="map-search-result-1" class="map-search-result" aria-label="검색 결과">
+      <li>
+        <a href="#" class="map-search-result__item active">
+          <i class="map-icon mt-6" aria-hidden="true"></i>
+          <div class="map-search-result__body">
+            <p class="body2-m-16 color-slate-900">장소명</p>
+            <p class="body3-r-14 color-slate-500">시・도 <span class="color-blue-500">시・군・구</span> 도로명</p>
+          </div>
+          <span class="map-search-result__category body3-m-14 color-slate-500">분류</span>
+        </a>
+      </li>
+    </ul>
+    <div id="map-search-preview-1" class="map-search-result__preview" aria-hidden="true">
+      <div class="map-search-result__preview-empty bg-slate-100"></div>
+    </div>
+  </div>
 </div>
 ```
 
@@ -256,3 +287,7 @@ document.addEventListener('click', (e) => {
 - 메인 검색창 검색 버튼: `<button class="search-button h-fit"> > <i class="main-search-blue-icon">` 구조
 - `search-input` 클래스는 팝업형 input에만 추가 (JS 이벤트 바인딩용)
 - 지도 헤더 검색창은 `map-header-search-44` 클래스를 사용하며 `map-search-icon` 아이콘과 `body2-r-16` 폰트로 구성
+- 검색 결과 드롭다운 사용 시 `map-search-wrapper`로 감싸야 함
+- `map-search-result`는 `active` 클래스로 노출, 항목 호버/active 시 `bg-slate-50`
+- `map-search-result__preview`는 결과 항목 호버 시 지도 미리보기(320×200) 표시, `active` 클래스로 노출
+- 드롭다운 사용 시 input에 `autocomplete="off"`, `aria-controls`(결과 리스트 id), `aria-expanded` 필수

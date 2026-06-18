@@ -1,14 +1,14 @@
 # Header (지도)
 
-지도/GIS 서비스용 헤더 컴포넌트입니다. UI 배치 구조에 따라 type1 / type2 2가지 variant를 제공합니다. 양쪽 모두 중앙 주소 검색창에 검색 결과 드롭다운(키워드 하이라이트 + 지도 미리보기)을 포함합니다.
+지도/GIS 서비스용 헤더 컴포넌트입니다. 공유포털형(외부 사용자용, type1) / 인트라넷형(내부 관리자용, type2) 2가지 variant를 제공합니다. 양쪽 모두 중앙 주소 검색창에 검색 결과 드롭다운(키워드 하이라이트 + 지도 미리보기)을 포함합니다.
 
 ---
 
 ## variant
 
-### type1
+### 공유포털형 (Portal / type1)
 
-로고(좌) + 검색창(중앙) + GNB·로그인(우) 배치입니다.
+로고(좌) + 중앙 주소 검색창(결과 드롭다운 포함) + GNB·로그인(우) 배치입니다.
 
 **대표 상황:** 외부 사용자에게 공개되는 지도/GIS 서비스. 주 메뉴(GNB)와 로그인 버튼이 헤더 우측에 위치하며, 비로그인 사용자도 접근 가능한 공개형 레이아웃에 사용합니다.
 
@@ -18,7 +18,6 @@
 │  (좌 고정)        (중앙, flex:1)                     (우 고정)        │
 └──────────────────────────────────────────────────────────────────────┘
 ```
-
 ```html
 <header role="banner" class="bg-white border-b border-slate-200 px-16">
   <div class="flex align-center justify-between h-64 gap-24">
@@ -68,11 +67,11 @@
 
 ---
 
-### type2
+### 인트라넷형 (Intranet / type2)
 
-로고·메뉴(좌) + 검색창(중앙) + 사용자정보·로그아웃(우) 배치입니다.
+로고·1depth 메뉴(좌) + 중앙 주소 검색창(결과 드롭다운 포함) + 사용자정보·시간·로그아웃(우) 배치입니다.
 
-**대표 상황:** 로그인한 사용자가 사용하는 내부 지도 서비스. 1depth 메뉴가 로고 옆(좌)에 위치하고, 우측에 사용자명·현재시간·로그아웃이 표시되는 관리형 레이아웃에 사용합니다.
+**대표 상황:** 로그인한 내부 사용자가 사용하는 인트라넷 지도 헤더. 1depth 메뉴가 로고 옆(좌)에 위치하고, 우측에 사용자명·현재시간·로그아웃이 표시되는 관리형 레이아웃에 사용합니다.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────┐
@@ -80,7 +79,6 @@
 │  (좌 고정)              (중앙, flex:1)                    (우 고정)          │
 └────────────────────────────────────────────────────────────────────────────┘
 ```
-
 ```html
 <header role="banner" class="bg-white border-b border-slate-200 px-16">
   <div class="flex align-center justify-between h-64 gap-24">
@@ -253,13 +251,14 @@ document.addEventListener('keydown', (e) => {
 - `header` 루트에 `role="banner"` 필수
 - 로고는 `h1.header__logo > a[aria-label] > img` 구조
 - `nav`에 `role="navigation"`, `aria-label="주 메뉴"` 필수
-- 중앙 주소 검색창은 `map-search-wrapper` > `map-header-search-44` 구조 (`components/search/README.md` 지도 헤더 검색창 참고)
+- 중앙 주소 검색창은 `map-search-wrapper` > `map-header-search-44` + `map-search-icon` + `label.blind` + `input[type=search]` 구조 (`components/search/README.md` 지도 헤더 검색창 참고)
+- 검색 결과 드롭다운은 `map-search-dropdown` > `ul.map-search-result` + `div.map-search-result__preview` 구조
 - 드롭다운 항목은 `li > a.map-search-result__item > (i.map-icon + div.map-search-result__body + span.map-search-result__category)` 구조
 - `map-search-result`는 `active` 클래스로 노출, 항목 hover/active 시 `bg-slate-50`
-- `map-search-result__preview`는 결과 항목 mouseenter 시 `active` 노출, mouseleave 시 숨김
-- 검색창 열림 시 `map-header-search-44`에 `.active` 클래스 → `border-color: blue-500`, `background: white`
+- `map-search-result__preview`는 검색 결과 옆에 지도 미리보기(320×200)를 표시하며 결과 항목 mouseenter 시 `active` 노출, mouseleave 시 숨김
 - input에 `autocomplete="off"`, `aria-controls`(결과 리스트 id), `aria-expanded` 필수
-- type2 현재 위치(1depth)는 `body2-sb-16 color-slate-900`, 비활성은 `body2-sb-16 color-slate-400`
-- type2 사용자 아이콘(`user-icon`)·시계 아이콘(`clock-icon`)·로그아웃 아이콘(`admin-logout-icon`)은 `aria-hidden="true"` 처리
+- `.map-header-search-44.active`로 검색창 포커스 시 `border-color: blue-500`, `background: white`
+- 인트라넷형 현재 위치(1depth)는 `body2-sb-16 color-slate-900`, 비활성은 `body2-sb-16 color-slate-400`으로 구분
+- 인트라넷형 사용자 아이콘(`user-icon`)·시계 아이콘(`clock-icon`)·로그아웃 아이콘(`admin-logout-icon`)은 `aria-hidden="true"` 처리
 - HTML 내 사이트명·장소명·주소·분류 등은 샘플 데이터이며 실제 서비스에 맞게 교체
 - 정의되지 않은 임의 클래스 생성 금지

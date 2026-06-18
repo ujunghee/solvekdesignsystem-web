@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지도 컨트롤 패널 | 솔브케이</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+  <div class="map-control" role="group" aria-label="지도 컨트롤">
+    <div class="map-control__group">
+      <button type="button" class="map-control__btn" aria-pressed="false" data-control-toggle>
+        <i class="gps-icon" aria-hidden="true"></i>
+        <span class="blind">현재 위치</span>
+      </button>
+    </div>
+
+    <div class="map-control__group">
+      <button type="button" class="map-control__btn">
+        <i class="plus-icon" aria-hidden="true"></i>
+        <span class="blind">지도 확대</span>
+      </button>
+      <button type="button" class="map-control__btn">
+        <i class="minus-icon" aria-hidden="true"></i>
+        <span class="blind">지도 축소</span>
+      </button>
+    </div>
+
+    <div class="map-control__group">
+      <button type="button" class="map-control__btn" aria-pressed="false" data-control-toggle>
+        <i class="arrow-expand-icon" aria-hidden="true"></i>
+        <span class="blind">면적 재기</span> 
+      </button>
+      <button type="button" class="map-control__btn" aria-pressed="false" data-control-toggle>
+        <i class="divider-icon" aria-hidden="true"></i>
+        <span class="blind">지도 분할</span>
+      </button>
+    </div>
+
+    <div class="map-control__group">
+      <button type="button" class="map-control__btn" aria-pressed="false" data-control-toggle>
+        거리
+      </button>
+      <button type="button" class="map-control__btn" aria-pressed="false" data-control-toggle>
+        면적
+      </button>
+    </div>
+
+    <div class="map-control__group">
+      <button type="button" class="map-control__btn">
+        인쇄
+      </button>
+    </div>
+  </div>
+
+  <script src="/solvek-map/js/control-panel.js"></script>
+
+</body>
+</html>

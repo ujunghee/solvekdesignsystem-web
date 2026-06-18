@@ -48,21 +48,5 @@
 
 
   </body>
-  <script>
-    const eyeIcon = document.querySelector('.eye-icon');
-    const passwordInput = document.querySelector('input[type="password"]');
-    eyeIcon.addEventListener('click', () => {
-      eyeIcon.classList.toggle('active');
-      if(eyeIcon.classList.contains('active')) {
-        eyeIcon.src = '/image/icon/eye-open.png';
-        eyeIcon.alt = '비밀번호 숨기기';
-        passwordInput.type = 'text';
-
-      } else {
-        eyeIcon.src = '/image/icon/eye-closed.png';
-        eyeIcon.alt = '비밀번호 보기';
-        passwordInput.type = 'password';
-      }
-    });
-  </script>
+  <script src="/js/password-toggle.js"></script>
   </html>

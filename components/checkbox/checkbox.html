@@ -197,14 +197,8 @@
       </div>
     </div>
 
-    <script>
-      (function () {
-        var master = document.getElementById('checkall-ind-master')
-        if (master) {
-          master.indeterminate = true
-        }
-      })()
-    </script>
+    <script src="/js/checkbox.js"></script>
+    <script>initCheckAll('checkall-master', '[id^="checkall-item-"]'); initCheckAll('checkall-all-master', '[id^="checkall-all-item-"]'); initCheckAll('checkall-ind-master', '[id^="checkall-ind-item-"]');</script>
 
   </body>
   </html>
