@@ -202,6 +202,22 @@ input + 버튼 조합으로 검색 실행을 강조합니다.
 
 ---
 
+### 지도 헤더 검색창 (Map Header Search)
+
+지도/GIS 헤더 중앙에 위치하는 주소 검색창입니다. `search-{size}` 패턴과 별개의 자체 클래스 `map-header-search-44`를 사용합니다.
+
+**대표 상황:** 지도 헤더 중앙 주소 검색창
+
+```html
+<div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+  <i class="map-search-icon"><span class="blind">검색</span></i>
+  <label for="map-header-search-example" class="blind">주소 검색</label>
+  <input type="search" id="map-header-search-example" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+</div>
+```
+
+---
+
 ## JS — 팝업 열기/닫기
 
 ```javascript
@@ -239,3 +255,4 @@ document.addEventListener('click', (e) => {
 - 메인 검색창은 `main-search-wrapper`로 감싸고, `main-search-54`(메인 화면) / `main-search-62`(통합검색) 용도에 맞게 사용
 - 메인 검색창 검색 버튼: `<button class="search-button h-fit"> > <i class="main-search-blue-icon">` 구조
 - `search-input` 클래스는 팝업형 input에만 추가 (JS 이벤트 바인딩용)
+- 지도 헤더 검색창은 `map-header-search-44` 클래스를 사용하며 `map-search-icon` 아이콘과 `body2-r-16` 폰트로 구성

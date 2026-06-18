@@ -20,7 +20,7 @@
     { "class": "eye-icon", "size": "24x24", "color": "-", "source": "file:../../image/icon/eye-closed.png", "desc": "비밀번호 숨김 (기본)" },
     { "class": "eye-icon.active", "size": "24x24", "color": "-", "source": "file:../../image/icon/eye-open.png", "desc": "비밀번호 보임" },
     { "class": "calendar-icon", "size": "24x24", "color": "#1E2124", "source": "inline-svg", "desc": "기간 datepicker 트리거" },
-    { "class": "clock-icon", "size": "24x24 (viewBox 22x22)", "color": "#6D7882", "source": "inline-svg", "desc": "시간 선택 트리거" },
+    { "class": "clock-icon", "size": "20x20 (viewBox 22x22)", "color": "#6D7882", "source": "inline-svg", "desc": "시간 선택 트리거" },
     { "class": "chevron-right-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "우측 꺽쇠 (white) - blue/slate 버튼" },
     { "class": "chevron-left-white", "size": "24x24", "color": "white", "source": "inline-svg", "desc": "좌측 꺽쇠 (white)" },
     { "class": "chevron-pagination-slate-700", "size": "20x20", "color": "#464C53", "source": "inline-svg", "desc": "페이지네이션 다음 버튼" },

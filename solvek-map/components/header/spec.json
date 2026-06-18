@@ -1,0 +1,64 @@
+{
+  "component": "header (map)",
+  "description": "지도/GIS 서비스용 헤더 컴포넌트. UI 배치 구조에 따라 type1(GNB 우측 배치) / type2(메뉴 좌측 배치) 2가지 variant 제공. 양쪽 모두 중앙 주소 검색창 + 검색 결과 드롭다운 포함",
+  "naming_pattern": "map-header-search-44, map-search-wrapper, map-search-result, map-search-result__* (BEM)",
+  "variants": {
+    "type1": {
+      "description": "로고(좌) + 검색창(중앙) + GNB·로그인(우) 배치",
+      "when_to_use": "외부 사용자에게 공개되는 지도/GIS 서비스. 주 메뉴(GNB)와 로그인 버튼이 헤더 우측에 있고, 비로그인 사용자도 접근 가능한 공개형 레이아웃",
+      "layout": "h1.header__logo(flex-none) → map-search-wrapper(flex:1, 중앙) → nav + button.border-slate-button-40(flex-none, 우측)",
+      "structure": "header[role=banner].bg-white.border-b.border-slate-200.px-16 > div.flex.align-center.justify-between.h-64.gap-24 > (h1.header__logo.flex-none + div.map-search-wrapper + nav[role=navigation].flex.align-center.gap-24.flex-none)"
+    },
+    "type2": {
+      "description": "로고·메뉴(좌) + 검색창(중앙) + 사용자정보·로그아웃(우) 배치",
+      "when_to_use": "로그인한 사용자가 사용하는 내부 지도 서비스. 1depth 메뉴가 로고 옆(좌)에 있고, 우측에는 사용자명·현재시간·로그아웃이 표시되는 관리형 레이아웃",
+      "layout": "div(h1.header__logo + nav)(flex-none, 좌) → map-search-wrapper(flex:1, 중앙) → div(사용자정보 + 로그아웃)(flex-none, 우)",
+      "structure": "header[role=banner].bg-white.border-b.border-slate-200.px-16 > div.flex.align-center.justify-between.h-64.gap-24 > (div.flex.align-center.gap-24.flex-none[h1.header__logo + nav] + div.map-search-wrapper + div.flex.align-center.gap-12.flex-none[user info + 로그아웃 button])"
+    }
+  },
+  "search": {
+    "class": "map-header-search-44",
+    "icon": "map-search-icon",
+    "wrapper": "map-search-wrapper (position: relative, flex: 1, width: 100%, max-width: 50rem)",
+    "structure": "div.map-search-wrapper > div.map-header-search-44.flex.pl-8.pr-16.gap-8.align-center(i.map-search-icon + label.blind + input[type=search][autocomplete=off][aria-controls][aria-expanded]) + div.map-search-dropdown(ul.map-search-result[aria-label] + div.map-search-result__preview[aria-hidden=true])",
+    "dropdown_item": "li > a.map-search-result__item > (i.map-icon.mt-6 + div.map-search-result__body(p.body2-m-16 장소명 + p.body3-r-14 주소) + span.map-search-result__category.body3-m-14.color-slate-500)",
+    "active_state": ".map-header-search-44.active → border-color blue-500, bg white"
+  },
+  "type2_user_info": {
+    "structure": "div.flex.align-center.gap-12.flex-none > (div.flex.align-center.gap-6 > (div.flex.align-center.gap-8[i.user-icon + span 사용자명] + div.flex.align-center.gap-6[i.clock-icon + time])) + button.transparent-button-48[로그아웃 + i.admin-logout-icon]"
+  },
+  "icons": {
+    "map-search-icon": "중앙 주소 검색창 아이콘 (30x30)",
+    "map-icon": "검색 결과 항목 장소 아이콘",
+    "user-icon": "사용자(프로필) 아이콘 (32x32, type2 전용)",
+    "clock-icon": "현재 시간 표시 아이콘 (20x20, type2 전용)",
+    "admin-logout-icon": "로그아웃 아이콘 (24x24, type2 전용)"
+  },
+  "notes": [
+    "두 variant 모두 header[role=banner].bg-white.border-b.border-slate-200.px-16 공통 래퍼, 높이 h-64 사용",
+    "중앙 주소 검색창은 search-{size} 패턴이 아닌 별도 클래스 map-header-search-44 사용",
+    "검색창은 map-search-wrapper로 감싸서 검색 결과 드롭다운(map-search-dropdown)을 절대 위치(top: 100% + 0.4rem)로 배치",
+    "map-search-result는 active 클래스로 노출, 항목 hover/active 시 bg-slate-50",
+    "map-search-result__preview는 드롭다운 옆에 지도 미리보기(320×200)를 표시, 결과 항목 mouseenter 시 active 노출, mouseleave 시 숨김",
+    "검색 입력 시 결과 텍스트 내 키워드를 color-blue-500으로 하이라이트 (JS renderHighlight)",
+    "input에 autocomplete=off, aria-controls(결과 리스트 id), aria-expanded 필수",
+    "map-header-search-44에 .active 클래스가 추가되면 border-color: blue-500, background: white로 전환 (드롭다운 열림 상태 표시)",
+    "type1 GNB는 ul > li > a.body2-m-16.color-slate-700 구조 + border-slate-button-40 로그인 버튼",
+    "type2는 1depth 메뉴를 로고와 같은 flex 그룹에 배치하고, 현재 위치는 color-slate-900 + body2-sb-16으로 강조, 비활성은 color-slate-400",
+    "HTML 내 사이트명·장소명·주소·분류 등은 샘플 데이터이며 실제 서비스에 맞게 교체"
+  ],
+  "rules": [
+    "header 루트에 role=banner 필수",
+    "nav에 role=navigation, aria-label=\"주 메뉴\" 필수",
+    "로고는 h1.header__logo > a[aria-label] > img 구조",
+    "중앙 주소 검색창은 map-search-wrapper > map-header-search-44 구조 (components/search/README.md 지도 헤더 검색창 참고)",
+    "드롭다운 항목은 li > a.map-search-result__item > (i.map-icon + div.map-search-result__body + span.map-search-result__category) 구조",
+    "type2 로그아웃 버튼은 transparent-button-48 + i.admin-logout-icon, 사용자 아이콘은 aria-hidden=true"
+  ],
+  "do_not": [
+    "중앙 검색창에 search-{size} 클래스 사용 (map-header-search-44만 사용)",
+    "map-search-wrapper 없이 검색 결과 드롭다운 사용",
+    "정의되지 않은 임의 클래스 생성",
+    "header 루트 role=banner 누락"
+  ]
+}

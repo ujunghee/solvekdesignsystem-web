@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>헤더(지도) | 솔브케이</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+  <!-- 헤더 변형 1: 환경정보 융합 공유포털 -->
+  <header role="banner" class="bg-white border-b border-slate-200 px-16">
+    <div class="flex align-center justify-between h-64 gap-24">
+      <h1 class="header__logo flex-none">
+        <a href="/" aria-label="환경정보 융합 공유포털 홈으로 이동">
+          <img src="/image/icon/header-logo.svg" alt="환경정보 융합 공유포털">
+        </a>
+      </h1>
+
+      <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+        <i class="map-search-icon"><span class="blind">검색</span></i>
+        <label for="map-header-search-1" class="blind">주소 검색</label>
+        <input type="search" id="map-header-search-1" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+      </div>
+
+      <nav role="navigation" aria-label="주 메뉴" class="flex align-center gap-24 flex-none">
+        <ul class="flex align-center gap-24">
+          <li><a href="#" class="body2-m-16 color-slate-700">홈</a></li>
+          <li><a href="#" class="body2-m-16 color-slate-700">데이터 탐색</a></li>
+          <li><a href="#" class="body2-m-16 color-slate-700">Open API</a></li>
+          <li><a href="#" class="body2-m-16 color-slate-700">고객센터</a></li>
+        </ul>
+        <button type="button" class="border-slate-button-40">로그인</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 헤더 변형 2: GIS통합인트라넷시스템 -->
+  <header role="banner" class="bg-white border-b border-slate-200 px-16">
+    <div class="flex align-center justify-between h-64 gap-24">
+      <div class="flex align-center gap-24 flex-none">
+        <h1 class="header__logo">
+          <a href="/" aria-label="GIS통합인트라넷시스템 홈으로 이동">
+            <img src="/image/icon/header-logo.svg" alt="GIS통합인트라넷시스템">
+          </a>
+        </h1>
+        <nav role="navigation" aria-label="주 메뉴">
+          <ul class="flex align-center gap-24">
+            <li><a href="#" class="body2-sb-16 color-slate-400">홈</a></li>
+            <li><a href="#" class="body2-sb-16 color-slate-900">지도</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="map-header-search-44 flex pl-8 pr-16 gap-8 align-center">
+        <i class="map-search-icon"><span class="blind">검색</span></i>
+        <label for="map-header-search-2" class="blind">주소 검색</label>
+        <input type="search" id="map-header-search-2" class="body2-r-16 w-full" placeholder="주소를 검색해주세요">
+      </div>
+      <div class="flex align-center gap-12 flex-none">
+        <div class="flex align-center gap-6">
+          <div class="flex align-center gap-8">
+            <i class="user-icon" aria-hidden="true"></i>
+            <span class="body2-m-16 color-slate-900">홍길동님</span>
+          </div>
+          <div class="flex align-center gap-6">
+            <i class="clock-icon" aria-hidden="true"></i>
+            <time class="body2-r-16 color-slate-800">09:40</time>
+          </div>
+        </div>
+        <button type="button" class="transparent-button-48 flex align-center gap-6">
+          <span class="body2-m-16 color-slate-700">로그아웃</span>
+          <i class="admin-logout-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+</body>
+</html>

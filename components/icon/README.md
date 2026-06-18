@@ -29,7 +29,7 @@
 | <img src="../../image/icon/generated/main-search-blue-icon.svg" width="24" height="24"> | `main-search-blue-icon` | 30×30 box / 24×24 icon | `#1a76ff` | 메인 통합검색 버튼 아이콘 |
 | <img src="../../image/icon/generated/header-menu-24.svg" width="24" height="24"> | `header-menu-24` | 24×24 | `#58616A` | 헤더 모바일 메뉴(햄버거) |
 | <img src="../../image/icon/generated/calendar-icon.svg" width="24" height="24"> | `calendar-icon` | 24×24 | `#1E2124` | 기간 datepicker 트리거 |
-| <img src="../../image/icon/generated/clock-icon.svg" width="24" height="24"> | `clock-icon` | 24×24 | `#6D7882` | 시간 선택 트리거 |
+| <img src="../../image/icon/generated/clock-icon.svg" width="20" height="20"> | `clock-icon` | 20×20 | `#6D7882` | 시간 선택 트리거 |
 | <img src="../../image/icon/generated/chevron-right-white.svg" width="24" height="24"> | `chevron-right-white` | 24×24 | white | 우측 꺽쇠 — blue/slate 버튼 |
 | <img src="../../image/icon/generated/chevron-left-white.svg" width="24" height="24"> | `chevron-left-white` | 24×24 | white | 좌측 꺽쇠 |
 | <img src="../../image/icon/generated/chevron-pagination-slate-700.svg" width="20" height="20"> | `chevron-pagination-slate-700` | 20×20 | `#464C53` | 페이지네이션 다음 버튼 |
