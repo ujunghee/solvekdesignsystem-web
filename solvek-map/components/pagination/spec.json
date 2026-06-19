@@ -1,0 +1,63 @@
+{
+  "component": "pagination (map)",
+  "description": "지도 화면의 검색 결과나 사이드 패널 목록에서 사용하는 컴팩트 페이지네이션. 공통 pagination 컴포넌트를 기반으로 map-pagination variant를 추가해 아이콘-only 처음/이전/다음/마지막 이동 버튼과 작은 숫자 페이지를 제공한다.",
+  "naming_pattern": "pagination, pagination__{element} (BEM), map-pagination variant",
+  "structure": {
+    "root": "nav.pagination.map-pagination[aria-label=\"페이지 이동\"] > ul.pagination__list.flex.align-center.justify-center",
+    "first": "li > a.pagination__nav[aria-label=\"처음 페이지\"] > span.chevron-pagination-first-slate-700[aria-hidden=true]",
+    "prev": "li > a.pagination__nav[aria-label=\"이전 페이지\"] > span.chevron-pagination-left-slate-700[aria-hidden=true]",
+    "page_link": "li > a.pagination__link.body3-r-14",
+    "current_page": "li > a.pagination__link.body3-r-14[aria-current=page]",
+    "next": "li > a.pagination__nav[aria-label=\"다음 페이지\"] > span.chevron-pagination-slate-700[aria-hidden=true]",
+    "last": "li > a.pagination__nav[aria-label=\"마지막 페이지\"] > span.chevron-pagination-last-slate-700[aria-hidden=true]"
+  },
+  "size": {
+    "nav_button": "3.2rem x 3.2rem",
+    "page_link": "min-width 3.2rem, height 3.2rem",
+    "list_gap": "spacing-4",
+    "page_padding": "0 spacing-8",
+    "radius": "radius-sm-4",
+    "font": "body3-r-14"
+  },
+  "states": {
+    "default_link": "pagination__link uses slate-500 text and slate-50 background",
+    "hover_link": "pagination__link:hover uses slate-900 text and slate-100 background",
+    "active_link": "pagination__link:active uses slate-900 text and slate-100 background",
+    "current": "pagination__link[aria-current=page] uses slate-700 background, white text, medium font weight",
+    "nav_default": "map-pagination .pagination__nav uses slate-50 background",
+    "nav_hover": "map-pagination .pagination__nav:hover uses slate-100 background",
+    "nav_active": "map-pagination .pagination__nav:active uses slate-200 background"
+  },
+  "icons": {
+    "chevron-pagination-first-slate-700": "처음 페이지 이동 아이콘",
+    "chevron-pagination-left-slate-700": "이전 페이지 이동 아이콘",
+    "chevron-pagination-slate-700": "다음 페이지 이동 아이콘",
+    "chevron-pagination-last-slate-700": "마지막 페이지 이동 아이콘"
+  },
+  "notes": [
+    "map-pagination은 공통 pagination 스타일을 확장하는 지도 전용 compact variant다.",
+    "지도용 이동 버튼은 텍스트를 시각적으로 노출하지 않는 icon-only 구조이므로 aria-label로 버튼 이름을 제공한다.",
+    "숫자 페이지는 일반 pagination의 body2-r-16이 아니라 body3-r-14를 사용한다.",
+    "처음/마지막 이동 버튼이 필요 없는 단순 페이지네이션에서는 first/last 항목을 생략할 수 있다.",
+    "생략 표시가 필요한 경우 공통 규칙과 동일하게 a가 아닌 span.pagination__ellipsis[aria-hidden=true]를 사용한다."
+  ],
+  "rules": [
+    "루트는 nav.pagination.map-pagination과 aria-label=\"페이지 이동\"을 사용한다.",
+    "pagination__list는 ul > li 구조를 유지한다.",
+    "처음/이전/다음/마지막 이동 버튼은 a.pagination__nav[aria-label] + span 아이콘[aria-hidden=true] 구조를 사용한다.",
+    "숫자 페이지는 a.pagination__link.body3-r-14를 사용한다.",
+    "현재 페이지에는 aria-current=page를 필수로 사용한다.",
+    "지도용 페이지네이션에서는 이전/다음 텍스트를 노출하지 않고 icon-only 버튼을 사용한다.",
+    "생략 표시는 span.pagination__ellipsis[aria-hidden=true]를 사용하고 a 태그로 작성하지 않는다.",
+    "정의되지 않은 임의 클래스 생성 금지 (pagination__* BEM 패턴 + map-pagination variant만 사용)"
+  ],
+  "do_not": [
+    "nav에 aria-label 누락",
+    "아이콘-only 이동 버튼에 aria-label 누락",
+    "아이콘 span에 aria-hidden 누락",
+    "현재 페이지에 aria-current 누락",
+    "지도용 숫자 페이지에 body2-r-16 사용",
+    "생략 표시를 a 태그로 작성",
+    "정의되지 않은 임의 클래스 추가"
+  ]
+}
