@@ -1,0 +1,68 @@
+{
+  "component": "side-panel (map)",
+  "description": "지도 화면 좌측에 배치되는 검색/정보 패널. 지도 내비게이션에서 선택한 메뉴의 제목, 필터, 검색 입력, 결과 목록 또는 빈 상태 콘텐츠를 담는 영역으로 사용한다.",
+  "naming_pattern": "map-side-panel, map-side-panel__{element} (BEM)",
+  "structure": {
+    "root": "aside.map-side-panel[aria-labelledby=\"map-side-panel-title\"]",
+    "head": "div.map-side-panel__head.flex.align-center.justify-between > h2#map-side-panel-title.heading10-sb-20.color-slate-900 + button.map-side-panel__close[type=button][aria-label=\"닫기\"]",
+    "close": "button.map-side-panel__close[type=button][aria-label=\"닫기\"] > i.map-close-icon[aria-hidden=true]",
+    "search": "div.map-side-panel__search.flex.align-center.gap-8 > button.border-slate-button-48 + div.search-48",
+    "filter_button": "button.border-slate-button-48.flex.align-center.gap-8[type=button] > text + i.filter-icon[aria-hidden=true]",
+    "search_input": "div.search-48.flex.pl-12.pr-10.justify-between.align-center > label.blind[for] + input[type=search].body2-r-16.w-full[autocomplete=off] + button.search-button.h-fit[type=button]",
+    "body": "div.map-side-panel__body"
+  },
+  "size": {
+    "panel_width": "40rem (400px)",
+    "panel_height": "100vh",
+    "head_min_height": "5.6rem (56px)",
+    "head_padding": "spacing-4 spacing-4 spacing-4 spacing-16",
+    "close_button": "4.8rem x 4.8rem",
+    "search_padding": "0 spacing-16 spacing-20",
+    "body_padding": "0 spacing-20 spacing-20"
+  },
+  "layout": {
+    "root": "display flex, flex-direction column, border-right slate-200",
+    "head": "flex-shrink 0",
+    "search": "flex-shrink 0",
+    "search_input": "flex 1, min-width 0",
+    "body": "flex 1, overflow-y auto"
+  },
+  "states": {
+    "close_hover": "map-side-panel__close:hover uses slate-50 background",
+    "close_active": "map-side-panel__close:active uses slate-100 background",
+    "empty": "map-side-panel__body can contain an empty state before search",
+    "results": "map-side-panel__body can contain search results or filtered lists",
+    "detail": "map-side-panel__body can contain selected map object details"
+  },
+  "icons": {
+    "map-close-icon": "패널 닫기 아이콘",
+    "filter-icon": "상세필터 버튼 아이콘",
+    "search-icon-40": "검색 실행 버튼 아이콘"
+  },
+  "notes": [
+    "map-side-panel은 지도 좌측 내비게이션 옆에 붙는 보조 작업 영역이다.",
+    "패널 제목은 aria-labelledby로 aside와 연결해 보조기기에서 영역 이름을 제공한다.",
+    "검색 입력은 공통 search-48 컴포넌트를 사용하며, map-side-panel__search .search-48에 flex: 1과 min-width: 0을 적용한다.",
+    "본문은 검색 전 빈 상태, 검색 결과 목록, 선택 객체 상세 정보 등 메뉴별 콘텐츠를 담는다.",
+    "닫기 동작은 프로젝트 구현에서 패널 숨김 상태나 레이아웃 토글과 연결한다."
+  ],
+  "rules": [
+    "루트는 aside.map-side-panel과 aria-labelledby를 사용한다.",
+    "제목은 h2#map-side-panel-title.heading10-sb-20.color-slate-900 구조를 사용한다.",
+    "닫기 버튼은 button[type=button].map-side-panel__close[aria-label=\"닫기\"]를 사용한다.",
+    "닫기 아이콘은 i.map-close-icon[aria-hidden=true]를 사용한다.",
+    "검색 영역은 map-side-panel__search 안에 상세필터 버튼과 search-48 검색 입력을 배치한다.",
+    "검색 input은 type=search, autocomplete=off, label.blind[for]를 사용한다.",
+    "본문 콘텐츠는 map-side-panel__body 안에 배치한다.",
+    "정의되지 않은 임의 클래스 생성 금지 (map-side-panel__* 패턴 + 기존 button/search/icon 유틸리티 사용)"
+  ],
+  "do_not": [
+    "aside에 aria-labelledby 누락",
+    "닫기 버튼에 aria-label 누락",
+    "닫기 또는 검색 버튼을 div/span으로 작성",
+    "검색 input에 label.blind 또는 autocomplete=off 누락",
+    "HTML은 search-48인데 CSS에서 search-40 등 다른 크기 셀렉터 사용",
+    "본문 스크롤이 필요한 콘텐츠를 map-side-panel__body 밖에 배치",
+    "정의되지 않은 임의 클래스 추가"
+  ]
+}
