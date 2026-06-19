@@ -11,7 +11,7 @@
 @import url('./default/spacing.css');
 @import url('./default/typography.css');
 
-/* 컴포넌트 */
+/* 공통 컴포넌트 */
 @import url('./component/button.css');
 @import url('./component/input.css');
 @import url('./component/search.css');
@@ -23,15 +23,20 @@
 @import url('./component/select.css');
 @import url('./component/shadow.css');
 @import url('./component/modal.css');
-@import url('./component/header.css');
-@import url('./component/footer.css');
 @import url('./component/breadcrumb.css');
-@import url('./component/filter.css');
-@import url('./component/applied-filter.css');
 @import url('./component/pagination.css');
 @import url('./component/meta-tag.css');
-@import url('./component/board.css');
-@import url('./component/map-control.css');
-@import url('./component/map-navigation.css');
-@import url('./component/map-side-panel.css');
-@import url('./component/region-select.css');
+
+/* Web UI Kit */
+@import url('./uikit/web/header.css');
+@import url('./uikit/web/footer.css');
+@import url('./uikit/web/filter.css');
+@import url('./uikit/web/applied-filter.css');
+@import url('./uikit/web/board.css');
+
+/* Map UI Kit */
+@import url('./uikit/map/map-control.css');
+@import url('./uikit/map/map-navigation.css');
+@import url('./uikit/map/map-side-panel.css');
+@import url('./uikit/map/pagination.css');
+@import url('./uikit/map/region-select.css');

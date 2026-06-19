@@ -37,7 +37,10 @@
 ```
 tokens/    → color, typography, spacing, radius
 default/   → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, search, textarea, checkbox, radio, chip, datepicker, select, shadow, modal, breadcrumb, meta-tag, header, footer, filter, applied-filter, pagination, board, map-control, region-select
+component/ → button, input, search, textarea, checkbox, radio, chip, datepicker, select, shadow, modal, breadcrumb, meta-tag, pagination
+uikit/web/ → header, footer, filter, applied-filter, board
+uikit/map/ → map-control, map-navigation, map-side-panel, pagination, region-select
+uikit/admin/ → admin 전용 CSS
 ```
 
 ---
@@ -61,7 +64,8 @@ component/ → button, input, search, textarea, checkbox, radio, chip, datepicke
 
 - **`spec.json`** — variant, 허용 클래스, 접근성 규칙
 - **`README.md`** — 마크업 예시 (단일 출처)
-- **`css/component/{name}.css`** — 스타일·상태(`:hover`, `.active`, `disabled` 등)
+- **`css/component/{name}.css`** — 공통 컴포넌트 스타일·상태(`:hover`, `.active`, `disabled` 등)
+- **`css/uikit/{web|map|admin}/{name}.css`** — UI kit별 전용 컴포넌트/variant 스타일
 
 ### 공통 컴포넌트
 

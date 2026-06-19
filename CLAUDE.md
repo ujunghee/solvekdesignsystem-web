@@ -6,7 +6,7 @@
 > **웹 접근성 규칙**: 페이지 생성 시 반드시 `docs/accessibility.md` 를 읽고 준수한다.
 > **SEO 규칙**: 페이지 생성 시 반드시 `docs/seo.md` 를 읽고 준수한다.
 
-**스타일·상태·간격·타이포는 `css/index.css`가 불러오는 토큰·`default/`·`css/component/{name}.css`에 정의된 것만 사용**한다. HTML에는 인라인 `style`을 넣지 않으며, 내부 인라인 요소(`span`, `i` 등)에도 스타일을 우회해 붙이지 않는다.
+**스타일·상태·간격·타이포는 `css/index.css`가 불러오는 토큰·`default/`·`css/component/{name}.css`·`css/uikit/{web|map|admin}/{name}.css`에 정의된 것만 사용**한다. HTML에는 인라인 `style`을 넣지 않으며, 내부 인라인 요소(`span`, `i` 등)에도 스타일을 우회해 붙이지 않는다.
 
 ---
 
@@ -51,8 +51,10 @@ index.css 구성:
 ```
 tokens/   → color, typography, spacing, radius
 default/  → border, color, common, component, icon, layout, responsive, spacing, typography
-component/ → button, input, search, textarea, checkbox, radio, chip, datepicker, select, shadow, modal, breadcrumb, meta-tag, header, footer, filter, applied-filter, pagination, board, map-control, region-select
-(web 전용: header, footer, filter, applied-filter, pagination, board — solvek-web/components/{name}/ 참고 / map 전용: header, map-control, region-select — solvek-map/components/{name}/ 참고)
+component/ → button, input, search, textarea, checkbox, radio, chip, datepicker, select, shadow, modal, breadcrumb, meta-tag, pagination
+uikit/web/ → header, footer, filter, applied-filter, board
+uikit/map/ → map-control, map-navigation, map-side-panel, pagination, region-select
+uikit/admin/ → admin 전용 CSS
 ```
 
 ---
@@ -395,12 +397,13 @@ CSS 변수: `var(--spacing-16)` 등
 
 - **`components/{name}/spec.json`**: variant, 허용 클래스, 필수 속성·접근성 규칙 준수. 임의로 클래스명·DOM 구조 변경 금지.
 - **`components/{name}/README.md`**: 마크업 예시·주석·금지 사항의 단일 출처. 반드시 읽고 그대로 맞춘다.
-- **`css/component/{name}.css`**: 시각·상태(`:hover`, `:focus-visible`, `.active`, `disabled` 등)는 HTML이 아니라 CSS에만 둔다. 클래스명은 이 파일의 선택자를 근거로만 정한다 — 읽지 않고 추측으로 만들지 않는다.
+- **`css/component/{name}.css` / `css/uikit/{web|map|admin}/{name}.css`**: 시각·상태(`:hover`, `:focus-visible`, `.active`, `disabled` 등)는 HTML이 아니라 CSS에만 둔다. 클래스명은 해당 CSS 파일의 선택자를 근거로만 정한다 — 읽지 않고 추측으로 만들지 않는다.
 - **인라인 `style` 금지.** `span`/`i`/`em` 등 내부 요소에도 `style=""`이나 spec·README·CSS에 없는 임의 클래스로 스타일 우회 금지.
 
-> **공통 컴포넌트 vs web 전용 컴포넌트**
+> **공통 컴포넌트 vs UI kit 전용 컴포넌트**
 > - 아래 6-1~6-12는 모든 사이트에서 공통으로 쓰는 컴포넌트로, 정의는 루트 `components/{name}/`에 있다.
-> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Applied Filter / Pagination)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, 사용처·목록은 `solvek-web/README.md`를 본다. (CSS는 `css/component/*.css`에 그대로 두고 `css/index.css`가 통합 호출)
+> - **web 레이아웃에서만 쓰는 컴포넌트(Header / Footer / Search Filter / Applied Filter / Board)는 `solvek-web/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-web/components/{name}/README.md` + `spec.json`이며, CSS는 `css/uikit/web/{name}.css`에 둔다.
+> - **map 레이아웃에서만 쓰는 컴포넌트(Map Control / Navigation / Side Panel / Map Pagination / Region Select)는 `solvek-map/components/{name}/`에서 관리**한다. 마크업·규칙의 단일 출처는 `solvek-map/components/{name}/README.md` + `spec.json`이며, CSS는 `css/uikit/map/{name}.css`에 둔다.
 
 ### 상태 관리 공통 규칙
 
@@ -833,7 +836,7 @@ document.querySelectorAll('[data-filter-trigger]').forEach((btn) => {
 ## 8. 절대 금지 사항
 
 1. **색상 하드코딩** — #fff, rgb(), hsl() 등 사용 금지. 반드시 CSS 변수 또는 유틸 클래스
-2. **정의되지 않은 임의 클래스 생성** — **토큰·색·타이포·간격(`mb-*` 등)**은 이 문서 **3. 디자인 토큰**에 나온 것만. **그리드·flex·position·너비·높이·z-index·`inner-default` 등**(4-1~4-5)은 **`css/default/layout.css`**와 이 문서 **4**절에 근거한 클래스만. **컴포넌트**는 `spec.json`, `css/component/{name}.css`, `README.md` 세 곳에 근거한 클래스만
+2. **정의되지 않은 임의 클래스 생성** — **토큰·색·타이포·간격(`mb-*` 등)**은 이 문서 **3. 디자인 토큰**에 나온 것만. **그리드·flex·position·너비·높이·z-index·`inner-default` 등**(4-1~4-5)은 **`css/default/layout.css`**와 이 문서 **4**절에 근거한 클래스만. **컴포넌트**는 `spec.json`, `README.md`, `css/component/{name}.css` 또는 `css/uikit/{web|map|admin}/{name}.css`에 근거한 클래스만
 3. **인라인 스타일** — `style` 속성 금지(루트·내부 인라인 요소 모두)
 4. **wrapper 없이 폼 컴포넌트 단독 사용** — input, textarea, select는 반드시 wrapper로 감싸야 함
 5. **is-error를 field에 직접 추가** — 반드시 wrapper에만 추가
